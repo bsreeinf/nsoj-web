@@ -77,6 +77,7 @@ gem 'aws-sdk-v1'
 
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}
 gem 'pg'
+gem 'rack-cache'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -93,8 +94,6 @@ end
 
 group :production do
   gem 'yui-compressor'
-  gem 'rack-cache'
-
   gem 'heroku-deflater'
 
   # This gem enables serving assets in production and setting your logger to standard out
