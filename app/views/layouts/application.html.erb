@@ -9,7 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>National School of Journalism</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body class="appear-animate">
@@ -19,4 +18,5 @@
 		<%= render 'layouts/footer'%>
 	</div>
 </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 </html>
