@@ -7,7 +7,7 @@ class AdmissionContactMailer < ActionMailer::Base
 		@city = city
 		
 		mail(
-				to: "freelancetest@gmail.com",
+				to: "freelancetest29@gmail.com",
 				from: "admission_contact@nsoj.com",
 				subject: "New Contact",
 				
