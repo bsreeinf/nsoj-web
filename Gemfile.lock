@@ -178,6 +178,8 @@ GEM
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack (1.6.4)
+    rack-cache (1.5.1)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -260,6 +262,7 @@ GEM
     wicked_pdf (1.0.3)
     will_paginate (3.0.7)
     wkhtmltopdf-binary (0.9.9.3)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -288,6 +291,7 @@ DEPENDENCIES
   pg
   puma
   pundit
+  rack-cache
   rails (= 4.2.4)
   rails_12factor
   sass-rails (~> 5.0)
@@ -300,6 +304,7 @@ DEPENDENCIES
   wicked_pdf
   will_paginate (~> 3.0.7)
   wkhtmltopdf-binary
+  yui-compressor
 
 BUNDLED WITH
    1.10.6

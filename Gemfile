@@ -92,6 +92,8 @@ group :development do
 end
 
 group :production do
+  gem 'yui-compressor'
+  gem 'rack-cache'
 
   gem 'heroku-deflater'
 
