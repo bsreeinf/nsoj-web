@@ -1,0 +1,28 @@
+# brew update
+# brew doctor
+# brew install postgresql
+# rake db:create
+# gem install lunchy
+# mkdir -p ~/Library/LaunchAgents
+# cp /usr/local/Cellar/postgresql/9.4.5_2/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+# lunchy start postgres
+# lunchy stop postgres
+
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  database: db/nsoj_db
+
+development:
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+
+production:
+  <<: *default

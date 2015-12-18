@@ -1,0 +1,122 @@
+<!-- Navigation panel -->
+<nav class="main-nav  stick-fixed">
+    <div class="full-wrapper relative clearfix">
+        <!-- Logo ( * your text or image into link tag *) -->
+        <div class="nav-logo-wrap local-scroll">
+            <%= link_to(root_path, class: "logo", method: :get ) do %>
+                <img src=<%= image_path("logo-white.png") %> alt="" />
+            <%end%>
+            <!-- <a href="<%= root_path %>" class="logo">
+                <img src=<%= image_path("logo-white.png") %> alt="" />
+            </a> -->
+        </div>
+        <div class="mobile-nav">
+            <i class="fa fa-bars"></i>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="inner-nav desktop-nav">
+            <ul class="clearlist scroll-nav local-scroll">
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">Home <i class="fa fa-angle-down"></i></a> -->
+                    <%= link_to(root_path, class: "mn-has-sub active", method: :get ) do %>
+                        Home<i class="fa fa-angle-down"></i>
+                    <%end%>
+                    <ul class="mn-sub mn-has-multi">
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'home' ) %>
+                        <li> <a href="#news">Latest News</a> </li> 
+                        <li> <a href="#about">About Us</a> </li>
+                        <li> <a href="#start">NSOJ Method</a> </li>
+                        <li> <a href="#contact">Contact Us</a> </li>
+                    <%else%>
+                        <li><%= link_to("Latest News",root_path(:anchor => "news"),  method: :get ) %></li>
+                        <li><%= link_to("About Us",root_path(:anchor => "about"),  method: :get ) %></li>
+                        <li><%= link_to("NSOJ Method",root_path(:anchor => "start"),  method: :get ) %></li>
+                        <li><%= link_to("Contact Us",root_path(:anchor => "contact"),  method: :get ) %></li>
+
+                    <%end%>
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">Why Us <i class="fa fa-angle-down"></i></a> -->
+                    <%= link_to(why_us_path, class: "mn-has-sub ", method: :get  ) do %>
+                        Why Us<i class="fa fa-angle-down"></i>
+                    <%end%>
+                    <ul class="mn-sub ">
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'why_us' ) %>
+                        <li> <a href="#faculty">Faculty</a> </li>
+                        <li> <a href="#scholarship_and_aid">Purrah Prize</a> </li>
+                        <li> <a href="#technology">Technology</a> </li>
+                        <li> <a href="#career_services">Career Services</a> </li>
+                    <%else%>
+                        <li><%= link_to("Faculty",why_us_path(:anchor => "faculty") ) %></li>
+                        <li><%= link_to("Purrah Prize",why_us_path(:anchor => "scholarship_and_aid") ) %></li>
+                        <li><%= link_to("Technology",why_us_path(:anchor => "technology") ) %></li>
+                        <li><%= link_to("Career Services",why_us_path(:anchor => "career_services") ) %></li>
+                    <%end%>    
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- <a href="#" class="mn-has-sub ">Programmes <i class="fa fa-angle-down"></i></a> -->
+                    <%= link_to(program_path, class: "mn-has-sub ", method: :get  ) do %>
+                        Programmes<i class="fa fa-angle-down"></i>
+                    <%end%>
+                    <ul class="mn-sub ">
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'program' ) %>
+                        <li> <a href="#broadcast_media">P.G.D.J in Broadcast Media</a> </li>
+                        <li> <a href="#convergence_media">P.G.D.J in Print and Convergence Media</a> </li>
+                    <%else%>
+                        <li><%= link_to("P.G.D.J in Broadcast Media",program_path(:anchor => "broadcast_media") ) %></li>
+                        <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ) %></li>             
+                    <%end%>    
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">Admissions <i class="fa fa-angle-down"></i></a> -->
+                    <%= link_to(admission_path, class: "mn-has-sub" , method: :get ) do %>
+                        Admissions<i class="fa fa-angle-down"></i>
+                    <%end%>
+                    <ul class="mn-sub">
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'admission' ) %>
+                        <li> <a href="#admission_requirements" class="mn-has-sub">Admission Requirements </a> </li>
+                        <li> <a href="#admission_process" class="mn-has-sub">Application Process</a> </li>
+                        <!-- <li> <a href="#" class="mn-has-sub">Admission Fees</a> </li>                  -->
+                        <!-- <li> <a href="#">Application and Admission Form</a> </li> -->
+                    <%else%>
+                        <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ) %></li>
+                        <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ) %></li>
+                        <!-- <li><%= link_to("Admission Fees",admission_path(:anchor => "") ) %></li> -->
+                        <!-- <li><%= link_to("Application and Admission Form",admission_path(:anchor => "") ) %></li>    -->
+                
+                    <%end%>    
+      
+                    </ul>
+                </li>
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">Gallery </a> -->
+                    <%= link_to("Gallery",gallery_path, method: :get ) %>
+                    
+                </li>
+               
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
+                    <%= link_to("Blog", root_path, class: "mn-has-sub", method: :get ) %>
+                </li>
+
+                <li>
+                    <!-- <a href="#" class="mn-has-sub">Blog </a> -->
+                    <%= link_to("NSOJ News",:controller => 'blogs', :action => 'index') %>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- End Main Menu -->
+        
+
+    </div>
+</nav>
+<!-- End Navigation panel -->
+
