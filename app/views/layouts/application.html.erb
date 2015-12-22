@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta charset="utf-8">
+  <meta name="author" content="National School of Journalism">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>National School of Journalism</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="appear-animate">
+	<div class="page" id="top">
+		<%= render 'layouts/header'%>
+		<%= yield %>
+		<%= render 'layouts/footer'%>
+	</div>
+</body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+</html>
