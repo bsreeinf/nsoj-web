@@ -3,17 +3,25 @@ Rails.application.routes.draw do
  
   root 'landing_page#home'
 
-  get 'why_us'      => 'landing_page#why_us'
+  get 'why_us'              => 'landing_page#why_us'
 
-  get 'program'     => 'landing_page#program'
+  get 'program'             => 'landing_page#program'
 
-  get 'admission'   => 'landing_page#admission'
+  get 'admission'           => 'landing_page#admission'
 
-  get 'gallery'     => 'landing_page#gallery'
+  get 'gallery'             => 'landing_page#gallery'
 
-  get 'nsoj_news'   => 'landing_page#nsoj_news'
+  get 'nsoj_news'           => 'landing_page#nsoj_news'
 
-  post 'contact'    => 'contacts#create'
+  get 'nsoj_news_page'      => 'landing_page#nsoj_news_page'
+
+  get 'nsoj_radio'          => 'landing_page#nsoj_radio'
+
+  get 'nsoj_tv'             => 'landing_page#nsoj_tv'
+
+  get 'nsoj_events'         => 'landing_page#nsoj_events'
+
+  post 'contact'            => 'contacts#create'
 
   post 'admission_contact'  => 'admission_contacts#create'
   # The priority is based upon order of creation: first created -> highest priority.
