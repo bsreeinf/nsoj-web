@@ -159,15 +159,8 @@
      Nav panel classic
      --------------------------------------------- */
     /*Below two variables are redundent, still keeping it for testing reasons*/
-<<<<<<< HEAD
-    var mobile_nav = $(".mobile-nav");
-    var desktop_nav = $(".desktop-nav");
-=======
     // var mobile_nav = $(".mobile-nav");
     // var desktop_nav = $(".desktop-nav");
->>>>>>> 187231e540817b28b55948d0b860ad5022ceff1e
-
-
     
     function init_classic_menu_resize(){
         var desktop_nav = $(".desktop-nav");
@@ -227,11 +220,7 @@
         // Mobile menu toggle
         mobile_nav.click(function(){
            
-<<<<<<< HEAD
-        
-=======
             console.log("clicked");
->>>>>>> 187231e540817b28b55948d0b860ad5022ceff1e
             if (desktop_nav.hasClass("js-opened")) {
                 desktop_nav.slideUp("slow", "easeOutExpo").removeClass("js-opened");
                 $(this).removeClass("active");
@@ -1101,12 +1090,8 @@ function init_map(){
                         zoom: 14,
                         zoomControl: true,
                         zoomControlOptions: {
-<<<<<<< HEAD
-                            style: google.maps.ZoomControlStyle.SMALL
-=======
                             style: google.maps.ZoomControlStyle.SMALL,
                             position: google.maps.ControlPosition.RIGHT_TOP
->>>>>>> 187231e540817b28b55948d0b860ad5022ceff1e
                         },
                         mapTypeControl: false,
                         scaleControl: false,
