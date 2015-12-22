@@ -132,7 +132,7 @@
         <div class="col-md-3 owl-wrapper-outer autoHeight js-height-full container home-page-secondary-slider" style="margin: auto 0px; padding: 0 45px 0 15px;    overflow-y: scroll;">
             
             <div class="row" style="height: 80px;"></div>
-            <div class="row">      
+            <div class="row row-mobile">      
                 <div class="post-prev-img" style="margin-bottom: 5px;">
                     <a data-toggle="modal" data-target=".modal1"><img src=<%=asset_path("blog/post-prev-1.jpg")%> alt="" /></a>
                     <div class="modal fade modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -246,8 +246,6 @@
         </div>
     </section>
 
-
-
     <!-- Fullwidth Slider -->
     <div class="fullwidth-slider-custom owl-carousel bg-gray">
         
@@ -329,7 +327,7 @@
                     <div class="work-full-media mt-0">
                         
                         <!-- <iframe src="http://player.vimeo.com/video/37066208?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="1000" height="563" allowfullscreen></iframe> -->
-                        <iframe width="1000" height="563"src="https://www.youtube.com/embed/PkYQ_Lcz7F0" frameborder="0" rel="0" allowfullscreen></iframe>
+                        <iframe width="1000" height="563"src="https://www.youtube.com/embed/PkYQ_Lcz7F0?rel=0" frameborder="0" rel="0" allowfullscreen></iframe>
                     </div>
                     <!-- End Work Video -->
                         
@@ -389,76 +387,41 @@
     </div>
     <!-- End Fullwidth Slider -->
 
-    <section class="page-section" id="news" style="padding-top: 80px;">
+    <!-- <section class="page-section" id="news" style="padding-top: 80px;">
         <div class="container relative">
             
-            <h2 class="section-title font-alt align-left mb-20 mb-sm-40">
-                Latest News
-            </h2>
-            
-            <div class="row multi-columns-row">
-                
-                <!-- Post Item -->
-                <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
-                    
-                    <div class="post-prev-img">
-                        <img src="<%= asset_path('blog/National_School_of_Journalism_Bangalore.jpg')%>" alt="" />
-                    </div>
-                    
-                    
-                    
-                    <div class="post-prev-text">
-                       
-                        
-                    </div>
-                    
-                    <div class="post-prev-more">
-                        <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                    </div>
-                    
-                </div>
-                <!-- End Post Item -->
-                
-                <!-- Post Item -->
-                <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
-                    
-                    <div class="post-prev-img">
-                        <img src="<%= asset_path('blog/NSOJ_Journalism_School.jpg')%>" alt="" />
-                    </div>
-                    
-                   
-                    <div class="post-prev-text">
-                        
-                    </div>
-                    
-                    <div class="post-prev-more">
-                        <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                    </div>
-                    
-                </div>
-                <!-- End Post Item -->
-                
-                <!-- Post Item -->
-                <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
-                    
-                    <div class="post-prev-img">
-                        <img src="<%= asset_path('blog/National_School_of_Journalism_Bangalore.jpg')%>" alt="" />
-                    </div>
-                    
-                  
-                    <div class="post-prev-text">
-                       
-                      
-                    </div>
-                    
-                    <div class="post-prev-more">
-                        <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                    </div>
-                    
-                </div>
-                <!-- End Post Item -->
 
-                <!-- Post Item -->
+            <div class="row multi-columns-row">
+
+                <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
+
+                    <iframe  src="https://www.youtube.com/embed/eMIlLBlKM_w?rel=0" frameborder="0" allowfullscreen></iframe>
+       
+     
+                </div>
+     
+                <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+                    
+                    <iframe  src="https://www.youtube.com/embed/pUVDrJQAL04?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                </div>
+        
+                <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+                    
+                    <iframe  src="https://www.youtube.com/embed/pUVDrJQAL04?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                </div>
+               <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
+                    
+                    <div class="post-prev-img">
+                        <img src="<%= asset_path('blog/National_School_of_Journalism_Bangalore.jpg')%>" alt="" />
+                    </div>
+                    
+                    <div class="post-prev-more">
+                        <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    
+                </div>
                 <div class="col-sm-6 col-md-3 col-lg-3 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
                     
                     <div class="post-prev-img">
@@ -476,13 +439,79 @@
                         <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                     
-                </div>
-                <!-- End Post Item -->
+                </div> 
                 
             </div>
             
         </div>
+
+    </section> -->
+
+
+    <section class="page-section" style= "padding-bottom:20px;">
+        <div class="container relative">
+         <h3 class="font-alt mb-70 mb-sm-40">NSoJ Posts</h3>
+                    
+            
+             <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+            <iframe width="100%" src="https://www.youtube.com/embed/eMIlLBlKM_w?rel=0" frameborder="0" allowfullscreen></iframe>
+            
+        </div>
+        <!-- End Post Item -->
+        <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+            <iframe width="100%" src="https://www.youtube.com/embed/pUVDrJQAL04?rel=0" frameborder="0" allowfullscreen></iframe>
+            
+        </div>
+        <!-- End Post Item -->
+
+        <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+           <iframe width="100%" src="https://www.youtube.com/embed/PkYQ_Lcz7F0?rel=0" frameborder="0" allowfullscreen></iframe>                               
+            
+        </div>
+            
+        </div>
     </section>
+
+    <!-- End Section -->
+
+    <!-- Section -->
+
+    <section class="page-section" style= "padding-top:80px;">
+        <div class="container relative">
+        <h3 class="font-alt mb-70 mb-sm-40">NSoJ Radio</h3>
+                      
+         <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238491360&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+            
+        </div>
+        <!-- End Post Item -->
+        <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238491693&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+            
+        </div>
+        <!-- End Post Item -->
+
+        <!-- Post Item -->
+        <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
+            
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238487672&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>                                 
+            
+        </div>
+            
+        </div>
+    </section>
+
+    <!-- End Section -->
 
     <!-- Call Action Section -->
     <section class="page-section pt-0 pb-0 banner-section bg-dark" data-background=<%= asset_path("Thought_Leaders_NSOJ.jpg")%> style='background-image:url(<%= asset_path("Thought_Leaders_NSOJ.jpg")%>)' id="about">
@@ -952,4 +981,4 @@
     </section>
     <!-- End Contact Section -->
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?language=en"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?language=en"></script>

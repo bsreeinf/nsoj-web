@@ -864,6 +864,14 @@ Primary use:    MultiPurpose Template
     .home-page-secondary-slider{
         overflow-y:inherit;
         height:auto !important;
+        
+    }
+    .home-page-secondary-slider > .row{
+        margin-left:0px !important;
+        margin-right:0px !important;
+    }   
+    .home-page-secondary-slider>.row .btn{
+        margin-right:25px;
     }
 }
 /* ==============================

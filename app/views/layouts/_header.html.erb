@@ -22,7 +22,7 @@
                     <%= link_to(root_path, class: "mn-has-sub active", method: :get ) do %>
                         Home<i class="fa fa-angle-down"></i>
                     <%end%>
-                    <ul class="mn-sub mn-has-multi">
+                    <ul class="mn-sub ">
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'home' ) %>
                         <li> <a href="#news">Latest News</a> </li> 
                         <li> <a href="#about">About Us</a> </li>
@@ -45,15 +45,17 @@
                     <%end%>
                     <ul class="mn-sub ">
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'why_us' ) %>
+                        <li> <a href="#technology">Technology</a> </li>
                         <li> <a href="#faculty">Faculty</a> </li>
                         <li> <a href="#scholarship_and_aid">Purrah Prize</a> </li>
-                        <li> <a href="#technology">Technology</a> </li>
+                        
                         <li> <a href="#career_services">Career Services</a> </li>
                     <%else%>
-                        <li><%= link_to("Faculty",why_us_path(:anchor => "faculty") ) %></li>
-                        <li><%= link_to("Purrah Prize",why_us_path(:anchor => "scholarship_and_aid") ) %></li>
-                        <li><%= link_to("Technology",why_us_path(:anchor => "technology") ) %></li>
-                        <li><%= link_to("Career Services",why_us_path(:anchor => "career_services") ) %></li>
+                        <li><%= link_to("Technology",why_us_path(:anchor => "technology"),  method: :get ) %></li>
+                        <li><%= link_to("Faculty",why_us_path(:anchor => "faculty"),  method: :get ) %></li>
+                        <li><%= link_to("Purrah Prize",why_us_path(:anchor => "scholarship_and_aid") ,  method: :get) %></li>
+                        
+                        <li><%= link_to("Career Services",why_us_path(:anchor => "career_services"),  method: :get ) %></li>
                     <%end%>    
                     </ul>
                 </li>
@@ -68,8 +70,8 @@
                         <li> <a href="#broadcast_media">P.G.D.J in Broadcast Media</a> </li>
                         <li> <a href="#convergence_media">P.G.D.J in Print and Convergence Media</a> </li>
                     <%else%>
-                        <li><%= link_to("P.G.D.J in Broadcast Media",program_path(:anchor => "broadcast_media") ) %></li>
-                        <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ) %></li>             
+                        <li><%= link_to("P.G.D.J in Broadcast Media",program_path(:anchor => "broadcast_media"),  method: :get ) %></li>
+                        <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>             
                     <%end%>    
                     </ul>
                 </li>
@@ -81,16 +83,12 @@
                     <%end%>
                     <ul class="mn-sub">
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'admission' ) %>
-                        <li> <a href="#admission_requirements" class="mn-has-sub">Admission Requirements </a> </li>
-                        <li> <a href="#admission_process" class="mn-has-sub">Application Process</a> </li>
-                        <!-- <li> <a href="#" class="mn-has-sub">Admission Fees</a> </li>                  -->
-                        <!-- <li> <a href="#">Application and Admission Form</a> </li> -->
+                        <li> <a href="#admission_requirements" >Admission Requirements </a> </li>
+                        <li> <a href="#admission_process">Application Process</a> </li>
+                 
                     <%else%>
-                        <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ) %></li>
-                        <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ) %></li>
-                        <!-- <li><%= link_to("Admission Fees",admission_path(:anchor => "") ) %></li> -->
-                        <!-- <li><%= link_to("Application and Admission Form",admission_path(:anchor => "") ) %></li>    -->
-                
+                        <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ,  method: :get) %></li>
+                        <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ,  method: :get) %></li>
                     <%end%>    
       
                     </ul>
