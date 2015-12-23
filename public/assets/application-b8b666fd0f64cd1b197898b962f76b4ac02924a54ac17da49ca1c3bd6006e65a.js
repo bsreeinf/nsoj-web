@@ -11457,14 +11457,14 @@ if (isMouseWheelSupported && isChrome) {
         $(window).trigger("scroll");
         $(window).trigger("resize");
         
-        $(document).on('page:change', function(event) { 
+        // $(document).on('page:change', function(event) { 
             if(window.location.hash){
                 var hash_offset = $(window.location.hash).offset().top;
                 $("html, body").animate({
                     scrollTop: hash_offset
                 });
             }
-        });
+        // });
         
     });
     
@@ -11491,39 +11491,18 @@ if (isMouseWheelSupported && isChrome) {
             init_wow();
             init_masonry();
                
+            // Detect touch devices    
+            if (!("ontouchstart" in document.documentElement)) {
 
+                if($( "html" ).hasClass( "no-touch" )){
+
+                }else{
+                    document.documentElement.className += " no-touch";
+                }
+                
+            }
             
       });
-
-        var mobileTest;
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            mobileTest = true;
-            $("html").addClass("mobile");
-        }
-        else {
-            mobileTest = false;
-            $("html").addClass("no-mobile");
-        }
-        
-        var mozillaTest;
-        if (/mozilla/.test(navigator.userAgent)) {
-            mozillaTest = true;
-        }
-        else {
-            mozillaTest = false;
-        }
-        var safariTest;
-        if (/safari/.test(navigator.userAgent)) {
-            safariTest = true;
-        }
-        else {
-            safariTest = false;
-        }
-        
-        // Detect touch devices    
-        if (!("ontouchstart" in document.documentElement)) {
-            document.documentElement.className += " no-touch";
-        }
 
 
     });
@@ -11563,11 +11542,6 @@ if (isMouseWheelSupported && isChrome) {
     }
     else {
         safariTest = false;
-    }
-    
-    // Detect touch devices    
-    if (!("ontouchstart" in document.documentElement)) {
-        document.documentElement.className += " no-touch";
     }
     
     
@@ -11620,10 +11594,8 @@ if (isMouseWheelSupported && isChrome) {
      Nav panel classic
      --------------------------------------------- */
     /*Below two variables are redundent, still keeping it for testing reasons*/
-    var mobile_nav = $(".mobile-nav");
-    var desktop_nav = $(".desktop-nav");
-
-
+    // var mobile_nav = $(".mobile-nav");
+    // var desktop_nav = $(".desktop-nav");
     
     function init_classic_menu_resize(){
         var desktop_nav = $(".desktop-nav");
@@ -11683,7 +11655,7 @@ if (isMouseWheelSupported && isChrome) {
         // Mobile menu toggle
         mobile_nav.click(function(){
            
-        
+            console.log("clicked");
             if (desktop_nav.hasClass("js-opened")) {
                 desktop_nav.slideUp("slow", "easeOutExpo").removeClass("js-opened");
                 $(this).removeClass("active");
@@ -12553,7 +12525,8 @@ function init_map(){
                         zoom: 14,
                         zoomControl: true,
                         zoomControlOptions: {
-                            style: google.maps.ZoomControlStyle.SMALL
+                            style: google.maps.ZoomControlStyle.SMALL,
+                            position: google.maps.ControlPosition.RIGHT_TOP
                         },
                         mapTypeControl: false,
                         scaleControl: false,
