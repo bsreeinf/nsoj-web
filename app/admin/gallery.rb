@@ -1,5 +1,5 @@
 ActiveAdmin.register Gallery do
-
+	permit_params :image
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -13,22 +13,24 @@ ActiveAdmin.register Gallery do
 #   permitted
 # end
 
-form :html => { :enctype => "multipart/form-data"} do |f|
-	f.inputs "Image Uploads" do
-		f.input :image_link, :as => :file, :hint => f.template.image_tag(f.object.photo.url(:medium))
+	form :html => { :enctype => "multipart/form-data"} do |f|
+		f.inputs "Image Uploads" do
+			
+		
+	    	f.input :image,  hint: f.gallery.image? ? image_tag(f.gallery.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image") 
+	    
+		end
+		
+		f.actions 
 	end
-	f.buttons
-end
 
-index do
-    # column :image_link
-    column :image_link, :sortable => :image_link do |gallery|
-      div :class => "image_link_class" do
-         gallery.image_link
-      end
-    end
-    
-  actions
-  end
+	index do
+	    column :image_link
+	    column "Image" do |gallery|
+	      link_to(image_tag(gallery.image.url(:thumb), :height => '100'), admin_gallery_path(gallery))
+	 
+	    end	    
+	  actions
+	end
 
 end
