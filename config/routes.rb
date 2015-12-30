@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :galleries
   resources :blogs
  
   root 'landing_page#home'
@@ -9,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'admission'           => 'landing_page#admission'
 
-  get 'gallery'             => 'landing_page#gallery'
+
 
   get 'nsoj_news'           => 'landing_page#nsoj_news'
 
