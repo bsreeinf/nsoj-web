@@ -72,7 +72,10 @@ gem 'local_time'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'country_select'
+
+
 gem 'paperclip'
+
 gem 'aws-sdk-v1'
 
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}

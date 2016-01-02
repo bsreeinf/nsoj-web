@@ -122,7 +122,7 @@ ActiveAdmin.setup do |config|
   # config.comments = false
   #
   # You can disable the menu item for the comments index page:
-  # config.show_comments_in_menu = false
+   config.show_comments_in_menu = false
   #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
@@ -266,4 +266,12 @@ ActiveAdmin.setup do |config|
   # of those filters by default here.
   #
   # config.include_default_association_filters = true
+  config.register_stylesheet 'admin/magnific-popup.css'
+
+  config.clear_stylesheets!
+  config.register_stylesheet 'admin/active_admin.css'
+
+  config.clear_javascripts!
+  
+  config.register_javascript 'admin/active_admin.js'
 end
