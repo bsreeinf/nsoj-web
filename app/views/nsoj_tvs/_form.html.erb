@@ -1,0 +1,25 @@
+<%= form_for(@nsoj_tv) do |f| %>
+  <% if @nsoj_tv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nsoj_tv.errors.count, "error") %> prohibited this nsoj_tv from being saved:</h2>
+
+      <ul>
+      <% @nsoj_tv.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

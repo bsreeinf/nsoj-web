@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @nsoj_tv.title %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @nsoj_tv.link %>
+</p>
+
+<%= link_to 'Edit', edit_nsoj_tv_path(@nsoj_tv) %> |
+<%= link_to 'Back', nsoj_tvs_path %>

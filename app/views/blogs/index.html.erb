@@ -1,6 +1,6 @@
 
   <!-- Head Section -->
-  <section class="small-section bg-dark" data-background="images/full-width-images/section-bg-2.jpg" style="margin-top: 75px;">
+  <section class="small-section bg-dark" data-background="<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%>" style="margin-top: 75px;">
       <div class="relative container align-left">
           
           <div class="row">
@@ -173,27 +173,31 @@
               <a href="/nsoj_radio" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
           </h2>
-
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+          
+          <% @nsojradios.each do |nsojradio| %>
+             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+            
+                <iframe width="100%" height="120" scrolling="no" frameborder="no" src="<%= nsojradio.link %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                
+            </div>
+          <%end %>
+          <!-- <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
               <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238491360&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
               
           </div>
-          <!-- End Post Item -->
-          <!-- Post Item -->
+         
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               
               <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238491693&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
               
           </div>
-          <!-- End Post Item -->
-
-          <!-- Post Item -->
+          
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               
               <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238487672&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>                                 
               
-          </div>
+          </div> -->
 
         </div>
     </section>
@@ -207,8 +211,14 @@
               <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
           </h2>
-
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+           <% @nsojtvs.each do |nsojtv| %>
+            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+            
+                <iframe width="100%" src="<%= nsojtv.link %>rel=0" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+          <%end %>
+          <!-- <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
               <iframe width="100%" src="https://www.youtube.com/embed/eMIlLBlKM_w?rel=0" frameborder="0" allowfullscreen></iframe>
               
@@ -224,7 +234,7 @@
               
              <iframe width="100%" src="https://www.youtube.com/embed/PkYQ_Lcz7F0?rel=0" frameborder="0" allowfullscreen></iframe>                               
               
-          </div>
+          </div> -->
 
         </div>
     </section>
