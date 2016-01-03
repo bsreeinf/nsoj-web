@@ -18,7 +18,7 @@ class NsojTvsControllerTest < ActionController::TestCase
 
   test "should create nsoj_tv" do
     assert_difference('NsojTv.count') do
-      post :create, nsoj_tv: { link: @nsoj_tv.link, title: @nsoj_tv.title }
+      post :create, nsoj_tv: { link: @nsoj_tv.link, nsoj_tv_category_id: @nsoj_tv.nsoj_tv_category_id, title: @nsoj_tv.title }
     end
 
     assert_redirected_to nsoj_tv_path(assigns(:nsoj_tv))
@@ -35,7 +35,7 @@ class NsojTvsControllerTest < ActionController::TestCase
   end
 
   test "should update nsoj_tv" do
-    patch :update, id: @nsoj_tv, nsoj_tv: { link: @nsoj_tv.link, title: @nsoj_tv.title }
+    patch :update, id: @nsoj_tv, nsoj_tv: { link: @nsoj_tv.link, nsoj_tv_category_id: @nsoj_tv.nsoj_tv_category_id, title: @nsoj_tv.title }
     assert_redirected_to nsoj_tv_path(assigns(:nsoj_tv))
   end
 

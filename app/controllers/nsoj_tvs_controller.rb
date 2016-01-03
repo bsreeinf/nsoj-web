@@ -78,6 +78,6 @@ class NsojTvsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def nsoj_tv_params
-      params.require(:nsoj_tv).permit(:title, :link)
+      params.require(:nsoj_tv).permit(:title, :link, :nsoj_tv_category_id)
     end
 end

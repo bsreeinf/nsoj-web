@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :nsoj_radios
   resources :nsoj_tvs
+  resources :nsoj_radios
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :galleries
