@@ -2866,6 +2866,9 @@ a.logo:hover{
 	margin: 60px 0 0 0;
 	position: relative;
 	padding-left: 55px;
+  /* new */
+  min-height: 130px;
+  /* end new */
 	padding-top: 3px;
 	font-size: 13px;
     font-weight: 300;
@@ -6398,3 +6401,13 @@ section:hover .small-item-carousel .owl-next{
 	.multi-columns-row .col-lg-2:nth-child(6n + 7) { clear: left; }
 	.multi-columns-row .col-lg-1:nth-child(12n + 13) { clear: left; }
 }
+
+
+
+/*start custom css*/
+.ticker-box{
+  background-color: #DADADA; 
+  padding: 10px 10px 10px 55px; 
+  margin: 10px 0 0 0;
+}
+/*end custom css*/
