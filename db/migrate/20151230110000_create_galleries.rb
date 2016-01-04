@@ -1,7 +1,7 @@
 class CreateGalleries < ActiveRecord::Migration
   def change
     create_table :galleries do |t|
-      t.string :image_link
+      t.string :title
 
       t.timestamps null: false
     end
