@@ -20753,13 +20753,10 @@ Primary use:    MultiPurpose Template
    Phone and tablet
    ============================== */
 @media only screen and (max-width:767px){
-    .home-page-primary-slider{
-        display: none;
-    }
+    
     .home-page-secondary-slider{
-        overflow-y:inherit;
-        height:auto !important;
-        
+        display: none;
+ 
     }
     
   
