@@ -10,10 +10,9 @@
         
         // Page loader
         
-       $(".home-page-primary-slider").imagesLoaded(function(){
-            $(".page-loader div").fadeOut();
-            $(".page-loader").delay(200).fadeOut("slow").remove();
-        });       
+           
+
+        // $(".page-loader").delay(300).fadeOut("slow").remove();  
         
         
         
@@ -34,7 +33,10 @@
     });
     
     $(document).ready(function(){
-        
+        $(".home-page-primary-slider").imagesLoaded(function(){
+            $(".page-loader div").fadeOut();
+            $(".page-loader").delay(300).fadeOut("slow").remove();
+        }); 
         $(document).on('page:change', function(event) { 
 
 
