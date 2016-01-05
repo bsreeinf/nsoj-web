@@ -1448,7 +1448,7 @@ a.btn-mod:focus{
 .nav-logo-wrap .logo{
 	display: table-cell;
 	vertical-align: middle;
-	max-width: 200px;
+	max-width: 280px;
     height: 75px;
     
     -webkit-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);  
@@ -6409,5 +6409,9 @@ section:hover .small-item-carousel .owl-next{
   background-color: #DADADA; 
   padding: 10px 10px 10px 55px; 
   margin: 10px 0 0 0;
+}
+
+.logo.small-height{
+  max-width: 200px !important;
 }
 /*end custom css*/

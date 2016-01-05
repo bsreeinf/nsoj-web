@@ -24,12 +24,10 @@
                     <%end%>
                     <ul class="mn-sub ">
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'home' ) %>
-                        <li> <a href="#news">Latest News</a> </li> 
                         <li> <a href="#about">About Us</a> </li>
                         <li> <a href="#start">NSOJ Method</a> </li>
                         <li> <a href="#contact">Contact Us</a> </li>
                     <%else%>
-                        <li><%= link_to("Latest News",root_path(:anchor => "news"),  method: :get ) %></li>
                         <li><%= link_to("About Us",root_path(:anchor => "about"),  method: :get ) %></li>
                         <li><%= link_to("NSOJ Method",root_path(:anchor => "start"),  method: :get ) %></li>
                         <li><%= link_to("Contact Us",root_path(:anchor => "contact"),  method: :get ) %></li>
