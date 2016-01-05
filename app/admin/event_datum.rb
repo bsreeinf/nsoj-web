@@ -15,7 +15,7 @@ ActiveAdmin.register EventDatum do
 	form :html => { :enctype => "multipart/form-data"} do |f|
 
 		f.inputs "Image Uploads" do	
-			f.input :event_id, as: :select, collection: Event.select(:title).uniq
+			f.input :event_id, as: :select, collection: Event.all.uniq
 			f.input :tag
 	    	f.input :image, :required => true, :as => :file 	    
 		end		
