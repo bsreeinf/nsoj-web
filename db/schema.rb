@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160103130723) do
+ActiveRecord::Schema.define(version: 20160105060724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,26 @@ ActiveRecord::Schema.define(version: 20160103130723) do
 
   add_index "contacts", ["contact_subject_id"], name: "index_contacts_on_contact_subject_id", using: :btree
 
+  create_table "event_data", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "tag"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "event_data", ["event_id"], name: "index_event_data_on_event_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at",         null: false
@@ -118,5 +138,6 @@ ActiveRecord::Schema.define(version: 20160103130723) do
   add_index "nsoj_tvs", ["nsoj_tv_category_id"], name: "index_nsoj_tvs_on_nsoj_tv_category_id", using: :btree
 
   add_foreign_key "contacts", "contact_subjects"
+  add_foreign_key "event_data", "events"
   add_foreign_key "nsoj_tvs", "nsoj_tv_categories"
 end
