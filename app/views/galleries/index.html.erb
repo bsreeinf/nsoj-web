@@ -38,8 +38,24 @@
             <!-- Works Grid -->
             <ul class="works-grid clearfix font-alt  hide-titles masonry" id="work-grid">
                 
-                <!-- Work Item (Lightbox) -->
-                <li class="work-item mix classroom">
+
+                <% @galleries.each do |gallery| %>
+                    <li class="work-item mix ">
+                        <a href="<%=  gallery.image.url  %>" class="work-lightbox-link mfp-image">
+                            <div class="work-img">
+                                <img src="<%=  gallery.image.url(:medium)  %>" alt="Work" />
+                            </div>
+                            <div class="work-intro">
+                                <h3 class="work-title">
+                                    <%= gallery.title%>
+                                </h3>
+                              
+                            </div>
+                        </a>
+                    </li>
+                <%end %>
+
+                <!-- <li class="work-item mix classroom">
                     <a href="<%=asset_path('gallery/1.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
                             <img src="<%= asset_path('gallery/1.jpg')%>" alt="Work" />
@@ -52,9 +68,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-                
-                <!-- Work Item (Lightbox) -->
+       
                 <li class="work-item mix classroom">
                     <a href="<%= asset_path('gallery/3.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -68,9 +82,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-                
-                <!-- Work Item (Lightbox) -->
+  
                 <li class="work-item mix design classroom">
                     <a href="<%= asset_path('gallery/4.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -84,9 +96,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-                
-                <!-- Work Item (Lightbox) -->
+       
                 <li class="work-item mix studio">
                     <a href="<%= asset_path('gallery/5.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -100,9 +110,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-                
-                <!-- Work Item () -->
+          
                 <li class="work-item mix branding infrastructure">
                     <a href="<%= asset_path('gallery/8.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -116,9 +124,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-                
-                <!-- Work Item (Lightbox) -->
+    
                 <li class="work-item mix design classroom">
                     <a href="<%= asset_path('gallery/9.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -132,9 +138,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+    
                 <li class="work-item mix design infrastructure">
                     <a href="<%= asset_path('gallery/10.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -148,9 +152,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+        
                 <li class="work-item mix design infrastructure">
                     <a href="<%= asset_path('gallery/12.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -164,9 +166,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+          
                 <li class="work-item mix design classroom">
                     <a href="<%= asset_path('gallery/16.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -180,9 +180,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+           
                 <li class="work-item mix design infrastructure">
                     <a href="<%= asset_path('gallery/17.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -196,9 +194,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+           
                 <li class="work-item mix design infrastructure">
                     <a href="<%= asset_path('gallery/18.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -212,9 +208,7 @@
                         </div>
                     </a>
                 </li>
-                <!-- End Work Item -->
-
-                <!-- Work Item (Lightbox) -->
+          
                 <li class="work-item mix design infrastructure">
                     <a href="<%= asset_path('gallery/20.jpg')%>" class="work-lightbox-link mfp-image">
                         <div class="work-img">
@@ -227,8 +221,8 @@
                             </div>
                         </div>
                     </a>
-                </li>
-                <!-- End Work Item -->
+                </li> -->
+           
 
             </ul>
             <!-- End Works Grid -->
