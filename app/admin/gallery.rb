@@ -1,4 +1,5 @@
 ActiveAdmin.register Gallery do
+	menu priority: 3
 	permit_params :image , :title
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -227,7 +227,7 @@
         <div class="container relative">
           
           <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ TV
+              NSoJ TV - Featured
               
               <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
@@ -235,7 +235,26 @@
            <% @nsojtvs.each do |nsojtv| %>
             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
-                <iframe width="100%" src="<%= nsojtv.link %>?rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" src="<%=nsojtv.link%>?rel=0" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+          <%end %>
+        </div>
+    </section>
+
+    <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+        <div class="container relative">
+          
+          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+              NSoJ TV - Daily Bulletin
+              
+              <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+              
+          </h2>
+           <% @nsojtvs.each do |nsojtv| %>
+            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+            
+                <iframe width="100%" src="<%=nsojtv.link%>?rel=0" frameborder="0" allowfullscreen></iframe>
                 
             </div>
           <%end %>
