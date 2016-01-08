@@ -15,9 +15,9 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 NsojTvCategory.create!(title: 'bulletin')
 NsojTvCategory.create!(title: 'featured')
 
-NsojTv.create!(title: 'Video1',link: 'https://www.youtube.com/embed/eMIlLBlKM_w')
-NsojTv.create!(title: 'Video2',link: 'https://www.youtube.com/embed/pUVDrJQAL04')
-NsojTv.create!(title: 'Video3',link: 'https://www.youtube.com/embed/PkYQ_Lcz7F0')
+NsojTv.create!(nsoj_tv_category_id: 1, title: 'Video1',link: 'https://www.youtube.com/embed/eMIlLBlKM_w')
+NsojTv.create!(nsoj_tv_category_id: 1, title: 'Video2',link: 'https://www.youtube.com/embed/pUVDrJQAL04')
+NsojTv.create!(nsoj_tv_category_id: 2, title: 'Video3',link: 'https://www.youtube.com/embed/PkYQ_Lcz7F0')
 
 NsojRadio.create!(title: 'Sound1',link: 'https://soundcloud.com/nsoj-bangalore/paranjoypart1')
 NsojRadio.create!(title: 'Sound2',link: 'https://soundcloud.com/nsoj-bangalore/paranjoy-part2')

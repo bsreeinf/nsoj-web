@@ -1,4 +1,5 @@
 ActiveAdmin.register Event do
+	menu priority: 4, label: "Events Titles", parent: "Events"
 	permit_params :description , :title
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

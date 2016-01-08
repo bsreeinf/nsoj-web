@@ -1,5 +1,5 @@
 ActiveAdmin.register NsojTv do
-
+	menu priority: 6, label: "Videos", parent: "NSoJ TV"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
