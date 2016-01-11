@@ -14733,7 +14733,7 @@ if(typeof Object.create!=="function"){Object.create=function(e){function t(){}t.
  --------------------------------------------- */
 function initPageSliders(){
     (function($){
-        "use strict";
+        // "use strict";
         
         // Fullwidth slider
         $(".fullwidth-slider").owlCarousel({
@@ -15108,7 +15108,7 @@ function initPageSliders(){
     
     function init_side_panel(){
         (function($){
-            "use strict";
+            // "use strict";
             var sp_button = $(".sp-button");
             var sp_close_button = $(".sp-close-button");
             var sp_overlay = $(".sp-overlay");
@@ -15176,7 +15176,7 @@ function initPageSliders(){
     
     function init_side_panel_resize(){
         (function($){
-            "use strict";
+            // "use strict";
             var sp_button = $(".sp-button");
             var side_panel = $(".side-panel");
              var sp_close_button = $(".sp-close-button");
@@ -15212,7 +15212,7 @@ var work_grid = $("#work-grid, #isotope");
 
 function initWorkFilter(){
     (function($){
-     "use strict";
+     // "use strict";
 
      var isotope_mode;
      var fselector = 0;
