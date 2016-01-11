@@ -10,6 +10,7 @@
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <title>National School of Journalism</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="appear-animate">
@@ -19,5 +20,5 @@
 		<%= render 'layouts/footer'%>
 	</div>
 </body>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+
 </html>
