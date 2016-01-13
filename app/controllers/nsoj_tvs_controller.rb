@@ -1,7 +1,7 @@
 class NsojTvsController < ApplicationController
   before_action :set_nsoj_tv, only: [:show, :edit, :update, :destroy]
 
-  require 'soundcloud'
+  
 
   # GET /nsoj_tvs
   # GET /nsoj_tvs.json
