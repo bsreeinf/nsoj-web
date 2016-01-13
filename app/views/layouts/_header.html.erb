@@ -92,11 +92,11 @@
       
                     </ul>
                 </li>
-                <li>
-                    <!-- <a href="#" class="mn-has-sub">Gallery </a> -->
+                <!-- <li>
+                    
                     <%= link_to("Gallery",galleries_path, method: :get ) %>
                     
-                </li>
+                </li> -->
                
                 <li>
                     <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
@@ -105,12 +105,12 @@
 
                 <li>
                     <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
-                    <%= link_to("Events",:controller => 'landing_page', :action => 'nsoj_events') %>
+                    <%= link_to("Gallery",:controller => 'landing_page', :action => 'nsoj_events') %>
                 </li>
 
                 <li>
                     <!-- <a href="#" class="mn-has-sub">Blog </a> -->
-                    <%= link_to("NSOJ News",:controller => 'blogs', :action => 'index') %>
+                    <%= link_to("NSoJ Student Publications",:controller => 'blogs', :action => 'index') %>
                 </li>
                 
             </ul>
