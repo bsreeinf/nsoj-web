@@ -29,5 +29,9 @@ class LandingPageController < ApplicationController
   def nsoj_events
     
   end
+
+  def nsoj_post
+    
+  end
   
 end

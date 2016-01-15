@@ -1,0 +1,21 @@
+<%= form_for(@nsoj_post) do |f| %>
+  <% if @nsoj_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nsoj_post.errors.count, "error") %> prohibited this nsoj_post from being saved:</h2>
+
+      <ul>
+      <% @nsoj_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

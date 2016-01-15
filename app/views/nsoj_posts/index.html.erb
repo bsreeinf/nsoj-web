@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nsoj Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nsoj_posts.each do |nsoj_post| %>
+      <tr>
+        <td><%= nsoj_post.link %></td>
+        <td><%= link_to 'Show', nsoj_post %></td>
+        <td><%= link_to 'Edit', edit_nsoj_post_path(nsoj_post) %></td>
+        <td><%= link_to 'Destroy', nsoj_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nsoj post', new_nsoj_post_path %>

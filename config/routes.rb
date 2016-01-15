@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :nsoj_posts
   resources :nsoj_tvs
   resources :nsoj_radios
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   get 'nsoj_tv'             => 'landing_page#nsoj_tv'
 
   get 'nsoj_events'         => 'landing_page#nsoj_events'
+
+   get 'nsoj_post'         => 'landing_page#nsoj_post'
 
   post 'contact'            => 'contacts#create'
 

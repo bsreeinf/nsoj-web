@@ -1,0 +1,44 @@
+
+    <!-- Home Section -->
+    <section class="small-section bg-dark" data-background="<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%>" style="margin-top: 75px;">
+      <div class="relative container align-left">
+          
+          <div class="row">
+              
+              <div class="col-md-8">
+                  <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">NSoJ TV</h1>
+                  <div class="hs-line-4 font-alt">
+                      <!-- We share our best ideas in our blog -->
+                  </div>
+              </div>
+              
+           </div>
+          
+      </div>
+  </section>
+    <!-- End Home Section -->
+    
+
+
+    <!-- Portfolio Section -->
+    <section class="page-section">
+        <div class="container relative">
+                
+          <% NsojPost.all.each do |post| %>
+              <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+            
+              
+                 <!--  <a href="<%=post.document.url%>" target="_blank" ><embed style = "height:400px;" src="<%=post.document.url%>" width="600" height="400"  ></a> -->
+                  <a href="<%=post.document.url%>" target="_blank">
+                    <iframe src="<%=post.document.url%>&embedded=true" 
+style=" height:500px;" frameborder="0"></iframe>
+                  </a>
+                  
+              </div>
+                  
+          <%end %>
+      
+            
+        </div>
+    </section>
+    <!-- End Portfolio Section -->
