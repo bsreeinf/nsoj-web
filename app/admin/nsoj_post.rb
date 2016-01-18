@@ -19,12 +19,12 @@ form :html => { :enctype => "multipart/form-data"} do |f|
 			
 	    	f.input :document, :required => true, :as => :file 	    
 		end		
-		
+		f.actions
 		# for custom actions
-		f.actions do 
-	       f.action :submit, :as => :button ,:label => 'Create Item'
-	       f.action :cancel, :as => :link, :label => 'Cancel',:wrapper_html => { :class=>"cancel" }
-	    end 
+		# f.actions do 
+	 #       f.action :submit, :as => :button ,:label => 'Create Item'
+	 #       f.action :cancel, :as => :link, :label => 'Cancel',:wrapper_html => { :class=>"cancel" }
+	 #    end 
 	end
 
 
