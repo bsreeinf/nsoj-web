@@ -97,7 +97,6 @@
                     <%= link_to("Gallery",galleries_path, method: :get ) %>
                     
                 </li> -->
-               
                 <li>
                     <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
                     <%= link_to("Blog", "https://nsojblog.wordpress.com", class: "mn-has-sub", method: :get ) %>
@@ -110,7 +109,7 @@
 
                 <li>
                     <!-- <a href="#" class="mn-has-sub">Blog </a> -->
-                    <%= link_to("NSoJ Student Publications",:controller => 'blogs', :action => 'index') %>
+                    <%= link_to("NSoJ Student Publications",:controller => 'student_publication', :action => 'index') %>
                 </li>
                 
             </ul>

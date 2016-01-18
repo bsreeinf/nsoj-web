@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  get 'student_publication/index'
+
   resources :nsoj_posts
   resources :nsoj_tvs
   resources :nsoj_radios
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :galleries
-  resources :blogs
  
   root 'landing_page#home'
 

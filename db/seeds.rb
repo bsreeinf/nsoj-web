@@ -1,24 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 ContactSubject.create!(	title: "Admissions Office"	)
 ContactSubject.create!(	title: "Programmes"	)
 ContactSubject.create!(	title: "NSoJ Visits"	)
 ContactSubject.create!(	title: "Internship and Career Services Centre")
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-
-NsojTvCategory.create!(title: 'bulletin')
-NsojTvCategory.create!(title: 'featured')
-
-NsojTv.create!(nsoj_tv_category_id: 1, title: 'Video1',link: 'https://www.youtube.com/embed/eMIlLBlKM_w')
-NsojTv.create!(nsoj_tv_category_id: 1, title: 'Video2',link: 'https://www.youtube.com/embed/pUVDrJQAL04')
-NsojTv.create!(nsoj_tv_category_id: 2, title: 'Video3',link: 'https://www.youtube.com/embed/PkYQ_Lcz7F0')
-
-NsojRadio.create!(title: 'Sound1',link: "<iframe width='100%' height='120' scrolling='no' frameborder='no' src='https://soundcloud.com/nsoj-bangalore/paranjoypart1&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>")
-NsojRadio.create!(title: 'Sound2',link: "<iframe width='100%' height='120' scrolling='no' frameborder='no' src='https://soundcloud.com/nsoj-bangalore/paranjoy-part2&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>")
-NsojRadio.create!(title: 'Sound3',link: "<iframe width='100%' height='120' scrolling='no' frameborder='no' src='https://soundcloud.com/nsoj-bangalore/shyju-varkey&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>")
+AdminUser.create!(email: 'admin@nsoj.in', password: 'NSoJ_Admin@123', password_confirmation: 'password')

@@ -14,10 +14,6 @@ class LandingPageController < ApplicationController
     @admission_contact = AdmissionContact.new()
   end
 
-  def nsoj_news_page
-    
-  end
-
   def nsoj_radio
     
   end
