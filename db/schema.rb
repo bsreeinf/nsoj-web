@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115110535) do
+ActiveRecord::Schema.define(version: 20160118193436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160115110535) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "admission_forms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -146,6 +146,26 @@ ActiveRecord::Schema.define(version: 20160115110535) do
   end
 
   add_index "nsoj_tvs", ["nsoj_tv_category_id"], name: "index_nsoj_tvs_on_nsoj_tv_category_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "city"
+    t.string   "pincode"
+    t.string   "state"
+    t.string   "country"
+    t.string   "password_digest"
+    t.string   "activation_digest"
+    t.string   "remember_digest"
+    t.datetime "activated_at"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
+    t.boolean  "activated",         default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   add_foreign_key "contacts", "contact_subjects"
   add_foreign_key "event_data", "events"

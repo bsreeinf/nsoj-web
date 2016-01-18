@@ -111,6 +111,35 @@
                     <!-- <a href="#" class="mn-has-sub">Blog </a> -->
                     <%= link_to("NSoJ Student Publications",:controller => 'student_publication', :action => 'index') %>
                 </li>
+
+                <% if logged_in? %>
+                        
+                    <li>
+                        <a href="#" class="mn-has-sub"><div class="icon-profile-male" style="margin-right:5px;"></div><%= current_user.name %> <i class="fa fa-angle-down"></i></a>                            
+                        <!-- Sub -->
+                        <ul class="mn-sub to-left">
+                            
+                           
+                            
+                            <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+                             <!-- <li><%= link_to "Admission Form", admission_form_path %></li> -->
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Logout", logout_path, method: :delete %></li>   
+                            
+                        </ul>
+                        <!-- End Sub -->                                
+                    </li>
+
+                    <!-- <li><%= link_to "Logout", logout_path, method: :delete %></li>  -->
+                <% else %>
+                    <% %>           
+                        <li>
+                            <%= link_to(login_path) do %>
+                                <span class="btn btn-mod btn-circle ">Login</span>
+                            <%end%>
+                        </li>      
+                    <%  %>
+                <% end %>
                 
             </ul>
         </div>
