@@ -6,7 +6,7 @@
           <div class="row">
               
               <div class="col-md-8">
-                  <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">NSoJ News</h1>
+                  <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="" /> Student Publications</h1>
                   <div class="hs-line-4 font-alt">
                       <!-- We share our best ideas in our blog -->
                   </div>
@@ -53,7 +53,7 @@
                             <span class="icon-megaphone"></span>
                         </div>
                         
-                        Podcast
+                        NSoJ Radio
                     </a>
                 </li>
                 <li>
@@ -66,7 +66,7 @@
                         NSoJ TV
                     </a>
                 </li>
-                <li>
+               <!--  <li>
                     <a href="#service-blog" >
                         
                         <div class="alt-tabs-icon">
@@ -75,7 +75,7 @@
                         
                         Blog
                     </a>
-                </li>
+                </li> -->
             </ul>
             <!-- End Nav tabs -->
 
@@ -133,7 +133,7 @@
     <section class="page-section" id="service-radio" style="padding-bottom:0px;">
         <div class="container relative">
           <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              Podcast
+              nsoj radio
               
               <a href="/nsoj_radio" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
@@ -161,7 +161,11 @@
            <% @nsojtvs_no_newsense.each do |nsojtv| %>
             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
+<<<<<<< HEAD
                 <iframe width="100%" src="<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
+=======
+                 <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
+>>>>>>> df210671e1f1166e9d307a03c6f22070d0d04708
                 
             </div>
           <%end %>
@@ -172,7 +176,7 @@
         <div class="container relative">
           
           <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ - Daily Bulletin
+              NSoJ TV - Daily Bulletin
               
               <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
@@ -180,14 +184,14 @@
            <% @nsojtvs_bulleitin.each do |nsojtv| %>
             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
-                <iframe width="100%" src="<%=nsojtv.link%>?rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
                 
             </div>
           <%end %>
         </div>
-    </section>
+    
+    </section class="page-section" id="service-tv" style="padding-bottom:0px;">
 
-    <section class="page-section" id="service-tv" style="padding-bottom:0px;">
         <div class="container relative">
           
           <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
@@ -198,7 +202,6 @@
           </h2>
            <% @nsojtvs_featured.each do |nsojtv| %>
             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-            
                 <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
                 
             </div>
@@ -206,7 +209,7 @@
         </div>
     </section>
 
-    <section class="page-section" id="service-blog" style="padding-bottom:0px;">
+  <!--   <section class="page-section" id="service-blog" style="padding-bottom:0px;">
         <div class="container relative">
           
           <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
@@ -227,10 +230,7 @@
               <p>Media needs regulation: Aditya Sondhi</p></a>
               
           </div>
-          <!-- End Post Item -->
-          
-
-          <!-- Post Item -->
+       
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               <div class="mb-30">
               <a href="https://nsojblog.wordpress.com/2015/10/01/misconception-persists-on-rights-violations-mathews/" target="_blank">
@@ -244,7 +244,7 @@
               
           </div>
 
-          <!-- Post Item -->
+      
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               <div class="mb-30">
                 <a href="https://nsojblog.wordpress.com/2015/11/11/do-not-judge-by-sexual-identity-says-celebrity-transgender/" target="_blank">
@@ -255,10 +255,10 @@
               <a href="https://nsojblog.wordpress.com/2015/11/11/do-not-judge-by-sexual-identity-says-celebrity-transgender/" target="_blank"><p>Do not judge by sexual identity, says celebrity transgender</p></a>
               
           </div>
-          <!-- End Post Item -->
+    
 
         </div>
-    </section>
+    </section> -->
 
 
 

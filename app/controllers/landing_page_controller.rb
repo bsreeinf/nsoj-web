@@ -21,6 +21,9 @@ class LandingPageController < ApplicationController
   def nsoj_tv
     
   end
+  def advisory_board
+    
+  end
 
   def nsoj_events
     

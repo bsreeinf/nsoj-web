@@ -82,6 +82,8 @@ gem 'aws-sdk-v1'
 gem 'pg'
 gem 'rack-cache'
 
+gem 'twitter', '~> 5.15'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
