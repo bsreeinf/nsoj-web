@@ -93,9 +93,7 @@
                     </ul>
                 </li>
                 <!-- <li>
-                    
                     <%= link_to("Gallery",galleries_path, method: :get ) %>
-                    
                 </li> -->
                
                  <li>
@@ -105,7 +103,7 @@
 
                 <li>
                     <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
-                    <%= link_to("Gallery",:controller => 'landing_page', :action => 'nsoj_events') %>
+                    <%= link_to("Gallery", :controller => 'landing_page', :action => 'nsoj_events') %>
                 </li>
                 
                  <li>
@@ -114,10 +112,24 @@
                 </li>
                 
                 <li>
-                    <!-- <a href="#" class="mn-has-sub">Blog </a> -->
-                    <%= link_to("NSoJ Student Publications",:controller => 'student_publication', :action => 'index') %>
+                    <%= link_to(student_publications_path, class: "mn-has-sub", method: :get, :controller => 'student_publication', :action => 'index' ) do %>
+                        Student Publications<i class="fa fa-angle-down"></i>
+                    <%end%>
+                    <ul class="mn-sub ">
+                    <%  if (params[:controller] == 'student_publication' && params[:action] == 'index' ) %>
+                        <li> <a href="#service-news">NSoJ Post</a> </li>
+                        <li> <a href="#service-radio">NSoJ Radio</a> </li>
+                        <li> <a href="#service-tv">NSoJ TV</a> </li>
+                        <!-- <li> <a href="#service-blog">Blog</a> </li> -->
+                    <%else%>
+                        <li> <a href="/student_publications#service-news">NSoJ Post</a> </li>
+                        <li> <a href="/student_publications#service-radio">NSoJ Radio</a> </li>
+                        <li> <a href="/student_publications#service-tv">NSoJ TV</a> </li>
+                        <!-- <li> <a href="/student_publications#service-blog">Blog</a> </li> -->
+                    <%end%>    
+                    </ul>
                 </li>
-
+                <% if false %>
                 <% if logged_in? %>
                         
                     <li>
@@ -146,7 +158,7 @@
                         </li>      
                     <%  %>
                 <% end %>
-                
+                <% end %>
             </ul>
         </div>
         <!-- End Main Menu -->
