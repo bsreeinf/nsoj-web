@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   get 'admission'           => 'landing_page#admission'
 
 
-
+  get 'advisory_board'           => 'landing_page#advisory_board'
+  
   get 'nsoj_news'           => 'landing_page#nsoj_news'
 
   get 'nsoj_news_page'      => 'landing_page#nsoj_news_page'

@@ -54,7 +54,7 @@
                                 </h2>
                                 
                                 <div class="local-scroll">
-                                    Welcome to the official website of National School of Journalism, Bangalore (NSoJ). We are a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents. Our newsroom-focused curriculum, in-house digital news portal, expert faculty members and unparalleled industry connections prepare our students for successful careers in broadcast, print and convergence journalism. We invite you to join us and be the generation that transforms India's news media industry.
+                                    Welcome to the official website of National School of Journalism, Bangalore (NSoJ)!
                                 </div>
                                 <!-- <div class="mb-10 mt-30">
                                     <a href="/galleries" class="btn btn-mod btn-border-w btn-circle btn-medium">Show more</a>
@@ -82,17 +82,19 @@
                                 </h1>
                                 
                                 <h2 class="hs-line-14 font-alt mb-50 mb-xs-30">
-                                    Technology and infrastructure
+                                    STUDENT PUBLICATIONS AND NEWS PORTAL
                                 </h2>
                                 
                                 <div class="local-scroll">
-                                    All our students will have access to cutting-edge news gathering, production and broadcasting technology. Our students are trained in and use software tools that are commonly used in media organisations in India and internationally. All students will receive state-of-the-art Hewlett-Packard (HP) laptops to gather, report, produce, publish and broadcast journalistic content. Costs of these laptops are included in the programme fees, and students can take these with them when they graduate from NSoJ.
+                                    <!-- All our students will have access to cutting-edge news gathering, production and broadcasting technology. Our students are trained in and use software tools that are commonly used in media organisations in India and internationally. All students will receive state-of-the-art Hewlett-Packard (HP) laptops to gather, report, produce, publish and broadcast journalistic content. Costs of these laptops are included in the programme fees, and students can take these with them when they graduate from NSoJ. -->
                                 </div>
                                 <!-- <div class="mb-10">
                                     <a href="/why_us#career_services" class="btn btn-mod btn-border-w btn-circle btn-medium">Show more</a>
                                 </div>  -->
                                 <!-- <a href="#" class="section-more right">Show more <i class="fa fa-angle-right"></i></a> -->
-                                
+                                <div class="mb-10 mt-30">
+                                    <a href="/student_publication/index" class="btn btn-mod btn-border-w btn-circle btn-medium">Show more</a>
+                                </div>   
                             </div>
                         </div>
                         <!-- End Hero Content -->
@@ -243,28 +245,46 @@
 
             <!-- Service Grid -->
             <div class="alt-service-grid" style="margin-top: 0;">
-                <a href="/student_publication/index"><div class="alt-service-item bg-dark-alfa-50 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb1.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
-                    <!-- <div class="alt-service-icon">
-                        <span aria-hidden="true" class="icon-newspaper"></span>
-                    </div> -->
-                    <span class="ticker-box-title alt-services-title font-alt" style="bottom: -116px;">NSoJ Student Publications</span>
-                    <!-- <div class=" align-right">
-                        <a data-toggle="modal" data-target=".modal5" class="mt-10 btn btn-mod btn-gray btn-circle">Preview</a>
-                        <a class="mt-10 btn btn-mod btn-gray btn-circle">Show All</a>
-                    </div> -->
-                </div>
-                </a>
 
-                <div data-toggle="modal" data-target=".modal4" class="alt-service-item bg-dark-alfa-50 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb2.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
+
+
+                <div data-toggle="modal" data-target=".modal4" class="alt-service-item  ticker-box" style="background-image: url('<%=asset_path("thumb/slant_thumb.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
                     <!-- <div class="alt-service-icon">
                         <span aria-hidden="true" class="icon-tools"></span>
                     </div> -->
-                    <span class="ticker-box-title alt-services-title font-alt">NSoj Slant</span>
+                    <!-- <span class="ticker-box-title alt-services-title font-alt">NSoj Slant</span> -->
                     <!-- <div class=" align-right">
                         <a data-toggle="modal" data-target=".modal4" class="mt-10 btn btn-mod btn-gray btn-circle">Preview</a>
                         <a class="mt-10 btn btn-mod btn-gray btn-circle">Show All</a>
                     </div> -->
                 </div>
+
+             <!--    <a href="/admission">
+                    <div class="alt-service-item bg-dark-alfa-50 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb1.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
+                       
+                        <span class="ticker-box-title alt-services-title font-alt" style="bottom: -116px;">Admissions</span>
+                      
+                    </div>
+                </a> -->
+
+                <div class="mt-10">
+                   <a class="twitter-timeline" href="https://twitter.com/NSoJ_Bangalore" data-widget-id="689405150352400384">Tweets by @NSoJ_Bangalore</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+
+          <!--       
+                <% TwitterApi.our_public_tweets.each do |tweet|  %>
+                     <div data-toggle="modal" data-target="" class="alt-service-item bg-dark-alfa-20 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb_twitter.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
+                     
+                        <span class="ticker-box-title alt-services-title font-alt">Tweet</span>
+                        <p class="font-alt" style="color: white;font-weight:bold;">
+                            <%= tweet.text %>
+
+                        </p>
+                        
+                    
+                    </div>
+                <% end %>   -->  
 
                 <!-- <div data-toggle="modal" data-target=".modal3" class="alt-service-item bg-dark-alfa-50 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb3.jpg")%>'); background-size: cover; cursor: pointer; position: relative;"> -->
                     <!-- <div class="alt-service-icon">
@@ -315,10 +335,12 @@
                 
                 <div class="col-sm-12">
                     
-                    <div class="mt-70 mt-lg-80 mb-140 mb-lg-80" >
+                    <div class="mt-70 mt-lg-80  mb-lg-80" >
                         <div class="banner-content" >
                            <!-- <h3 class="banner-heading font-alt" style="color:black;">About Us</h3> -->
                             <div class="banner-decription" style="color:black;" >
+
+                                 National School of Journalism (NSoJ) is a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents. Our newsroom-focused curriculum, in-house digital news portal, expert faculty members and unparalleled industry connections prepare our students for successful careers in broadcast, print and convergence journalism. We invite you to join us and be the generation that transforms India's news media industry.
                             
                                 Our purpose is to transform the news media industry in India by training a select group of graduate students every year—60 of the brightest and best in journalistic talent—to become accomplished professional journalists. NSoJ will prepare them to pursue truth in a less than perfect world, recognise the wider contexts in which issues are framed and communicate this to the public in a responsible, balanced and fair manner. We hope to create in our students a generation of journalists with the tools and perspectives to act as agents of change in the news media industry in India.<br/><br/>
                                  Our 11-month Postgraduate Diploma in Journalism programmes are designed to provide our students the right platform and skills to not only to succeed, but to shape the future of journalism in India. Our faculty are leading reporters, columnists, editors, authors, academics, magazine editors, documentary filmmakers, and digital media specialists who are deeply committed to training, challenging and supporting their students.<br/><br/>
@@ -340,17 +362,19 @@
     <!-- End Call Action Section -->
 
     <!-- Faculty -->
-    <section class="page-section pb-20" >
+    <section class="page-section pb-20" style="padding-top: 25px;">
         <div class="container relative">
-            <h2 class="section-title font-alt align-left  mb-sm-40">
+           <!--  <h2 class="section-title font-alt align-left  mb-sm-40">
               Faculty
               
               <a href="/why_us#faculty" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
               
-          </h2>
+          </h2> -->
+
+          <h3 class="font-alt mb-20 mb-sm-40 align-center">Faculty</h3>
             <div class="row multi-columns-row">
                 
-                <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-icon">
                             <img  src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="" style="width:180px;" class="img-circle">
@@ -361,27 +385,30 @@
                     </div>
                 </div>
 
-               <!--  <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <span aria-hidden="true" class="icon-profile-male"></span>
-                        </div>
-                        <h2 class="alt-features-title font-alt">Saswati Chakravarty</h2>
-                        <h3 class="alt-features-title font-alt" style="text-transform: none;">Consulting Editor <br><span class="post-prev-info font-alt">Core editing skills, Business & Finance</span></h3>
-                    </div>
-                </div> -->
+             
 
-                <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                     <div class="alt-features-item align-center">
                         <div class="alt-features-icon">
-                            <img  src="<%= asset_path("faculty/anon.png")%>" alt="" style="width:180px;" class="img-circle">
+                            <img  src="<%= asset_path("faculty/thangaraj.JPG")%>" alt="" style="width:180px;" class="img-circle">
                         </div>
                         <h2 class="alt-features-title font-alt">Dr. Thomas Thangaraj</h2>
                         <h3 class="alt-features-title font-alt" style="text-transform: none;">Dean of Academic Affairs<br> <span class="post-prev-info font-alt">Ethics, Politics & Society</span></h3>
                     </div>
                 </div>
+
+                   <div class="col-sm-6 col-md-4 col-lg-4">
+                    <div class="alt-features-item align-center">
+                        <div class="alt-features-icon">
+                            <img  src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="" style="width:180px;" class="img-circle">
+                        </div>
+                        <h2 class="alt-features-title font-alt">Saswati Chakravarty</h2>
+                        <h3 class="alt-features-title font-alt" style="text-transform: none;"><span class="post-prev-info font-alt">Core editing skills, Business & Finance</span></h3>
+                    </div>
+                </div>
                 
             </div>
+             <a href="/why_us#faculty" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
        
         </div>
     </section>
@@ -389,14 +416,14 @@
 
     <!-- Nsoj Method -->
     <!-- Alternative Services Section -->
-    <section class="page-section pb-20" id="start" >
+    <section class="page-section pb-20" id="start" style="    padding-top: 25px;">
         <div class="container relative">
             
             <!-- Section Headings -->
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 align-center">
                     
-                    <h3 class="font-alt mb-70 mb-sm-40">NSOJ Method</h3>
+                    <h3 class="font-alt mb-70 mb-sm-40"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="" /> Method</h3>
                     
                     <div class="section-text mb-80 mb-xs-40">
                         Our postgraduate diploma programmes are structured to suit the needs of the media industry. At the same time we factor in developments that are expected to revolutionise the media industry in the next 10 years.<br/><br/>
@@ -586,7 +613,7 @@
 
     <!-- Subscription -->
     <!-- Newsletter Section -->
-    <section class="small-section bg-gray-lighter">
+ <!--    <section class="small-section bg-gray-lighter">
         <div class="container relative">
             
             <form class="form align-center" id="mailchimp">
@@ -616,104 +643,21 @@
             </form>
             
         </div>
-    </section>
+    </section> -->
     <!-- End Newsletter Section -->
-
-
-    <!-- Google Map -->
-    <div class="google-map">
-        
-        <div data-address="13.080113,77.592503" id="map-canvas"></div>
-        
-        <div class="map-section">
-            
-            <div class="map-toggle">
-                <div class="mt-icon">
-                    <i class="fa fa-map-marker"></i>
-                </div>
-                <div class="mt-text font-alt">
-                    <div class="mt-open">Open the map <i class="fa fa-angle-down"></i></div>
-                    <div class="mt-close">Close the map <i class="fa fa-angle-up"></i></div>
-                </div>
-            </div>
-            
-        </div>   
-    </div>
-    <!-- End Google Map -->
-
-
-    <!-- Contact Section -->
-    <section class="page-section" id="contact">
+   <!-- Contact Section -->
+    <section class="page-section" id="contact" style="    padding-top: 70px;    padding-bottom: 25px;">
         <div class="container relative">
-        
-            <div class="row mb-60 mb-xs-40">
-                
+
+            <div class="row mb-20">
                 <div class="col-md-8 col-md-offset-2">
-                    <div class="row">
-                        
-                        <div class="col-md-6 mb-20">
-                            <div class="contact-item">
-                                <div class="ci-icon">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <div class="ci-title font-alt">
-                                    Address
-                                </div>
-                                <div class="ci-text">
-                                    National School of Journalism<br/>
-                                    2/F NCC Urban Windsor <br> 
-                                    New Airport Road (opposite Jakkur Aerodrome) <br>
-                                    Bangalore - 560 064, India
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-20">
-                                <div class="contact-item">
-                                    <div class="ci-icon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="ci-title font-alt">
-                                        Call Us
-                                    </div>
-                                    <div class="ci-text">
-                                        <a href="tel:+918046994799">Tel: +91 80 4699 4799</a><br><br>
-                                        <a href="tel:+919845031305">Mobile: +91 98450 31305</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="contact-item">
-                                    <div class="ci-icon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <div class="ci-title font-alt">
-                                        Email
-                                    </div>
-                                    <div class="ci-text">
-                                        <a href="mailto:contact@nsoj.in">contact@nsoj.in</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-            
-            <!-- Contact Form -->                            
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <p>We are located 20 minutes from M.G. Road (Bangalore's Central Business District) and 20 minutes from Bangalore International Airport. Our location allows our students to conveniently undertake daily beats, and cover and break stories within moments of newsworthy events occurring in Bangalore city.</p><br><br>
+                    
 
                     <p>You can send us comments and enquiries by filling in the form below. We will make every effort to respond to your enquiries within 48 hours.</p>
                 </div>
             </div>
-            <div class="row">
+ 
+            <div class="row mb-40">
                 <div class="col-md-8 col-md-offset-2">
 
                     <%= form_for(@contact, :url => contact_path, :html => {:method => :post,:class=>"form contact-form"}) do |f| %>
@@ -775,7 +719,7 @@
                                 
                                 <!-- Inform Tip -->                                        
                                 <div class="form-tip pt-20">
-                                    <i class="fa fa-info-circle"></i> Important fields are marked by asterisk (*)
+                                    <i class="fa fa-info-circle"></i> Mandatory fields are marked by asterisk (*)
                                 </div>
                                 
                             </div>
@@ -797,8 +741,8 @@
                         <div id="result"></div>
                     <% end %>
 
-                    <p style="margin-top: 15px;">NSoJ visits:-
-                            We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p>
+                 <!--    <p style="margin-top: 15px;">NSoJ visits:-
+                            We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p> -->
                     
 
 
@@ -875,10 +819,128 @@
                 </div>
             </div>
             <!-- End Contact Form -->
+            <div class="row  mb-40 mb-xs-40">
+                
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="row">
+                        
+                        <div class="col-md-6 mb-20">
+                            <div class="contact-item">
+                                <div class="ci-icon">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div class="ci-title font-alt">
+                                    Address
+                                </div>
+                                <div class="ci-text">
+                                    National School of Journalism<br/>
+                                    2/F NCC Urban Windsor <br> 
+                                    New Airport Road (opposite Jakkur Aerodrome) <br>
+                                    Bangalore - 560 064, India
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-20">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        Call Us
+                                    </div>
+                                    <div class="ci-text">
+                                        <a href="tel:+918046994799">Tel: +91 80 4699 4799</a><br><br>
+                                        <a href="tel:+919845031305">Mobile: +91 98450 31305</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="contact-item">
+                                    <div class="ci-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="ci-title font-alt">
+                                        Email
+                                    </div>
+                                    <div class="ci-text">
+                                        <a href="mailto:contact@nsoj.in">contact@nsoj.in</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row ">
+                <div class="col-md-8 col-md-offset-2">
+                    <p>We are located 20 minutes from M.G. Road (Bangalore's Central Business District) and 20 minutes from Bangalore International Airport. Our location allows our students to conveniently undertake daily beats, and cover and break stories within moments of newsworthy events occurring in Bangalore city.</p><br><br>
+
+                 
+                </div>
+            </div>
+           
             
         </div>
     </section>
     <!-- End Contact Section -->
+
+     <!-- Google Map -->
+    <div class="google-map">
+        
+        <div data-address="13.080113,77.592503" id="map-canvas"></div>
+        
+        <div class="map-section">
+            
+            <div class="map-toggle">
+                <div class="mt-icon">
+                    <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="mt-text font-alt">
+                    <div class="mt-open">Open the map <i class="fa fa-angle-down"></i></div>
+                    <div class="mt-close">Close the map <i class="fa fa-angle-up"></i></div>
+                </div>
+            </div>
+            
+        </div>   
+    </div>
+    <!-- End Google Map -->
+
+
+    <!-- Contact Section -->
+    <section class="page-section mb-20 mt-20" id="contact" style="padding-top:20px; padding-bottom:20px;">
+        <div class="container relative">
+        
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                
+
+                    <p style="">NSoJ visits:-
+                            We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p>
+                    
+
+
+
+
+
+                 
+                    
+                </div>
+            </div>
+            <!-- End Contact Form -->
+            
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+
 
     <!-- <section class="page-section">
         <div class="container relative">
