@@ -1,14 +1,26 @@
 Rails.application.routes.draw do
+  resources :admission_forms
+  get 'sessions/new'
+
+  resources :users
   get 'student_publication/index'
 
   resources :nsoj_posts
   resources :nsoj_tvs
   resources :nsoj_radios
+    resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :galleries
  
   root 'landing_page#home'
+
+  get    'login'                        => 'sessions#new'
+  get    'signup'                       => 'users#new'
+  get    'login'                        => 'sessions#new'
+  post   'login'                        => 'sessions#create'
+  delete 'logout'                       => 'sessions#destroy'
 
   get 'why_us'              => 'landing_page#why_us'
 
