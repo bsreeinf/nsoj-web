@@ -6425,4 +6425,10 @@ section:hover .small-item-carousel .owl-next{
 .logo.small-height{
   max-width: 200px !important;
 }
+
+.custom_divider{
+  border-width: 1px 0 0 0;
+  border-color: #ccc;
+  border-style: solid;
+}
 /*end custom css*/
