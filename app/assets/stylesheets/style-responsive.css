@@ -859,8 +859,14 @@ Primary use:    MultiPurpose Template
    ============================== */
 @media only screen and (max-width:767px){
     
-    .home-page-secondary-slider{
+    .home-page-secondary-slider .twitter-feed{
         display: none;
+        height:inherit;
+ 
+    }
+    .home-page-secondary-slider {
+        
+        height:inherit !important;
  
     }
     
