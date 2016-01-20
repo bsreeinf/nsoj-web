@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   resources :nsoj_posts
   resources :nsoj_tvs
   resources :nsoj_radios
-    resources :account_activations, only: [:edit]
+  resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :galleries
@@ -22,28 +23,22 @@ Rails.application.routes.draw do
   post   'login'                        => 'sessions#create'
   delete 'logout'                       => 'sessions#destroy'
 
-  get 'why_us'              => 'landing_page#why_us'
+  get 'why_us'                          => 'landing_page#why_us'
+  get 'program'                         => 'landing_page#program'
+  get 'admission'                       => 'landing_page#admission'
+  get 'advisory_board'                  => 'landing_page#advisory_board'
 
-  get 'program'             => 'landing_page#program'
+  get 'student_publications'            => 'student_publication#index'
 
-  get 'admission'           => 'landing_page#admission'
+  get 'nsoj_news'                       => 'landing_page#nsoj_news'
+  get 'nsoj_radio'                      => 'landing_page#nsoj_radio'
+  get 'nsoj_tv'                         => 'landing_page#nsoj_tv'
+  get 'nsoj_post'                       => 'landing_page#nsoj_post'
+  get 'nsoj_events'                     => 'landing_page#nsoj_events'
+  post 'contact'                        => 'contacts#create'
+  post 'admission_contact'              => 'admission_contacts#create'
 
+  get 'admission_form'                  => 'admission_forms#show'
+  get 'update_admission_form'       => 'admission_forms#edit'
 
-
-  get 'advisory_board'           => 'landing_page#advisory_board'
-  
-
-  get 'student_publications'=> 'student_publication#index'
-
-
-  get 'nsoj_news'           => 'landing_page#nsoj_news'
-  get 'nsoj_radio'          => 'landing_page#nsoj_radio'
-  get 'nsoj_tv'             => 'landing_page#nsoj_tv'
-  get 'nsoj_post'           => 'landing_page#nsoj_post'
-
-  get 'nsoj_events'         => 'landing_page#nsoj_events'
-
-  post 'contact'            => 'contacts#create'
-
-  post 'admission_contact'  => 'admission_contacts#create'
 end
