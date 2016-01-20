@@ -16,7 +16,7 @@ class AdmissionFormsController < ApplicationController
 
     def set_admission_form
       if AdmissionForm.exists?(user_id: current_user.id)
-        @admission_form = AdmissionForm.where(user_id: current_user.id)
+        @admission_form = AdmissionForm.all.where(user_id: current_user.id)
       else
         @admission_form = AdmissionForm.new
       end
