@@ -106,10 +106,9 @@
                     <%= link_to("Gallery", :controller => 'landing_page', :action => 'nsoj_events') %>
                 </li>
                 
-                 <li>
-                    <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
+                <!-- <li>
                     <%= link_to("Blog", "https://nsojblog.wordpress.com", class: "mn-has-sub", method: :get ) %>
-                </li>
+                </li> -->
                 
                 <li>
                     <%= link_to(student_publications_path, class: "mn-has-sub", method: :get, :controller => 'student_publication', :action => 'index' ) do %>
@@ -120,17 +119,18 @@
                         <li> <a href="#service-news">NSoJ Post</a> </li>
                         <li> <a href="#service-radio">NSoJ Radio</a> </li>
                         <li> <a href="#service-tv">NSoJ TV</a> </li>
-                        <!-- <li> <a href="#service-blog">Blog</a> </li> -->
+                        <li role="separator" class="divider"></li>
+                        <li> <a href="#service-blog">Blog</a> </li>
                     <%else%>
                         <li> <a href="/student_publications#service-news">NSoJ Post</a> </li>
                         <li> <a href="/student_publications#service-radio">NSoJ Radio</a> </li>
                         <li> <a href="/student_publications#service-tv">NSoJ TV</a> </li>
-                        <!-- <li> <a href="/student_publications#service-blog">Blog</a> </li> -->
+                        <li role="separator" class="custom_divider"></li>
+                        <li> <a href="/student_publications#service-blog">Blog</a> </li>
                     <%end%>    
                     </ul>
                 </li>
                 <% if false %>
-                
                 <% if logged_in? %>
                         
                     <li>
@@ -141,8 +141,8 @@
                            
                             
                             <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-                             
-                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Admission Form", update_admission_form_path %></li> 
+                            <li role="separator" class="custom_divider"></li>
                             <li><%= link_to "Logout", logout_path, method: :delete %></li>   
                             
                         </ul>
@@ -153,9 +153,9 @@
                 <% else %>
                     <% %>           
                         <li>
-                            <!--<%= link_to(login_path) do %>
+                            <%= link_to(login_path) do %>
                                 <span class="btn btn-mod btn-circle ">Login</span>
-                            <%end%>-->
+                            <%end%>
                         </li>      
                     <%  %>
                 <% end %>

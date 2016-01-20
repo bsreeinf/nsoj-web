@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   #relationships
   has_one :college
   has_one :student
+  has_one :admission_form
 
   #validations
   validates :name,  presence: true, length: { maximum: 50 }
