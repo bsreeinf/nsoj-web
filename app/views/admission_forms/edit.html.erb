@@ -100,10 +100,10 @@
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Name (this should be your name as on your passport or any other official document)</h5>
               <div class="form-group">
-                <%= f.text_field :last_name1, :class => "input-md round form-control", :placeholder =>"Last name", :type => "text", :required => true, :value => @admission_form.last_name1%>
-                <%= f.text_field :first_name1 , :class => "input-md round form-control",:placeholder =>"First name", :type => "text", :required => true, :value => @admission_form.first_name1 %>
+                <%= f.text_field :last_name1, :class => "input-md round form-control", :placeholder =>"Last name*", :type => "text", :required => true, :value => @admission_form.last_name1%>
+                <%= f.text_field :first_name1 , :class => "input-md round form-control",:placeholder =>"First name*", :type => "text", :required => true, :value => @admission_form.first_name1 %>
                 <%= f.text_field :middle_name1 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :value => @admission_form.middle_name1 %>
-                <%= f.text_field :name_title1 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)", :type => "text", :required => true, :value => @admission_form.name_title1 %>
+                <%= f.text_field :name_title1 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)*", :type => "text", :required => true, :value => @admission_form.name_title1 %>
               </div>
             </div>
             <div class="col-md-6" style="padding-left: 0;">
@@ -122,7 +122,7 @@
               <div class="form-group">
                 <div class="row">
                   <h5>Date of Birth</h5>
-                  <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth", :type => "date", :required => true, :value => @admission_form.dob%>
+                  <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth*", :type => "date", :required => true, :value => @admission_form.dob%>
                   <h5>Gender</h5>
                   <%= radio_button_tag(:gender, "male", :class => "input-md round form-control", :required => true, :checked => false) %> Male <br>
                   <%= radio_button_tag(:gender, "female", :class => "input-md round form-control", :required => true, :checked => false) %> Female
@@ -133,9 +133,9 @@
               <h5>Nationality and residence</h5>
               <div class="col-md-6" style="padding-left: 0px;">
                 <div class="form-group">
-                  <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence", :type => "text", :required => true, :value => @admission_form.country_of_permanent_residence%>
-                  <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth", :type => "text", :required => true, :value => @admission_form.country_of_birth %>
-                  <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality", :type => "text", :required => true, :value => @admission_form.nationality %>
+                  <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence*", :type => "text", :required => true, :value => @admission_form.country_of_permanent_residence%>
+                  <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth*", :type => "text", :required => true, :value => @admission_form.country_of_birth %>
+                  <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality*", :type => "text", :required => true, :value => @admission_form.nationality %>
                   <%= f.text_field :second_nationality, :class => "input-md round form-control",:placeholder =>"Second Nationality", :type => "text", :value => @admission_form.second_nationality %>
                 </div>
               </div>
@@ -155,15 +155,15 @@
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Mailing Address</h5>
               <div class="form-group">
-                <%= f.text_field :addr_street1, :class => "input-md round form-control", :placeholder =>"Street", :type => "text", :required => true, :value => @admission_form.addr_street1%>
-                <%= f.text_field :addr_city1 , :class => "input-md round form-control",:placeholder =>"City", :type => "text", :required => true, :value => @admission_form.addr_city1 %>
-                <%= f.text_field :addr_state1 , :class => "input-md round form-control",:placeholder =>"State", :type => "text", :required => true, :value => @admission_form.addr_state1 %>
-                <%= f.text_field :addr_pincode1 , :class => "input-md round form-control",:placeholder =>"Pincode", :type => "number", :required => true, :value => @admission_form.addr_pincode1 %>
-                <%= f.text_field :addr_country1 , :class => "input-md round form-control",:placeholder =>"Country", :type => "text", :required => true, :value => @admission_form.addr_country1 %>
-                <%= f.text_field :phone1 , :class => "input-md round form-control",:placeholder =>"Phone", :type => "tel", :required => true, :value => @admission_form.phone1 %>
+                <%= f.text_field :addr_street1, :class => "input-md round form-control", :placeholder =>"Street*", :type => "text", :required => true, :value => @admission_form.addr_street1%>
+                <%= f.text_field :addr_city1 , :class => "input-md round form-control",:placeholder =>"City*", :type => "text", :required => true, :value => @admission_form.addr_city1 %>
+                <%= f.text_field :addr_state1 , :class => "input-md round form-control",:placeholder =>"State*", :type => "text", :required => true, :value => @admission_form.addr_state1 %>
+                <%= f.text_field :addr_pincode1 , :class => "input-md round form-control",:placeholder =>"Pincode*", :type => "number", :required => true, :value => @admission_form.addr_pincode1 %>
+                <%= f.text_field :addr_country1 , :class => "input-md round form-control",:placeholder =>"Country*", :type => "text", :required => true, :value => @admission_form.addr_country1 %>
+                <%= f.text_field :phone1 , :class => "input-md round form-control",:placeholder =>"Phone*", :type => "tel", :required => true, :value => @admission_form.phone1 %>
                 <div class="col-md-3">Address valid until</div>
                 <div class="col-md-9">
-                  <%= f.date_field :addr_until, :class => "input-md round form-control", :placeholder =>"Living until", :type => "date", :required => true, :value => @admission_form.addr_until%>
+                  <%= f.date_field :addr_until, :class => "input-md round form-control", :placeholder =>"Living until*", :type => "date", :required => true, :value => @admission_form.addr_until%>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@
           </div>
 
           <br><br>
-          <%= f.text_field :email , :class => "input-md round form-control",:placeholder =>"Email", :type => "email", :required => true, :value => @admission_form.email %> 
+          <%= f.text_field :email , :class => "input-md round form-control",:placeholder =>"Email*", :type => "email", :required => true, :value => @admission_form.email %> 
 
           <div class="row">
             <h4>(3) Programme of Study</h4>
