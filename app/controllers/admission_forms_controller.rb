@@ -23,7 +23,7 @@ class AdmissionFormsController < ApplicationController
       redirect_to controller: 'admission_forms', action: 'edit'
     else
       AdmissionForm.new(admission_form_params).save
-      redirect_to edit_admission_form_path
+      redirect_to controller: 'admission_forms', action: 'edit'
     end
   end
 
