@@ -2,6 +2,7 @@ class CreateAdmissionForms < ActiveRecord::Migration
   def change
     create_table :admission_forms do |t|
 		t.references :user
+		t.string :form_token, :unique => true
 
 		t.string :first_name1
 		t.string :last_name1
@@ -103,6 +104,7 @@ class CreateAdmissionForms < ActiveRecord::Migration
 		t.string :assessment_interested
 		t.string :assessment_experience
 
+		t.boolean :is_submitted, :default => false
 
 		t.timestamps null: false
     end

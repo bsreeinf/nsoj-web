@@ -2,7 +2,6 @@
   input{
     text-transform: none !important;
     margin-bottom: 7px !important;
-    color: black !important;
   }
   ::-webkit-input-placeholder {
     color: #ccc !important; 
@@ -40,6 +39,13 @@
   </div>
 </section>
 
+<% if @is_submitted %>
+  <div class="jumbotron align-center">
+      <p>
+        Your form has been submitted.<br><br>Your application form referance number is <span style="font-weight: bold; text-transform: uppercase; font-weight: bold;"><%=@admission_form.form_token%></span>.<br><br>
+      </p>
+  </div>
+<% else %>
 <section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
   <div class="col-md-8 col-md-offset-2">
     <%= form_for(@admission_form, url: {action: "update"}, :html => {:class => 'form contact-form', :id => 'contact_form'}) do |f| %>
@@ -531,3 +537,4 @@
 
   </div>
 </section>
+<% end %>

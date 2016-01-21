@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160118193436) do
 
   create_table "admission_forms", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "form_token"
     t.string   "first_name1"
     t.string   "last_name1"
     t.string   "middle_name1"
@@ -143,6 +144,7 @@ ActiveRecord::Schema.define(version: 20160118193436) do
     t.string   "eh_employer_details3"
     t.string   "assessment_interested"
     t.string   "assessment_experience"
+    t.boolean  "is_submitted"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
