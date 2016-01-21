@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   post 'admission_contact'              => 'admission_contacts#create'
 
   get 'admission_form'                  => 'admission_forms#show'
-  get 'update_admission_form'       => 'admission_forms#edit'
+  get 'edit_admission_form'             => 'admission_forms#edit'
+  post 'update_admission_form'          => 'admission_forms#update'
+  patch 'update_admission_form'          => 'admission_forms#update'
 
 end

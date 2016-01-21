@@ -2,6 +2,10 @@
   input{
     text-transform: none !important;
     margin-bottom: 7px !important;
+    color: black !important;
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc !important; 
   }
   h4{
     margin: 40px 0 10px 0 !important;
@@ -37,7 +41,7 @@
 
 <section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
   <div class="col-md-8 col-md-offset-2">
-    <%= form_for(@admission_form, multipart: true, :html => {:class => 'form contact-form', :id => 'contact_form'}) do |f| %>
+    <%= form_for(@admission_form, url: {action: "update"}, :html => {:class => 'form contact-form', :id => 'contact_form'}) do |f| %>
       <% if @admission_form.errors.any? %>
         <div id="error_explanation">
           <h2>
@@ -91,17 +95,17 @@
               <div class="form-group">
                 <%= f.text_field :last_name1, :class => "input-md round form-control", :placeholder =>"Last name", :type => "text", :required => true, :value => @admission_form.last_name1%>
                 <%= f.text_field :first_name1 , :class => "input-md round form-control",:placeholder =>"First name", :type => "text", :required => true, :value => @admission_form.first_name1 %>
-                <%= f.text_field :middle_name1 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :required => true, :value => @admission_form.middle_name1 %>
+                <%= f.text_field :middle_name1 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :value => @admission_form.middle_name1 %>
                 <%= f.text_field :name_title1 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)", :type => "text", :required => true, :value => @admission_form.name_title1 %>
               </div>
             </div>
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Name (previous) If you used a different name at any time, please include it here.</h5>
               <div class="form-group">
-                <%= f.text_field :last_name2, :class => "input-md round form-control", :placeholder =>"Last name", :type => "text", :required => true, :value => @admission_form.last_name2%>
-                <%= f.text_field :first_name2 , :class => "input-md round form-control",:placeholder =>"First name", :type => "text", :required => true, :value => @admission_form.first_name2 %>
-                <%= f.text_field :middle_name2 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :required => true, :value => @admission_form.middle_name2 %>
-                <%= f.text_field :name_title2 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)", :type => "text", :required => true, :value => @admission_form.name_title2 %>
+                <%= f.text_field :last_name2, :class => "input-md round form-control", :placeholder =>"Last name", :type => "text", :value => @admission_form.last_name2%>
+                <%= f.text_field :first_name2 , :class => "input-md round form-control",:placeholder =>"First name", :type => "text", :value => @admission_form.first_name2 %>
+                <%= f.text_field :middle_name2 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :value => @admission_form.middle_name2 %>
+                <%= f.text_field :name_title2 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)", :type => "text", :value => @admission_form.name_title2 %>
               </div>
             </div>
           </div>
@@ -113,8 +117,8 @@
                   <h5>Date of Birth</h5>
                   <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth", :type => "date", :required => true, :value => @admission_form.dob%>
                   <h5>Gender</h5>
-                  <%= radio_button_tag(:gender, "male", :class => "input-md round form-control", :required => true) %> Male <br>
-                  <%= radio_button_tag(:gender, "female", :class => "input-md round form-control", :required => true) %> Female
+                  <%= radio_button_tag(:gender, "male", :class => "input-md round form-control", :required => true, :checked => false) %> Male <br>
+                  <%= radio_button_tag(:gender, "female", :class => "input-md round form-control", :required => true, :checked => false) %> Female
                 </div>
               </div>
             </div>
@@ -125,14 +129,14 @@
                   <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence", :type => "text", :required => true, :value => @admission_form.country_of_permanent_residence%>
                   <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth", :type => "text", :required => true, :value => @admission_form.country_of_birth %>
                   <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality", :type => "text", :required => true, :value => @admission_form.nationality %>
-                  <%= f.text_field :second_nationality, :class => "input-md round form-control",:placeholder =>"Second Nationality", :type => "text", :required => true, :value => @admission_form.second_nationality %>
+                  <%= f.text_field :second_nationality, :class => "input-md round form-control",:placeholder =>"Second Nationality", :type => "text", :value => @admission_form.second_nationality %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   Do you require a visa to study in India?
-                  <%= radio_button_tag(:visa_required, "yes", :class => "input-md round form-control", :placeholder =>"Date of Birth", :required => true) %> Yes <br>
-                  <%= radio_button_tag(:visa_required, "no", :class => "input-md round form-control", :placeholder =>"Date of Birth", :required => true) %> No
+                  <%= radio_button_tag(:visa_required, "yes", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> Yes <br>
+                  <%= radio_button_tag(:visa_required, "no", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> No
                 </div>
               </div>
             </div>
@@ -159,15 +163,15 @@
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Home (permanent) Address (if different)</h5>
               <div class="form-group">
-                <%= f.text_field :addr_street2, :class => "input-md round form-control", :placeholder =>"Street", :type => "text", :required => true, :value => @admission_form.addr_street2%>
-                <%= f.text_field :addr_city2 , :class => "input-md round form-control",:placeholder =>"City", :type => "text", :required => true, :value => @admission_form.addr_city2 %>
-                <%= f.text_field :addr_state2 , :class => "input-md round form-control",:placeholder =>"State", :type => "text", :required => true, :value => @admission_form.addr_state2 %>
-                <%= f.text_field :addr_pincode2 , :class => "input-md round form-control",:placeholder =>"Pincode", :type => "number", :required => true, :value => @admission_form.addr_pincode2 %>
-                <%= f.text_field :addr_country2 , :class => "input-md round form-control",:placeholder =>"Country", :type => "text", :required => true, :value => @admission_form.addr_country2 %>
-                <%= f.text_field :phone2 , :class => "input-md round form-control",:placeholder =>"Phone", :type => "tel", :required => true, :value => @admission_form.phone2 %>
+                <%= f.text_field :addr_street2, :class => "input-md round form-control", :placeholder =>"Street", :type => "text", :value => @admission_form.addr_street2%>
+                <%= f.text_field :addr_city2 , :class => "input-md round form-control",:placeholder =>"City", :type => "text", :value => @admission_form.addr_city2 %>
+                <%= f.text_field :addr_state2 , :class => "input-md round form-control",:placeholder =>"State", :type => "text", :value => @admission_form.addr_state2 %>
+                <%= f.text_field :addr_pincode2 , :class => "input-md round form-control",:placeholder =>"Pincode", :type => "number", :value => @admission_form.addr_pincode2 %>
+                <%= f.text_field :addr_country2 , :class => "input-md round form-control",:placeholder =>"Country", :type => "text", :value => @admission_form.addr_country2 %>
+                <%= f.text_field :phone2 , :class => "input-md round form-control",:placeholder =>"Phone", :type => "tel", :value => @admission_form.phone2 %>
                 <div class="col-md-3">Address valid since</div>
                 <div class="col-md-9">
-                  <%= f.date_field :addr_since, :class => "input-md round form-control", :placeholder =>"Living until", :type => "date", :required => true, :value => @admission_form.addr_since%>
+                  <%= f.date_field :addr_since, :class => "input-md round form-control", :placeholder =>"Living until", :type => "date", :value => @admission_form.addr_since%>
                 </div>
               </div>
             </div>
@@ -182,10 +186,10 @@
               <h5>Post graduate diploma in Journalism in</h5>
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= radio_button_tag(:program_of_study, "print_convergence_media", :class => "input-md round form-control", :required => true) %> Print Convergence Media 
+                  <%= radio_button_tag(:program_of_study, "print_convergence_media", :class => "input-md round form-control", :required => true, :checked => false) %> Print Convergence Media 
                 </div>
                 <div class="col-md-6">
-                  <%= radio_button_tag(:program_of_study, "broadcast_media", :class => "input-md round form-control", :required => true) %> Broadcast Media 
+                  <%= radio_button_tag(:program_of_study, "broadcast_media", :class => "input-md round form-control", :required => true, :checked => false) %> Broadcast Media 
                 </div>
               </div>
             </div>
@@ -228,10 +232,10 @@
                         <%= f.text_field :s_degree , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_degree %>
                       </td>
                       <td class="no-padding">
-                        <%= f.text_field :s_date_started , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_date_started %>
+                        <%= f.text_field :s_date_started , :class => "input-md round form-control", :type => "date", :value => @admission_form.s_date_started %>
                       </td>
                       <td class="no-padding">
-                        <%= f.text_field :s_date_to_be_obtained , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_date_to_be_obtained %>
+                        <%= f.text_field :s_date_to_be_obtained , :class => "input-md round form-control", :type => "date", :value => @admission_form.s_date_to_be_obtained %>
                       </td>
                       <td class="no-padding">
                         <%= f.text_field :s_expected_gpa , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_expected_gpa %>
@@ -259,8 +263,8 @@
                       <td>Subject <br>
                       (include Faculty/ Department)</td>
                       <td>Degree</td>
-                      <td>Date to be obtained</td>
-                      <td>Expected Grade/ GPA/ Percentage</td>
+                      <td>Date obtained</td>
+                      <td>Grade/ GPA/ Percentage</td>
                     </tr>
                   </thead>
                   <tbody>
@@ -275,7 +279,7 @@
                         <%= f.text_field :r_degree , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_degree %>
                       </td>
                       <td class="no-padding">
-                        <%= f.text_field :r_date_to_be_obtained , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_date_to_be_obtained %>
+                        <%= f.text_field :r_date_to_be_obtained , :class => "input-md round form-control", :type => "date", :value => @admission_form.r_date_to_be_obtained %>
                       </td>
                       <td class="no-padding">
                         <%= f.text_field :r_expected_gpa , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_expected_gpa %>
@@ -471,12 +475,12 @@
           <div class="row">
             <h4>(8) List your relavant life experience.<br>
               You may write here your extra-curricular activities or any special circumstances not evident from other answers in this application, that you wish to draw the attention of your application. Applicants with background in journalism may provide examples of any journalistic work, including newspaper, broadcast and/or online material.</h4>
-            <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;" %>
+            <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;", :required => true %>
           </div>
           
           <div class="row">
             <h4>(9) Describe in 300 words your views on any subjectect area that your intersed in. Your essay should demonstrate the depth of your knowledge as well as your own perspectives and opinions on the matter.</h4>
-            <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;" %>
+            <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;", :required => true %>
           </div>
             
           <div class="row">
