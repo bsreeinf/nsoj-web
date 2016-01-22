@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118193436) do
+ActiveRecord::Schema.define(version: 20160122160113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 20160118193436) do
     t.string   "eh_employer_details3"
     t.string   "assessment_interested"
     t.string   "assessment_experience"
-    t.boolean  "is_submitted",                   default: false
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.boolean  "is_submitted"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "contact_subjects", force: :cascade do |t|
@@ -231,6 +231,49 @@ ActiveRecord::Schema.define(version: 20160118193436) do
   end
 
   add_index "nsoj_tvs", ["nsoj_tv_category_id"], name: "index_nsoj_tvs_on_nsoj_tv_category_id", using: :btree
+
+  create_table "slants", force: :cascade do |t|
+    t.string   "college_name"
+    t.string   "phone"
+    t.string   "rb_name1"
+    t.string   "rb_phone1"
+    t.string   "rb_name2"
+    t.string   "rb_phone2"
+    t.string   "rb_name3"
+    t.string   "rb_phone3"
+    t.string   "rb_name4"
+    t.string   "rb_phone4"
+    t.string   "rb_name5"
+    t.string   "rb_phone5"
+    t.string   "rb_name6"
+    t.string   "rb_phone6"
+    t.string   "bn_name1"
+    t.string   "bn_phone1"
+    t.string   "bn_name2"
+    t.string   "bn_phone2"
+    t.string   "bn_name3"
+    t.string   "bn_phone3"
+    t.string   "bn_name4"
+    t.string   "bn_phone4"
+    t.string   "fc_name1"
+    t.string   "fc_phone1"
+    t.string   "fc_name2"
+    t.string   "fc_phone2"
+    t.string   "fc_name3"
+    t.string   "fc_phone3"
+    t.string   "tt_name1"
+    t.string   "tt_phone1"
+    t.string   "tt_phone2"
+    t.string   "tt_phone3"
+    t.string   "es_name"
+    t.string   "es_phone"
+    t.string   "pj_name"
+    t.string   "pj_phone"
+    t.string   "do_name"
+    t.string   "do_phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
