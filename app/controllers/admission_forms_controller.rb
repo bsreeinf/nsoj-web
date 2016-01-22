@@ -16,10 +16,12 @@ class AdmissionFormsController < ApplicationController
   def update
     if AdmissionForm.exists?(user_id: current_user.id)
       @form_id = AdmissionForm.all.where(user_id: current_user.id).first.id
-      if params[:commit] = 'Save and Submit'
-        admission_form_params['is_submitted'] = true
-      end
+
       @form_data = AdmissionForm.update(@form_id, admission_form_params)
+      if params[:commit] = 'Save and Submit'
+        @form_data.is_submitted = true
+        @form_data.save
+      end
       redirect_to controller: 'admission_forms', action: 'edit'
     else
       AdmissionForm.new(admission_form_params).save
@@ -30,10 +32,8 @@ class AdmissionFormsController < ApplicationController
   private
 
     def set_admission_form
-      @is_submitted = false
       if AdmissionForm.exists?(user_id: current_user.id)
         @admission_form = AdmissionForm.all.where(user_id: current_user.id).first
-        @is_submitted = @admission_form.is_submitted
       else
         @admission_form = AdmissionForm.new
       end

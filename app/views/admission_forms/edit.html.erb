@@ -39,7 +39,7 @@
   </div>
 </section>
 
-<% if @is_submitted %>
+<% if @admission_form.is_submitted %>
   <div class="jumbotron align-center">
       <p>
         Your form has been submitted.<br><br>Your application form referance number is <span style="font-weight: bold; text-transform: uppercase; font-weight: bold;"><%=@admission_form.form_token%></span>.<br><br>
