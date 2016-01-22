@@ -53,9 +53,10 @@
                         <li><%= link_to("Technology",why_us_path(:anchor => "technology"),  method: :get ) %></li>
                         <li><%= link_to("Faculty",why_us_path(:anchor => "faculty"),  method: :get ) %></li>
                         <li><%= link_to("Purrah Prize",why_us_path(:anchor => "scholarship_and_aid") ,  method: :get) %></li>
-                        
                         <li><%= link_to("Career Services",why_us_path(:anchor => "career_services"),  method: :get ) %></li>
                     <%end%>    
+                        <li role="separator" class="custom_divider"></li>
+                        <li><%= link_to("Advisory board",:controller => 'landing_page', :action => 'advisory_board') %></li>
                     </ul>
                 </li>
 
@@ -84,31 +85,22 @@
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'admission' ) %>
                         <li> <a href="#admission_requirements" >Admission Requirements </a> </li>
                         <li> <a href="#admission_process">Application Process</a> </li>
-                 
                     <%else%>
                         <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ,  method: :get) %></li>
                         <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ,  method: :get) %></li>
+
                     <%end%>    
-      
+                        <li role="separator" class="custom_divider"></li>
+                        <li><%= link_to "Admission Form", controller: 'admission_forms', action: 'edit' %></li> 
                     </ul>
                 </li>
                 <!-- <li>
                     <%= link_to("Gallery",galleries_path, method: :get ) %>
                 </li> -->
-               
-                 <li>
-                    <!-- <a href="#" class="mn-has-sub">Blog </a> -->
-                    <%= link_to("Advisory board",:controller => 'landing_page', :action => 'advisory_board') %>
-                </li>
 
                 <li>
-                    <!-- <a href="#" class="mn-has-sub">NSOJ News </a> -->
                     <%= link_to("Gallery", :controller => 'landing_page', :action => 'nsoj_events') %>
                 </li>
-                
-                <!-- <li>
-                    <%= link_to("Blog", "https://nsojblog.wordpress.com", class: "mn-has-sub", method: :get ) %>
-                </li> -->
                 
                 <li>
                     <%= link_to(student_publications_path, class: "mn-has-sub", method: :get, :controller => 'student_publication', :action => 'index' ) do %>
