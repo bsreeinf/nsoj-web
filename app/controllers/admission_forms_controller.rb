@@ -16,7 +16,7 @@ class AdmissionFormsController < ApplicationController
   def update
     if AdmissionForm.exists?(user_id: current_user.id)
       @form_id = AdmissionForm.all.where(user_id: current_user.id).first.id
-      if params[:commit] == 'Save and Submit'
+      if params[:commit] = 'Save and Submit'
         admission_form_params['is_submitted'] = true
       end
       @form_data = AdmissionForm.update(@form_id, admission_form_params)
