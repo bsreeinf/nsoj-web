@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :slants
   resources :admission_forms
   get 'sessions/new'
 

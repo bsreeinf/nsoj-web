@@ -45,13 +45,13 @@
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'why_us' ) %>
                         <!-- <li> <a href="#advisory_board">Advisory Board</a> </li> -->
                         <li> <a href="#technology">Technology</a> </li>
-                        <li> <a href="#faculty">Faculty</a> </li>
+                        <li> <a href="#advisory_board">Advisory Board</a> </li>
                         <li> <a href="#scholarship_and_aid">Purrah Prize</a> </li>
                         <li> <a href="#career_services">Career Services</a> </li>
                     <%else%>
                         <!-- <li><%= link_to("Advisory Board",why_us_path(:anchor => "advisory_board"),  method: :get ) %></li> -->
                         <li><%= link_to("Technology",why_us_path(:anchor => "technology"),  method: :get ) %></li>
-                        <li><%= link_to("Faculty",why_us_path(:anchor => "faculty"),  method: :get ) %></li>
+                        <li><%= link_to("Advisory board",why_us_path(:anchor => "advisory_board"),  method: :get ) %></li>  
                         <li><%= link_to("Purrah Prize",why_us_path(:anchor => "scholarship_and_aid") ,  method: :get) %></li>
                         <li><%= link_to("Career Services",why_us_path(:anchor => "career_services"),  method: :get ) %></li>
                     <%end%>    
@@ -69,9 +69,11 @@
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'program' ) %>
                         <li> <a href="#broadcast_media">P.G.D.J in Broadcast Media</a> </li>
                         <li> <a href="#convergence_media">P.G.D.J in Print and Convergence Media</a> </li>
+                        <li> <a href="#faculty">Faculty</a> </li>
                     <%else%>
                         <li><%= link_to("P.G.D.J in Broadcast Media",program_path(:anchor => "broadcast_media"),  method: :get ) %></li>
-                        <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>             
+                        <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>   
+                        <li><%= link_to("Faculty",program_path(:anchor => "faculty"),  method: :get ) %></li>          
                     <%end%>    
                     </ul>
                 </li>
@@ -88,7 +90,6 @@
                     <%else%>
                         <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ,  method: :get) %></li>
                         <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ,  method: :get) %></li>
-
                     <%end%>    
                         <li role="separator" class="custom_divider"></li>
                         <li><%= link_to "Admission Form", controller: 'admission_forms', action: 'edit' %></li> 
@@ -133,7 +134,7 @@
                            
                             
                             <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-                            <li><%= link_to "Admission Form", controller: 'admission_forms', action: 'edit' %></li> 
+                            
                             <li role="separator" class="custom_divider"></li>
                             <li><%= link_to "Logout", logout_path, method: :delete %></li>   
                             

@@ -1,0 +1,101 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Slants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th>String</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slants.each do |slant| %>
+      <tr>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= slant.string %></td>
+        <td><%= link_to 'Show', slant %></td>
+        <td><%= link_to 'Edit', edit_slant_path(slant) %></td>
+        <td><%= link_to 'Destroy', slant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Slant', new_slant_path %>

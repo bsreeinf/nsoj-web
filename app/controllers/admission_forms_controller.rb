@@ -18,13 +18,24 @@ class AdmissionFormsController < ApplicationController
       @form_id = AdmissionForm.all.where(user_id: current_user.id).first.id
 
       @form_data = AdmissionForm.update(@form_id, admission_form_params)
-      if params[:commit] = 'Save and Submit'
-        @form_data.is_submitted = true
+      
+      if params[:commit] == 'Save'
+        @form_data.is_submitted = false
         @form_data.save
+
+      else
+        @form_data.is_submitted = true
+        if @form_data.save
+          ApplicationFormMailer.application_form_created(@form_data.first_name1,@form_data.last_name1,@form_data.email,@form_data.form_token).deliver_now
+          ApplicationFormMailer.application_form_notification_created(@form_data.first_name1,@form_data.last_name1,@form_data.email,@form_data.form_token).deliver_now
+        end
+
       end
+
       redirect_to controller: 'admission_forms', action: 'edit'
     else
       AdmissionForm.new(admission_form_params).save
+
       redirect_to controller: 'admission_forms', action: 'edit'
     end
   end
