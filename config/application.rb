@@ -29,8 +29,8 @@ module Nsoj
         :domain         => 'mail.gmail.com',
         :port           => '587',
         :authentication => :plain,
-        :user_name      => "freelancetest29@gmail.com",
-        :password       => "JustSomeStuff123",        
+        :user_name      => ENV[INFO_EMAIL],
+        :password       => ENV[INFO_EMAIL_PASSWORD],        
         :enable_starttls_auto => true    
       }
   end

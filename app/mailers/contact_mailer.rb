@@ -9,7 +9,7 @@ class ContactMailer < ActionMailer::Base
 		@message = message
 		mail(
 				to: "contact@nsoj.in",
-				from: "freelancetest29@gmail.com",
+				from: ENV[INFO_EMAIL],
 				subject: "New Contact"
 			)
 	end

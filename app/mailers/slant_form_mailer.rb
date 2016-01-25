@@ -44,8 +44,8 @@ class SlantFormMailer < ActionMailer::Base
 		
 		
 		mail(
-				to: "harmonyinceltic@gmail.com",
-				from: "freelancetest29@gmail.com",
+				to: ENV[INFO_EMAIL],
+				from: ENV[INFO_EMAIL],
 				subject: "New Application form",
 				
 			)

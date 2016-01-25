@@ -7,7 +7,7 @@ class ApplicationFormMailer < ActionMailer::Base
 		
 		mail(
 				to: @email,
-				from: "admission_contact@nsoj.com",
+				from: ENV[INFO_EMAIL],
 				subject: "New Application form",
 				
 			)
@@ -20,8 +20,8 @@ class ApplicationFormMailer < ActionMailer::Base
 		@form_id = form_id
 		
 		mail(
-				to: "freelancetest29@gmail.com",
-				from: "admission_contact@nsoj.com",
+				to: ENV[INFO_EMAIL],
+				from: ENV[INFO_EMAIL],
 				subject: "New Application form",
 				
 			)
