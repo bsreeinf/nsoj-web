@@ -18,7 +18,7 @@ class SlantsControllerTest < ActionController::TestCase
 
   test "should create slant" do
     assert_difference('Slant.count') do
-      post :create, slant: { string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string }
+      post :create, slant: {  }
     end
 
     assert_redirected_to slant_path(assigns(:slant))
@@ -35,7 +35,7 @@ class SlantsControllerTest < ActionController::TestCase
   end
 
   test "should update slant" do
-    patch :update, id: @slant, slant: { string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string, string: @slant.string }
+    patch :update, id: @slant, slant: {  }
     assert_redirected_to slant_path(assigns(:slant))
   end
 

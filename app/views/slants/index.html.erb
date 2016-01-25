@@ -1,101 +1,42 @@
-<p id="notice"><%= notice %></p>
+ <section class="small-section bg-dark-alfa-30 parallax-2" data-background=<%= asset_path("full-width-images/NSOJ_Journalism_School1.gif")%> style='margin-top: 75px; background-image:url(<%= asset_path("full-width-images/NSOJ_Journalism_School1.gif")%>)'>
+        <div class="relative container align-left">
+            
+            <div class="row">
+                
+                <div class="col-md-8">
+                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Slant 2016</h1>
+                    <div class="hs-line-4 font-alt">
+                    </div>
+                </div>
+                
+              
+            </div>
+            <div class="row">
+                <div class="mb-10 mt-30">
+                        <a href="/slants/new" class="btn btn-mod btn-w btn-circle btn-large" style="border: 2px solid #e41919; color:red;">Apply now</a>
+                    </div>
+            </div>
+            
+        </div>
+    </section>
 
-<h1>Listing Slants</h1>
+    <section class="page-section pb-0">
+        <div class="relative">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
 
-<table>
-  <thead>
-    <tr>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th>String</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <img src=<%=asset_path("full-width-images/file-page1.jpeg")%> alt="" />
+                    <img src=<%=asset_path("full-width-images/file-page2.jpeg")%> alt="" />
+                    <img src=<%=asset_path("full-width-images/file-page3.jpeg")%> alt="" />
+                    <img src=<%=asset_path("full-width-images/file-page4.jpeg")%> alt="" />                        
+                    <img src=<%=asset_path("Slant_2016_Documentary_Artwork_File.png")%> alt="" />
+                    <img src=<%=asset_path("Slant_2016_Photo_Journal_Artwork_File.png")%> alt="" />
+                    <img src=<%=asset_path("slant_2016_Essay.jpg")%> alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <tbody>
-    <% @slants.each do |slant| %>
-      <tr>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= slant.string %></td>
-        <td><%= link_to 'Show', slant %></td>
-        <td><%= link_to 'Edit', edit_slant_path(slant) %></td>
-        <td><%= link_to 'Destroy', slant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Slant', new_slant_path %>
+    <div class="mb-50 mt-30 align-center">
+        <a href="/slants/new" class="btn btn-mod btn-round btn-large">Apply now</a>
+    </div>

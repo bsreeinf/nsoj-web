@@ -1,7 +1,7 @@
 class CreateSlants < ActiveRecord::Migration
   def change
     create_table :slants do |t|
-      t.string :college_name
+    	t.string :college_name
       t.string :phone
 
       t.string :rb_name1
@@ -49,9 +49,11 @@ class CreateSlants < ActiveRecord::Migration
       t.string :tt_name1
       t.string :tt_phone1
 
+      t.string :tt_name2
       t.string :tt_phone2
-      t.string :tt_phone3
-      
+
+      t.string :tt_name3
+      t.string :tt_phone3      
 
       t.string :es_name
       t.string :es_phone
