@@ -1,5 +1,179 @@
-<h1>New Slant</h1>
+<style>
+  input{
+    text-transform: none !important;
+    margin-bottom: 7px !important;
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc !important; 
+  }
+  h4{
+    margin: 40px 0 10px 0 !important;
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  h5{
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  td input{
+    margin: 0 !important;
+  }
+  .no-padding{
+    padding: 3px !important;
+  }
+</style>
+<% provide(:title, 'Report') %>
 
-<%= render 'form' %>
+<section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
+  <div class="container">            
+      <!-- Hero Content -->
+      <div class="home-content">
+          <div class="home-text" style="padding: 140px 0px 45px 0px;">
+              
+              <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
+                Slant 2016 - 2017
+              </h1>                                      
+          </div>
+      </div>
+      <!-- End Hero Content -->            
+  </div>
+</section>
 
-<%= link_to 'Back', slants_path %>
+
+<section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
+<div class="col-md-8 col-md-offset-2">
+<%= form_for(@slant, :html => {:class => 'form contact-form', :id => 'contact_form'}) do |f| %>
+  <% if @slant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slant.errors.count, "error") %> prohibited this slant from being saved:</h2>
+
+      <ul>
+      <% @slant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="clearfix align-centre">  
+  <p id="notice"><%= notice %></p> 
+
+    <div style="padding: 40px; background-color: white; border-radius: 5px; box-shadow: 1px 1px 6px;">
+		
+		<div class="row">
+			<div class="col-md-12" style="padding-left: 0;">
+				<img src="<%= asset_path('slant_header.jpg')%>" alt="">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :college_name, :class => "input-md round form-control", :placeholder =>"College name", :type => "text", :required => true%>
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :phone , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+
+		</div>
+		<div class="row">
+			<h5>The red button</h5>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :rb_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :rb_name2, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone2 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :rb_name3, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone3 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				
+
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :rb_name4, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone4 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :rb_name5, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone5 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :rb_name6, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :rb_phone6 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<h5>Breaking News</h5>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :bn_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :bn_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :bn_name2, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :bn_phone2 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				
+				
+
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :bn_name3, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :bn_phone3 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :bn_name4, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :bn_phone4 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+
+			</div>
+
+		</div>
+		
+
+		<div class="row">
+			
+			<div class="col-md-6" style="padding-left: 0;">
+				<h5>Fact Check</h5>
+				<%= f.text_field :fc_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :fc_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :fc_name2, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :fc_phone2 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :fc_name3, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :fc_phone3 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+			<h5>Tweet This!</h5>
+				<%= f.text_field :tt_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :tt_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :tt_name2, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :tt_phone2 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+				<%= f.text_field :tt_name3, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :tt_phone3 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+
+		</div>
+
+		<div class="row">			
+			<div class="col-md-6" style="padding-left: 0;">
+				<h5>Essay</h5>
+				<%= f.text_field :es_name, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :es_phone , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+			<h5>Photo Journal</h5>
+				<%= f.text_field :pj_name, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+				<%= f.text_field :pj_phone , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<h5>Documentry</h5>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :do_name, :class => "input-md round form-control", :placeholder =>" Name", :type => "text", :required => true%>
+			</div>
+			<div class="col-md-6" style="padding-left: 0;">
+				<%= f.text_field :do_phone , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
+			</div>
+		</div>
+
+        
+		<div class="align-right pt-10 form-group">
+            <!-- <button class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">Submit Message</button> -->
+            <%= f.submit "Submit", :class => "submit_btn btn btn-mod btn-medium btn-round"%>   
+        </div>   		      
+    </div>
+<% end %>
+<!-- end of form -->
+</div>
+</section> 
