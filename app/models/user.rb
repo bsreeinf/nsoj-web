@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
   
   #relationships
-  has_one :college
-  has_one :student
   has_one :admission_form
 
   #validations
