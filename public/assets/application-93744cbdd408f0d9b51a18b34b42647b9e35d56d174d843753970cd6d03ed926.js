@@ -15523,15 +15523,10 @@ $().ready(function(){
 	//$(":input[placeholder], textarea[placeholder]").placeholder({container: true});
 	
 });
-$(document).ready(function()
-{
-    $('#contact_form').submit(function(event){
-        if(this.value == "save")
-        {
-            console.log("save clicked");
-        }
-    });
-});
+(function() {
+
+
+}).call(this);
 /* ---------------------------------------------
  Contact form
  --------------------------------------------- */
