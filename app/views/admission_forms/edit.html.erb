@@ -125,9 +125,9 @@
                   <h5>Date of Birth</h5>
                   <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth*", :type => "date", :required => true, :value => @admission_form.dob%>
                   <h5>Gender</h5>
-                  <%= radio_button_tag(:gender, "male", :class => "input-md round form-control", :required => true, :checked => false) %> Male <br>
-                  <%= radio_button_tag(:gender, "female", :class => "input-md round form-control", :required => true, :checked => false) %> Female <br>
-                  <%= radio_button_tag(:gender, "other", :class => "input-md round form-control", :required => true, :checked => false) %> Other <br>
+                  <%= f.radio_button(:gender, "male", :class => "input-md round form-control", :required => true, :checked => false) %> Male <br>
+                  <%= f.radio_button(:gender, "female", :class => "input-md round form-control", :required => true, :checked => false) %> Female <br>
+                  <%= f.radio_button(:gender, "other", :class => "input-md round form-control", :required => true, :checked => false) %> Other <br>
                 </div>
               </div>
             </div>
@@ -144,8 +144,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   Do you require a visa to study in India? <br>
-                  <%= radio_button_tag(:visa_required, "yes", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> Yes <br>
-                  <%= radio_button_tag(:visa_required, "no", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> No
+                  <%= f.radio_button(:visa_required, "yes", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> Yes <br>
+                  <%= f.radio_button(:visa_required, "no", :class => "input-md round form-control", :checked => false, :placeholder =>"Date of Birth", :required => true) %> No
                 </div>
               </div>
             </div>
@@ -195,10 +195,10 @@
               <h5>Post graduate diploma in Journalism in</h5>
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= radio_button_tag(:program_of_study, "print_convergence_media", :class => "input-md round form-control", :required => true, :checked => false) %> Print & Convergence Media 
+                  <%= f.radio_button(:program_of_study, "print_convergence_media", :class => "input-md round form-control", :required => true, :checked => false) %> Print & Convergence Media 
                 </div>
                 <div class="col-md-6">
-                  <%= radio_button_tag(:program_of_study, "broadcast_media", :class => "input-md round form-control", :required => true, :checked => false) %> Broadcast Media 
+                  <%= f.radio_button(:program_of_study, "broadcast_media", :class => "input-md round form-control", :required => true, :checked => false) %> Broadcast Media 
                 </div>
               </div>
             </div>
@@ -210,10 +210,10 @@
             <div style="padding-left: 0;">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= radio_button_tag(:currently_studying, "studying", :class => "input-md round form-control", :required => true) %> I am currently studying, as follows  
+                  <%= f.radio_button(:currently_studying, "studying", :class => "input-md round form-control", :required => true) %> I am currently studying, as follows  
                 </div>
                 <div class="col-md-6">
-                  <%= radio_button_tag(:currently_studying, "not_studying", :class => "input-md round form-control", :required => true) %> I am not currently studying - go to (5)  
+                  <%= f.radio_button(:currently_studying, "not_studying", :class => "input-md round form-control", :required => true) %> I am not currently studying - go to (5)  
                 </div>
                 <br><br>
                 <table class="table table-striped table-bordered">
@@ -511,7 +511,7 @@
         <!-- Send Button -->
         <div class="align-right pt-10 form-group">
             <!-- <button class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">Submit Message</button> -->
-            <%= f.submit "Save", :class => "submit_btn btn btn-mod btn-medium btn-round"%>
+            <%= f.submit "Save", :class => "submit_btn btn btn-mod btn-medium btn-round", :formnovalidate => "formnovalidate" %>
             <%= f.submit "Save and Submit", :class => "submit_btn btn btn-mod btn-medium btn-round"%>
         </div>         
                 
