@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)  
     if @user.save
+      SignupMailer.signup_created(@user.name,@user.email,@user.phone,@user.city).deliver_now
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
       redirect_to login_url
@@ -69,7 +70,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email,:phone, :password, :password_confirmation, :address, :city, :pincode, :state, :country)
+      params.require(:user).permit(:name, :email,:phone, :password, :password_confirmation, :address, :city, :pincode, :state, :country, :activated)
     end
     
     # Confirms the correct user.

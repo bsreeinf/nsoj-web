@@ -33,6 +33,7 @@ ActiveAdmin.register EventDatum do
 			attributes_table_for event_datum  do
 				row :event_id
 				row :tag
+				
 				row :image do
 				  image_tag(event_datum.image.url(:thumb))
 				end
@@ -44,7 +45,7 @@ ActiveAdmin.register EventDatum do
 
 	index :tag => "Gallery" do
 		column :event_id
-       column :tag
+        column :tag
 	    column :image do |post|
 	    	a :class => "admin_image_popup", :href => post.image.url(:large) do
 				image_tag(post.image.url(:thumb))

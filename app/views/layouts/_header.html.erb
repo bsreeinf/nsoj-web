@@ -28,7 +28,7 @@
                         <li> <a href="#contact">Contact Us</a> </li>
                     <%else%>
                         <li><%= link_to("About Us",root_path(:anchor => "about"),  method: :get ) %></li>
-                        <li><%= link_to("NSOJ Method",root_path(:anchor => "start"),  method: :get ) %></li>
+                        <li><%= link_to("NSoJ Method",root_path(:anchor => "start"),  method: :get ) %></li>
                         <li><%= link_to("Contact Us",root_path(:anchor => "contact"),  method: :get ) %></li>
 
                     <%end%>
@@ -113,13 +113,13 @@
                         <li> <a href="#service-radio">NSoJ Radio</a> </li>
                         <li> <a href="#service-tv">NSoJ TV</a> </li>
                         <li role="separator" class="divider"></li>
-                        <li> <a href="#service-blog">Blog</a> </li>
+                        <li> <a href="https://nsojblog.wordpress.com">Blog</a> </li>
                     <%else%>
                         <li> <a href="/student_publications#service-news">NSoJ Post</a> </li>
                         <li> <a href="/student_publications#service-radio">NSoJ Radio</a> </li>
                         <li> <a href="/student_publications#service-tv">NSoJ TV</a> </li>
                         <li role="separator" class="custom_divider"></li>
-                        <li> <a href="/student_publications#service-blog">Blog</a> </li>
+                        <li> <a href="https://nsojblog.wordpress.com">Blog</a> </li>
                     <%end%>    
                     </ul>
                 </li>
