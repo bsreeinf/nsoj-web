@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['INFO_EMAIL']
+  default from: 'National School of Journalism <info@nsoj.in>'
   layout 'mailer'
 end

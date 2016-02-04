@@ -8,7 +8,7 @@ class AdmissionContactMailer < ActionMailer::Base
 		
 		mail(
 				to: ENV['INFO_EMAIL'],
-				from: ENV['INFO_EMAIL'],
+				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Contact",
 				
 			)

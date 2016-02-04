@@ -7,7 +7,7 @@ class ApplicationFormMailer < ActionMailer::Base
 		
 		mail(
 				to: @email,
-				from: ENV['INFO_EMAIL'],
+				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Application form",
 				
 			)
@@ -21,7 +21,7 @@ class ApplicationFormMailer < ActionMailer::Base
 		
 		mail(
 				to: ENV['INFO_EMAIL'],
-				from: ENV['INFO_EMAIL'],
+				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Application form",
 				
 			)
