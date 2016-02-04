@@ -108,10 +108,10 @@
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Name (this should be your name as on your passport or any other official document)</h5>
               <div class="form-group">
-                <%= f.text_field :last_name1, :class => "input-md round form-control", :placeholder =>"Last name*", :type => "text", :required => true, :value => @admission_form.last_name1%>
-                <%= f.text_field :first_name1 , :class => "input-md round form-control",:placeholder =>"First name*", :type => "text", :required => true, :value => @admission_form.first_name1 %>
+                <%= f.text_field :last_name1, :class => "input-md round form-control", :placeholder =>"Last name*", :type => "text",  :value => @admission_form.last_name1%>
+                <%= f.text_field :first_name1 , :class => "input-md round form-control",:placeholder =>"First name*", :type => "text",  :value => @admission_form.first_name1 %>
                 <%= f.text_field :middle_name1 , :class => "input-md round form-control",:placeholder =>"Middle name", :type => "text", :value => @admission_form.middle_name1 %>
-                <%= f.text_field :name_title1 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)*", :type => "text", :required => true, :value => @admission_form.name_title1 %>
+                <%= f.text_field :name_title1 , :class => "input-md round form-control",:placeholder =>"Title (Mr / Mrs / Miss / Dr etc)*", :type => "text",  :value => @admission_form.name_title1 %>
               </div>
             </div>
             <div class="col-md-6" style="padding-left: 0;">
@@ -130,11 +130,11 @@
               <div class="form-group">
                 <div class="row">
                   <h5>Date of Birth</h5>
-                  <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth*", :type => "date", :required => true, :value => @admission_form.dob%>
+                  <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth*", :type => "date",  :value => @admission_form.dob%>
                   <h5>Gender</h5>
-                  <%= f.radio_button(:gender, "male", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.gender=="male")) %> Male <br>
-                  <%= f.radio_button(:gender, "female", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.gender=="female")) %> Female <br>
-                  <%= f.radio_button(:gender, "other", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.gender=="other")) %> Other <br>
+                  <%= f.radio_button(:gender, "male", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="male")) %> Male <br>
+                  <%= f.radio_button(:gender, "female", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="female")) %> Female <br>
+                  <%= f.radio_button(:gender, "other", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="other")) %> Other <br>
                 </div>
               </div>
             </div>
@@ -142,17 +142,17 @@
               <h5>Nationality and residence</h5>
               <div class="col-md-6" style="padding-left: 0px;">
                 <div class="form-group">
-                  <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence*", :type => "text", :required => true, :value => @admission_form.country_of_permanent_residence%>
-                  <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth*", :type => "text", :required => true, :value => @admission_form.country_of_birth %>
-                  <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality*", :type => "text", :required => true, :value => @admission_form.nationality %>
+                  <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence*", :type => "text", :value => @admission_form.country_of_permanent_residence%>
+                  <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth*", :type => "text", :value => @admission_form.country_of_birth %>
+                  <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality*", :type => "text", :value => @admission_form.nationality %>
                   <%= f.text_field :second_nationality, :class => "input-md round form-control",:placeholder =>"Second Nationality", :type => "text", :value => @admission_form.second_nationality %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   Do you require a visa to study in India? <br>
-                  <%= f.radio_button(:visa_required, "yes", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==true), :placeholder =>"Date of Birth", :required => true) %> Yes <br>
-                  <%= f.radio_button(:visa_required, "no", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==false), :placeholder =>"Date of Birth", :required => true) %> No
+                  <%= f.radio_button(:visa_required, "yes", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==true), :placeholder =>"Date of Birth") %> Yes <br>
+                  <%= f.radio_button(:visa_required, "no", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==false), :placeholder =>"Date of Birth") %> No
                 </div>
               </div>
             </div>
@@ -164,15 +164,15 @@
             <div class="col-md-6" style="padding-left: 0;">
               <h5>Mailing Address</h5>
               <div class="form-group">
-                <%= f.text_field :addr_street1, :class => "input-md round form-control", :placeholder =>"Street*", :type => "text", :required => true, :value => @admission_form.addr_street1%>
-                <%= f.text_field :addr_city1 , :class => "input-md round form-control",:placeholder =>"City*", :type => "text", :required => true, :value => @admission_form.addr_city1 %>
-                <%= f.text_field :addr_state1 , :class => "input-md round form-control",:placeholder =>"State*", :type => "text", :required => true, :value => @admission_form.addr_state1 %>
-                <%= f.text_field :addr_pincode1 , :class => "input-md round form-control",:placeholder =>"Pincode*", :type => "number", :required => true, :value => @admission_form.addr_pincode1 %>
-                <%= f.text_field :addr_country1 , :class => "input-md round form-control",:placeholder =>"Country*", :type => "text", :required => true, :value => @admission_form.addr_country1 %>
-                <%= f.text_field :phone1 , :class => "input-md round form-control",:placeholder =>"Phone*", :type => "tel", :required => true, :value => @admission_form.phone1 %>
+                <%= f.text_field :addr_street1, :class => "input-md round form-control", :placeholder =>"Street*", :type => "text", :value => @admission_form.addr_street1%>
+                <%= f.text_field :addr_city1 , :class => "input-md round form-control",:placeholder =>"City*", :type => "text", :value => @admission_form.addr_city1 %>
+                <%= f.text_field :addr_state1 , :class => "input-md round form-control",:placeholder =>"State*", :type => "text", :value => @admission_form.addr_state1 %>
+                <%= f.text_field :addr_pincode1 , :class => "input-md round form-control",:placeholder =>"Pincode*", :type => "number", :value => @admission_form.addr_pincode1 %>
+                <%= f.text_field :addr_country1 , :class => "input-md round form-control",:placeholder =>"Country*", :type => "text", :value => @admission_form.addr_country1 %>
+                <%= f.text_field :phone1 , :class => "input-md round form-control",:placeholder =>"Phone*", :type => "tel", :value => @admission_form.phone1 %>
                 <div class="col-md-3">Address valid until</div>
                 <div class="col-md-9">
-                  <%= f.date_field :addr_until, :class => "input-md round form-control", :placeholder =>"Living until*", :type => "date", :required => true, :value => @admission_form.addr_until%>
+                  <%= f.date_field :addr_until, :class => "input-md round form-control", :placeholder =>"Living until*", :type => "date", :value => @admission_form.addr_until%>
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@
           </div>
 
           <br><br>
-          <%= f.text_field :email , :class => "input-md round form-control",:placeholder =>"Email*", :type => "email", :required => true, :value => @admission_form.email %> 
+          <%= f.text_field :email , :class => "input-md round form-control",:placeholder =>"Email*", :type => "email", :value => @admission_form.email %> 
 
           <div class="row">
             <h4>(3) Programme of Study</h4>
@@ -202,10 +202,10 @@
               <h5>Post graduate diploma in Journalism in</h5>
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= f.radio_button(:program_of_study, "print_convergence_media", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.program_of_study=="print_convergence_media")) %> Print & Convergence Media 
+                  <%= f.radio_button(:program_of_study, "print_convergence_media", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.program_of_study=="print_convergence_media")) %> Print & Convergence Media 
                 </div>
                 <div class="col-md-6">
-                  <%= f.radio_button(:program_of_study, "broadcast_media", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.program_of_study=="broadcast_media")) %> Broadcast Media 
+                  <%= f.radio_button(:program_of_study, "broadcast_media", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.program_of_study=="broadcast_media")) %> Broadcast Media 
                 </div>
               </div>
             </div>
@@ -217,10 +217,10 @@
             <div style="padding-left: 0;">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= f.radio_button(:currently_studying, "studying", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.currently_studying==true)) %> I am currently studying, as follows  
+                  <%= f.radio_button(:currently_studying, "studying", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.currently_studying==true)) %> I am currently studying, as follows  
                 </div>
                 <div class="col-md-6">
-                  <%= f.radio_button(:currently_studying, "not_studying", :class => "input-md round form-control custom-radio", :required => true, :checked => (true if @admission_form.currently_studying==false)) %> I am not currently studying - go to (5)  
+                  <%= f.radio_button(:currently_studying, "not_studying", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.currently_studying==false)) %> I am not currently studying - go to (5)  
                 </div>
                 <br><br>
                 <table class="table table-striped table-bordered">
@@ -491,12 +491,12 @@
           <div class="row">
             <h4>(8) List your relevant life experience.<br>
               You may mention your extra-curricular activities or any special circumstances which aren't evident from other answers in this application that you wish to draw to the attention of the assessors of your application. Applicants with a background in Journalism may provide examples of any journalistic work, including newspaper, broadcast and/or online material.</h4>
-            <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;", :required => true %>
+            <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
           </div>
           
           <div class="row">
             <h4>(9) Describe in 300 words your views on any subject area that you are interested in. Your essay should demonstrate the depth of your knowledge as well as your own perspectives and opinions on the matter.</h4>
-            <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;", :required => true %>
+            <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
           </div>
             
           <div class="row">

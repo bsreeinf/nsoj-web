@@ -18,16 +18,16 @@ index do
     column :name
     column :email
     column :phone
-    column :address
     column :city
-    column :pincode
-    column :state
-    column :country
     column :activated
     column :activated_at
     column :reset_sent_at
     column :created_at
     column :updated_at
+    column :address
+    column :pincode
+    column :state
+    column :country
     actions
   end
 
