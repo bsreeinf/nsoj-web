@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 20160123133938) do
     t.string   "eh_employer_details3"
     t.string   "assessment_interested"
     t.string   "assessment_experience"
-    t.boolean  "is_submitted"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "is_submitted",                   default: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "contact_subjects", force: :cascade do |t|

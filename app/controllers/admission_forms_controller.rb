@@ -69,6 +69,6 @@ class AdmissionFormsController < ApplicationController
         :eh_from_date1, :eh_to_date1, :eh_post_held1, :eh_employer_details1, 
         :eh_from_date2, :eh_to_date2, :eh_post_held2, :eh_employer_details2, 
         :eh_from_date3, :eh_to_date3, :eh_post_held3, :eh_employer_details3, 
-        :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying)
+        :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying,:is_submitted)
     end
 end
