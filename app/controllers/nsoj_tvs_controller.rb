@@ -6,7 +6,7 @@ class NsojTvsController < ApplicationController
   # GET /nsoj_tvs
   # GET /nsoj_tvs.json
   def index
-    @nsoj_tvs = NsojTv.all
+    @nsoj_tvs = NsojTv.all.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -4,7 +4,7 @@ class NsojRadiosController < ApplicationController
   # GET /nsoj_radios
   # GET /nsoj_radios.json
   def index
-    @nsoj_radios = NsojRadio.all
+    @nsoj_radios = NsojRadio.all.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
