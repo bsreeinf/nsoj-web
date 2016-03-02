@@ -4,7 +4,7 @@ class NsojPostsController < ApplicationController
   # GET /nsoj_posts
   # GET /nsoj_posts.json
   def index
-    @nsoj_posts = NsojPost.all
+    @nsoj_posts = NsojPost.all.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
