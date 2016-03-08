@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :slants
+  # resources :slants
+
   resources :admission_forms
   get 'sessions/new'
 
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get 'program'                         => 'landing_page#program'
   get 'admission'                       => 'landing_page#admission'
   get 'advisory_board'                  => 'landing_page#advisory_board'
+  get 'brochure'                        => 'landing_page#brochure'
 
   get 'student_publications'            => 'student_publication#index'
 

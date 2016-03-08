@@ -32,5 +32,9 @@ class LandingPageController < ApplicationController
   def nsoj_post
     
   end
+
+  def brochure
+
+  end
   
 end

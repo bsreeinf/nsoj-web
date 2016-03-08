@@ -24,7 +24,7 @@
     <section class="page-section">
         <div class="container relative">
                 
-          <% NsojPost.all.each do |post| %>
+          <% NsojPost.all.order("created_at DESC").each do |post| %>
               <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
             
               
