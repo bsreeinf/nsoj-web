@@ -73,8 +73,11 @@ gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'country_select'
 
-
+gem "ckeditor"
 gem 'paperclip'
+gem 'paperclip-ghostscript'
+gem "cocaine"
+gem 'paperclip-ffmpeg'
 
 gem 'aws-sdk-v1'
 
