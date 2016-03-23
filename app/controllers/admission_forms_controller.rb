@@ -10,6 +10,9 @@ class AdmissionFormsController < ApplicationController
   def download_form
     if(params.has_key?(:user_id))
       @frm = AdmissionForm.all.where(user_id: params[:user_id]).first
+      respond_to do |format|
+        format.html 
+      end
     end
   end
 
