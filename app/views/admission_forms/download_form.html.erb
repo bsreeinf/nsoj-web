@@ -1,0 +1,471 @@
+<style>
+  input{
+    text-transform: none !important;
+    margin-bottom: 7px !important;
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc !important; 
+  }
+  h4{
+    margin: 40px 0 10px 0 !important;
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  h5{
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  td input{
+    margin: 0 !important;
+  }
+  .no-padding{
+    padding: 3px !important;
+  }
+  .custom-radio{
+    height: inherit !important;
+    margin: 15px 5px 5px 0 !important;
+    width: initial !important;
+    box-shadow: none !important;
+    display: inline !important;
+  }
+</style>
+<% provide(:title, 'Admission Form') %>
+
+<section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
+  <div class="container">            
+      <!-- Hero Content -->
+      <div class="home-content">
+          <div class="home-text" style="padding: 140px 0px 45px 0px;">
+              
+              <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
+                Admission Application Form 2016 - 2017
+              </h1>                                      
+          </div>
+      </div>
+      <!-- End Hero Content -->            
+  </div>
+</section>
+
+<section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
+  <div class="col-md-8 col-md-offset-2">
+
+      <div class="clearfix align-centre">  
+      
+        <div style="padding: 40px; background-color: white; border-radius: 5px; box-shadow: 1px 1px 6px;">
+        
+          
+
+          <div class="row">
+            <h4>(1) Personal details</h4>
+            <div class="col-md-6" style="padding-left: 0;">
+              <h5>Name (this should be your name as on your passport or any other official document)</h5>
+              <div class="form-group">
+                last_name1: <%=@admission_form.last_name1%>
+                first_name1: <%=@admission_form.first_name1 %>
+                middle_name1: <%=@admission_form.middle_name1 %>
+                name_title1: <%=@admission_form.name_title1 %>
+              </div>
+            </div>
+            <div class="col-md-6" style="padding-left: 0;">
+              <h5>Name (previous) If you used a different name at any time, please include it here.</h5>
+              <div class="form-group">
+                last_name2: <%=@admission_form.last_name2%>
+                first_name2: <%=@admission_form.first_name2 %>
+                middle_name2: <%=@admission_form.middle_name2 %>
+                name_title2: <%=@admission_form.name_title2 %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="row">
+                  <h5>Date of Birth</h5>
+                  <%= f.date_field :dob, :class => "input-md round form-control", :placeholder =>"Date of Birth*", :type => "date",  :value => @admission_form.dob%>
+                  <h5>Gender</h5>
+                  <%= f.radio_button(:gender, "male", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="male")) %> Male <br>
+                  <%= f.radio_button(:gender, "female", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="female")) %> Female <br>
+                  <%= f.radio_button(:gender, "other", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.gender=="other")) %> Other <br>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h5>Nationality and residence</h5>
+              <div class="col-md-6" style="padding-left: 0px;">
+                <div class="form-group">
+                  <%= f.text_field :country_of_permanent_residence, :class => "input-md round form-control", :placeholder =>"Country of Permanent Residence*", :type => "text", :value => @admission_form.country_of_permanent_residence%>
+                  <%= f.text_field :country_of_birth , :class => "input-md round form-control",:placeholder =>"Country of Birth*", :type => "text", :value => @admission_form.country_of_birth %>
+                  <%= f.text_field :nationality , :class => "input-md round form-control",:placeholder =>"Nationality*", :type => "text", :value => @admission_form.nationality %>
+                  <%= f.text_field :second_nationality, :class => "input-md round form-control",:placeholder =>"Second Nationality", :type => "text", :value => @admission_form.second_nationality %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  Do you require a visa to study in India? <br>
+                  <%= f.radio_button(:visa_required, "yes", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==true), :placeholder =>"Date of Birth") %> Yes <br>
+                  <%= f.radio_button(:visa_required, "no", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.visa_required==false), :placeholder =>"Date of Birth") %> No
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <h4>(2) Contact Information</h4>
+            <div class="col-md-6" style="padding-left: 0;">
+              <h5>Mailing Address</h5>
+              <div class="form-group">
+                <%= f.text_field :addr_street1, :class => "input-md round form-control", :placeholder =>"Street*", :type => "text", :value => @admission_form.addr_street1%>
+                <%= f.text_field :addr_city1 , :class => "input-md round form-control",:placeholder =>"City*", :type => "text", :value => @admission_form.addr_city1 %>
+                <%= f.text_field :addr_state1 , :class => "input-md round form-control",:placeholder =>"State*", :type => "text", :value => @admission_form.addr_state1 %>
+                <%= f.text_field :addr_pincode1 , :class => "input-md round form-control",:placeholder =>"Pincode*", :type => "number", :value => @admission_form.addr_pincode1 %>
+                <%= f.text_field :addr_country1 , :class => "input-md round form-control",:placeholder =>"Country*", :type => "text", :value => @admission_form.addr_country1 %>
+                <%= f.text_field :phone1 , :class => "input-md round form-control",:placeholder =>"Phone*", :type => "tel", :value => @admission_form.phone1 %>
+                <div class="col-md-3">Address valid until</div>
+                <div class="col-md-9">
+                  <%= f.date_field :addr_until, :class => "input-md round form-control", :placeholder =>"Living until*", :type => "date", :value => @admission_form.addr_until%>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="padding-left: 0;">
+              <h5>Home (permanent) Address (if different)</h5>
+              <div class="form-group">
+                <%= f.text_field :addr_street2, :class => "input-md round form-control", :placeholder =>"Street", :type => "text", :value => @admission_form.addr_street2%>
+                <%= f.text_field :addr_city2 , :class => "input-md round form-control",:placeholder =>"City", :type => "text", :value => @admission_form.addr_city2 %>
+                <%= f.text_field :addr_state2 , :class => "input-md round form-control",:placeholder =>"State", :type => "text", :value => @admission_form.addr_state2 %>
+                <%= f.text_field :addr_pincode2 , :class => "input-md round form-control",:placeholder =>"Pincode", :type => "number", :value => @admission_form.addr_pincode2 %>
+                <%= f.text_field :addr_country2 , :class => "input-md round form-control",:placeholder =>"Country", :type => "text", :value => @admission_form.addr_country2 %>
+                <%= f.text_field :phone2 , :class => "input-md round form-control",:placeholder =>"Phone", :type => "tel", :value => @admission_form.phone2 %>
+                <div class="col-md-3">Address valid since</div>
+                <div class="col-md-9">
+                  <%= f.date_field :addr_since, :class => "input-md round form-control", :placeholder =>"Living until", :type => "date", :value => @admission_form.addr_since%>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br><br>
+          <%= f.text_field :email , :class => "input-md round form-control",:placeholder =>"Email*", :type => "email", :value => @admission_form.email %> 
+
+          <div class="row">
+            <h4>(3) Programme of Study</h4>
+            <div style="padding-left: 0;">
+              <h5>Post graduate diploma in Journalism in</h5>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= f.radio_button(:program_of_study, "print_convergence_media", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.program_of_study=="print_convergence_media")) %> Print & Convergence Media 
+                </div>
+                <div class="col-md-6">
+                  <%= f.radio_button(:program_of_study, "broadcast_media", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.program_of_study=="broadcast_media")) %> Broadcast Media 
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of 3  -->
+
+          <div class="row">
+            <h4>(4) Current Study</h4>
+            <div style="padding-left: 0;">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= f.radio_button(:currently_studying, "studying", :class => "input-md round form-control custom-radio", :checked => (true if @admission_form.currently_studying==true)) %> I am currently studying, as follows  
+                </div>
+                <div class="col-md-6">
+                  <%= f.radio_button(:currently_studying, "not_studying", :class => "input-md round form-control custom-radio",  :checked => (true if @admission_form.currently_studying==false)) %> I am not currently studying - go to (5)  
+                </div>
+                <br><br>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <td>Name of University/ College <br>
+                      (include city, state)</td>
+                      <td>Subject <br>
+                      (include Faculty/ Department)</td>
+                      <td>Degree</td>
+                      <td>Date started</td>
+                      <td>Date to be obtained</td>
+                      <td>Expected Grade/ GPA/ Percentage</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :s_university , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_university %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :s_subject , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_subject %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :s_degree , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_degree %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :s_date_started , :class => "input-md round form-control", :type => "date", :value => @admission_form.s_date_started %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :s_date_to_be_obtained , :class => "input-md round form-control", :type => "date", :value => @admission_form.s_date_to_be_obtained %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :s_expected_gpa , :class => "input-md round form-control", :type => "text", :value => @admission_form.s_expected_gpa %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End of table -->
+
+              </div>
+            </div>
+          </div>
+          <!-- End of 4  -->
+          
+          <div class="row">
+            <h4>(5) Previous degree-level study (most recent first)</h4>
+            <div style="padding-left: 0;">
+              <div class="form-group">
+
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <td>Name of University/ College <br>
+                      (include city, state)</td>
+                      <td>Subject <br>
+                      (include Faculty/ Department)</td>
+                      <td>Degree</td>
+                      <td>Date obtained</td>
+                      <td>Grade/ GPA/ Percentage</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :r_university , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_university %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :r_subject , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_subject %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :r_degree , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_degree %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :r_date_to_be_obtained , :class => "input-md round form-control", :type => "date", :value => @admission_form.r_date_to_be_obtained %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :r_expected_gpa , :class => "input-md round form-control", :type => "text", :value => @admission_form.r_expected_gpa %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End of table -->
+
+              </div>
+            </div>
+          </div>
+          <!-- End of 5  -->
+
+          <div class="row">
+            <h4>(6) If you have made applications to other institutions this year, give details here</h4>
+            <div style="padding-left: 0;">
+              <div class="form-group">
+
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <td>Degree</td>
+                      <td>Programme of study</td>
+                      <td>Institution</td>
+                      <td>Department</td>
+                      <td>Country</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :a_degree1 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_degree1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_program1 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_program1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_institution1, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_institution1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_department1, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_department1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_country1, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_country1 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :a_degree2 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_degree2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_program2 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_program2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_institution2, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_institution2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_department2, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_department2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_country2, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_country2 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :a_degree3 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_degree3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_program3 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_program3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_institution3, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_institution3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_department3, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_department3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_country3, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_country3 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :a_degree4 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_degree4 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_program4 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_program4 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_institution4, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_institution4 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_department4, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_department4 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_country4, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_country4 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :a_degree5 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_degree5 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_program5 , :class => "input-md round form-control", :type => "text", :value => @admission_form.a_program5 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_institution5, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_institution5 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_department5, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_department5 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :a_country5, :class => "input-md round form-control", :type => "text", :value => @admission_form.a_country5 %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End of table -->
+
+              </div>
+            </div>
+          </div>
+          <!-- End of 6  -->
+
+          <div class="row">
+            <h4>(7) Employment History</h4>
+            <div style="padding-left: 0;">
+              <div class="form-group">
+
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <td>From</td>
+                      <td>To</td>
+                      <td>Post Held</td>
+                      <td>Name and Address of Employer</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_from_date1 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_from_date1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_to_date1 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_to_date1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_post_held1 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_post_held1 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_employer_details1 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_employer_details1 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_from_date2 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_from_date2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_to_date2 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_to_date2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_post_held2 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_post_held2 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_employer_details2 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_employer_details2 %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_from_date3 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_from_date3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_to_date3 , :class => "input-md round form-control", :type => "date", :value => @admission_form.eh_to_date3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_post_held3 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_post_held3 %>
+                      </td>
+                      <td class="no-padding">
+                        <%= f.text_field :eh_employer_details3 , :class => "input-md round form-control", :type => "text", :value => @admission_form.eh_employer_details3 %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- End of table -->
+
+              </div>
+            </div>
+          </div>
+          <!-- End of 7  -->
+          
+          <h2>Part II: Assessment</h2>
+
+          <div class="row">
+            <h4>(8) List your relevant life experience.<br>
+              You may mention your extra-curricular activities or any special circumstances which aren't evident from other answers in this application that you wish to draw to the attention of the assessors of your application. Applicants with a background in Journalism may provide examples of any journalistic work, including newspaper, broadcast and/or online material.</h4>
+            <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
+          </div>
+          
+          <div class="row">
+            <h4>(9) Describe in 300 words your views on any subject area that you are interested in. Your essay should demonstrate the depth of your knowledge as well as your own perspectives and opinions on the matter.</h4>
+            <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
+          </div>
+            
+          <div class="row">
+            <h4>(10) Declaration</h4>
+            This document forms the legal basis of your application to NSoJ. We reserve the right to refuse admission in the event of any misrepresentation by you. Submission of an application does not imply an offer of admission. Read the following statement carefully before you submit your application.
+
+            <br><br><br>
+            1. I certify that all the information given in this application is complete and accurate, and I understand that if I have given false or misleading information, National School of Journalism will not admit me into the postgraduate diploma programme, and may take legal action against me.
+            <br><br>
+            2. I certify that I am the original and sole author of all work submitted as part of this application, except where clearly indicated otherwise.
+            <br><br>
+            3. I understand that if my application is unsuccessful, the papers relating to it will be destroyed, and cannot be returned.
+          </div>  
+
+        </div>  
+      </div>
+
+  </div>
+</section>
+<% end %>

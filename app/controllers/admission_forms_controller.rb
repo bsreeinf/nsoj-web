@@ -1,10 +1,16 @@
 class AdmissionFormsController < ApplicationController
-  before_action :logged_in_user
-  before_action :set_admission_form
+  before_action :logged_in_user, except: [:download_form]
+  before_action :set_admission_form, except: [:download_form]
 
   # GET /admission_forms/1
   # GET /admission_forms/1.json
   def show
+  end
+
+  def download_form
+    if(params.has_key?(:user_id))
+      @admission_form = AdmissionForm.all.where(user_id: params[:user_id]).first
+    end
   end
 
   # GET /admission_forms/1/edit

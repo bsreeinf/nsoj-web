@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get 'admission_form'                  => 'admission_forms#show'
   get 'edit_admission_form'             => 'admission_forms#edit'
   post 'update_admission_form'          => 'admission_forms#update'
-  patch 'update_admission_form'          => 'admission_forms#update'
+  patch 'update_admission_form'         => 'admission_forms#update'
+  get 'download_form'                   => 'admission_forms#download_form'
 
 end
