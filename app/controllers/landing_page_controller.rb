@@ -7,6 +7,13 @@ class LandingPageController < ApplicationController
   def why_us
   end
 
+  def download_student_brochure
+    send_data "#{Rails.root}/public/summer_program.pdf",
+    # send_data "#{asset_path('summer_program.pdf')}",
+    :filename => "NSoJ_Student_Brochure_2016.pdf",
+    :type => "application/pdf"
+  end
+
   def program
   end
 

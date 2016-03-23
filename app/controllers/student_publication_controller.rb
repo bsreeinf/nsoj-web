@@ -1,5 +1,6 @@
 class StudentPublicationController < ApplicationController
  	def index
+	  	@nsojposts=NsojPost.order("created_at DESC").limit(3)
 	  	@nsojradios=NsojRadio.order("created_at DESC").limit(3)
 	 	@nsojtvs=NsojTv.order("created_at DESC").limit(3)
 

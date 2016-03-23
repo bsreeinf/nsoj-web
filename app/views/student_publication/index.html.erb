@@ -71,171 +71,95 @@
     </div>
   </section>
 
-    <section class="page-section" id="service-news" style="padding-bottom:0px;">
-        <div class="container relative">
-          
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ Post
-              
-              <a href="/nsoj_post" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
-
-          
-
-
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+  <section class="page-section" id="service-radio" style="padding-bottom:0px;">
+      <div class="container relative">
+        <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+            MSoJ Post
             
-              
-              <a href="<%=asset_path('pdf1.pdf') %>" target="_blank" ><img src=<%= asset_path('pdf_thumb1.png') %> alt="Work" /></a>
-              
-          </div>
-          <!-- End Post Item -->
-
-
-          <!-- Post Item -->
+            <a href="/nsoj_post" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            
+        </h2>
+        
+        <% @nsojposts.each do |nsojpost| %>
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              
-              
-              <a href="<%=asset_path('pdf2.pdf') %>" target="_blank" ><img src=<%= asset_path('pdf_thumb2.png') %> alt="Work" /></a>
+            <a href="<%=post.document.url%>" target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /> </a>
+          </div>
+        <%end %>
+      </div>
+  </section>
+
+  <section class="page-section" id="service-radio" style="padding-bottom:0px;">
+      <div class="container relative">
+        <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+            nsoj radio
+            
+            <a href="/nsoj_radio" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            
+        </h2>
+        
+        <% @nsojradios.each do |nsojradio| %>
+           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+            
+              <iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<%=nsojradio.link%>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
               
           </div>
-          <!-- End Post Item -->
+        <%end %>
+      </div>
+  </section>
 
-          <!-- Post Item -->
+  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+      <div class="container relative">
+        
+        <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+            NSoJ TV - No Newsense
+            
+            <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            
+        </h2>
+         <% @nsojtvs_no_newsense.each do |nsojtv| %>
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              
-              
-              <a href="<%=asset_path('pdf3.pdf') %>" target="_blank" ><img src=<%= asset_path('pdf_thumb3.png') %> alt="Work" /> </a>
-              
+            <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
           </div>
+        <%end %>
+      </div>
+  </section>
 
-        </div>
-    </section>
-
-    <section class="page-section" id="service-radio" style="padding-bottom:0px;">
-        <div class="container relative">
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              nsoj radio
-              
-              <a href="/nsoj_radio" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
+  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+      <div class="container relative">
+        
+        <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+            NSoJ TV - Daily Bulletin
+            
+            <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            
+        </h2>
+         <% @nsojtvs_bulleitin.each do |nsojtv| %>
+          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
           
-          <% @nsojradios.each do |nsojradio| %>
-             <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              
-                <iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<%=nsojradio.link%>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-                
-            </div>
-          <%end %>
-        </div>
-    </section>
-
-    <section class="page-section" id="service-tv" style="padding-bottom:0px;">
-        <div class="container relative">
-          
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ TV - No Newsense
-              
-              <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
-           <% @nsojtvs_no_newsense.each do |nsojtv| %>
-            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
-            </div>
-          <%end %>
-        </div>
-    </section>
+              
+          </div>
+        <%end %>
+      </div>
+  </section>
+  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
 
-    <section class="page-section" id="service-tv" style="padding-bottom:0px;">
-        <div class="container relative">
-          
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ TV - Daily Bulletin
-              
-              <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
-           <% @nsojtvs_bulleitin.each do |nsojtv| %>
-            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+      <div class="container relative">
+        
+        <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
+            NSoJ TV - Featured
             
-                <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
-                
-            </div>
-          <%end %>
-        </div>
-    </section>
-    <section class="page-section" id="service-tv" style="padding-bottom:0px;">
-
-        <div class="container relative">
-          
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              NSoJ TV - Featured
-              
-              <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
-           <% @nsojtvs_featured.each do |nsojtv| %>
-            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-                <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
-                
-            </div>
-          <%end %>
-        </div>
-    </section>
-
-  <!--   <section class="page-section" id="service-blog" style="padding-bottom:0px;">
-        <div class="container relative">
-          
-          <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-              Blog
-              
-              <a href="https://nsojblog.wordpress.com" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-              
-          </h2>
-
+            <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            
+        </h2>
+         <% @nsojtvs_featured.each do |nsojtv| %>
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              <div class="mb-30">
-                <a href="https://nsojblog.wordpress.com/2015/11/30/media-needs-regulation-aditya-sondhi/" target="_blank">
-                  <div style="height: 220px; background: url('<%=asset_path('sondhi-crowd.jpg')%>'); background-size: cover; background-repeat: no-repeat;"></div>
-                </a>                
-              </div>
-              
-              <a href="https://nsojblog.wordpress.com/2015/11/30/media-needs-regulation-aditya-sondhi/" target="_blank">
-              <p>Media needs regulation: Aditya Sondhi</p></a>
+              <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
               
           </div>
-       
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              <div class="mb-30">
-              <a href="https://nsojblog.wordpress.com/2015/10/01/misconception-persists-on-rights-violations-mathews/" target="_blank">
-                <div style="height: 220px; background: url('<%=asset_path('matphil1.jpg')%>'); background-size: cover; background-repeat: no-repeat;"></div>
-              </a>
-                 
-              </div>
-             
-
-              <a href="https://nsojblog.wordpress.com/2015/10/01/misconception-persists-on-rights-violations-mathews/" target="_blank"><p>Misconception persists on rights violations: Mathews</p>                               </a> 
-              
-          </div>
-
-      
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-              <div class="mb-30">
-                <a href="https://nsojblog.wordpress.com/2015/11/11/do-not-judge-by-sexual-identity-says-celebrity-transgender/" target="_blank">
-                  <div style="height: 220px; background: url('<%=asset_path('akkai1.jpg')%>'); background-size: cover; background-repeat: no-repeat;"></div>
-                </a>                
-              </div>
-
-              <a href="https://nsojblog.wordpress.com/2015/11/11/do-not-judge-by-sexual-identity-says-celebrity-transgender/" target="_blank"><p>Do not judge by sexual identity, says celebrity transgender</p></a>
-              
-          </div>
-    
-
-        </div>
-    </section> -->
+        <%end %>
+      </div>
+  </section>
 
 
 
