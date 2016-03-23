@@ -82,7 +82,7 @@
         
         <% @nsojposts.each do |nsojpost| %>
           <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-            <a href="<%=post.document.url%>" target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /> </a>
+            <a href="<%=nsojpost.document.url%>" target="_blank" ><img src="<%=nsojpost.document.url(:thumb)%>" alt="Work" /> </a>
           </div>
         <%end %>
       </div>
