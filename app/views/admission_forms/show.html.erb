@@ -1,2 +1,91 @@
-<p id="notice"><%= notice %></p>
+<style>
+  input{
+    text-transform: none !important;
+    margin-bottom: 7px !important;
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc !important; 
+  }
+  h4{
+    margin: 40px 0 10px 0 !important;
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  h5{
+    padding: 7px !important;
+    background-color: #ccc !important;
+  }
+  td input{
+    margin: 0 !important;
+  }
+  .no-padding{
+    padding: 3px !important;
+  }
+  .custom-radio{
+    height: inherit !important;
+    margin: 15px 5px 5px 0 !important;
+    width: initial !important;
+    box-shadow: none !important;
+    display: inline !important;
+  }
+</style>
+<% provide(:title, 'Admission Form') %>
 
+<section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
+  <div class="container">            
+      <!-- Hero Content -->
+      <div class="home-content">
+          <div class="home-text" style="padding: 140px 0px 45px 0px;">
+              
+              <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
+                Admission Application Form 2016 - 2017
+              </h1>                                      
+          </div>
+      </div>
+      <!-- End Hero Content -->            
+  </div>
+</section>
+
+<section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
+  <div class="col-md-8 col-md-offset-2">
+
+      <div class="clearfix align-centre">  
+      
+        <div style="padding: 40px; background-color: white; border-radius: 5px; box-shadow: 1px 1px 6px;">
+
+          <div class="row">
+            <div style="padding-left: 0;">
+              Applicant Name:  
+                1. <span class="form_val"><%=@frm.name_title1%> <%=@frm.first_name1%> <%=@frm.middle_name1%> <%=@frm.last_name1%></span><br>
+                2. <span class="form_val"><%=@frm.name_title2%> <%=@frm.first_name2%> <%=@frm.middle_name2%> <%=@frm.last_name2%></span>
+
+              Reference No.: <span class="form_val"><%=@frm.form_token%></span>
+
+              From: 
+                1. <span class="form_val"><%=@frm.addr_street1%> <%=@frm.addr_city1%> <%=@frm.addr_state1%> <%=@frm.addr_pincode1%> <%=@frm.addr_country1%></span> <br>
+                2. <span class="form_val"><%=@frm.addr_street2%> <%=@frm.addr_city2%> <%=@frm.addr_state2%> <%=@frm.addr_pincode2%> <%=@frm.addr_country2%></span>
+
+              Date of Birth:  <span class="form_val"><%=@frm.dob%></span>
+
+              Contact No.:  
+                <span class="form_val"><%=@frm.phone1%></span> <br>
+                <span class="form_val"><%=@frm.phone2%></span>
+
+              Education:  <span class="form_val"></span>
+
+              Programme of Interest:  <span class="form_val"></span>
+
+              Colleges applied to:  <span class="form_val"></span>
+
+              Work Experience: <span class="form_val"></span>
+
+              Experience: <span class="form_val"></span>
+
+              View on Interested Subject Area:
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
