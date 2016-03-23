@@ -9,7 +9,7 @@ class AdmissionFormsController < ApplicationController
 
   def download_form
     if(params.has_key?(:user_id))
-      @admission_form = AdmissionForm.all.where(user_id: params[:user_id]).first
+      @frm = AdmissionForm.all.where(user_id: params[:user_id]).first
     end
   end
 
