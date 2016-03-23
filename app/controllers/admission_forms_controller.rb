@@ -13,7 +13,7 @@ class AdmissionFormsController < ApplicationController
       respond_to do |format|
         format.pdf do
           pdf = WickedPdf.new.pdf_from_string(
-            render_to_string(template: "dmission_forms/download_form.html.erb"),
+            render_to_string(template: "admission_forms/download_form.html.erb"),
             :footer => {right: "Powered by www.nsoj.in"}
           ) 
           send_data(pdf, 
