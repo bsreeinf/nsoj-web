@@ -48,4 +48,8 @@ Rails.application.routes.draw do
   patch 'update_admission_form'         => 'admission_forms#update'
   get 'download_form'                   => 'admission_forms#download_form'
 
+  # Dummy Temp Links
+  get 'News_Article.aspx'                    => 'student_publication#index'
+  get 'Why_NSOJ.aspx'                        => 'landing_page#why_us'
+
 end
