@@ -6,7 +6,7 @@ class SignupMailer < ActionMailer::Base
 		@city = city
 		
 		mail(
-				to: "contact@nsoj.in,paul.abhishek@nsoj.in,alex@nsoj.in",
+				to: ENV["TO_EMAILS"],
 				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Signup"
 			)

@@ -8,7 +8,7 @@ class ContactMailer < ActionMailer::Base
 		@university = university
 		@message = message
 		mail(
-				to: "contact@nsoj.in,paul.abhishek@nsoj.in,alex@nsoj.in",
+				to: ENV["TO_EMAILS"],
 				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Contact"
 			)
