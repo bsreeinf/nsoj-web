@@ -7,21 +7,21 @@ class AdmissionFormsController < ApplicationController
   def show
     if(params.has_key?(:user_id))
       @frm = AdmissionForm.all.where(user_id: params[:user_id]).first
-      respond_to do |format|
-        format.pdf do
-          pdf = WickedPdf.new.pdf_from_string(
-            render_to_string(template: "admission_forms/show.html.erb"),
-            :footer => {right: "Powered by www.nsoj.in"}
-          ) 
-          send_data(pdf, 
-            :filename    => "AF_#{@frm.firstname1.gsub(/\s+/, "")}_#{@frm.form_token}.pdf", 
-            :disposition => 'attachment'
-          )
+      # respond_to do |format|
+      #   format.pdf do
+      #     pdf = WickedPdf.new.pdf_from_string(
+      #       render_to_string(template: "admission_forms/show.html.erb"),
+      #       :footer => {right: "Powered by www.nsoj.in"}
+      #     ) 
+      #     send_data(pdf, 
+      #       :filename    => "AF_#{@frm.firstname1.gsub(/\s+/, "")}_#{@frm.form_token}.pdf", 
+      #       :disposition => 'attachment'
+      #     )
 
-          # render  pdf: "report_#{@verification_stub.name.gsub(/\s+/, "")}_#{@verification_stub.hallticket_no}", 
-          #         template: "college_verification/report.html.erb"
-        end
-      end
+      #     # render  pdf: "report_#{@verification_stub.name.gsub(/\s+/, "")}_#{@verification_stub.hallticket_no}", 
+      #     #         template: "college_verification/report.html.erb"
+      #   end
+      # end
     end
   end
 
