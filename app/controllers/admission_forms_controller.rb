@@ -1,6 +1,6 @@
 class AdmissionFormsController < ApplicationController
-  before_action :logged_in_user, except: [:download_form]
-  before_action :set_admission_form, except: [:download_form]
+  before_action :logged_in_user, except: [:download_form, :show]
+  before_action :set_admission_form, except: [:download_form, :show]
 
   # GET /admission_forms/1
   # GET /admission_forms/1.json
