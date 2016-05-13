@@ -108,10 +108,11 @@ index :tag => "Admission Forms" do
         column :eh_post_held3 
         column :eh_employer_details3 
         column "Assessment - Experience", :assessment_interested do |txtEssay1|
-                txtEssay1.assessment_interested[0..50]
+                txtEssay1.assessment_interested == nil ? "" : txtEssay1.assessment_interested[0..50] if 
+                end
         end
         column "Assessment - Interested", :assessment_experience do |txtEssay1|
-                txtEssay1.assessment_experience[0..50]
+                txtEssay1.assessment_experience == nil ? "" : txtEssay1.assessment_experience[0..50]
         end
         column :gender 
         column :visa_required 
