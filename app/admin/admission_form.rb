@@ -30,7 +30,10 @@ permit_params :user_id,
 #   permitted
 # end
 index :tag => "Admission Forms" do
+        actions
         column :user_id
+        column :is_submitted
+        column :email
         column :last_name1
         column :first_name1 
         column :middle_name1 
@@ -57,8 +60,7 @@ index :tag => "Admission Forms" do
         column :addr_pincode2 
         column :addr_country2 
         column :phone2 
-        column :addr_since 
-        column :email 
+        column :addr_since  
         column :s_university 
         column :s_subject 
         column :s_degree 
@@ -117,8 +119,7 @@ index :tag => "Admission Forms" do
         column :visa_required 
         column :program_of_study 
         column :currently_studying
-        column :is_submitted
-        actions
+        
 end
 
 end
