@@ -83,14 +83,14 @@
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'admission' ) %>
                         <li> <a href="#admission_requirements">Admission Requirements</a> </li>
                         <li> <a href="#admission_process">Application Process</a> </li>
-                        <li> <a href="#application_deadlines">Application Deadlines and Admission Dates</a> </li>
+                        <!-- <li> <a href="#application_deadlines">Application Deadlines and Admission Dates</a> </li> -->
                         <li> <a href="#pgdj_programme_fees">P.G.D.J. Programme Fees</a> </li>
                         <li> <a href="#application_form">Admission and Assessment Application Form</a> </li>
                         <li> <a href="#scholarship_and_aid">Scholarship and Aid</a> </li>
                     <%else%>
                         <li><%= link_to("Admission Requirements",admission_path(:anchor => "admission_requirements") ,  method: :get) %></li>
                         <li><%= link_to("Application Process",admission_path(:anchor => "admission_process") ,  method: :get) %></li>
-                        <li><%= link_to("Application Deadlines and Admission Dates",admission_path(:anchor => "application_deadlines") ,  method: :get) %></li>
+                        <!--<li><%= link_to("Application Deadlines and Admission Dates",admission_path(:anchor => "application_deadlines") ,  method: :get) %></li> -->
                         <li><%= link_to("P.G.D.J. Programme Fees",admission_path(:anchor => "pgdj_programme_fees") ,  method: :get) %></li>
                         <li><%= link_to("Admission and Assessment Application Form",admission_path(:anchor => "application_form") ,  method: :get) %></li>
                         <li><%= link_to("Scholarship and Aid",admission_path(:anchor => "scholarship_and_aid") ,  method: :get) %></li>
