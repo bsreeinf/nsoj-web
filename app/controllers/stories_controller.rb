@@ -1,17 +1,27 @@
-class StoriesController < InheritedResources::Base
-
+class StoriesController < ApplicationController
+	before_action :set_story, only: [:show]
+	before_action :set_story_categories
 
 	def index
 		@stories = Story.all
 	end
 
 	def show
-		@story = Story.find(params[:id])
+		
 	end
+
   private
 
+    def set_story
+		@story = Story.find(params[:id])
+	end
+
+	def set_story_categories
+		@story_categories = nil
+	end
+
     def story_params
-      params.require(:story).permit(:student_id, :title, :content)
+      params.require(:story)
     end
 end
 

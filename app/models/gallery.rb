@@ -3,7 +3,6 @@ class Gallery < ActiveRecord::Base
 	  # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :image, styles: {
     thumb: '180x180>',
-
     medium: '800x600>'
   }
 

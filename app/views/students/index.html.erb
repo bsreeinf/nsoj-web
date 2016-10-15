@@ -65,7 +65,6 @@
           <!-- Features Grid -->
           <div class="row multi-columns-row alt-features-grid">
                 <% @students.each do |student|%>
-                  <%19.times do%>
                   <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%= student_path(student.id)%>">
                       <div class="alt-features-item align-center">
                           <div class="alt-features-icon">
@@ -77,7 +76,6 @@
                           </div>
                       </div>
                   </a>
-                  <%end%>
                 <%end%>
             </div>
             <!-- End Features Grid -->
