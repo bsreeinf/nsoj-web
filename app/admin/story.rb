@@ -21,6 +21,7 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 			f.input :title, :required => true
 	    	f.input :content, :required => true
 	    	f.input :blog_image, :required => true, :as => :file
+	    	f.input :created_at, :as => :datepicker
 	    	f.input :image_caption
 	    	
 		end		
@@ -49,7 +50,7 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 					story.story_category.title
 				end
 				row :user do
-					link_to story.student.user.name, admin_user_path(story.student)
+					link_to story.student.user.name, student_path(story.student)
 				end
 				row :title
 				row :blog_image do
@@ -65,5 +66,13 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 		end	
 	  
 	 end
+
+	controller do
+		def create
+			super do |format|
+        		redirect_to new_admin_story_path and return if resource.valid?
+      		end
+		end
+	end
 
 end

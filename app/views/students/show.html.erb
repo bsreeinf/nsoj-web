@@ -16,7 +16,9 @@
                         		<p></p>
                         	<%else%>
 	                            <p>
-	                                <span class="dropcap font-alt"><%=@student.bio[0..0]%></span><%= @student.bio[1..-1].gsub(/\n/,'<br>').html_safe %>
+	                                <%if @student.bio.length > 1 %>
+                                        <span class="dropcap font-alt"><%=@student.bio[0..0]%></span><%= @student.bio[1..-1].gsub(/\n/,'<br>').html_safe %>
+                                    <%end%>
 	                            </p>
 	                        <%end%>
 	                        <!-- <br><br><br>
