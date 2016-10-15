@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123133938) do
+ActiveRecord::Schema.define(version: 20161007060217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,28 @@ ActiveRecord::Schema.define(version: 20160123133938) do
     t.datetime "updated_at",                                     null: false
   end
 
+  create_table "batches", force: :cascade do |t|
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "contact_subjects", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -277,6 +299,45 @@ ActiveRecord::Schema.define(version: 20160123133938) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "story_category_id"
+    t.string   "title"
+    t.text     "content"
+    t.string   "blog_image_file_name"
+    t.string   "blog_image_content_type"
+    t.integer  "blog_image_file_size"
+    t.datetime "blog_image_updated_at"
+    t.string   "image_caption"
+    t.datetime "last_accessed_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "stories", ["story_category_id"], name: "index_stories_on_story_category_id", using: :btree
+  add_index "stories", ["student_id"], name: "index_stories_on_student_id", using: :btree
+
+  create_table "story_categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "batch_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "bio"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "students", ["batch_id"], name: "index_students_on_batch_id", using: :btree
+  add_index "students", ["user_id"], name: "index_students_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -300,4 +361,8 @@ ActiveRecord::Schema.define(version: 20160123133938) do
   add_foreign_key "contacts", "contact_subjects"
   add_foreign_key "event_data", "events"
   add_foreign_key "nsoj_tvs", "nsoj_tv_categories"
+  add_foreign_key "stories", "story_categories"
+  add_foreign_key "stories", "students"
+  add_foreign_key "students", "batches"
+  add_foreign_key "students", "users"
 end

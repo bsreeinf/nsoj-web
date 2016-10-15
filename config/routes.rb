@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :stories
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :students
   # resources :slants
 
   resources :admission_forms
@@ -51,5 +54,4 @@ Rails.application.routes.draw do
   # Dummy Temp Links
   get 'News_Article.aspx'                    => 'student_publication#index'
   get 'Why_NSOJ.aspx'                        => 'landing_page#why_us'
-
 end

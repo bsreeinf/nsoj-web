@@ -1,0 +1,89 @@
+<style>
+  .student-box{
+
+    border: 1px solid transparent;
+    /*box-shadow: 2px 2px 10px transparent;*/
+    padding-bottom: 40px;
+    /*background-color: #fff4df;*/
+  }
+  .student-box:hover{
+    border: 1px solid #e4e4e4;
+    /*box-shadow: 2px 2px 10px #adadad;*/
+    cursor: pointer;
+    /*background-color: #fff4df;*/
+  }
+  .alt-features-item{
+    margin-top: 20px; 
+  }
+  .alt-features-title{
+    color: wheat;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .alt-features-descr{
+    color: white;
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+</style>
+<script>
+    document.title = "NSoJ - Our Student Journalists"
+</script>    
+<div style='padding-top:75px;'></div>
+    <!-- Head Section -->
+      <section class="small-section bg-gray-lighter">
+          <div class="relative container align-left">
+              
+              <div class="row">
+                  
+                  <div class="col-md-8">
+                      <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Our Student Journalists</h1>
+                      <!-- <div class="hs-line-4 font-alt black">
+                          Lorem ipsum dolor sit amet consectetur
+                      </div> -->
+                  </div>
+                  
+                  <!-- <div class="col-md-4 mt-30">
+                      <div class="mod-breadcrumbs font-alt align-right">
+                          <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Elements</a>&nbsp;/&nbsp;<span>Features</span>
+                      </div>
+                      
+                  </div> -->
+              </div>
+              
+          </div>
+      </section>
+      <!-- End Head Section -->
+            
+            
+      <!-- Section -->
+      <section class="page-section" style="background: rgba(34,34,34, .9);">
+        <div class="container relative">
+            
+          <!-- Features Grid -->
+          <div class="row multi-columns-row alt-features-grid">
+                <% @students.each do |student|%>
+                  <%19.times do%>
+                  <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%= student_path(student.id)%>">
+                      <div class="alt-features-item align-center">
+                          <div class="alt-features-icon">
+                              <img  src="<%= student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" style="max-width:120px;" class="img-circle">
+                          </div>
+                          <h2 class="alt-features-title font-alt"><%= student.user.name %></h2>
+                          <div class="alt-features-descr align-left">
+                              <%= (student.bio == nil ? "" : "#{student.bio[0..280]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
+                          </div>
+                      </div>
+                  </a>
+                  <%end%>
+                <%end%>
+            </div>
+            <!-- End Features Grid -->
+        
+        </div>
+    </section>
+    <!-- End Features Section -->
+
+

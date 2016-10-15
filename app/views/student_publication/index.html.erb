@@ -1,4 +1,7 @@
-
+<style>.page{
+    background-color: rgba(34,34,34, .9);
+    color: wheat;
+}</style>
   <!-- Head Section -->
   <section class="small-section bg-dark" data-background="<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%>" style="margin-top: 75px;">
       <div class="relative container align-left">
@@ -18,7 +21,7 @@
   </section>
   <!-- End Head Section -->
 
-  <section class="page-section" id="news_services" style="padding-bottom:0px;">
+  <section class="page-section" id="news_services" style="padding:20px 0 0 0;">
     <div class="container relative">
       <br><br>
       <p>Our student journalists create and contribute to industry standard news productions as an intrinsic part of their programme.</p>
@@ -26,10 +29,10 @@
       <p>Students specialising in print and convergence journalism produce NSoJ Post, a high quality newsmagazine featuring original news articles based on news gathered by student journalists. NSoJ Post meets and excels national newspaper industry standards in terms of content, design and style. Our students are trained in the use of the most advanced software in the industry and gain a thorough understanding of page layout and design skills for newspapers and newsmagazines. NSoJ Post is edited by a student editor under the guidance of our Director, Mr. H. S. Balram, who was Resident Editor, The Times of India (Bangalore) for more than a decade. Digital versions of NSoJ Post are uploaded on our website and on our social media channels to showcase the journalistic talents of our student journalists. Online versions of news stories appear in a convergence format on the NSoJ blog. Print and convergence students also benefit from training received from award winning instructors in photojournalism in developing their news stories and features for NSoJ Post and for our blog.</p>
       
       <br>
-      <section id="post_services" style="padding-bottom:0px;">
+      <section id="post_services" style="padding:0px;">
         <div class="container relative">
           <ul class="nav nav-tabs tpl-alt-tabs font-alt pt-30 pt-sm-0 pb-30 pb-sm-0">
-            <li class="active">
+            <li>
               <a href="#service-news" >
                 <div class="alt-tabs-icon">
                     <span class="icon-newspaper"></span>
@@ -72,10 +75,10 @@
     </div>
   </section>
 
-  <section class="page-section" id="service-radio" style="padding-bottom:0px;">
+  <section class="page-section" id="service-radio" style="padding:25px 0 0 0;">
       <div class="container relative">
         <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
-            NSoJ Post
+          NSoJ Post
             
             <a href="/nsoj_post" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
             
@@ -89,7 +92,7 @@
       </div>
   </section>
 
-  <section class="page-section" id="service-radio" style="padding-bottom:0px;">
+  <section class="page-section" id="service-radio" style="padding:25px 0 0 0;">
       <div class="container relative">
         <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
             nsoj radio
@@ -108,7 +111,7 @@
       </div>
   </section>
 
-  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+  <section class="page-section" id="service-tv" style="padding:25px 0 0 0;">
       <div class="container relative">
         
         <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
@@ -117,15 +120,23 @@
             <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
             
         </h2>
-         <% @nsojtvs_no_newsense.each do |nsojtv| %>
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-            <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
+          <% @nsojtvs_no_newsense.each do |nsojtv| %>
+            <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn">
+            <a href="<%=nsojtv.link%>" target="blank">
+                <div class="work-img">
+                  <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
+                </div>
+                <div class="work-intro">
+                    <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
+                </div>
+            </a>
           </div>
+
         <%end %>
       </div>
   </section>
 
-  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+  <section class="page-section" id="service-tv" style="padding:25px 0 0 0;">
       <div class="container relative">
         
         <h2 class="section-title font-alt align-left mb-30 mb-sm-40">
@@ -135,15 +146,21 @@
             
         </h2>
          <% @nsojtvs_bulleitin.each do |nsojtv| %>
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
-          
-              <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
-              
+          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn">
+            <a href="<%=nsojtv.link%>" target="blank">
+                <div class="work-img">
+                  <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
+                </div>
+                <div class="work-intro">
+                    <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
+                </div>
+            </a>
           </div>
+          
         <%end %>
       </div>
   </section>
-  <section class="page-section" id="service-tv" style="padding-bottom:0px;">
+  <section class="page-section" id="service-tv" style="padding:25px 0 25px 0;">
 
       <div class="container relative">
         
@@ -154,10 +171,20 @@
             
         </h2>
          <% @nsojtvs_featured.each do |nsojtv| %>
-          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
+          <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn">
+            <a href="<%=nsojtv.link%>" target="blank">
+                <div class="work-img">
+                  <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
+                </div>
+                <div class="work-intro">
+                    <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
+                </div>
+            </a>
+          </div>
+          <!-- <div class="col-sm-6 col-md-4 col-lg-4  mb-md-50 wow fadeIn" >
               <iframe width="100%" src="https://www.youtube.com/embed/<%=get_youtube_id(nsojtv.link)%>?rel=0" frameborder="0" allowfullscreen></iframe>
               
-          </div>
+          </div> -->
         <%end %>
       </div>
   </section>

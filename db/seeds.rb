@@ -3,6 +3,17 @@ ContactSubject.create!(	title: "Programmes"	)
 ContactSubject.create!(	title: "NSoJ Visits"	)
 ContactSubject.create!(	title: "Internship and Career Services Centre")
 
+Batch.create!( year: 2016)
+Batch.create!( year: 2017)
+
+StoryCategory.create!( title: "International")
+StoryCategory.create!( title: "Politics")
+StoryCategory.create!( title: "Bangalore")
+StoryCategory.create!( title: "Sports") 
+StoryCategory.create!( title: "Lifestyle")
+StoryCategory.create!( title: "Business")
+StoryCategory.create!( title: "Uncategorised")
+
 AdminUser.create!(email: 'admin@nsoj.in', password: 'NSoJ_Admin@123', password_confirmation: 'NSoJ_Admin@123')
 User.create!( 
 	name: "Sreenath B", 
@@ -17,3 +28,4 @@ User.create!(
 	state: "Karnataka", 
 	country: "India"
 )
+
