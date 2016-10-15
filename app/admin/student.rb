@@ -16,7 +16,7 @@ permit_params :avatar, :user_id, :batch_id, :bio
 	form :html => { :enctype => "multipart/form-data"} do |f|
 
 		f.inputs "Student Details" do	
-	    	f.input :user_id, :required => true, as: :select, collection: User.all.uniq
+	    	f.input :user_id, :required => true, as: :select, collection: User.all.order(name: :asc).uniq
 			f.input :batch_id, :required => true, as: :select, collection: Batch.all.uniq
 	    	f.input :avatar, :required => true, :as => :file
 	    	f.input :bio, :required => true, label: "Bio"
