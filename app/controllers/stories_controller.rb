@@ -17,7 +17,7 @@ class StoriesController < ApplicationController
 	end
 
 	def set_story_categories
-		@story_categories = nil
+		@story_categories = StoryCategory.all
 	end
 
     def story_params

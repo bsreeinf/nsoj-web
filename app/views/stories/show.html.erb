@@ -71,24 +71,12 @@
                     
                     <!-- Text -->
 					<div class="blog-item-body">
-					    
-                        <!-- <h1 class="mt-0 font-alt"><%=@story.title%></h1> -->
-                        <div class="hs-line-4 font-alt black">
-		                    CAPTION
-		                </div>
                     	<h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
                 
-					    <!-- <div class="lead">
-                            <p>
-                                Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
-                                Fusce non ante sed lorem rutrum feugiat.
-                            </p>
-                        </div> -->
-                        <!-- End Text -->   
                         
                         <%if @story.blog_image.file? %>
                         <!-- Media Gallery -->
-                        <div class="blog-media mt-40 mb-40 mb-xs-30">
+                        <div class="blog-media mt-10 mb-10 mb-xs-10">
 
                             <ul class="clearlist content-slider">
                                 <li>
@@ -97,7 +85,7 @@
                             </ul>
                         </div>
                         <%end%>
-						
+						<div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.image_caption%></div>
                         <%=@story.content.gsub(/\n/,'<br>').html_safe%>
                         
                         
