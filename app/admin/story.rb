@@ -3,7 +3,7 @@ ActiveAdmin.register Story do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :student_id, :title, :content, :story_category_id, :blog_image, :image_caption
+permit_params :student_id, :title, :content, :story_category_id, :blog_image, :image_caption, :created_at
 #
 # or
 #
