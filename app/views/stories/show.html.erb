@@ -46,8 +46,8 @@
                     
                     <!-- Text -->
 					<div class="blog-item-body">
-                    	<h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
-                
+                    	<h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="text-transform: uppercase;"><%=@story.title%></h1>
+                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="font-size: 12px; text-transform: uppercase;"><%="#{@story.student.user.name}"%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%></h1>
                         
                         <%if @story.blog_image.file? %>
                         <!-- Media Gallery -->

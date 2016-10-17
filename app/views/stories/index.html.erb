@@ -156,7 +156,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content tpl-tabs-cont section-text">
                                 <div class="tab-pane fade in active" id="one">
-                                    <%n = @popular_stories.length >= 5 ? 5 : @popular_stories.length%>
+                                    <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
                                     <%n.times do |i|%>
                                     <%story = @popular_stories[i]%>
                                     <ul class="clearlist widget-posts">
@@ -177,7 +177,7 @@
                                     <%end%>
                                 </div>
                                 <div class="tab-pane fade" id="two">
-                                    <%n = @latest_stories.length >= 5 ? 5 : @latest_stories.length%>
+                                    <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
                                     <%n.times do |i|%>
                                     <%story = @latest_stories[i]%>
                                     <ul class="clearlist widget-posts">
