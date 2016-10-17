@@ -1,37 +1,8 @@
-<!-- <p id="notice"><%= notice %></p>
-
-<h1>Listing Stories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stories.each do |story| %>
-      <tr>
-        <td><%= story.student %></td>
-        <td><%= story.title %></td>
-        <td><%= story.content %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Story', new_story_path %> -->
-
 <style>
     a{cursor: pointer !important;}
+    li.custom-nav-active a{
+        font-weight: bold !important;
+    }
 </style>     
 <div style='padding-top:75px;'></div>            
 <!-- Section -->
@@ -72,13 +43,12 @@
                         <a href=<%=stories_path%> style="color: #b50000;">HOME</a>
                     </li>
                     <%@story_categories.each do |story_category|%>
-                        <li style="cursor: pointer;">
-                        <%=puts "DATA::: #{@category_id} #{story_category.id} #{@categoryMode}"%>
-                            <%active_style = "" %>
-                            <%if @category_id == story_category.id %>
-                            <%  active_style = "font-weight:bold;"%>
-                            <%end%>
-                            <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; <%="#{active_style}"%>"><%=story_category.title%></a>
+                        <%active_style = "" %>
+                        <%if @category_id.to_s == story_category.id %>
+                        <%  active_style = "custom-nav-active"%>
+                        <%end%>
+                        <li class="<%=active_style%>">
+                            <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000;" class="<%="#{active_style}"%>"><%=story_category.title%></a>
                         </li>
                     <%end%>
                     <li></li>
@@ -282,6 +252,9 @@
 
         <%else%>
         <!-- Category mode starts here-->
+            <h2 class="section-title font-alt mb-70 mb-sm-40">
+                <%=StoryCategory.find(@category_id.to_i).title%>
+            </h2>
             <div class="row multi-columns-row">
                 <%@grouped_stories = Story.all.where(story_category_id: @category_id).order(created_at: :desc, last_accessed_at: :desc)%>
                 <%@grouped_stories.each_with_index do |story, i|%>
