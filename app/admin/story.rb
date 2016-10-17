@@ -73,6 +73,12 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
         		redirect_to new_admin_story_path and return if resource.valid?
       		end
 		end
+
+		def update
+			super do |format|
+				redirect_to admin_stories_path and return if resource.valid?
+			end
+		end
 	end
 
 end
