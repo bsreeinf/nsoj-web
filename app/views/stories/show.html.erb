@@ -9,28 +9,30 @@
 		text-transform: inherit;
 	}
 </style>
-<!--<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @story.student %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @story.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @story.content %>
-</p>
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
- -->
 
 <div style='padding-top:75px;'></div>  
+<section class="small-section bg-gray-lighter" style="padding: 20px 0;">
+    <div class="relative container align-left">
+        
+        <div class="row">
+            
+            <div class="col-md-8">
+                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
+                <div class="hs-line-4 font-alt black">
+                    <%="#{@story.student.user.name}"%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mt-30">
+                <div class="mod-breadcrumbs font-alt align-right">
+                    <a href=<%=stories_path%>>Home</a>&nbsp;/&nbsp;<span><%=@story.title%></span>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
 
 <!-- Section -->
 <section class="page-section">
@@ -46,9 +48,9 @@
                     
                     <!-- Text -->
 					<div class="blog-item-body">
-                    	<h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="text-transform: uppercase;"><%=@story.title%></h1>
+                    	<!-- <h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="text-transform: uppercase;"><%=@story.title%></h1>
                         <h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="font-size: 12px; text-transform: uppercase;"><%="#{@story.student.user.name}"%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%></h1>
-                        
+ -->                        
                         <%if @story.blog_image.file? %>
                         <!-- Media Gallery -->
                         <div class="blog-media mt-10 mb-10 mb-xs-10">
@@ -81,7 +83,7 @@
             <!-- End Content -->
             
             <!-- Sidebar -->
-            <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
+            <div class="col-sm-4 col-md-4 sidebar">
                 
                 <div class="widget">
                     
