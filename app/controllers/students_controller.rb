@@ -6,8 +6,7 @@ class StudentsController < InheritedResources::Base
 	end
 
 	def show
-		@student_stories = Story.all.where(student_id: params[:id])
-		@student_categories = @student_stories.select(:story_category_id).uniq
+		@student_stories = Story.all.where(student_id: params[:id]).order(access_counter: :desc, last_accessed_at: :desc)
 	end
 
   private

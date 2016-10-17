@@ -30,7 +30,9 @@
 
 <%= link_to 'New Story', new_story_path %> -->
 
-            
+<style>
+    a{cursor: pointer !important;}
+</style>     
 <div style='padding-top:75px;'></div>            
 <!-- Section -->
 <section class="small-section pb-0 pt-10">
@@ -66,11 +68,20 @@
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
                 <ul class="clearlist">
+                    <li style="cursor: pointer;">
+                        <a href=<%=stories_path%> style="color: #b50000;">HOME</a>
+                    </li>
                     <%@story_categories.each do |story_category|%>
                         <li style="cursor: pointer;">
-                            <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000;"><%=story_category.title%></a>
+                        <%=puts "DATA::: #{@category_id} #{story_category.id} #{@categoryMode}"%>
+                            <%active_style = "" %>
+                            <%if @category_id == story_category.id %>
+                            <%  active_style = "font-weight:bold;"%>
+                            <%end%>
+                            <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; <%="#{active_style}"%>"><%=story_category.title%></a>
                         </li>
                     <%end%>
+                    <li></li>
                 </ul>
             </div>
             <!-- End Main Menu -->
@@ -84,362 +95,231 @@
 <!-- Section -->
 <section class="small-section" style="padding: 0;">
     <div class="container relative" style="width: 90%">
-        
-        <div class="row">
-            
-            <div class="col-sm-9" style="padding: 0;">
-                <div class="row">
-                <%n = @stories.length >=8 ? 8 : @stories.length%>
-                <%n.times do |i|%>
-                    <%story = @stories[i]%>
-                    <!-- Post Slider -->
-                    <div class="col-md-3" style="padding: 0 10px 0 0;">
-                    <div class="blog-media mb-10 mb-xs-20">
-                        <ul class="clearlist blog-posts-carousel-alt">
-                            <li>
-                                
-                                <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
-                                
-                                <!-- Slide Info -->
-                                <div class="blog-slide-info" style="padding: 10px;">
-                                    
-                                    <h2 class="blog-slide-title font-alt mt-0"><a href="blog-single-sidebar-right.html"><%=story.title%></a></h2>
-                                    
-                                    <div class="blog-slide-data">
-                                        <a href="#"><i class="fa fa-clock-o"></i> <%=local_time(story.created_at, "%d %B")%></a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="/students/<%=story.student.id%>"><i class="fa fa-user"></i> <%=story.student.user.name%></a>
-                                        <span class="separator">&nbsp;</span>
-                                        <a href="/stories?category_id=<%=story.story_category.id%>"><%=story.story_category.title%></a>
-                                    </div>
-                                </div>
-                                <!-- End Slide Info -->
-                                
-                            </li>
-                        </ul>
-                    </div>
-                    </div>
-                    <!-- End Post Slider -->
+        <%if @categoryMode == false%>
+            <div class="row mb-50">
                 
-                <%end%>    
+                <div class="col-sm-9" style="padding: 0;">
+                    <div class="row" style="margin: 0;">
+                    <%n = @main_stories.length >=12 ? 12 : @main_stories.length%>
+                    <%n.times do |i|%>
+                        <%story = @main_stories[i]%>
+                        <!-- Post Slider -->
+                        <div class="col-md-3" style="padding: 0 10px 0 0;">
+                        <div class="blog-media mb-10 mb-xs-20">
+                            <ul class="clearlist blog-posts-carousel-alt">
+                                <li>
+                                    
+                                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                    
+                                    <!-- Slide Info -->
+                                    <div class="blog-slide-info" style="padding: 10px;">
+                                        
+                                        <h2 class="blog-slide-title font-alt mt-0" style="font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
+                                        
+                                        <div class="blog-slide-data">
+                                            <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
+                                            <!-- <span class="separator">&nbsp;</span> -->
+                                            <a href=<%=student_path(story.student)%> style="font-size: 11px;"><i class="fa fa-user"></i> <%=story.student.user.name%></a>
+                                            <!-- <span class="separator">&nbsp;</span>
+                                            <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
+                                        </div>
+                                    </div>
+                                    <!-- End Slide Info -->
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <!-- End Post Slider -->
+                    
+                    <%end%>    
+                    </div>
+                    
+                </div>
+                
+                <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
+                    
+                    <!-- Widget -->
+                    <div class="widget">
+                        
+                        <div class="widget-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs tpl-tabs animate">
+                                <li class="active">
+                                    <a href="#one" data-toggle="tab">Popular</a>
+                                </li>
+                                <li>
+                                    <a href="#two" data-toggle="tab">Latest</a>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content tpl-tabs-cont section-text">
+                                <div class="tab-pane fade in active" id="one">
+                                    <%n = @popular_stories.length >= 5 ? 5 : @popular_stories.length%>
+                                    <%n.times do |i|%>
+                                    <%story = @popular_stories[i]%>
+                                    <ul class="clearlist widget-posts">
+                                
+                                        <!-- Preview item -->
+                                        <li class="clearfix">
+                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                                <div>
+                                                    Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End Preview item -->
+
+                                    </ul>
+                                    <%end%>
+                                </div>
+                                <div class="tab-pane fade" id="two">
+                                    <%n = @latest_stories.length >= 5 ? 5 : @latest_stories.length%>
+                                    <%n.times do |i|%>
+                                    <%story = @latest_stories[i]%>
+                                    <ul class="clearlist widget-posts">
+                                
+                                        <!-- Preview item -->
+                                        <li class="clearfix">
+                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                                <div>
+                                                    Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End Preview item -->
+
+                                    </ul>
+                                    <%end%>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- End Widget -->
+                    
                 </div>
                 
             </div>
             
-            <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
-                
-                <!-- Search Widget -->
-                <!-- <div class="widget">
-                    <form class="form-inline form" role="form">
-                        <div class="search-wrap">
-                            <button class="search-button animate" type="submit" title="Start Search">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            <input type="text" class="form-control search-field" placeholder="Search...">
+            <%@story_categories.each do |story_category|%>
+                <%@grouped_stories = Story.all.where(story_category_id: story_category.id).order(created_at: :desc, last_accessed_at: :desc)%>
+                <%if @grouped_stories.length > 0%>
+                <div class="row">
+                    <h3 class="blog-item-title font-alt mb-10"><a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a></h3>
+                        
+                    <hr class="mt-0 mb-30" />
+                    
+                    <!-- Blog Posts -->
+                    <div class="row multi-columns-row">
+                        <%n = @grouped_stories.length >= 4 ? 4 : @grouped_stories.length%>
+                        <%n.times do |i|%>
+                        <%grouped_story = @grouped_stories[i]%>
+                        <!-- Post Item -->
+                        <div class="col-md-3 col-lg-3 mb-30">
+                            
+                            <div class="post-prev-img">
+                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.url%>" alt="" /></a>
+                            </div>
+                            
+                            <div class="post-prev-title font-alt">
+                                <a href=<%=story_path(grouped_story)%>><%=grouped_story.title%></a>
+                            </div>
+                            
+                            <div class="post-prev-info font-alt">
+                                <a href=<%=student_path(grouped_story.student)%>><%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
+                            </div>
+                            
+                            <div class="post-prev-text">
+                                <%=grouped_story.content[0..150]%> ... 
+                            </div>
+                            
+                            <div class="post-prev-more">
+                                <a href=<%=story_path(grouped_story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                            
                         </div>
-                    </form>
-                </div>
- -->                <!-- End Search Widget -->
-                
-                <!-- Widget -->
-                <!-- <div class="widget">
+                        <!-- End Post Item -->
+                        <%end%>
+                        
+                    </div>
+                    <!-- End Blog Posts -->
                     
-                    <h5 class="widget-title font-alt">Categories</h5>
-                    
-                    <div class="widget-body">
+                    <!-- Post Small Previews -->
+                    <div class="row mb-70">
                         
                         <div class="row">
-                            <div class="col-md-6">
-                                <ul class="clearlist widget-menu">
-                                    <li>
-                                        <a href="#" title="">Branding</a>
-                                        <small>
-                                            - 7
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Design</a>
-                                        <small>
-                                            - 15
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Development</a>
-                                        <small>
-                                            - 3
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Photography</a>
-                                        <small>
-                                            - 5
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Business</a>
-                                        <small>
-                                            - 1
-                                        </small>
-                                    </li>
-                                </ul>
+                        <%n = @grouped_stories.length >= 6 ? 6 : @grouped_stories.length%>
+                        <%n.times do |i|%>
+                        <%grouped_story = @grouped_stories[i]%>
+                            <div class="col-md-3">
+                            <div class="blog-post-prev-small clearfix">
+                                <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                <div class="widget-posts-descr">
+                                    <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
+                                    Posted by <%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <ul class="clearlist widget-menu">
-                                    <li>
-                                        <a href="#" title="">World</a>
-                                        <small>
-                                            - 3
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Technology</a>
-                                        <small>
-                                            - 5
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Sport</a>
-                                        <small>
-                                            - 1
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Entertainment</a>
-                                        <small>
-                                            - 7
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">Education</a>
-                                        <small>
-                                            - 15
-                                        </small>
-                                    </li>
-                                </ul>
                             </div>
+                        <%if i > 0 && i % 3 == 0%>
+                        </div>
+                        <div class="row">
+                        <%end%>
+                        <%end%>
                         </div>
                         
                     </div>
-                    
-                </div>-->
-                <!-- End Widget -->
-                
-                <!-- Widget -->
-                <!-- <div class="widget">
-                    
-                    <h5 class="widget-title font-alt">Flollow us</h5>
-                    
-                    <div class="widget-body">
-                        <a href="#" class="btn btn-mod btn-small btn-round btn-gray mb-10"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a href="#" class="btn btn-mod btn-small btn-round btn-gray mb-10"><i class="fa fa-twitter"></i> Twitter</a>
-                        <a href="#" class="btn btn-mod btn-small btn-round btn-gray mb-10"><i class="fa fa-rss"></i> RSS</a>
-                    </div>
-                    
-                </div> -->
-                <!-- End Widget -->
-                
-                <!-- Widget -->
-                <div class="widget">
-                    
-                    <div class="widget-body">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs tpl-tabs animate">
-                            <li class="active">
-                                <a href="#one" data-toggle="tab">Popular</a>
-                            </li>
-                            <li>
-                                <a href="#two" data-toggle="tab">Latest</a>
-                            </li>
-                        </ul>
-                        
-                        <!-- Tab panes -->
-                        <div class="tab-content tpl-tabs-cont section-text">
-                            <div class="tab-pane fade in active" id="one">
-                                <%n = @stories.length >= 4 ? 4 : @stories.length%>
-                                <%n.times do |i|%>
-                                <%story = @stories[i]%>
-                                <ul class="clearlist widget-posts">
-                            
-                                    <!-- Preview item -->
-                                    <li class="clearfix">
-                                        <a href=""><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href="#" title=""><%=story.title%></a>
-                                            <div>
-                                                Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Preview item -->
-
-                                </ul>
-                                <%end%>
-                            </div>
-                            <div class="tab-pane fade" id="two">
-                                <%n = @stories.length >= 4 ? 4 : @stories.length%>
-                                <%n.times do |i|%>
-                                <%story = @stories[i]%>
-                                <ul class="clearlist widget-posts">
-                            
-                                    <!-- Preview item -->
-                                    <li class="clearfix">
-                                        <a href=""><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href="#" title=""><%=story.title%></a>
-                                            <div>
-                                                Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Preview item -->
-
-                                </ul>
-                                <%end%>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <!-- End Post Small Previews -->
+                    <div class="col-md-4"></div>
                 </div>
-                <!-- End Widget -->
-                
-                <!-- Widget -->
-                <!-- <div class="widget">
-                    
-                    <h5 class="widget-title font-alt">Tags</h5>
-                    
-                    <div class="widget-body">
-                        <div class="tags">
-                            <a href="">Design</a>
-                            <a href="">Portfolio</a>
-                            <a href="">Digital</a>
-                            <a href="">Branding</a>
-                            <a href="">Theme</a>
-                            <a href="">Clean</a>
-                            <a href="">UI & UX</a>
-                            <a href="">Love</a>
-                        </div>
-                    </div>
-                    
-                </div> -->
-                <!-- End Widget -->
-                
-            </div>
-            
-        </div>
-        
-        <%@story_categories.each do |story_category|%>
-            <%@grouped_stories = Story.all.where(story_category_id: story_category.id)%>
-            <%if @grouped_stories.length > 0%>
-            <div class="row">
-                <h3 class="blog-item-title font-alt mb-10"><a href="#"><%=story_category.title%></a></h3>
-                    
-                <hr class="mt-0 mb-30" />
-                
-                <!-- Blog Posts -->
-                <div class="row multi-columns-row">
-                    <%n = @grouped_stories.length >= 4 ? 4 : @grouped_stories.length%>
-                    <%n.times do |i|%>
-                    <%grouped_story = @grouped_stories[i]%>
-                    <!-- Post Item -->
-                    <div class="col-md-3 col-lg-3 mb-30">
-                        
-                        <div class="post-prev-img">
-                            <a href="/stories/"><img src="<%=grouped_story.blog_image.url%>" alt="" /></a>
-                        </div>
-                        
-                        <div class="post-prev-title font-alt">
-                            <a href=""><%=grouped_story.title%></a>
-                        </div>
-                        
-                        <div class="post-prev-info font-alt">
-                            <a href=""><%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
-                        </div>
-                        
-                        <div class="post-prev-text">
-                            <%=grouped_story.content[0..150]%> ... 
-                        </div>
-                        
-                        <div class="post-prev-more">
-                            <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                        
-                    </div>
-                    <!-- End Post Item -->
-                    <%end%>
-                    
-                </div>
-                <!-- End Blog Posts -->
-                
-                <!-- Post Small Previews -->
-                <div class="row mb-70">
-                    
-                    <div class="col-sm-4">
-                    <%n = @grouped_stories.length >= 6 ? 6 : @grouped_stories.length%>
-                    <%n.times do |i|%>
-                    <%grouped_story = @grouped_stories[i]%>
-                        
-                        <div class="blog-post-prev-small clearfix">
-                            <a href=""><img width="70" height="70" src="<%=grouped_story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
-                            <div class="widget-posts-descr">
-                                <a href="#" title=""><%=grouped_story.title%></a>
-                                Posted by <%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
-                            </div>
-                        </div>
-                    <%if i % 2 == 1%>
-                    </div>
-                    <div class="col-sm-4">
-                    <%end%>
-                    <%end%>
-                    </div>
-                    
-                </div>
-                <!-- End Post Small Previews -->
-                <div class="col-md-4"></div>
-            </div>
+                <%end%>
             <%end%>
+
+        <%else%>
+        <!-- Category mode starts here-->
+            <div class="row multi-columns-row">
+                <%@grouped_stories = Story.all.where(story_category_id: @category_id).order(created_at: :desc, last_accessed_at: :desc)%>
+                <%@grouped_stories.each_with_index do |story, i|%>
+                <!-- Post Item -->
+                <div class="col-md-3 col-lg-3 mb-30">
+                    
+                    <div class="post-prev-img">
+                        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
+                    </div>
+                    
+                    <div class="post-prev-title font-alt">
+                        <a href=<%=story_path(story)%>><%=story.title%></a>
+                    </div>
+                    
+                    <div class="post-prev-info font-alt">
+                        <a href=<%=student_path(story.student)%>><%=story.student.user.name%></a> | <%=local_time(story.created_at, '%d %b')%>
+                    </div>
+                    
+                    <div class="post-prev-text">
+                        <%=story.content[0..150]%> ... 
+                    </div>
+                    
+                    <div class="post-prev-more">
+                        <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    
+                </div>
+                <!-- End Post Item -->
+                <%end%>
+                
+            </div>
         <%end%>
     </div>
 </section>
-<!-- End Section -->
-
-
-<!-- Newsletter Section -->
-<!-- <section class="small-section bg-gray-lighter">
-    <div class="container relative">
-        
-        <form class="form align-center" id="mailchimp">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    
-                    <div class="newsletter-label font-alt">
-                        Stay informed with our newsletter
-                    </div>
-                    
-                    <div class="mb-20">
-                        <input placeholder="Enter Your Email" class="newsletter-field form-control input-md round mb-xs-10" type="email" pattern=".{5,100}" required/>
-                        
-                        <button type="submit" class="btn btn-mod btn-medium btn-round mb-xs-10">
-                            Subscribe
-                        </button>
-                    </div>
-                    
-                    <div class="form-tip">
-                        <i class="fa fa-info-circle"></i> Please trust us, we will never send you spam
-                    </div>
-                    
-                    <div id="subscribe-result"></div>
-                    
-                </div>
-            </div>
-        </form>
-        
-    </div>
-</section> -->
-<!-- End Newsletter Section -->
-            
+<!-- End Section -->            
 
 <!-- Latest News -->
-<section class="page-section">
+<section class="page-section" style="padding-top: 0;">
     <div class="container relative">
         
         <h2 class="section-title font-alt mb-70 mb-sm-40">
@@ -447,116 +327,37 @@
         </h2>
         
         <div class="row multi-columns-row">
-            
-                    <!-- Post Item -->
-                    <div class="col-sm-6 col-md-3 col-lg-3 mb-60 mb-xs-40">
-                        
-                        <div class="post-prev-img">
-                            <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-1.jpg" alt="" /></a>
-                        </div>
-                        
-                        <div class="post-prev-title font-alt">
-                            <a href="">New Web Design Trends</a>
-                        </div>
-                        
-                        <div class="post-prev-info font-alt">
-                            <a href="">John Doe</a> | 10 December
-                        </div>
-                        
-                        <div class="post-prev-text">
-                            Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                            consectetur fermentum nibh volutpat, accumsan purus. 
-                        </div>
-                        
-                        <div class="post-prev-more">
-                            <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                        
-                    </div>
-                    <!-- End Post Item -->
-                    
-                    <!-- Post Item -->
-                    <div class="col-sm-6 col-md-3 col-lg-3 mb-60 mb-xs-40">
-                        
-                        <div class="post-prev-img">
-                            <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-2.jpg" alt="" /></a>
-                        </div>
-                        
-                        <div class="post-prev-title font-alt">
-                            <a href="">Minimalistic Design Forever</a>
-                        </div>
-                        
-                        <div class="post-prev-info font-alt">
-                            <a href="">John Doe</a> | 9 December
-                        </div>
-                        
-                        <div class="post-prev-text">
-                            Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                            consectetur fermentum nibh volutpat, accumsan purus. 
-                        </div>
-                        
-                        <div class="post-prev-more">
-                            <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                        
-                    </div>
-                    <!-- End Post Item -->
-                    
-                    <!-- Post Item -->
-                    <div class="col-sm-6 col-md-3 col-lg-3 mb-60 mb-xs-40">
-                        
-                        <div class="post-prev-img">
-                            <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-3.jpg" alt="" /></a>
-                        </div>
-                        
-                        <div class="post-prev-title font-alt">
-                            <a href="">Hipster&rsquo;s Style in&nbsp;Web</a>
-                        </div>
-                        
-                        <div class="post-prev-info font-alt">
-                            <a href="">John Doe</a> | 7 December
-                        </div>
-                        
-                        <div class="post-prev-text">
-                            Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                            consectetur fermentum nibh volutpat, accumsan purus. 
-                        </div>
-                        
-                        <div class="post-prev-more">
-                            <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                        
-                    </div>
-                    <!-- End Post Item -->
-                    
-                    <!-- Post Item -->
-                    <div class="col-sm-6 col-md-3 col-lg-3 mb-60 mb-xs-40">
-                        
-                        <div class="post-prev-img">
-                            <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-4.jpg" alt="" /></a>
-                        </div>
-                        
-                        <div class="post-prev-title font-alt">
-                            <a href="">Duis tristique condimentum</a>
-                        </div>
-                        
-                        <div class="post-prev-info font-alt">
-                            <a href="">John Doe</a> | 7 December
-                        </div>
-                        
-                        <div class="post-prev-text">
-                            Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                            consectetur fermentum nibh volutpat, accumsan purus. 
-                        </div>
-                        
-                        <div class="post-prev-more">
-                            <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                        
-                    </div>
-                    <!-- End Post Item -->
-                    
+            <%n = @latest_stories.length >= 4 ? 4 : @latest_stories.length%>
+            <%n.times do |i|%>
+            <%story = @latest_stories[i]%>
+            <!-- Post Item -->
+            <div class="col-md-3 col-lg-3 mb-30">
+                
+                <div class="post-prev-img">
+                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
                 </div>
+                
+                <div class="post-prev-title font-alt">
+                    <a href=<%=story_path(story)%>><%=story.title%></a>
+                </div>
+                
+                <div class="post-prev-info font-alt">
+                    <a href=<%=student_path(story.student)%>><%=story.student.user.name%></a> | <%=local_time(story.created_at, '%d %b')%>
+                </div>
+                
+                <div class="post-prev-text">
+                    <%=story.content[0..150]%> ... 
+                </div>
+                
+                <div class="post-prev-more">
+                    <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+                
+            </div>
+            <!-- End Post Item -->
+            <%end%>
+            
+        </div>
         
     </div>
 </section>

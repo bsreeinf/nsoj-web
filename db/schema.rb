@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007060217) do
+ActiveRecord::Schema.define(version: 20161016234909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -310,8 +310,9 @@ ActiveRecord::Schema.define(version: 20161007060217) do
     t.datetime "blog_image_updated_at"
     t.string   "image_caption"
     t.datetime "last_accessed_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "access_counter",          default: 0
   end
 
   add_index "stories", ["story_category_id"], name: "index_stories_on_story_category_id", using: :btree
