@@ -3,7 +3,7 @@ ActiveAdmin.register Story do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :student_id, :title, :content, :story_category_id, :blog_image, :image_caption, :created_at
+permit_params :student_id, :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug
 #
 # or
 #
@@ -23,7 +23,8 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 	    	f.input :blog_image, :required => true, :as => :file
 	    	f.input :created_at, :as => :datepicker
 	    	f.input :image_caption
-	    	
+	    	f.input :slug
+
 		end		
 		f.actions
 		# for custom actions
@@ -39,6 +40,9 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
        		link_to story.student.user.name, admin_student_path(story.student)
        	end 
        	column :title
+       	column :slug
+       	column :last_accessed_at
+       	column :access_counter
        	column :created_at
 	  actions
 	end
@@ -61,6 +65,9 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 				row :image_caption
 				row :content
 				row :created_at
+				row :slug
+				row :last_accessed_at
+				row :access_counter
 				
 			end
 		end	
