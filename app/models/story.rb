@@ -25,7 +25,7 @@ class Story < ActiveRecord::Base
     i=2
     self.slug = loop do   
         break temp unless self.class.exists?(slug: temp)
-        temp = "#{init_slug}_#{i}"
+        temp = "#{init_slug}-#{i}"
         i+=1
     end
   end

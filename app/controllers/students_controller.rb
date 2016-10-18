@@ -7,7 +7,7 @@ class StudentsController < InheritedResources::Base
 
 	def show
 		@student_stories = Story.all.where(student_id: @student.id).order(access_counter: :desc, last_accessed_at: :desc)
-		redirect_to_good_slug(@student) and return if bad_slug?(@student)
+		# redirect_to_good_slug(@student) and return if bad_slug?(@student)
 	end
 
   private
