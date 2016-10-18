@@ -14,14 +14,20 @@ class Story < ActiveRecord::Base
 
   validates_attachment :blog_image, :content_type => {:content_type => %w(image/jpeg image/jpg image/png)}
 
-  validates_presence_of :slug
-
   def to_param
     slug
   end
 
   before_save do
-      self.slug = self.user.name.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
+    init_slug = self.slug.empty? ? self.title : self.slug
+    init_slug = init_slug.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
+    temp = init_slug
+    i=2
+    self.slug = loop do   
+        break temp unless self.class.exists?(slug: temp)
+        temp = "#{init_slug}_#{i}"
+        i+=1
+    end
   end
   
 end

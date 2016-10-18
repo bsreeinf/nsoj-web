@@ -23,7 +23,7 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 	    	f.input :blog_image, :required => true, :as => :file
 	    	f.input :created_at, :as => :datepicker
 	    	f.input :image_caption
-	    	f.input :slug
+	    	f.input :slug, :required => false
 
 		end		
 		f.actions

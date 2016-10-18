@@ -23,4 +23,16 @@ class Student < ActiveRecord::Base
     before_save do
         self.slug = self.user.name.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
     end
+
+    before_save do
+        init_slug = self.slug.empty? ? self.user.name : self.slug
+        init_slug = init_slug.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
+        temp = init_slug
+        i=2
+        self.slug = loop do   
+            break temp unless self.class.exists?(slug: temp)
+            temp = "#{init_slug}-#{i}"
+            i+=1
+        end
+    end
 end
