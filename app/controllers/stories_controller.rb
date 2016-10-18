@@ -20,6 +20,7 @@ class StoriesController < ApplicationController
 	def show
 		@story.touch(:last_accessed_at)
 		@story.increment!(:access_counter)
+		redirect_to_good_slug(@story) and return if bad_slug?(@story)
 	end
 
   private

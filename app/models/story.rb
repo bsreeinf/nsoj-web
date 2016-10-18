@@ -19,5 +19,9 @@ class Story < ActiveRecord::Base
   def to_param
     slug
   end
+
+  before_save do
+      self.slug = self.user.name.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
+  end
   
 end

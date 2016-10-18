@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
 
-   private
+  private
     # Confirms a logged-in user.
     def logged_in_user
       unless logged_in?
@@ -14,5 +14,21 @@ class ApplicationController < ActionController::Base
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+
+    # Check if the current slug is not the cannonical one.
+    def bad_slug?(object)
+      params[:id] != object.to_param
+    end
+
+    ##
+    # 301 redirect to canonical slug.
+    def redirect_to_good_slug(object)
+        redirect_to params.merge({
+                      :controller => controller_name,
+                      :action => params[:action],
+                      :id => object.to_param,
+                      :status => :moved_permanently
+                    })
     end
 end
