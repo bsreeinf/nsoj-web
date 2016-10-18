@@ -47,6 +47,7 @@
 <!-- End Home Section
 
 <!-- Section -->
+<%if @student_stories.length >0%>
 <section class="small-section pb-0">
     
     <div class="container align-center">
@@ -74,9 +75,11 @@
                 <!-- Post Item -->
                 <div class="col-md-3 col-lg-3 mb-30">
                     
+                    <%if story.blog_image.file?%>
                     <div class="post-prev-img">
                         <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
                     </div>
+                    <%end%>
                     
                     <div class="post-prev-title font-alt">
                         <a href=<%=story_path(story)%>><%=story.title%></a>
@@ -104,4 +107,5 @@
         
     </div>
 </section>
+<%end%>
 <!-- End Section -->

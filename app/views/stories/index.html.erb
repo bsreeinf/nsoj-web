@@ -4,52 +4,58 @@
         font-weight: bold !important;
     }
 </style>     
-<div style='padding-top:75px;'></div>            
+<!-- <div style='padding-top:75px;'></div>             -->
 <!-- Section -->
-<section class="small-section pb-0 pt-10">
+<section class="small-section pb-0 pt-0">
     
-    <div class="container align-center">
+    <!-- <div class="container align-center">
         
-        <!-- <div class="mb-10">
+        <div class="mb-10">
             <img src=<%=asset_path('logo-footer.png')%> width="78" height="36" alt="" />
         </div>
- -->        
+    
         <h1 class="magazine-logo-text black font-alt">NSoJ Stories</h1>
         
     </div>
-    
+    -->    
 </section>
 <!-- End Section -->
 
 <!-- Menu Wrapper -->
-<div class="container">
-    
-    <!-- Divider -->
-    <hr class="mt-0 mb-0 "/>
-    <!-- End Divider -->
+<div>
 
     <!-- Navigation panel -->
-    <nav class=" mn-centered not-top mb-30" style="z-index: 2;">
+    <nav class=" mn-centered not-top pb-20 pt-20 mb-30" style="z-index: 2; background-color: #ccc;">
         <div class="relative clearfix">
             
+            <div class="nav-logo-wrap local-scroll" style="margin-left: 20px;">
+                <%= link_to(root_path, class: "logo", method: :get, style: "height: 35px;" ) do %>
+                    <img src=<%= image_path("logo-white.png") %> style="height: 35px;" alt="NSOJ Post" />
+                <%end%>
+            </div>
             <div class="mobile-nav">
                 <i class="fa fa-bars"></i>
             </div>
             
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
-                <ul class="clearlist">
+                <ul class="clearlist" style="padding: 8px 0;">
                     <li style="cursor: pointer;">
-                        <a href=<%=stories_path%> style="color: #b50000;">HOME</a>
-                    </li>
-                    <%@story_categories.each do |story_category|%>
-                        <%active_style = "" %>
-                        <%if @category_id.to_s == story_category.id %>
-                        <%  active_style = "custom-nav-active"%>
+                        <%if @category_id.blank?%>
+                            <a href=<%=stories_path%> style="font-weight: bold; color: #ffffff;">HOME</a>
+                        <%else%>
+                            <a href=<%=stories_path%> style="font-weight: bold; color: #b50000;">HOME</a>
                         <%end%>
-                        <li class="<%=active_style%>">
-                            <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000;" class="<%="#{active_style}"%>"><%=story_category.title%></a>
+                    </li>
+                    <%@story_categories.each do |story_category|%>    
+                        <li>
+                            <%if @category_id.to_i == story_category.id.to_i %>
+                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #ffffff; font-weight: bold;"><%=story_category.title%></a>
+                            <%else%>
+                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; font-weight: bold;"><%=story_category.title%></a>
+                            <%end%>
                         </li>
+    
                     <%end%>
                     <li></li>
                 </ul>
@@ -76,10 +82,10 @@
                         <!-- Post Slider -->
                         <div class="col-md-3" style="padding: 0 10px 0 0;">
                         <div class="blog-media mb-10 mb-xs-20">
-                            <ul class="clearlist blog-posts-carousel-alt">
+                            <ul class="clearlist blog-posts-carousel-alt" style="min-height: 155px;">
                                 <li>
                                     
-                                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                    <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                     
                                     <!-- Slide Info -->
                                     <div class="blog-slide-info" style="padding: 10px;">
@@ -133,7 +139,7 @@
                                 
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                                 <div>
@@ -154,7 +160,7 @@
                                 
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                                 <div>
@@ -194,7 +200,7 @@
                         <div class="col-md-3 col-lg-3 mb-30">
                             
                             <div class="post-prev-img">
-                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.url%>" alt="" /></a>
+                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url : ''%>" alt="" /></a>
                             </div>
                             
                             <div class="post-prev-title font-alt">
@@ -252,9 +258,9 @@
 
         <%else%>
         <!-- Category mode starts here-->
-            <h2 class="section-title font-alt mb-70 mb-sm-40">
+            <!-- <h2 class="section-title font-alt mb-70 mb-sm-40">
                 <%=StoryCategory.find(@category_id.to_i).title%>
-            </h2>
+            </h2> -->
             <div class="row multi-columns-row">
                 <%@grouped_stories = Story.all.where(story_category_id: @category_id).order(created_at: :desc, last_accessed_at: :desc)%>
                 <%@grouped_stories.each_with_index do |story, i|%>
@@ -262,7 +268,7 @@
                 <div class="col-md-3 col-lg-3 mb-30">
                     
                     <div class="post-prev-img">
-                        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
+                        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" alt="" /></a>
                     </div>
                     
                     <div class="post-prev-title font-alt">
@@ -307,7 +313,7 @@
             <div class="col-md-3 col-lg-3 mb-30">
                 
                 <div class="post-prev-img">
-                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
+                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" alt="" /></a>
                 </div>
                 
                 <div class="post-prev-title font-alt">

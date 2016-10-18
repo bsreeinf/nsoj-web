@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
 	before_action :set_story, only: [:show]
-	before_action :set_story_categories, :set_stories
+	before_action :set_story_categories, :set_stories, :hide_main_nav_bar
 
 	def index
 		@sidebar_length = 6
@@ -39,6 +39,10 @@ class StoriesController < ApplicationController
 
     def story_params
       params.require(:story)
+    end
+
+    def hide_main_nav_bar
+    	@hide_main_nav = true
     end
 end
 
