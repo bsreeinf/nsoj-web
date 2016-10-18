@@ -69,7 +69,7 @@
           <!-- Features Grid -->
           <div class="row multi-columns-row alt-features-grid">
                 <% @students.each do |student|%>
-                  <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%= student_path(student.id)%>">
+                  <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%=student_path(student)%>">
                       <div class="alt-features-item align-center">
                           <div class="alt-features-icon">
                               <img  src="<%= student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" style="max-width:120px;" class="img-circle">
