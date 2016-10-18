@@ -1,49 +1,3 @@
-<!-- Menu Wrapper -->
-<div>
-
-    <!-- Navigation panel -->
-    <nav class=" mn-centered not-top pb-20 pt-20 mb-30" style="z-index: 2; background-color: #ccc;">
-        <div class="relative clearfix">
-            
-            <div class="nav-logo-wrap local-scroll" style="margin-left: 20px;">
-                <%= link_to(root_path, class: "logo", method: :get, style: "height: 35px;" ) do %>
-                    <img src=<%= image_path("logo-white.png") %> style="height: 35px;" alt="NSOJ Post" />
-                <%end%>
-            </div>
-            <div class="mobile-nav">
-                <i class="fa fa-bars"></i>
-            </div>
-            
-            <!-- Main Menu -->
-            <div class="inner-nav desktop-nav">
-                <ul class="clearlist" style="padding: 8px 0;">
-                    <li style="cursor: pointer;">
-                        <%if @category_id.blank?%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #ffffff;">HOME</a>
-                        <%else%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #b50000;">HOME</a>
-                        <%end%>
-                    </li>
-                    <%@story_categories.each do |story_category|%>    
-                        <li>
-                            <%if @category_id.to_i == story_category.id.to_i %>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #ffffff; font-weight: bold;"><%=story_category.title%></a>
-                            <%else%>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; font-weight: bold;"><%=story_category.title%></a>
-                            <%end%>
-                        </li>
-    
-                    <%end%>
-                    <li></li>
-                </ul>
-            </div>
-            <!-- End Main Menu -->
-        </div>
-    </nav>
-    <!-- End Navigation panel -->
-</div>
-<!-- End Menu Wrapper -->
-
 <section class="page-section bg-dark bg-dark-alfa-70 pt-40 pb-40" id="home">
     <div class="relative container">
 
@@ -89,7 +43,7 @@
 
     </div>
 </section>
-<!-- End Home Section
+<!-- End Home Section -->
 
 <!-- Section -->
 <%if @student_stories.length >0%>
