@@ -65,7 +65,7 @@
             <div class="col-md-8">
                 <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
                 <div class="hs-line-4 font-alt black">
-                    <a href="student_path(@story.student)"><%="#{@story.student.user.name}"%></a> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                    <a href="<%=student_path(@story.student)%>"><%="#{@story.student.user.name}"%></a> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
             </div>
             
