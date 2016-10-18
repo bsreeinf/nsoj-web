@@ -18,7 +18,7 @@ class Story < ActiveRecord::Base
     slug
   end
 
-  after_save do
+  before_save do
     init_slug = self.slug.empty? ? self.title : self.slug
     init_slug = init_slug.downcase.gsub(/[^ 0-9A-Za-z\-]/,'').gsub(' ','-')
     temp = init_slug
