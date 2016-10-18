@@ -68,6 +68,7 @@ permit_params :student_id, :title, :content, :story_category_id, :blog_image, :i
 	 end
 
 	controller do
+		defaults :finder => :find_by_slug
 		def create
 			super do |format|
         		redirect_to new_admin_story_path and return if resource.valid?

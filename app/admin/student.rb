@@ -75,4 +75,8 @@ permit_params :avatar, :user_id, :batch_id, :bio
 	  
 	end
 
+	controller do
+		defaults :finder => :find_by_slug
+	end
+
 end
