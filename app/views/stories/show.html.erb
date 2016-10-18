@@ -57,7 +57,7 @@
 <!-- End Menu Wrapper -->
 
 
-<section class="small-section bg-gray-lighter" style="padding: 20px 0;">
+<section class="small-section bg-gray-lighter" style="padding: 20px 0; margin-top: -30px;">
     <div class="relative container align-left">
         
         <div class="row">
@@ -65,7 +65,7 @@
             <div class="col-md-8">
                 <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
                 <div class="hs-line-4 font-alt black">
-                    <%="#{@story.student.user.name}"%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                    <a href="student_path(@story.student)"><%="#{@story.student.user.name}"%></a> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
             </div>
             
@@ -103,7 +103,7 @@
 
                             <ul class="clearlist content-slider">
                                 <li>
-                                    <img src="<%=@story.blog_image.url%>" alt="" />
+                                    <img src="<%=@story.blog_image.file? ? @story.blog_image.url : ""%>" alt="" />
                                 </li>
                             </ul>
                         </div>

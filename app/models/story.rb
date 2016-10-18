@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
 					    thumb: '200x200>',
 					}
 
-  validates_attachment :blog_image, :content_type => {:content_type => %w(image/jpeg image/jpg image/png)}
+  validates_attachment :blog_image, :content_type => {:content_type => %w(image/jpeg image/jpg image/png )}
 
   def to_param
     slug
