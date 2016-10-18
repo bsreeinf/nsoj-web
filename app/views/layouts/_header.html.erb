@@ -107,7 +107,7 @@
                     <%= link_to("Gallery", :controller => 'landing_page', :action => 'nsoj_events') %>
                 </li>
                 
-                <li>
+                <!-- <li>
                     <%= link_to(student_publications_path, class: "mn-has-sub", method: :get, :controller => 'student_publication', :action => 'index' ) do %>
                         Student Publications<i class="fa fa-angle-down"></i>
                     <%end%>
@@ -126,6 +126,9 @@
                         <li> <a href="/stories">Stories</a> </li>
                         <li> <a href="https://nsojblog.wordpress.com">Blog</a> </li>
                     </ul>
+                </li> -->
+                <li>
+                    <%= link_to("NSoJ Post",stories_path, method: :get ) %>
                 </li>
                 <% if true %>
                 <% if logged_in? %>

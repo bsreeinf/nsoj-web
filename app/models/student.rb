@@ -13,4 +13,10 @@ class Student < ActiveRecord::Base
     def to_s
     	self.user.name
     end
+
+    validates_presence_of :slug
+
+    def to_param
+        slug
+    end
 end

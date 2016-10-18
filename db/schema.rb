@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016234909) do
+ActiveRecord::Schema.define(version: 20161018051435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -313,8 +313,10 @@ ActiveRecord::Schema.define(version: 20161016234909) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "access_counter",          default: 0
+    t.string   "slug"
   end
 
+  add_index "stories", ["slug"], name: "index_stories_on_slug", using: :btree
   add_index "stories", ["story_category_id"], name: "index_stories_on_story_category_id", using: :btree
   add_index "stories", ["student_id"], name: "index_stories_on_student_id", using: :btree
 
@@ -334,6 +336,7 @@ ActiveRecord::Schema.define(version: 20161016234909) do
     t.text     "bio"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "slug"
   end
 
   add_index "students", ["batch_id"], name: "index_students_on_batch_id", using: :btree

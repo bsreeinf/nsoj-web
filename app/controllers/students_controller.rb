@@ -2,7 +2,7 @@ class StudentsController < InheritedResources::Base
 	before_action :set_student, only: [:show]
 
 	def index
-		@students = Student.all
+		@students = Student.order('bio IS NULL, bio DESC')
 	end
 
 	def show
@@ -12,7 +12,7 @@ class StudentsController < InheritedResources::Base
   private
 
 	def set_student
-		@student = Student.find(params[:id])
+		@student = Student.find_by_slug(params[:id])
 	end
 
     def student_params

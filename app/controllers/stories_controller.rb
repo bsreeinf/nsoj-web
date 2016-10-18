@@ -25,7 +25,7 @@ class StoriesController < ApplicationController
   private
 
     def set_story
-		@story = Story.find(params[:id])
+		@story = Story.find_by_slug(params[:id])
 	end
 
 	def set_stories
