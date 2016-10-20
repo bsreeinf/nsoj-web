@@ -85,7 +85,8 @@
                     </div>
                     
                     <div class="post-prev-info font-alt">
-                        <a href=<%=student_path(story.student)%>><%=story.student.user.name%></a> | <%=local_time(story.created_at, '%d %b')%>
+                        <%story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(story.created_at,'%d %b')%>
+
                     </div>
                     
                     <div class="post-prev-text">
