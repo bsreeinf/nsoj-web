@@ -80,10 +80,10 @@
                         <%story = @main_stories[0]%>
                         <div class="col-md-6">
                             <div class="blog-media mb-10 mb-xs-20">
-                                <ul class="clearlist blog-posts-carousel-alt" style="height: 320px;">
+                                <ul class="clearlist blog-posts-carousel-alt">
                                     <li>
                                         
-                                        <a href=<%=story_path(story)%>><img style="height: 320px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                        <a href=<%=story_path(story)%>><img style="min-height: 320px; max-height: 530px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
                                         <!-- Slide Info -->
                                         <div class="blog-slide-info" style="padding: 10px;">
@@ -114,10 +114,10 @@
                             <!-- Post Slider -->
                             <div class="col-md-12" style="padding: 0 10px 0 0;">
                                 <div class="blog-media mb-10 mb-xs-20">
-                                    <ul class="clearlist blog-posts-carousel-alt" style="height: 155px;">
+                                    <ul class="clearlist blog-posts-carousel-alt">
                                         <li>
                                             
-                                            <a href=<%=story_path(story)%>><img style="height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                            <a href=<%=story_path(story)%>><img style="min-height: 155px; max-height: 260px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                             
                                             <!-- Slide Info -->
                                             <div class="blog-slide-info" style="padding: 10px;">
