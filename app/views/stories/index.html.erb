@@ -109,7 +109,7 @@
                         </div>
                         <%(n-1).times do |i|%>
                         <%story = @main_stories[i+1]%>
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="padding: 0;">
                             
                             <!-- Post Slider -->
                             <div class="col-md-12" style="padding: 0 10px 0 0;">
@@ -179,8 +179,7 @@
                             </div>
                             
                             <div class="post-prev-info font-alt">
-                                <%grouped_story.students.each do |student|%>
-                                    <a href=<%=student_path(student)%>><%=student.user.name%></a> 
+                                <%grouped_story.students.each do |student|%><%=student.user.name%></a>&nbsp;
                                 <%end%> | <%=local_time(grouped_story.created_at, '%d %b')%>
                             </div>
                             

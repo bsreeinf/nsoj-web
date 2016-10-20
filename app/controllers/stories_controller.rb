@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
 	before_action :set_story_categories, :set_stories, :hide_main_nav_bar
 
 	def index
-		@sidebar_length = 6
+		@sidebar_length = 15
 		@main_stories = Story.all.order(created_at: :desc, last_accessed_at: :desc).limit(12)
 		@popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc)
 		@latest_stories = Story.all.order(created_at: :desc)
@@ -14,7 +14,6 @@ class StoriesController < ApplicationController
 			@category_id = params[:category_id]
 			@stories = Story.all.where(story_category_id: @category_id)
 		end
-		puts "Category mode : #{@categoryMode}"
 	end
 
 	def show

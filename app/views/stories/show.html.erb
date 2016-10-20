@@ -8,6 +8,10 @@
 		letter-spacing: 0.1em; 
 		text-transform: inherit;
 	}
+    embed{
+        min-width: 640px !important;
+        min-height: 320px !important;
+    }
 </style>
 
 <!-- Menu Wrapper -->
@@ -110,21 +114,16 @@
                         
                         <%if !@story.video_link.blank?%>
                             <div class="mt-30">
-                                <a href="<%=@story.video_link%>" target="blank">
-                                    <div class="work-img">
-                                      <img src="<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>" alt="National School of Journalism" />
-                                    </div>
-                                    <div class="work-intro">
-                                        <h3 class="work-title"><%=@story.video_caption%></h3>
-                                    </div>
-                                </a>
+                                <script type="text/javascript" src="http://s3.spruto.org/embed/player.js"></script> <script class="splayer"> var params = {"playlist":[{"video":[{"url":"<%@story.video_link%>"}],"duration":0,"posterUrl":"<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>"}],"uiLanguage":"en","width":"640","height":"640"}; player.embed(params); </script>
                             </div>
+                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%></div>
                         <%end%>
                         
 					</div>
                     <!-- End Text -->
 					
 				</div>
+
 				<!-- End Post -->
 				
                 <!-- Prev/Next Post -->
