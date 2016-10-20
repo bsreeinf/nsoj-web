@@ -76,14 +76,14 @@
                 
                 <div class="col-sm-12" style="padding: 0;">
                     <div class="row" style="margin: 0 0 20px 0;">
-                        <%n = @main_stories.length >= 4 ? 4 : @main_stories.length%>
+                        <%n = @main_stories.length >= 5 ? 5 : @main_stories.length%>
                         <%story = @main_stories[0]%>
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <div class="blog-media mb-10 mb-xs-20">
-                                <ul class="clearlist blog-posts-carousel-alt" style="min-height: 485px;">
+                                <ul class="clearlist blog-posts-carousel-alt" style="height: 320px;">
                                     <li>
                                         
-                                        <a href=<%=story_path(story)%>><img style="min-height: 485px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                        <a href=<%=story_path(story)%>><img style="height: 320px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
                                         <!-- Slide Info -->
                                         <div class="blog-slide-info" style="padding: 10px;">
@@ -107,9 +107,10 @@
                                 </ul>
                             </div>
                         </div>
+                        <%(n-1).times do |i|%>
+                        <%story = @main_stories[i]%>
                         <div class="col-md-3">
-                            <%(n-1).times do |i|%>
-                            <%story = @main_stories[i]%>
+                            
                             <!-- Post Slider -->
                             <div class="col-md-12" style="padding: 0 10px 0 0;">
                                 <div class="blog-media mb-10 mb-xs-20">
@@ -141,9 +142,13 @@
                                 </div>
                             </div>
                             <!-- End Post Slider -->
-                        
-                        <%end%>    
+                        <%if n == 1%>
                         </div>
+                        <div class="col-md-3">
+                        <%end%>
+                        </div>
+                        <%end%>    
+                        
                     </div>
                 </div>
                 
