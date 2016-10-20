@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018051435) do
+ActiveRecord::Schema.define(version: 20161020063813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,16 @@ ActiveRecord::Schema.define(version: 20161018051435) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end
+
+  create_table "authors", force: :cascade do |t|
+    t.integer  "story_id"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "authors", ["story_id"], name: "index_authors_on_story_id", using: :btree
+  add_index "authors", ["student_id"], name: "index_authors_on_student_id", using: :btree
 
   create_table "batches", force: :cascade do |t|
     t.integer  "year"
@@ -300,7 +310,6 @@ ActiveRecord::Schema.define(version: 20161018051435) do
   end
 
   create_table "stories", force: :cascade do |t|
-    t.integer  "student_id"
     t.integer  "story_category_id"
     t.string   "title"
     t.text     "content"
@@ -314,11 +323,12 @@ ActiveRecord::Schema.define(version: 20161018051435) do
     t.datetime "updated_at",                          null: false
     t.integer  "access_counter",          default: 0
     t.string   "slug"
+    t.string   "video_link"
+    t.string   "video_caption"
   end
 
   add_index "stories", ["slug"], name: "index_stories_on_slug", using: :btree
   add_index "stories", ["story_category_id"], name: "index_stories_on_story_category_id", using: :btree
-  add_index "stories", ["student_id"], name: "index_stories_on_student_id", using: :btree
 
   create_table "story_categories", force: :cascade do |t|
     t.string   "title"
@@ -366,7 +376,6 @@ ActiveRecord::Schema.define(version: 20161018051435) do
   add_foreign_key "event_data", "events"
   add_foreign_key "nsoj_tvs", "nsoj_tv_categories"
   add_foreign_key "stories", "story_categories"
-  add_foreign_key "stories", "students"
   add_foreign_key "students", "batches"
   add_foreign_key "students", "users"
 end

@@ -1,5 +1,8 @@
 class Story < ActiveRecord::Base
-  belongs_to :student
+  has_many :authors
+  has_many :students, through: :authors
+  accepts_nested_attributes_for :authors, :allow_destroy => true, :reject_if => :all_blank
+
   belongs_to :story_category
   before_create :set_default_last_accessed_at
   
@@ -27,6 +30,7 @@ class Story < ActiveRecord::Base
         break temp unless self.class.exists?(id: !self.id, slug: temp)
         temp = "#{init_slug}-#{i}"
         i+=1
+        
     end
   end
   

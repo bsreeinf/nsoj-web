@@ -65,7 +65,7 @@
             <div class="col-md-8">
                 <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><%=@story.title%></h1>
                 <div class="hs-line-4 font-alt black">
-                    <a href="<%=student_path(@story.student)%>"><%="#{@story.student.user.name}"%></a> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                    <%@story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
             </div>
             
@@ -94,9 +94,6 @@
                     
                     <!-- Text -->
 					<div class="blog-item-body">
-                    	<!-- <h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="text-transform: uppercase;"><%=@story.title%></h1>
-                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0" style="font-size: 12px; text-transform: uppercase;"><%="#{@story.student.user.name}"%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%></h1>
- -->                        
                         <%if @story.blog_image.file? %>
                         <!-- Media Gallery -->
                         <div class="blog-media mt-10 mb-10 mb-xs-10">
@@ -111,6 +108,18 @@
 						<div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.image_caption%></div>
                         <%=@story.content.gsub(/\n/,'<br>').html_safe%>
                         
+                        <%if !@story.video_link.blank?%>
+                            <div class="mt-30">
+                                <a href="<%=@story.video_link%>" target="blank">
+                                    <div class="work-img">
+                                      <img src="<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>" alt="National School of Journalism" />
+                                    </div>
+                                    <div class="work-intro">
+                                        <h3 class="work-title"><%=@story.video_caption%></h3>
+                                    </div>
+                                </a>
+                            </div>
+                        <%end%>
                         
 					</div>
                     <!-- End Text -->
@@ -158,7 +167,7 @@
                                         <div class="widget-posts-descr">
                                             <a href="#" title=""><%=story.title%></a>
                                             <div>
-                                                Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
+                                                Posted by <%story.students.each do |student|%><%=student.user.name%>&nbsp;<%end%> <%=local_time(story.created_at,'%d %b')%>
                                             </div>
                                         </div>
                                     </li>
@@ -179,7 +188,7 @@
                                         <div class="widget-posts-descr">
                                             <a href="#" title=""><%=story.title%></a>
                                             <div>
-                                                Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
+                                                Posted by <%story.students.each do |student|%><%=student.user.name%>&nbsp;<%end%> <%=local_time(story.created_at,'%d %b')%>
                                             </div>
                                         </div>
                                     </li>

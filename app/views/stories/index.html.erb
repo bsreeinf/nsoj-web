@@ -74,115 +74,81 @@
         <%if @categoryMode == false%>
             <div class="row mb-10">
                 
-                <div class="col-sm-9" style="padding: 0;">
-                    <div class="row" style="margin: 0;">
-                    <%n = @main_stories.length >=12 ? 12 : @main_stories.length%>
-                    <%n.times do |i|%>
-                        <%story = @main_stories[i]%>
-                        <!-- Post Slider -->
-                        <div class="col-md-3" style="padding: 0 10px 0 0;">
-                        <div class="blog-media mb-10 mb-xs-20">
-                            <ul class="clearlist blog-posts-carousel-alt" style="min-height: 155px;">
-                                <li>
-                                    
-                                    <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
-                                    
-                                    <!-- Slide Info -->
-                                    <div class="blog-slide-info" style="padding: 10px;">
+                <div class="col-sm-12" style="padding: 0;">
+                    <div class="row" style="margin: 0 0 20px 0;">
+                        <%n = @main_stories.length >= 4 ? 4 : @main_stories.length%>
+                        <%story = @main_stories[0]%>
+                        <div class="col-md-9">
+                            <div class="blog-media mb-10 mb-xs-20">
+                                <ul class="clearlist blog-posts-carousel-alt" style="min-height: 485px;">
+                                    <li>
                                         
-                                        <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
+                                        <a href=<%=story_path(story)%>><img style="min-height: 485px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
-                                        <div class="blog-slide-data">
-                                            <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
-                                            <!-- <span class="separator">&nbsp;</span> -->
-                                            <a href=<%=student_path(story.student)%> style="font-size: 11px;"><i class="fa fa-user"></i> <%=story.student.user.name%></a>
-                                            <!-- <span class="separator">&nbsp;</span>
-                                            <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
+                                        <!-- Slide Info -->
+                                        <div class="blog-slide-info" style="padding: 10px;">
+                                            
+                                            <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
+                                            
+                                            <div class="blog-slide-data">
+                                                <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
+                                                <!-- <span class="separator">&nbsp;</span> -->
+                                                <i class="fa fa-user"></i> 
+                                                <%story.students.each do |student|%>
+                                                    <a href=<%=student_path(student)%> style="font-size: 11px;"> <%=student.user.name%></a>
+                                                <%end%>
+                                                <!-- <span class="separator">&nbsp;</span>
+                                                <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- End Slide Info -->
-                                    
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                        <!-- End Post Slider -->
-                    
-                    <%end%>    
-                    </div>
-                    
-                </div>
-                
-                <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
-                    
-                    <!-- Widget -->
-                    <div class="widget">
-                        
-                        <div class="widget-body">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs tpl-tabs animate">
-                                <li class="active">
-                                    <a href="#one" data-toggle="tab">Popular</a>
-                                </li>
-                                <li>
-                                    <a href="#two" data-toggle="tab">Latest</a>
-                                </li>
-                            </ul>
-                            
-                            <!-- Tab panes -->
-                            <div class="tab-content tpl-tabs-cont section-text">
-                                <div class="tab-pane fade in active" id="one">
-                                    <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
-                                    <%n.times do |i|%>
-                                    <%story = @popular_stories[i]%>
-                                    <ul class="clearlist widget-posts">
-                                
-                                        <!-- Preview item -->
-                                        <li class="clearfix">
-                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
-                                            <div class="widget-posts-descr">
-                                                <a href=<%=story_path(story)%> title=""><%=story.title%></a>
-                                                <div>
-                                                    Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <!-- End Preview item -->
-
-                                    </ul>
-                                    <%end%>
-                                </div>
-                                <div class="tab-pane fade" id="two">
-                                    <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
-                                    <%n.times do |i|%>
-                                    <%story = @latest_stories[i]%>
-                                    <ul class="clearlist widget-posts">
-                                
-                                        <!-- Preview item -->
-                                        <li class="clearfix">
-                                            <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
-                                            <div class="widget-posts-descr">
-                                                <a href=<%=story_path(story)%> title=""><%=story.title%></a>
-                                                <div>
-                                                    Posted by <%=story.student.user.name%> <%=local_time(story.created_at,'%d %b')%>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <!-- End Preview item -->
-
-                                    </ul>
-                                    <%end%>
-                                </div>
+                                        <!-- End Slide Info -->
+                                        
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <%(n-1).times do |i|%>
+                            <%story = @main_stories[i]%>
+                            <!-- Post Slider -->
+                            <div class="col-md-12" style="padding: 0 10px 0 0;">
+                                <div class="blog-media mb-10 mb-xs-20">
+                                    <ul class="clearlist blog-posts-carousel-alt" style="min-height: 155px;">
+                                        <li>
+                                            
+                                            <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                            
+                                            <!-- Slide Info -->
+                                            <div class="blog-slide-info" style="padding: 10px;">
+                                                
+                                                <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
+                                                
+                                                <div class="blog-slide-data">
+                                                    <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
+                                                    <!-- <span class="separator">&nbsp;</span> -->
+                                                    <i class="fa fa-user"></i> 
+                                                    <%story.students.each do |student|%>
+                                                        <a href=<%=student_path(student)%> style="font-size: 11px;"> <%=student.user.name%></a>
+                                                    <%end%>
+                                                    <!-- <span class="separator">&nbsp;</span>
+                                                    <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
+                                                </div>
+                                            </div>
+                                            <!-- End Slide Info -->
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Post Slider -->
                         
+                        <%end%>    
+                        </div>
                     </div>
-                    <!-- End Widget -->
-                    
                 </div>
                 
             </div>
-            
+            <div class="col-md-9">
             <%@story_categories.each do |story_category|%>
                 <%@grouped_stories = Story.all.where(story_category_id: story_category.id).order(created_at: :desc, last_accessed_at: :desc)%>
                 <%if @grouped_stories.length > 0%>
@@ -208,7 +174,9 @@
                             </div>
                             
                             <div class="post-prev-info font-alt">
-                                <a href=<%=student_path(grouped_story.student)%>><%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
+                                <%grouped_story.students.each do |student|%>
+                                    <a href=<%=student_path(student)%>><%=student.user.name%></a> 
+                                <%end%> | <%=local_time(grouped_story.created_at, '%d %b')%>
                             </div>
                             
                             <div class="post-prev-text">
@@ -238,7 +206,10 @@
                                 <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
                                 <div class="widget-posts-descr">
                                     <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
-                                    Posted by <%=grouped_story.student.user.name%></a> | <%=local_time(grouped_story.created_at, '%d %b')%>
+                                    Posted by 
+                                    <%grouped_story.students.each do |student|%>
+                                    <a href=<%=student_path(student)%>><%=student.user.name%></a> 
+                                <%end%> | <%=local_time(grouped_story.created_at, '%d %b')%>
                                 </div>
                             </div>
                             </div>
@@ -255,7 +226,76 @@
                 </div>
                 <%end%>
             <%end%>
+            </div>
 
+            <!-- Sidebar Widget -->
+            <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
+                
+                <!-- Widget -->
+                <div class="widget">
+                    
+                    <div class="widget-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tpl-tabs animate">
+                            <li class="active">
+                                <a href="#one" data-toggle="tab">Popular</a>
+                            </li>
+                            <li>
+                                <a href="#two" data-toggle="tab">Latest</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content tpl-tabs-cont section-text">
+                            <div class="tab-pane fade in active" id="one">
+                                <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
+                                <%n.times do |i|%>
+                                <%story = @popular_stories[i]%>
+                                <ul class="clearlist widget-posts">
+                            
+                                    <!-- Preview item -->
+                                    <li class="clearfix">
+                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <div class="widget-posts-descr">
+                                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                            <div>
+                                                <%story.students.each do |student|%><%=student.user.name%> <%end%> | <%=local_time(story.created_at, '%d %b')%>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- End Preview item -->
+
+                                </ul>
+                                <%end%>
+                            </div>
+                            <div class="tab-pane fade" id="two">
+                                <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
+                                <%n.times do |i|%>
+                                <%story = @latest_stories[i]%>
+                                <ul class="clearlist widget-posts">
+                            
+                                    <!-- Preview item -->
+                                    <li class="clearfix">
+                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <div class="widget-posts-descr">
+                                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                            <div>
+                                                <%story.students.each do |student|%><%=student.user.name%><%end%> | <%=local_time(story.created_at, '%d %b')%>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- End Preview item -->
+
+                                </ul>
+                                <%end%>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- End Widget -->
+                
+            </div>    
         <%else%>
         <!-- Category mode starts here-->
             <!-- <h2 class="section-title font-alt mb-70 mb-sm-40">
@@ -276,7 +316,9 @@
                     </div>
                     
                     <div class="post-prev-info font-alt">
-                        <a href=<%=student_path(story.student)%>><%=story.student.user.name%></a> | <%=local_time(story.created_at, '%d %b')%>
+                        <%story.students.each do |student|%>
+                        <a href=<%=student_path(student)%>><%=student.user.name%></a> 
+                        <%end%> | <%=local_time(story.created_at, '%d %b')%>
                     </div>
                     
                     <div class="post-prev-text">
@@ -321,7 +363,9 @@
                 </div>
                 
                 <div class="post-prev-info font-alt">
-                    <a href=<%=student_path(story.student)%>><%=story.student.user.name%></a> | <%=local_time(story.created_at, '%d %b')%>
+                    <%story.students.each do |student|%>
+                        <a href=<%=student_path(student)%>><%=student.user.name%></a>
+                        <%end%> | <%=local_time(story.created_at, '%d %b')%>
                 </div>
                 
                 <div class="post-prev-text">

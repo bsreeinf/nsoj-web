@@ -1,7 +1,8 @@
 class Student < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :batch
-    has_many :stories
+    has_many :authors
+    has_many :stories, through: :authors
 
   	has_attached_file :avatar,
                     styles: {
