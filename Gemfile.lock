@@ -268,6 +268,9 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     simple_oauth (0.3.1)
+    social-share-button (0.8.1)
+      coffee-rails
+      sass-rails
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
     spring (1.7.1)
@@ -350,6 +353,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  social-share-button
   spring
   sprockets
   turbolinks
@@ -361,5 +365,8 @@ DEPENDENCIES
   wkhtmltopdf-binary
   yui-compressor
 
+RUBY VERSION
+   ruby 2.2.3p173
+
 BUNDLED WITH
-   1.10.6
+   1.12.5

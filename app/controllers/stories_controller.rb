@@ -14,6 +14,8 @@ class StoriesController < ApplicationController
 			@category_id = params[:category_id]
 			@stories = Story.all.where(story_category_id: @category_id)
 		end
+
+		@nsojtvs= NsojTv.order("created_at DESC").limit(4)
 	end
 
 	def show

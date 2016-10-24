@@ -36,6 +36,7 @@
 //= require placeholder
 //= require_directory .
 //= require turbolinks
+//= require social-share-button
 //= require ckeditor/init
 
 

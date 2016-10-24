@@ -81,6 +81,8 @@ gem 'paperclip-ffmpeg'
 
 gem 'aws-sdk-v1'
 
+gem 'social-share-button'
+
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}
 gem 'pg'
 gem 'rack-cache'

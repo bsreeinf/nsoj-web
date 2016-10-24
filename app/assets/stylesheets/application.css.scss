@@ -13,12 +13,17 @@
  *= require 'style'
  *= require_self
  *= require_directory .
+ *= require social-share-button
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "social-share-button";
+
+
 
 
 
