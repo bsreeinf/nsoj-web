@@ -1,6 +1,6 @@
 class NsojPost < ActiveRecord::Base
 	has_attached_file :document,
-                    :styles => { :thumb => ["200x320>", :jpg]},
+                    :styles => { :thumb => ["200x320#", :jpg]},
                     :processors => [:ghostscript, :thumbnail],
                     :convert_options => { :all => '-colorspace RGB -flatten -density 300 -quality 100' }, 
                     :path => ":page_path/:class/:id/:resource_token/:style/:filename"
