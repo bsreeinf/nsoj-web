@@ -94,17 +94,11 @@
                                                 <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
                                                 <!-- <span class="separator">&nbsp;</span> -->
                                                 <i class="fa fa-user"></i> 
-                                                    <%
-                                                        @byline = "<p>"
+                                                    <%  @byline = ""
                                                         story.students.each_with_index do |student, i|
-                                                            if i > 0 
-                                                                @byline += " and "
-                                                            end
+                                                            @byline += i > 0 ? " and " : ""
                                                             @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
-                                                            puts @byline
                                                         end
-                                                        @byline += "</p>"
-                                                        puts @byline
                                                     %><%=@byline.html_safe%>                                                <!-- <span class="separator">&nbsp;</span>
                                                 <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
                                             </div>
@@ -136,17 +130,11 @@
                                                     <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
                                                     <!-- <span class="separator">&nbsp;</span> -->
                                                     <i class="fa fa-user"></i> 
-                                                    <%
-                                                        @byline = "<p>"
+                                                    <%  @byline = ""
                                                         story.students.each_with_index do |student, i|
-                                                            if i > 0 
-                                                                @byline += " and "
-                                                            end
+                                                            @byline += i > 0 ? " and " : ""
                                                             @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
-                                                            puts @byline
                                                         end
-                                                        @byline += "</p>"
-                                                        puts @byline
                                                     %><%=@byline.html_safe%>
                                                     
                                                     <!-- <span class="separator">&nbsp;</span>
@@ -224,15 +212,13 @@
                             
                             <div class="post-prev-info font-alt">
                                 <%
-                                    @byline = "<p>"
+                                    @byline = ""
                                     grouped_story.students.each_with_index do |student, i|
-                                        if i > 0 
-                                            @byline += "<span> and </span>"
-                                        end
+                                        @byline += i > 0 ? " and " : ""
                                         @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                                         puts @byline
                                     end
-                                    @byline += " | #{local_time(grouped_story.created_at, '%d %b')} </p>"
+                                    @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
                                     puts @byline
                                     %><%=@byline.html_safe%>
                             </div>
@@ -264,12 +250,12 @@
                                 <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:small)%>" alt="" class="widget-posts-img" /></a>
                                 <div class="widget-posts-descr">
                                     <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
-                                    <%  @byline = "<p>"
+                                    <%  @byline = ""
                                         grouped_story.students.each_with_index do |student, i|
                                             @byline += i > 0 ? " and " : ""
                                             @byline += student.user.name
                                         end
-                                        @byline += " | #{local_time(grouped_story.created_at, '%d %b')} </p>"
+                                        @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
                                     %><%=@byline.html_safe%>
                                 </div>
                             </div>
@@ -320,12 +306,12 @@
                                         <div class="widget-posts-descr">
                                             <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                             <div>
-                                                <%  @byline = "<p>"
+                                                <%  @byline = ""
                                                     story.students.each_with_index do |student, i|
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(story.created_at, '%d %b')} </p>"
+                                                    @byline += " | #{local_time(story.created_at, '%d %b')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
@@ -347,12 +333,12 @@
                                         <div class="widget-posts-descr">
                                             <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                             <div>
-                                                <%  @byline = "<p>"
+                                                <%  @byline = ""
                                                     story.students.each_with_index do |student, i|
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(story.created_at, '%d %b')} </p>"
+                                                    @byline += " | #{local_time(story.created_at, '%d %b')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
