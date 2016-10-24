@@ -74,6 +74,23 @@
                         <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>   
                         <li><%= link_to("Faculty",program_path(:anchor => "faculty"),  method: :get ) %></li>          
                     <%end%>    
+                        <li><%= link_to("Students",students_path, method: :get ) %></li>          
+                        <li>
+                            <%= link_to(student_publications_path, class: "mn-has-sub", method: :get, :controller => 'student_publication', :action => 'index' ) do %>
+                                Student Publications<i class="fa fa-angle-right right"></i>
+                            <%end%>
+                            <ul class="mn-sub ">
+                            <%  if (params[:controller] == 'student_publication' && params[:action] == 'index' ) %>
+                                <li> <a href="#service-news">NSoJ Post</a> </li>
+                                <li> <a href="#service-radio">NSoJ Radio</a> </li>
+                                <li> <a href="#service-tv">NSoJ TV</a> </li>
+                            <%else%>
+                                <li> <a href="/student_publications#service-news">NSoJ Post</a> </li>
+                                <li> <a href="/student_publications#service-radio">NSoJ Radio</a> </li>
+                                <li> <a href="/student_publications#service-tv">NSoJ TV</a> </li>
+                            <%end%>
+                            </ul>
+                        </li>         
                     </ul>
                 </li>
 
