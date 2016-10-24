@@ -22,15 +22,14 @@
 <!-- End Section -->
 
 <!-- Menu Wrapper -->
-<div>
 
     <!-- Navigation panel -->
-    <nav class=" mn-centered pb-20 pt-20 mb-30" style="z-index: 2; background-color: #ccc;">
-        <div class="relative clearfix">
+    <nav class="main-nav stick-fixed" style="background-color: #fff;">
+        <div class="full-wrapper relative clearfix">
             
-            <div class="nav-logo-wrap local-scroll" style="margin-left: 20px;">
-                <%= link_to(root_path, class: "logo", method: :get, style: "height: 35px;" ) do %>
-                    <img src=<%= image_path("logo-white.png") %> style="height: 35px;" alt="NSOJ Post" />
+            <div class="nav-logo-wrap local-scroll">
+                <%= link_to(stories_path, class: "logo", method: :get ) do %>
+                    <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
                 <%end%>
             </div>
             <div class="mobile-nav">
@@ -39,20 +38,20 @@
             
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
-                <ul class="clearlist" style="padding: 8px 0;">
+                <ul class="clearlist scroll-nav local-scroll">
                     <li style="cursor: pointer;">
                         <%if @category_id.blank?%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #ffffff;">HOME</a>
+                            <a href=<%=stories_path%> style="font-weight: bold; color: red;">HOME</a>
                         <%else%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #b50000;">HOME</a>
+                            <a href=<%=stories_path%>>HOME</a>
                         <%end%>
                     </li>
                     <%@story_categories.each do |story_category|%>    
                         <li>
                             <%if @category_id.to_i == story_category.id.to_i %>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #ffffff; font-weight: bold;"><%=story_category.title%></a>
+                                <a href="/stories?category_id=<%=story_category.id%>" style="font-weight: bold; color: red;"><%=story_category.title%></a>
                             <%else%>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; font-weight: bold;"><%=story_category.title%></a>
+                                <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
                             <%end%>
                         </li>
     
@@ -64,7 +63,6 @@
         </div>
     </nav>
     <!-- End Navigation panel -->
-</div>
 <!-- End Menu Wrapper -->
 
 
