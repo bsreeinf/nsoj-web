@@ -173,7 +173,7 @@
             </div>
 
             <!-- Start of video section -->
-            <div class="mb-40">
+            <div class="mb-40 clearfix">
 
                 <h3 class="blog-item-title font-alt mb-10">
                     Videos
@@ -181,6 +181,7 @@
                     <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
                     
                 </h3>
+                <hr class="mt-0 mb-30" />
                 <% @nsojtvs.each do |nsojtv| %>
                 <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn">
                     <a href="<%=nsojtv.link%>" target="blank">
