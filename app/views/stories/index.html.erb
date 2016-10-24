@@ -125,7 +125,7 @@
                                     <ul class="clearlist blog-posts-carousel-alt">
                                         <li>
                                             
-                                            <a href=<%=story_path(story)%>><img style="min-height: 155px; max-height: 260px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                                            <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" /></a>
                                             
                                             <!-- Slide Info -->
                                             <div class="blog-slide-info" style="padding: 10px;">
@@ -214,7 +214,7 @@
                         <div class="col-md-3 col-lg-3 mb-30">
                             
                             <div class="post-prev-img">
-                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url : ''%>" alt="" /></a>
+                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url(:thumb) : ''%>" alt="" /></a>
                             </div>
                             
                             <div class="post-prev-title font-alt">
@@ -260,7 +260,7 @@
                         <%grouped_story = @grouped_stories[i]%>
                             <div class="col-md-4">
                             <div class="blog-post-prev-small clearfix">
-                                <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:small)%>" alt="" class="widget-posts-img" /></a>
                                 <div class="widget-posts-descr">
                                     <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
                                     <%  @byline = "<p>"
@@ -315,7 +315,7 @@
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
                                             <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                             <div>
@@ -342,7 +342,7 @@
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
                                             <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                             <div>

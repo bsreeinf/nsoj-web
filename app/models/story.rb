@@ -12,7 +12,8 @@ class Story < ActiveRecord::Base
 
   has_attached_file :blog_image,
                     styles: {
-					    thumb: '200x200>',
+					    thumb: '350x200#',
+              small: '100x100#'
 					}
 
   validates_attachment :blog_image, :content_type => {:content_type => %w(image/jpeg image/jpg image/png )}
