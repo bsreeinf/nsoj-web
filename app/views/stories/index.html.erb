@@ -1,25 +1,10 @@
 <style>
     a{cursor: pointer !important;}
-    li.custom-nav-active a{
+    a.custom-nav-active{
         font-weight: bold !important;
+        color: red !important;
     }
-</style>     
-<!-- <div style='padding-top:75px;'></div>             -->
-<!-- Section -->
-<section class="small-section pb-0 pt-0">
-    
-    <!-- <div class="container align-center">
-        
-        <div class="mb-10">
-            <img src=<%=asset_path('logo-footer.png')%> width="78" height="36" alt="" />
-        </div>
-    
-        <h1 class="magazine-logo-text black font-alt">NSoJ Stories</h1>
-        
-    </div>
-    -->    
-</section>
-<!-- End Section -->
+</style>
 
 <!-- Menu Wrapper -->
 
@@ -39,22 +24,26 @@
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
                 <ul class="clearlist scroll-nav local-scroll">
-                    <li style="cursor: pointer;">
-                        <%if @category_id.blank?%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: red;">HOME</a>
+                    <%if @category_id.blank?%>
+                        <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
+                            <li><a href=<%=stories_path%>>HOME</a></li>
+                            <li><a href="/nsoj_post" class="custom-nav-active">E-PAPER</a></li>
                         <%else%>
-                            <a href=<%=stories_path%>>HOME</a>
+                            <li><a href=<%=stories_path%> class="custom-nav-active">HOME</a></li>
+                            <li><a href="/nsoj_post">E-PAPER</a></li>
                         <%end%>
-                    </li>
+                    <%else%>
+                        <li><a href=<%=stories_path%>>HOME</a></li>
+                        <li><a href="/nsoj_post">E-PAPER</a></li>
+                    <%end%>
                     <%@story_categories.each do |story_category|%>    
                         <li>
                             <%if @category_id.to_i == story_category.id.to_i %>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="font-weight: bold; color: red;"><%=story_category.title%></a>
+                                <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
                             <%else%>
                                 <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
                             <%end%>
                         </li>
-    
                     <%end%>
                     <li></li>
                 </ul>
@@ -420,9 +409,13 @@
                 </div>
                 
                 <div class="post-prev-info font-alt">
-                    <%story.students.each do |student|%>
-                        <a href=<%=student_path(student)%>><%=student.user.name%></a>
-                        <%end%> | <%=local_time(story.created_at, '%d %b')%>
+                    <%  @byline = ""
+                        story.students.each_with_index do |student, i|
+                            @byline += i > 0 ? " and " : ""
+                            @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
+                        end
+                    %><%=@byline.html_safe%>
+
                 </div>
                 
                 <div class="post-prev-text">

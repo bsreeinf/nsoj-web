@@ -1,23 +1,66 @@
-
+<nav class="main-nav stick-fixed" style="background-color: #fff;">
+        <div class="full-wrapper relative clearfix">
+            
+            <div class="nav-logo-wrap local-scroll">
+                <%= link_to(stories_path, class: "logo", method: :get ) do %>
+                    <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
+                <%end%>
+            </div>
+            <div class="mobile-nav">
+                <i class="fa fa-bars"></i>
+            </div>
+            
+            <!-- Main Menu -->
+            <div class="inner-nav desktop-nav">
+                <ul class="clearlist scroll-nav local-scroll">
+                    <%if @category_id.blank?%>
+                        <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
+                            <li style="cursor: pointer;">
+                                <a href=<%=stories_path%>>HOME</a>
+                            </li>
+                            <li style="cursor: pointer;">
+                                <a href="/nsoj_post" style="font-weight: bold; color: red;">E-PAPER</a>
+                            </li>
+                        <%else%>
+                            <li style="cursor: pointer;">
+                                <a href=<%=stories_path%> style="font-weight: bold; color: red;">HOME</a>
+                            </li>
+                            <li style="cursor: pointer;">
+                                <a href="/nsoj_post">E-PAPER</a>
+                            </li>
+                        <%end%>
+                    <%end%>
+                    <%@story_categories.each do |story_category|%>    
+                        <li>
+                            <%if @category_id.to_i == story_category.id.to_i %>
+                                <a href="/stories?category_id=<%=story_category.id%>" style="font-weight: bold; color: red;"><%=story_category.title%></a>
+                            <%else%>
+                                <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
+                            <%end%>
+                        </li>
+                    <%end%>
+                    <li></li>
+                </ul>
+            </div>
+            <!-- End Main Menu -->
+        </div>
+    </nav>
     <!-- Home Section -->
-    <section class="small-section bg-dark" data-background="<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%>" style="margin-top: 75px;">
-      <div class="relative container align-left">
-          
-          <div class="row">
-              
-              <div class="col-md-8">
-                  <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="National School of Journalism, Bangalore" /> Post</h1>
-                  <div class="hs-line-4 font-alt">
-                      <!-- We share our best ideas in our blog -->
-                  </div>
-              </div>
-              
-           </div>
-          
-      </div>
-  </section>
-    <!-- End Home Section -->
+    <section class="small-section pb-0 pt-0" style="margin-top: 90px;">
     
+    <div class="container align-center">
+        
+        <div class="mb-10">
+            <img src=<%=asset_path('logo-footer.png')%> width="78" height="36" alt="" />
+        </div>
+    
+        <h1 class="magazine-logo-text black font-alt">NSoJ E-Paper</h1>
+        
+    </div>
+       
+</section>
+    <!-- End Home Section -->
+    <hr class="mt-0 mb-30" />
 
 
     <!-- Portfolio Section -->

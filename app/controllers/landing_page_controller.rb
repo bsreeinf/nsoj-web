@@ -37,7 +37,8 @@ class LandingPageController < ApplicationController
   end
 
   def nsoj_post
-    
+    @story_categories = StoryCategory.all
+    @categoryMode = false
   end
 
   def brochure
