@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
 			@stories = Story.all.where(story_category_id: @category_id)
 		end
 
-		@nsojtvs= NsojTv.where(nsoj_tv_category_id: 3).order("created_at DESC").limit(4)
+		@nsojtvs= NsojTv.where(nsoj_tv_category_id: 2).order("created_at ASC").limit(4)
 	end
 
 	def show

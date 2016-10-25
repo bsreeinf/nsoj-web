@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :stories
   mount Ckeditor::Engine => '/ckeditor'
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdf'
+  
   resources :students
   # resources :slants
 
