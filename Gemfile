@@ -89,6 +89,7 @@ gem 'pg'
 gem 'rack-cache'
 
 gem 'twitter', '~> 5.15'
+# gem 'yui-compressor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -104,7 +105,7 @@ group :development do
 end
 
 group :production do
-  gem 'yui-compressor'
+  
   gem 'heroku-deflater'
 
   # This gem enables serving assets in production and setting your logger to standard out

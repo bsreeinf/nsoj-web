@@ -318,7 +318,6 @@ GEM
     wicked_pdf (1.0.6)
     will_paginate (3.0.7)
     wkhtmltopdf-binary (0.9.9.3)
-    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -367,7 +366,6 @@ DEPENDENCIES
   wicked_pdf
   will_paginate (~> 3.0.7)
   wkhtmltopdf-binary
-  yui-compressor
 
 RUBY VERSION
    ruby 2.2.3p173
