@@ -37,8 +37,9 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 					if !authors_f.object.nil?
 						authors_f.input :_destroy, :as => :boolean, :label => "Delete?"
 	      			end
+	      			authors_f.input :story_id, :input_html => { :value => f.object.id }, as: :hidden
 	      			authors_f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
-	      			authors_f.input :story_id, :required => true, as: :select, collection: Story.all.uniq
+	      			# authors_f.input :story_id, :required => true, as: :select, collection: Story.all.uniq
 	      			authors_f.input :author_type_id, :required => true, as: :select, collection: AuthorType.all.uniq
 	      		# end
 	    		authors_f.actions

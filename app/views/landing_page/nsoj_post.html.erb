@@ -68,7 +68,7 @@
       <div class="container relative">
         <% NsojPost.all.order("created_at DESC").each do |post| %>
           <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" >
-            <a href=<%=pdf.full_path(file: "#{post.document.url}")%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
+            <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
             <!-- <a href="<%=post.document.url%>" target="_blank">
               <iframe src="<%=post.document.url%>&embedded=true" style=" height:500px;" frameborder="0"></iframe>
             </a> -->  
