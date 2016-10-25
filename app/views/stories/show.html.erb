@@ -12,18 +12,22 @@
         min-width: 640px !important;
         min-height: 320px !important;
     }
+    a{cursor: pointer !important;}
+    a.custom-nav-active{
+        font-weight: bold !important;
+        color: red !important;
+    }
 </style>
 
 <!-- Menu Wrapper -->
-<div>
 
     <!-- Navigation panel -->
-    <nav class=" mn-centered pb-20 pt-20 mb-30" style="z-index: 2; background-color: #ccc;">
-        <div class="relative clearfix">
+    <nav class="main-nav stick-fixed" style="background-color: #fff;">
+        <div class="full-wrapper relative clearfix">
             
-            <div class="nav-logo-wrap local-scroll" style="margin-left: 20px;">
-                <%= link_to(root_path, class: "logo", method: :get, style: "height: 35px;" ) do %>
-                    <img src=<%= image_path("logo-white.png") %> style="height: 35px;" alt="NSOJ Post" />
+            <div class="nav-logo-wrap local-scroll">
+                <%= link_to(root_path, class: "logo", method: :get ) do %>
+                    <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
                 <%end%>
             </div>
             <div class="mobile-nav">
@@ -32,23 +36,27 @@
             
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
-                <ul class="clearlist" style="padding: 8px 0;">
-                    <li style="cursor: pointer;">
-                        <%if @category_id.blank?%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #ffffff;">HOME</a>
+                <ul class="clearlist scroll-nav local-scroll">
+                    <%if @category_id.blank?%>
+                        <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
+                            <li><a href=<%=stories_path%>>HOME</a></li>
+                            <li><a href="/nsoj_post" class="custom-nav-active">E-PAPER</a></li>
                         <%else%>
-                            <a href=<%=stories_path%> style="font-weight: bold; color: #b50000;">HOME</a>
+                            <li><a href=<%=stories_path%> class="custom-nav-active">HOME</a></li>
+                            <li><a href="/nsoj_post">E-PAPER</a></li>
                         <%end%>
-                    </li>
+                    <%else%>
+                        <li><a href=<%=stories_path%>>HOME</a></li>
+                        <li><a href="/nsoj_post">E-PAPER</a></li>
+                    <%end%>
                     <%@story_categories.each do |story_category|%>    
                         <li>
                             <%if @category_id.to_i == story_category.id.to_i %>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #ffffff; font-weight: bold;"><%=story_category.title%></a>
+                                <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
                             <%else%>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="color: #b50000; font-weight: bold;"><%=story_category.title%></a>
+                                <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
                             <%end%>
                         </li>
-    
                     <%end%>
                     <li></li>
                 </ul>
@@ -57,11 +65,9 @@
         </div>
     </nav>
     <!-- End Navigation panel -->
-</div>
 <!-- End Menu Wrapper -->
 
-
-<section class="small-section bg-gray-lighter" style="padding: 20px 0; margin-top: -30px;">
+<section class="small-section bg-gray-lighter" style="padding: 20px 0; margin-top: 75px;">
     <div class="relative container align-left">
         
         <div class="row">
@@ -69,7 +75,7 @@
             <div class="col-md-8">
                 <h1 class="hs-line-11 font-alt"><%=@story.title%></h1>
                 <div class="hs-line-4 font-alt black">
-                    <%@story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                    <%@story.story_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
                 <div class="mt-10">
                     <%= social_share_button_tag(@story.title) %>
@@ -119,6 +125,9 @@
                             <script class="splayer"> var params = {"playlist":[{"video":[{"url":"<%=@story.video_link%>"}],"duration":0,"posterUrl":"<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>"}],"uiLanguage":"en","width":"640","height":"640"}; player.embed(params); </script>
                             </div>
                             <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%></div>
+                            <div class="hs-line-4 font-alt black">
+                                <%@story.video_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                            </div>
                         <%end%>
                         
 					</div>

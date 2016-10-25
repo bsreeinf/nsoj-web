@@ -3,7 +3,7 @@ ActiveAdmin.register Story do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, authors_attributes: [:id, :student_id, :story_id]
+permit_params :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, authors_attributes: [:id, :author_type_id, :student_id, :story_id]
 #
 # or
 #
@@ -32,13 +32,15 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 
 		# panel 'Students' do
 			f.has_many :authors do |authors_f|
-				authors_f.inputs
+				# authors_f.inputs
 				 # "Students" do
-					# if !authors_f.object.nil?
-					# 	authors_f.input :_destroy, :as => :boolean, :label => "Destroy?"
-	    #   			end
-	    #   			authors_f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
-	    #   		end
+					if !authors_f.object.nil?
+						authors_f.input :_destroy, :as => :boolean, :label => "Delete?"
+	      			end
+	      			authors_f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
+	      			authors_f.input :story_id, :required => true, as: :select, collection: Story.all.uniq
+	      			authors_f.input :author_type_id, :required => true, as: :select, collection: AuthorType.all.uniq
+	      		# end
 	    		authors_f.actions
 			end
 		# end

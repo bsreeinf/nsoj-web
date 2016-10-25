@@ -1,6 +1,13 @@
 class Story < ActiveRecord::Base
   has_many :authors
   has_many :students, through: :authors
+
+  has_many :story_byline_students, -> { where author_type_id: 1 }, class_name: 'Author'
+  has_many :story_bylines, :through => :story_byline_students, class_name: 'Student', :source => :student
+
+  has_many :video_byline_students, -> { where author_type_id: 2 }, class_name: 'Author'
+  has_many :video_bylines, :through => :video_byline_students, class_name: 'Student', :source => :student
+
   accepts_nested_attributes_for :authors, :allow_destroy => true, :reject_if => :all_blank
 
   belongs_to :story_category

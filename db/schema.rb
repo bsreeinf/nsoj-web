@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020063813) do
+ActiveRecord::Schema.define(version: 20161025065047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,13 +149,21 @@ ActiveRecord::Schema.define(version: 20161020063813) do
     t.datetime "updated_at",                                     null: false
   end
 
-  create_table "authors", force: :cascade do |t|
-    t.integer  "story_id"
-    t.integer  "student_id"
+  create_table "author_types", force: :cascade do |t|
+    t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "authors", force: :cascade do |t|
+    t.integer  "story_id"
+    t.integer  "student_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "author_type_id", default: 1
+  end
+
+  add_index "authors", ["author_type_id"], name: "index_authors_on_author_type_id", using: :btree
   add_index "authors", ["story_id"], name: "index_authors_on_story_id", using: :btree
   add_index "authors", ["student_id"], name: "index_authors_on_student_id", using: :btree
 
