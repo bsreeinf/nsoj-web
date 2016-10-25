@@ -1,5 +1,5 @@
- AuthorType.create!(	title: "Story Byline"	)
- AuthorType.create!(	title: "Video Byline"	)
+ # AuthorType.create!(	title: "Story Byline"	)
+ # AuthorType.create!(	title: "Video Byline"	)
 
 # ContactSubject.create!(	title: "Admissions Office"	)
 # ContactSubject.create!(	title: "Programmes"	)
