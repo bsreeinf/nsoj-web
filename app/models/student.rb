@@ -27,7 +27,7 @@ class Student < ActiveRecord::Base
         temp = init_slug
         i=2
         self.slug = loop do   
-            break temp unless self.class..exists?(id: !self.id, slug: temp)
+            break temp unless self.class.exists?(id: !self.id, slug: temp)
             temp = "#{init_slug}-#{i}"
             i+=1
         end
