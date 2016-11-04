@@ -78,7 +78,7 @@
                     <%@story.story_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
                 <div class="mt-10">
-                    <%= social_share_button_tag(@story.title, :url => 'http://nsoj.in#{request.original_fullpath}', :image => '@story.blog_image.url', desc: '@story.content[1..100]', via: "nsoj_bangalore") %>
+                    <%= social_share_button_tag(@story.title, :url => 'http://nsoj.in'+request.original_fullpath, :image => '@story.blog_image.url', desc: '@story.content[1..100]', via: "nsoj_bangalore") %>
                 </div>
             </div>
             
@@ -136,7 +136,7 @@
 				</div>
 
                 <div class="clearfix mt-10">
-                    <%= social_share_button_tag(@story.title, :url => 'http://nsoj.in#{request.original_fullpath}', :image => '@story.blog_image.url', desc: '@story.content[1..100]', via: "nsoj_bangalore") %>
+                    <%= social_share_button_tag(@story.title, :url => "http://nsoj.in#{request.original_fullpath}", :image => '@story.blog_image.url', desc: '@story.content[1..100]', via: "nsoj_bangalore") %>
                 </div>
 
 				<!-- End Post -->
@@ -172,16 +172,22 @@
                             <div class="tab-pane fade in active" id="one">
                                 <%n = @stories.length >= 10 ? 10 : @stories.length%>
                                 <%n.times do |i|%>
-                                <%story = @stories[i]%>
+                                <%popular_story = @popular_stories[i]%>
                                 <ul class="clearlist widget-posts">
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=""><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href="#" title=""><%=story.title%></a>
+                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
                                             <div>
-                                                Posted by <%story.students.each do |student|%><%=student.user.name%>&nbsp;<%end%> <%=local_time(story.created_at,'%d %b')%>
+                                                <%  @byline = ""
+                                                    popular_story.story_bylines.each_with_index do |student, i|
+                                                        @byline += i > 0 ? " and " : ""
+                                                        @byline += student.user.name
+                                                    end
+                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                %><%=@byline.html_safe%>
                                             </div>
                                         </div>
                                     </li>
@@ -191,18 +197,24 @@
                                 <%end%>
                             </div>
                             <div class="tab-pane fade" id="two">
-                                <%n = @stories.length >= 10 ? 10 : @stories.length%>
+                                <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
                                 <%n.times do |i|%>
-                                <%story = @stories[i]%>
+                                <%latest_story = @latest_stories[i]%>
                                 <ul class="clearlist widget-posts">
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=""><img height="70" width="70" src="<%=story.blog_image.url(:thumb)%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href="#" title=""><%=story.title%></a>
+                                            <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
                                             <div>
-                                                Posted by <%story.students.each do |student|%><%=student.user.name%>&nbsp;<%end%> <%=local_time(story.created_at,'%d %b')%>
+                                                <%  @byline = ""
+                                                    latest_story.story_bylines.each_with_index do |student, i|
+                                                        @byline += i > 0 ? " and " : ""
+                                                        @byline += student.user.name
+                                                    end
+                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
+                                                %><%=@byline.html_safe%>
                                             </div>
                                         </div>
                                     </li>

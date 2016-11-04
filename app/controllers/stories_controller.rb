@@ -1,9 +1,8 @@
 class StoriesController < ApplicationController
 	before_action :set_story, only: [:show]
-	before_action :set_story_categories, :set_stories, :hide_main_nav_bar
+	before_action :set_story_categories, :set_stories, :hide_main_nav_bar, :set_sidebar_length
 
 	def index
-		@sidebar_length = 15
 		@main_stories = Story.all.order(created_at: :desc, last_accessed_at: :desc).limit(12)
 		@popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc)
 		@latest_stories = Story.all.order(created_at: :desc)
@@ -21,6 +20,9 @@ class StoriesController < ApplicationController
 	def show
 		@story.touch(:last_accessed_at)
 		@story.increment!(:access_counter)
+
+		@popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc)
+		@latest_stories = Story.all.order(created_at: :desc)
 		# redirect_to_good_slug(@story) and return if bad_slug?(@story)
 	end
 
@@ -28,6 +30,10 @@ class StoriesController < ApplicationController
 
     def set_story
 		@story = Story.find_by_slug(params[:id])
+	end
+
+	def set_sidebar_length
+		@sidebar_length = 15
 	end
 
 	def set_stories

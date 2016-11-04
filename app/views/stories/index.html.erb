@@ -285,21 +285,21 @@
                             <div class="tab-pane fade in active" id="one">
                                 <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
                                 <%n.times do |i|%>
-                                <%story = @popular_stories[i]%>
+                                <%popular_story = @popular_stories[i]%>
                                 <ul class="clearlist widget-posts">
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
                                             <div>
                                                 <%  @byline = ""
-                                                    story.story_bylines.each_with_index do |student, i|
+                                                    popular_story.story_bylines.each_with_index do |student, i|
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(story.created_at, '%d %b')}"
+                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
@@ -312,21 +312,21 @@
                             <div class="tab-pane fade" id="two">
                                 <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
                                 <%n.times do |i|%>
-                                <%story = @latest_stories[i]%>
+                                <%latest_story = @latest_stories[i]%>
                                 <ul class="clearlist widget-posts">
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                                            <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
                                             <div>
                                                 <%  @byline = ""
-                                                    story.story_bylines.each_with_index do |student, i|
+                                                    latest_story.story_bylines.each_with_index do |student, i|
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(story.created_at, '%d %b')}"
+                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
@@ -350,30 +350,30 @@
             </h2> -->
             <div class="row multi-columns-row">
                 <%@grouped_stories = Story.all.where(story_category_id: @category_id).order(created_at: :desc, last_accessed_at: :desc)%>
-                <%@grouped_stories.each_with_index do |story, i|%>
+                <%@grouped_stories.each_with_index do |grouped_story, i|%>
                 <!-- Post Item -->
                 <div class="col-md-3 col-lg-3 mb-30">
                     
                     <div class="post-prev-img">
-                        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" alt="" /></a>
+                        <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url : ''%>" alt="" /></a>
                     </div>
                     
                     <div class="post-prev-title font-alt">
-                        <a href=<%=story_path(story)%>><%=story.title%></a>
+                        <a href=<%=story_path(grouped_story)%>><%=grouped_story.title%></a>
                     </div>
                     
                     <div class="post-prev-info font-alt">
-                        <%story.story_bylines.each do |student|%>
+                        <%grouped_story.story_bylines.each do |student|%>
                         <a href=<%=student_path(student)%>><%=student.user.name%></a> 
-                        <%end%> | <%=local_time(story.created_at, '%d %b')%>
+                        <%end%> | <%=local_time(grouped_story.created_at, '%d %b')%>
                     </div>
                     
                     <div class="post-prev-text">
-                        <%=story.content[0..150]%> ... 
+                        <%=grouped_story.content[0..150]%> ... 
                     </div>
                     
                     <div class="post-prev-more">
-                        <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                        <a href=<%=story_path(grouped_story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                     
                 </div>
@@ -397,21 +397,21 @@
         <div class="row multi-columns-row">
             <%n = @latest_stories.length >= 4 ? 4 : @latest_stories.length%>
             <%n.times do |i|%>
-            <%story = @latest_stories[i]%>
+            <%latest_story_bottom = @latest_stories[i]%>
             <!-- Post Item -->
             <div class="col-md-3 col-lg-3 mb-30">
                 
                 <div class="post-prev-img">
-                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" alt="" /></a>
+                    <a href=<%=story_path(latest_story_bottom)%>><img src="<%=latest_story_bottom.blog_image.file? ? latest_story_bottom.blog_image.url : ''%>" alt="" /></a>
                 </div>
                 
                 <div class="post-prev-title font-alt">
-                    <a href=<%=story_path(story)%>><%=story.title%></a>
+                    <a href=<%=story_path(latest_story_bottom)%>><%=latest_story_bottom.title%></a>
                 </div>
                 
                 <div class="post-prev-info font-alt">
                     <%  @byline = ""
-                        story.story_bylines.each_with_index do |student, i|
+                        latest_story_bottom.story_bylines.each_with_index do |student, i|
                             @byline += i > 0 ? " and " : ""
                             @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
                         end
@@ -420,11 +420,11 @@
                 </div>
                 
                 <div class="post-prev-text">
-                    <%=story.content[0..150]%> ... 
+                    <%=latest_story_bottom.content[0..150]%> ... 
                 </div>
                 
                 <div class="post-prev-more">
-                    <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                    <a href=<%=story_path(latest_story_bottom)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
                 
             </div>
