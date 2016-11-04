@@ -46,7 +46,7 @@ permit_params :avatar, :user_id, :batch_id, :bio
 	        end     
 	    end   
 	    column "Bio", :bio do |student|
-                student.bio == nil ? "" : "#{student.bio[0..50]} #{student.bio.length > 50 ? "..." : ""}"
+                student.bio == nil ? "" : "#{student.bio[0..200]} #{student.bio.length > 200 ? "..." : ""}"
 
         end 
 	  actions
