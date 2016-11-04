@@ -3,27 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 
-  <meta name="author" content="National School of Journalism">
-	<meta name="description" content="National School of Journalism (NSoJ) is a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents."> 
   <%  if (params[:controller] == 'stories' && params[:action] == 'show' ) %>
     <meta name="twitter:card" content="summary" >
     <meta name="twitter:site" content="@nsoj" >
-    <meta name="twitter:title" content=<%=@story.title%> >
-    <meta name="twitter:description" content=<%=@story.content[1..100]%> >
+    <meta name="twitter:title" content='<%=@story.title%>' >
+    <meta name="twitter:description" content="<%=@story.content[1..100]%>" >
     <meta name="twitter:creator" content="@nsoj">
-    <meta name="twitter:image" content=<%=@story.blog_image.url%> >
+    <meta name="twitter:image" content='<%=@story.blog_image.url%>' >
 
-    <meta property="og:title" content=<%=@story.title%> />
+    <meta property="og:title" content='<%=@story.title%>' />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content=<%=request.original_url%> />
-    <meta property="og:image" content=<%=@story.blog_image.url%> />
-    <meta property="og:description" content=<%=@story.content[1..100]%> />
-
+    <meta property="og:url" content='<%="http://nsoj.in#{request.original_fullpath}"%>' />
+    <meta property="og:image" content='<%=@story.blog_image.url%>' />
+    <meta property="og:description" content='<%=@story.content[1..100]%>' />
+    
+    <title><%=@story.title%></title>
+    <%  @authors = ""
+        @story.story_bylines.each_with_index do |student, i|
+            @authors += i > 0 ? ", " : ""
+            @authors += "#{student.user.name}"
+        end
+    %> 
+    <meta name="author" content='<%=@authors.html_safe%>'>
+    <meta name="description" content='<%=@story.content[1..100]%>'> 
+  <%else%>
+    <title>Best Journalism College in Bangalore, Karnataka, India|NSoJ</title>
+    <meta name="author" content="National School of Journalism">
+    <meta name="description" content="National School of Journalism (NSoJ) is a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents."> 
   <%end%>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-  <title>Best Journalism College in Bangalore, Karnataka, India|NSoJ</title>
+  
 
   <link rel='shortcut icon' type='image/x-icon' href='<%= asset_path("favicon.ico")%>' />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
