@@ -78,7 +78,7 @@
                     <%@story.story_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
                 <div class="mt-10">
-                    <%= social_share_button_tag(@story.title) %>
+                    <%= social_share_button_tag(@story.title, :url => '<%="http://nsoj.in#{request.original_fullpath}"%>', :image => '<%=@story.blog_image.url%>', desc: '<%=@story.content[1..100]%>', via: "nsoj_bangalore") %>
                 </div>
             </div>
             
