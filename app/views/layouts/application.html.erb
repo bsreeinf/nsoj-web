@@ -15,7 +15,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content='<%="http://nsoj.in#{request.original_fullpath}"%>' />
     <meta property="og:image" content='<%=@story.blog_image.url%>' />
-    <meta property="og:description" content='<%=@story.content[1..100]%>' />
+    <meta property="og:description" content='<%=@story.content[0..100]%>' />
     
     <title><%=@story.title%></title>
     <%  @authors = ""
@@ -25,7 +25,7 @@
         end
     %> 
     <meta name="author" content='<%=@authors.html_safe%>'>
-    <meta name="description" content='<%=@story.content[1..100]%>'> 
+    <meta name="description" content='<%=@story.content[0..100]%>'> 
   <%else%>
     <title>Best Journalism College in Bangalore, Karnataka, India|NSoJ</title>
     <meta name="author" content="National School of Journalism">
