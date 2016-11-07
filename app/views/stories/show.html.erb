@@ -126,7 +126,12 @@
                             </div>
                             <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%></div>
                             <div class="hs-line-4 font-alt black">
-                                <%@story.video_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                                <%  @byline = ""
+                                    @story.video_bylines.each_with_index do |student, i|
+                                        @byline += i > 0 ? " and " : ""
+                                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                                    end
+                                %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                             </div>
                         <%end%>
                         
