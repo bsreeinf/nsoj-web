@@ -58,7 +58,7 @@
                         <li>
                             <%if @category_id.to_i == story_category.id.to_i %>
                                 <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
-                            <%elsif Story.count('category_id', :distinct => true)%>
+                            <%else%>
                                 <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
                             <%end%>
                         </li>
