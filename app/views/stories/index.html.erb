@@ -164,10 +164,13 @@
                         <div class="work-img">
                           <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
                         </div>
-                        <div class="work-intro">
+                        <!-- <div class="work-intro">
                             <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
-                        </div>
+                        </div> -->
                     </a>
+                    <div class="post-prev-title font-alt">
+                                <a href=<%=nsojtv.title%></a>
+                            </div>
                 </div>
                 <%end%>
             </div>
@@ -447,10 +450,10 @@
         height2 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(2)').height() * 2;
 
         if(width1 == width2){
-            ele1.css('height',height2 * 2);
+            ele1.css('height',height2);
             console.log("small");
         } else {
-            ele1.css('height',height2 * 2 -10);
+            ele1.css('height',height2 -10);
             console.log('fixed');
         }
     });
