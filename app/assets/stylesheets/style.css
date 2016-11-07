@@ -438,7 +438,7 @@ hr.black{
 .font-alt{
     font-family: Dosis, arial, sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 .serif{
 	font-family: "Times New Roman", Times, serif;
@@ -541,7 +541,7 @@ hr.black{
 	margin-bottom: 10px;
 	font-size: 48px;
 	font-weight: 400;
-	letter-spacing: 0.4em;	
+	letter-spacing: 0.2em;	
 	text-align: center;
 	text-transform: uppercase;
 	opacity: .9;
@@ -3278,7 +3278,7 @@ a.logo:hover{
 	font-size: 13px;
 	text-transform: uppercase;
 	text-align: center;
-	letter-spacing: 0.4em;
+	letter-spacing: 0.2em;
 	color: #555;
 	cursor: default;
 }
