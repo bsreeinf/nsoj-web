@@ -15,7 +15,7 @@
     </section>
 
     <section class="page-section pb-0">
-        <div class="container relative"> 
+        <div class="container relative" style="width: 90%;"> 
             <div class="row">
 
                 <!-- Sidebar -->
@@ -27,14 +27,15 @@
                         <!-- <h5 class="widget-title font-alt">Categories</h5> -->
                         <div class="works-filter widget-body">
                             <ul class="clearlist widget-menu">
-                                <li>
+                                
                                 <% Event.all.each do |event, index| %>
+                                <li style="margin: 0 0 10px 0;">
                                     <%if index==0%>
-                                        <a href="#" class="filter active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
                                     <%else%>
-                                        <a href="#" class="filter" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" class="filter left" data-filter=".event_<%=event.id%>"><%=event.title%></a>
                                     <%end%>
-                                    </li>
+                                </li>
                                 <%end %>
                             </ul>
                         </div>
@@ -43,7 +44,7 @@
                 <!-- End Sidebar -->
                 
                 <!-- Content -->
-                <div class="col-sm-9 col-md-offset-1">
+                <div class="col-sm-10">
                     <ul class="works-grid clearfix font-alt hover-white hide-titles masonry" id="work-grid">
                         <% EventDatum.all.each do |event_datum, index| %>
                             <li class="work-item mix event_<%=event_datum.event_id%>">
