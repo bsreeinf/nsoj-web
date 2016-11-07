@@ -58,7 +58,7 @@
                         <li>
                             <%if @category_id.to_i == story_category.id.to_i %>
                                 <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
-                            <%else%>
+                            <%elsif Story.count('category_id', :distinct => true)%>
                                 <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
                             <%end%>
                         </li>
@@ -249,7 +249,7 @@
                         <!-- End Blog Posts -->
                         
                         <!-- Post Small Previews -->
-                        <div class="row mb-70">
+                        <div class="row mb-70" style="padding: 0 15px;">
                             
                             <div class="row">
                             <%n = @grouped_stories.length >= 6 ? 6 : @grouped_stories.length%>
