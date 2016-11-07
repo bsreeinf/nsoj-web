@@ -20,11 +20,13 @@
             </section> -->
     <!-- End Logo Section -->
     
-
+<div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
 <!-- Section -->
 <section class="small-section" style="padding-top: 0; background-image: url(<%=image_path("polygon.jpg")%>)">
-    <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 30px auto 0 auto;">
-        <div class="relative clearfix" style="background: white; padding: 0 30px;">
+    <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 30px auto 30px auto;">
+        <div class="relative clearfix" style="background: white; padding: 0 20px;">
             
             
             <div class="mobile-nav">
@@ -64,7 +66,7 @@
 
 
                     <li class="right">
-                        <a><%=local_time(Time.now + 330.minutes, '%d/%m/%Y %l:%M%p')%></a>
+                        <a style="color: red;"><strong><%=local_time(Time.now + 330.minutes, '%d/%m/%Y %l:%M%p')%></strong></a>
                     </li>
                     
                 </ul>
@@ -73,7 +75,7 @@
         </div>
     </nav>
 
-    <div class="container relative" style="width: 100%">
+    <div class="container relative" style="width: 90%">
         <%if @categoryMode == false%>
             <div class="row mb-10" style="padding-top: 15px;">
                 
@@ -81,7 +83,7 @@
                     <div class="row" style="margin: 0 0 20px 0;">
                         <%n = @main_stories.length >= 5 ? 5 : @main_stories.length%>
                         <%story = @main_stories[0]%>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="padding-left: 0;">
                             <div class="blog-media mb-10 mb-xs-20">
                                 <ul class="clearlist blog-posts-carousel-alt">
                                     <li>
