@@ -73,7 +73,7 @@
                                         <a href=<%=story_path(story)%>><img style="min-height: 320px; max-height: 530px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
                                         <!-- Slide Info -->
-                                        <div class="blog-slide-info" style="padding: 10px;">
+                                        <div class="blog-slide-info" style="padding: 10px 10px 35px 10px;">
                                             
                                             <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
                                             
@@ -437,3 +437,20 @@
 </section>
 <!-- End Lates News -->            
             
+<script>
+    $(window).resize(function(){
+        ele1 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(1)');
+        ele2 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(2)');
+        width1 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(1)').width() * 2;
+        width2 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(2)').width() * 2;
+        height2 = $('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(2)').height() * 2;
+
+        if(width1 == width2){
+            ele1.css('height',height2 * 2);
+            console.log("small");
+        } else {
+            ele1.css('height',height2 * 2 -10);
+            console.log('fixed');
+        }
+    });
+</script>
