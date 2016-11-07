@@ -64,7 +64,6 @@
                         </li>
                     <%end%>
 
-
                     <li class="right">
                         <a style="color: red;"><strong><%=local_time(Time.now + 330.minutes, '%d/%m/%Y %l:%M%p')%></strong></a>
                     </li>
@@ -83,11 +82,10 @@
                     <div class="row" style="margin: 0 0 20px 0;">
                         <%n = @main_stories.length >= 5 ? 5 : @main_stories.length%>
                         <%story = @main_stories[0]%>
-                        <div class="col-md-6" style="padding-left: 0;">
+                        <div class="col-md-6" style="padding: 0;">
                             <div class="blog-media mb-10 mb-xs-20">
                                 <ul class="clearlist blog-posts-carousel-alt">
                                     <li>
-                                        
                                         <a href=<%=story_path(story)%>><img style="min-height: 320px; max-height: 530px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
                                         <!-- Slide Info -->
@@ -119,11 +117,10 @@
                         <div class="col-md-3" style="padding: 0;">
                             
                             <!-- Post Slider -->
-                            <div class="col-md-12" style="padding: 0 10px 0 0;">
+                            <div class="col-md-12" style="padding: 0 0 0 10px;">
                                 <div class="blog-media mb-10 mb-xs-20">
                                     <ul class="clearlist blog-posts-carousel-alt">
                                         <li>
-                                            
                                             <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" /></a>
                                             
                                             <!-- Slide Info -->
