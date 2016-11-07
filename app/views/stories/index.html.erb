@@ -6,24 +6,40 @@
     }
 </style>
 
-<!-- Menu Wrapper -->
+    <!-- Logo Section -->
+            <!-- <section class="small-section pt-10 pb-0 pt-xs-20 pb-xs-20">
+                
+                <div class="container align-center">
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <a href="special-construction-1.html"><img src=<%= image_path("logo-nsoj-post.jpg") %> width="170" height="119" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </section> -->
+    <!-- End Logo Section -->
+    
 
-    <!-- Navigation panel -->
-    <nav class="main-nav stick-fixed" style="background-color: #fff;">
-        <div class="full-wrapper relative clearfix">
+<!-- Section -->
+<section class="small-section" style="padding-top: 0; background-image: url(<%=image_path("polygon.jpg")%>)">
+    <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 30px auto 0 auto;">
+        <div class="relative clearfix" style="background: white; padding: 0 30px;">
             
-            <div class="nav-logo-wrap local-scroll">
-                <%= link_to(root_path, class: "logo", method: :get ) do %>
-                    <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
-                <%end%>
-            </div>
+            
             <div class="mobile-nav">
                 <i class="fa fa-bars"></i>
             </div>
             
             <!-- Main Menu -->
             <div class="inner-nav desktop-nav">
-                <ul class="clearlist scroll-nav local-scroll">
+                <div class="nav-logo-wrap local-scroll">
+                    <%= link_to(root_path, class: "logo", method: :get ) do %>
+                        <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
+                    <%end%>
+                </div>
+                <ul class="clearlist">
+                    
                     <%if @category_id.blank?%>
                         <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
                             <li><a href=<%=stories_path%>>HOME</a></li>
@@ -45,21 +61,21 @@
                             <%end%>
                         </li>
                     <%end%>
-                    <li></li>
+
+
+                    <li class="right">
+                        <a><%=local_time(Time.now + 330.minutes, '%d/%m/%Y %l:%M%p')%></a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- End Main Menu -->
         </div>
     </nav>
-    <!-- End Navigation panel -->
-<!-- End Menu Wrapper -->
 
-
-<!-- Section -->
-<section class="small-section" style="padding: 90px 0 0 0;">
-    <div class="container relative" style="width: 90%">
+    <div class="container relative" style="width: 100%">
         <%if @categoryMode == false%>
-            <div class="row mb-10">
+            <div class="row mb-10" style="padding-top: 15px;">
                 
                 <div class="col-sm-12" style="padding: 0;">
                     <div class="row" style="margin: 0 0 20px 0;">
@@ -146,202 +162,207 @@
                 </div>
                 
             </div>
-            <hr class="mt-0 mb-30" />
+        </div>
+    </section>
 
-            <!-- Start of video section -->
-            <div class="mb-40 clearfix">
 
-                <h3 class="blog-item-title font-alt mb-10">
-                    Videos
-                    
-                    <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-                    
-                </h3>
-                <hr class="mt-0 mb-30" />
-                <% @nsojtvs.each do |nsojtv| %>
-                <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn">
-                    <a href="<%=nsojtv.link%>" target="blank">
-                        <div class="work-img">
-                          <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
-                        </div>
-                        <div class="work-intro">
-                            <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
-                        </div>
-                    </a>                
-                </div>
-                <%end%>
-            </div>
-            <!-- End of video section -->
+            <!-- <hr class="mt-0 mb-30" /> -->
+            <div class="mt-40" style="width: 90%; margin: 40px auto;">
+                <!-- Start of video section -->
+                <div class="mb-40 clearfix">
 
-            <div class="col-md-9">
-            <%@story_categories.each do |story_category|%>
-                <%@grouped_stories = Story.all.where(story_category_id: story_category.id).order(created_at: :desc, last_accessed_at: :desc)%>
-                <%if @grouped_stories.length > 0%>
-                <div class="row">
-                    <h3 class="blog-item-title font-alt mb-10"><a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a></h3>
+                    <h3 class="blog-item-title font-alt mb-10">
+                        Videos
                         
+                        <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+                        
+                    </h3>
                     <hr class="mt-0 mb-30" />
-                    
-                    <!-- Blog Posts -->
-                    <div class="row multi-columns-row">
-                        <%n = @grouped_stories.length >= 4 ? 4 : @grouped_stories.length%>
-                        <%n.times do |i|%>
-                        <%grouped_story = @grouped_stories[i]%>
-                        <!-- Post Item -->
-                        <div class="col-md-3 col-lg-3 mb-30">
-                            
-                            <div class="post-prev-img">
-                                <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url(:thumb) : ''%>" alt="" /></a>
+                    <% @nsojtvs.each do |nsojtv| %>
+                    <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn">
+                        <a href="<%=nsojtv.link%>" target="blank">
+                            <div class="work-img">
+                              <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
                             </div>
-                            
-                            <div class="post-prev-title font-alt">
-                                <a href=<%=story_path(grouped_story)%>><%=grouped_story.title%></a>
+                            <div class="work-intro">
+                                <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
                             </div>
-                            
-                            <div class="post-prev-info font-alt">
-                                <%
-                                    @byline = ""
-                                    grouped_story.story_bylines.each_with_index do |student, i|
-                                        @byline += i > 0 ? " and " : ""
-                                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
-                                        puts @byline
-                                    end
-                                    @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
-                                    puts @byline
-                                    %><%=@byline.html_safe%>
-                            </div>
-                            
-                            <div class="post-prev-text">
-                                <%=grouped_story.content[0..150]%> ... 
-                            </div>
-                            
-                            <div class="post-prev-more">
-                                <a href=<%=story_path(grouped_story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
-                            
-                        </div>
-                        <!-- End Post Item -->
-                        <%end%>
-                        
+                        </a>                
                     </div>
-                    <!-- End Blog Posts -->
-                    
-                    <!-- Post Small Previews -->
-                    <div class="row mb-70">
+                    <%end%>
+                </div>
+                <!-- End of video section -->
+
+                <div class="col-md-9">
+                <%@story_categories.each do |story_category|%>
+                    <%@grouped_stories = Story.all.where(story_category_id: story_category.id).order(created_at: :desc, last_accessed_at: :desc)%>
+                    <%if @grouped_stories.length > 0%>
+                    <div class="row">
+                        <h3 class="blog-item-title font-alt mb-10"><a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a></h3>
+                            
+                        <hr class="mt-0 mb-30" />
                         
-                        <div class="row">
-                        <%n = @grouped_stories.length >= 6 ? 6 : @grouped_stories.length%>
-                        <%n.times do |i|%>
-                        <%grouped_story = @grouped_stories[i]%>
-                            <div class="col-md-4">
-                            <div class="blog-post-prev-small clearfix">
-                                <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:small)%>" alt="" class="widget-posts-img" /></a>
-                                <div class="widget-posts-descr">
-                                    <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
-                                    <%  @byline = ""
+                        <!-- Blog Posts -->
+                        <div class="row multi-columns-row">
+                            <%n = @grouped_stories.length >= 4 ? 4 : @grouped_stories.length%>
+                            <%n.times do |i|%>
+                            <%grouped_story = @grouped_stories[i]%>
+                            <!-- Post Item -->
+                            <div class="col-md-3 col-lg-3 mb-30">
+                                
+                                <div class="post-prev-img">
+                                    <a href=<%=story_path(grouped_story)%>><img src="<%=grouped_story.blog_image.file? ? grouped_story.blog_image.url(:thumb) : ''%>" alt="" /></a>
+                                </div>
+                                
+                                <div class="post-prev-title font-alt">
+                                    <a href=<%=story_path(grouped_story)%>><%=grouped_story.title%></a>
+                                </div>
+                                
+                                <div class="post-prev-info font-alt">
+                                    <%
+                                        @byline = ""
                                         grouped_story.story_bylines.each_with_index do |student, i|
                                             @byline += i > 0 ? " and " : ""
-                                            @byline += student.user.name
+                                            @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                                            puts @byline
                                         end
                                         @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
-                                    %><%=@byline.html_safe%>
+                                        puts @byline
+                                        %><%=@byline.html_safe%>
+                                </div>
+                                
+                                <div class="post-prev-text">
+                                    <%=grouped_story.content[0..150]%> ... 
+                                </div>
+                                
+                                <div class="post-prev-more">
+                                    <a href=<%=story_path(grouped_story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                                </div>
+                                
+                            </div>
+                            <!-- End Post Item -->
+                            <%end%>
+                            
+                        </div>
+                        <!-- End Blog Posts -->
+                        
+                        <!-- Post Small Previews -->
+                        <div class="row mb-70">
+                            
+                            <div class="row">
+                            <%n = @grouped_stories.length >= 6 ? 6 : @grouped_stories.length%>
+                            <%n.times do |i|%>
+                            <%grouped_story = @grouped_stories[i]%>
+                                <div class="col-md-4">
+                                <div class="blog-post-prev-small clearfix">
+                                    <a href=<%=story_path(grouped_story)%>><img width="70" height="70" src="<%=grouped_story.blog_image.url(:small)%>" alt="" class="widget-posts-img" /></a>
+                                    <div class="widget-posts-descr">
+                                        <a href=<%=story_path(grouped_story)%> title=""><%=grouped_story.title%></a>
+                                        <%  @byline = ""
+                                            grouped_story.story_bylines.each_with_index do |student, i|
+                                                @byline += i > 0 ? " and " : ""
+                                                @byline += student.user.name
+                                            end
+                                            @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
+                                        %><%=@byline.html_safe%>
+                                    </div>
+                                </div>
+                                </div>
+                            <%if (i+1)  % 3 == 0%>
+                            </div>
+                            <div class="row">
+                            <%end%>
+                            <%end%>
+                            </div>
+                            
+                        </div>
+                        <!-- End Post Small Previews -->
+                        <div class="col-md-4"></div>
+                    </div>
+                    <%end%>
+                <%end%>
+                </div>
+
+                <!-- Sidebar Widget -->
+                <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
+                    
+                    <!-- Widget -->
+                    <div class="widget">
+                        
+                        <div class="widget-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs tpl-tabs animate">
+                                <li class="active">
+                                    <a href="#one" data-toggle="tab">Popular</a>
+                                </li>
+                                <li>
+                                    <a href="#two" data-toggle="tab">Latest</a>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content tpl-tabs-cont section-text">
+                                <div class="tab-pane fade in active" id="one">
+                                    <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
+                                    <%n.times do |i|%>
+                                    <%popular_story = @popular_stories[i]%>
+                                    <ul class="clearlist widget-posts">
+                                
+                                        <!-- Preview item -->
+                                        <li class="clearfix">
+                                            <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
+                                                <div>
+                                                    <%  @byline = ""
+                                                        popular_story.story_bylines.each_with_index do |student, i|
+                                                            @byline += i > 0 ? " and " : ""
+                                                            @byline += student.user.name
+                                                        end
+                                                        @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                    %><%=@byline.html_safe%>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End Preview item -->
+
+                                    </ul>
+                                    <%end%>
+                                </div>
+                                <div class="tab-pane fade" id="two">
+                                    <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
+                                    <%n.times do |i|%>
+                                    <%latest_story = @latest_stories[i]%>
+                                    <ul class="clearlist widget-posts">
+                                
+                                        <!-- Preview item -->
+                                        <li class="clearfix">
+                                            <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
+                                                <div>
+                                                    <%  @byline = ""
+                                                        latest_story.story_bylines.each_with_index do |student, i|
+                                                            @byline += i > 0 ? " and " : ""
+                                                            @byline += student.user.name
+                                                        end
+                                                        @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
+                                                    %><%=@byline.html_safe%>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End Preview item -->
+
+                                    </ul>
+                                    <%end%>
                                 </div>
                             </div>
-                            </div>
-                        <%if (i+1)  % 3 == 0%>
-                        </div>
-                        <div class="row">
-                        <%end%>
-                        <%end%>
                         </div>
                         
                     </div>
-                    <!-- End Post Small Previews -->
-                    <div class="col-md-4"></div>
-                </div>
-                <%end%>
-            <%end%>
-            </div>
-
-            <!-- Sidebar Widget -->
-            <div class="col-sm-3 sidebar mt-0" style="padding-left: 30px;">
-                
-                <!-- Widget -->
-                <div class="widget">
-                    
-                    <div class="widget-body">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs tpl-tabs animate">
-                            <li class="active">
-                                <a href="#one" data-toggle="tab">Popular</a>
-                            </li>
-                            <li>
-                                <a href="#two" data-toggle="tab">Latest</a>
-                            </li>
-                        </ul>
-                        
-                        <!-- Tab panes -->
-                        <div class="tab-content tpl-tabs-cont section-text">
-                            <div class="tab-pane fade in active" id="one">
-                                <%n = @popular_stories.length >= @sidebar_length ? @sidebar_length : @popular_stories.length%>
-                                <%n.times do |i|%>
-                                <%popular_story = @popular_stories[i]%>
-                                <ul class="clearlist widget-posts">
-                            
-                                    <!-- Preview item -->
-                                    <li class="clearfix">
-                                        <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
-                                            <div>
-                                                <%  @byline = ""
-                                                    popular_story.story_bylines.each_with_index do |student, i|
-                                                        @byline += i > 0 ? " and " : ""
-                                                        @byline += student.user.name
-                                                    end
-                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
-                                                %><%=@byline.html_safe%>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Preview item -->
-
-                                </ul>
-                                <%end%>
-                            </div>
-                            <div class="tab-pane fade" id="two">
-                                <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
-                                <%n.times do |i|%>
-                                <%latest_story = @latest_stories[i]%>
-                                <ul class="clearlist widget-posts">
-                            
-                                    <!-- Preview item -->
-                                    <li class="clearfix">
-                                        <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
-                                            <div>
-                                                <%  @byline = ""
-                                                    latest_story.story_bylines.each_with_index do |student, i|
-                                                        @byline += i > 0 ? " and " : ""
-                                                        @byline += student.user.name
-                                                    end
-                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
-                                                %><%=@byline.html_safe%>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Preview item -->
-
-                                </ul>
-                                <%end%>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- End Widget -->
                     
                 </div>
-                <!-- End Widget -->
-                
             </div>    
         <%else%>
         <!-- Category mode starts here-->
@@ -382,9 +403,7 @@
                 
             </div>
         <%end%>
-    </div>
-</section>
-<!-- End Section -->            
+    </div>           
 
 <!-- Latest News -->
 <section class="page-section" style="padding-top: 0;">
