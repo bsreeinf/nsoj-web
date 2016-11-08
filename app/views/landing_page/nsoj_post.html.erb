@@ -80,7 +80,7 @@
                 <% NsojPost.all.order("created_at DESC").each do |post| %>
                 <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" style="margin-bottom: 40px;">
                     <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a><br><br>
-                    <a style="color: white;" href=<%="#{post.document.url}"%> target="_blank" ><strong><%=local_time(post.created_at + 330.minutes, '%d %b')%></strong></a> 
+                    <a style="color: white;" href=<%="#{post.document.url}"%> target="_blank" ><strong><%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%></strong></a> 
 
                 </div>  
                 <%end %>
