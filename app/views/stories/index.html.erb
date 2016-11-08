@@ -86,7 +86,7 @@
                         <%story = @main_stories[0]%>
                         <div class="col-md-6" style="padding: 0;">
                             <div class="blog-media mb-10 mb-xs-20">
-                                <ul class="clearlist blog-posts-carousel-alt">
+                                <ul id="preview1" class="clearlist blog-posts-carousel-alt">
                                     <li>
                                         <a href=<%=story_path(story)%>><img style="min-height: 320px; max-height: 530px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
                                         
@@ -122,7 +122,7 @@
                             <!-- Post Slider -->
                             <div class="col-md-12" style="padding: 0 0 0 10px;">
                                 <div class="blog-media mb-10 mb-xs-20">
-                                    <ul class="clearlist blog-posts-carousel-alt">
+                                    <ul id="preview<%=i%>" class="clearlist blog-posts-carousel-alt">
                                         <li>
                                             <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" /></a>
                                             

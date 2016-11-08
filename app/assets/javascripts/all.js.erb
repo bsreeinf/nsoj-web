@@ -80,7 +80,8 @@
         init_side_panel_resize()
         js_height_init();
         try{
-            $('#top > section.small-section > div > div.row.mb-10 > div > div > div.col-md-6 > div > ul > div.owl-wrapper-outer.autoHeight').css('max-height',$('#top > section.small-section > div > div.row.mb-10 > div > div > div:nth-child(2)').height() * 2 -10);
+            $('#preview1').css('max-height',$('#preview2').height() * 2 + 10);
+
         }catch(e){
             console.log("err: " + e);
         }
