@@ -25,15 +25,15 @@
                     <div class="widget">
                         
                         <!-- <h5 class="widget-title font-alt">Categories</h5> -->
-                        <div class="works-filter widget-body">
+                        <div class="works-filter widget-body" style="text-align: left;">
                             <ul class="clearlist widget-menu">
                                 
                                 <% Event.all.each do |event, index| %>
-                                <li style="margin: 0 0 25px 0;">
+                                <li>
                                     <%if index==0%>
-                                        <a href="#" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
                                     <%else%>
-                                        <a href="#" class="filter left" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left" data-filter=".event_<%=event.id%>"><%=event.title%></a>
                                     <%end%>
                                 </li>
                                 <%end %>
