@@ -28,7 +28,7 @@
                         <div class="works-filter widget-body">
                             <ul class="clearlist widget-menu">
                                 
-                                <% Event.all.each do |event, index| %>
+                                <% Event.all.order("created_at DESC").each do |event, index| %>
                                 <li style="margin: 0 0 25px 0;">
                                     <%if index==0%>
                                         <a href="#" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
