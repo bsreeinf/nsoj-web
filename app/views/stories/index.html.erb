@@ -4,7 +4,7 @@
         font-weight: bold !important;
         color: red !important;
     }
-    .blog-item-title > a, .section-title, .post-prev-info a:hover, .post-prev-title a:hover, .widget-posts li a{
+    .blog-item-title, .blog-item-title > a, .section-title, .post-prev-info a:hover, .post-prev-title a:hover, .widget-posts li a{
         color: white !important;
     }
 </style>
@@ -26,7 +26,7 @@
         <div class="loader">Loading...</div>
     </div>
 
-    <section class="small-section" style="padding-top: 0; ">
+    <section class="small-section" style="padding: 0; ">
         <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 30px auto 30px auto;">
             <div class="relative clearfix" style="background: white; padding: 0 20px;">
             
@@ -184,10 +184,8 @@
                     <div class="work-img">
                       <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
                     </div>
-                    <div class="work-intro">
-                        <h3 style="font-weight: 800; color: white; text-shadow: 1px 1px 1px grey;" class="work-title"><%=nsojtv.title%></h3>
-                    </div>
-                </a>                
+                </a>      
+                <h3 style=" color: white; margin-top: 15px;" class="work-title"><%=nsojtv.title%></h3>          
             </div>
             <%end%>
         </div>
