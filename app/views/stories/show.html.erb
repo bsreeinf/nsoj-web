@@ -75,7 +75,12 @@
             <div class="col-md-8">
                 <h1 class="hs-line-11 font-alt"><%=@story.title%></h1>
                 <div class="hs-line-4 font-alt black">
-                    <%@story.story_bylines.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a><%end%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                    <%  @byline = ""
+                                @story.story_bylines.each_with_index do |student, i|
+                                    @byline += i > 0 ? " and " : ""
+                                    @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                                end
+                            %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
                 </div>
                 <div class="mt-10">
                     <%= social_share_button_tag(@story.title, :url => request.original_url, :image => '@story.blog_image.url', desc: '@story.content[0..100]', via: "nsoj_bangalore") %>
@@ -124,15 +129,13 @@
                             <div class="mt-30">
                             <script class="splayer"> var params = {"playlist":[{"video":[{"url":"<%=@story.video_link%>"}],"duration":0,"posterUrl":"<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>"}],"uiLanguage":"en","width":"640","height":"640"}; player.embed(params); </script>
                             </div>
-                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%></div>
-                            <div class="hs-line-4 font-alt black">
-                                <%  @byline = ""
-                                    @story.video_bylines.each_with_index do |student, i|
-                                        @byline += i > 0 ? " and " : ""
-                                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
-                                    end
-                                %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
-                            </div>
+                            <%  @byline = ""
+                                @story.video_bylines.each_with_index do |student, i|
+                                    @byline += i > 0 ? " and " : ""
+                                    @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                                end
+                            %>
+                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%> <br> <span style="padding-top: 15px;"> <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%></span></div>
                         <%end%>
                         
 					</div>
