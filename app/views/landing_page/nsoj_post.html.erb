@@ -72,15 +72,15 @@
         </nav>
 
         <div style="width: 90%; margin: 0 auto;">
-            <a class="right" style="color: white; margin-bottom: 40px;"><strong><%=local_time(Time.now + 330.minutes, '%a, %d %b %l:%M%p')%></strong></a>
+            <a class="right" style="color: white; margin-bottom: 20px;"><strong><%=local_time(Time.now + 330.minutes, '%a, %d %b %l:%M%p')%></strong></a>
         </div>
 
-        <div class="container clearfix relative" style="width: 90%">
+        <div class="container clearfix relative" style="width: 90%; margin-top: 65px;">
             <div class="row mb-10" style="padding-top: 15px;">
                 <% NsojPost.all.order("created_at DESC").each do |post| %>
-                <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" >
-                    <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a><br>
-                    <a style="color: white; margin: 10px 0;" href=<%="#{post.document.url}"%> target="_blank" ><%=local_time(post.created_at + 330.minutes, '%d %b')%></a> 
+                <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" style="margin-bottom: 40px;">
+                    <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a><br><br>
+                    <a style="color: white;" href=<%="#{post.document.url}"%> target="_blank" ><strong><%=local_time(post.created_at + 330.minutes, '%d %b')%></strong></a> 
 
                 </div>  
                 <%end %>
