@@ -1,79 +1,90 @@
-<nav class="main-nav stick-fixed" style="background-color: #fff;">
-        <div class="full-wrapper relative clearfix">
-            
-            <div class="nav-logo-wrap local-scroll">
-                <%= link_to(stories_path, class: "logo", method: :get ) do %>
-                    <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
-                <%end%>
+<style>
+    a{cursor: pointer !important;}
+    a.custom-nav-active{
+        font-weight: bold !important;
+        color: red !important;
+    }
+    .blog-item-title > a, .section-title, .post-prev-info a:hover, .post-prev-title a:hover, .widget-posts li a{
+        color: white !important;
+    }
+</style>
+
+<section class="small-section pt-10 pb-0 pt-xs-20 pb-xs-20">
+    
+    <div class="container align-center" style="padding-bottom: 10px;">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <a href=<%=stories_path%>><img src=<%= image_path("logo-nsoj-post.jpg") %> width="170" height="119" alt="" /></a>
             </div>
-            <div class="mobile-nav">
-                <i class="fa fa-bars"></i>
-            </div>
+        </div>
+    </div>
+    
+</section>
+
+<div style="background-image: url(<%=image_path("polygon.jpg")%>)">
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <section class="small-section" style="padding-top: 0; ">
+        <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 30px auto 30px auto;">
+            <div class="relative clearfix" style="background: white; padding: 0 20px;">
             
-            <!-- Main Menu -->
-            <div class="inner-nav desktop-nav">
-                <ul class="clearlist scroll-nav local-scroll">
-                    <%if @category_id.blank?%>
-                        <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
-                            <li style="cursor: pointer;">
-                                <a href=<%=stories_path%>>HOME</a>
-                            </li>
-                            <li style="cursor: pointer;">
-                                <a href="/nsoj_post" style="font-weight: bold; color: red;">E-PAPER</a>
-                            </li>
+                <div class="mobile-nav">
+                    <i class="fa fa-bars"></i>
+                </div>
+            
+                <!-- Main Menu -->
+                <div class="inner-nav desktop-nav">
+                    <div class="nav-logo-wrap local-scroll">
+                        <%= link_to(root_path, class: "logo", method: :get ) do %>
+                            <img style="height: 40px;" src=<%= image_path("logo-white.png") %> alt="NSoJ Post" />
+                        <%end%>
+                    </div>
+                    <ul class="clearlist">
+                        
+                        <%if @category_id.blank?%>
+                            <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
+                                <li><a href=<%=stories_path%>>HOME</a></li>
+                                <li><a href="/nsoj_post" class="custom-nav-active">E-PAPER</a></li>
+                            <%else%>
+                                <li><a href=<%=stories_path%> class="custom-nav-active">HOME</a></li>
+                                <li><a href="/nsoj_post">E-PAPER</a></li>
+                            <%end%>
                         <%else%>
-                            <li style="cursor: pointer;">
-                                <a href=<%=stories_path%> style="font-weight: bold; color: red;">HOME</a>
-                            </li>
-                            <li style="cursor: pointer;">
-                                <a href="/nsoj_post">E-PAPER</a>
+                            <li><a href=<%=stories_path%>>HOME</a></li>
+                            <li><a href="/nsoj_post">E-PAPER</a></li>
+                        <%end%>
+                        <%@story_categories.each do |story_category|%>    
+                            <li>
+                                <%if @category_id.to_i == story_category.id.to_i %>
+                                    <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
+                                <%else%>
+                                    <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
+                                <%end%>
                             </li>
                         <%end%>
-                    <%end%>
-                    <%@story_categories.each do |story_category|%>    
-                        <li>
-                            <%if @category_id.to_i == story_category.id.to_i %>
-                                <a href="/stories?category_id=<%=story_category.id%>" style="font-weight: bold; color: red;"><%=story_category.title%></a>
-                            <%else%>
-                                <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
-                            <%end%>
-                        </li>
-                    <%end%>
-                    <li></li>
-                </ul>
+                        
+                    </ul>
+                </div>
+                <!-- End Main Menu -->
             </div>
-            <!-- End Main Menu -->
+        </nav>
+
+        <div style="width: 90%; margin: 0 auto;">
+            <a class="right" style="color: white; margin-bottom: 10px;"><strong><%=local_time(Time.now + 330.minutes, '%a, %d %b %l:%M%p')%></strong></a>
         </div>
-    </nav>
-    <!-- Home Section -->
-    <section class="small-section pb-0 pt-0" style="margin-top: 90px;">
-    
-    <div class="container align-center">
-        
-        <div class="mb-10">
-            <img src=<%=asset_path('logo-footer.png')%> width="78" height="36" alt="" />
+
+        <div class="container clearfix relative" style="width: 90%">
+            <div class="row mb-10" style="padding-top: 15px;">
+                <% NsojPost.all.order("created_at DESC").each do |post| %>
+                <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" >
+                    <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
+                    <a style="color: white; margin-bottom: 10px;" href=<%="#{post.document.url}"%> target="_blank" ><%=local_time(post.created_at + 330.minutes, '%a, %d %b %l:%M%p')%></a> 
+
+                </div>  
+                <%end %>
+            </div>
         </div>
-    
-        <h1 class="magazine-logo-text black font-alt">NSoJ E-Paper</h1>
-        
-    </div>
-       
-</section>
-    <!-- End Home Section -->
-    <hr class="mt-0 mb-30" />
-
-
-<!-- Portfolio Section -->
-<section class="small-section">
-  <div class="container relative">
-    <% NsojPost.all.order("created_at DESC").each do |post| %>
-      <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" >
-        <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
-        <!-- <a href="<%=post.document.url%>" target="_blank">
-          <iframe src="<%=post.document.url%>&embedded=true" style=" height:500px;" frameborder="0"></iframe>
-        </a> -->  
-
-      </div>  
-    <%end %>
-  </div>
-</section>
+    </section>
+</div>
