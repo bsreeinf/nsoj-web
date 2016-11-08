@@ -31,9 +31,9 @@
                                 <% Event.all.order("created_at DESC").each do |event, index| %>
                                 <li>
                                     <%if index==0%>
-                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left active" data-filter=".event_<%=event.id%>"><%=event.title%></a> <br>
                                     <%else%>
-                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left" data-filter=".event_<%=event.id%>"><%=event.title%></a>
+                                        <a href="#" style="margin: 0 0 25px 0;" class="filter left" data-filter=".event_<%=event.id%>"><%=event.title%></a> <br>
                                     <%end%>
                                 </li>
                                 <%end %>
@@ -46,7 +46,7 @@
                 <!-- Content -->
                 <div class="col-sm-8">
                     <ul class="works-grid clearfix font-alt hover-white hide-titles masonry" id="work-grid">
-                        <% EventDatum.all.each do |event_datum, index| %>
+                        <% EventDatum.all.order("created_at DESC").each do |event_datum, index| %>
                             <li class="work-item mix event_<%=event_datum.event_id%>">
                                 <a href="<%=event_datum.image.url%>" class="work-lightbox-link mfp-image">
                                     <div class="work-img">
