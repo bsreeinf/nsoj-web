@@ -25,9 +25,9 @@
             <div class="works-filter font-alt align-center">
                 <% NsojTvCategory.all.each do |category, index| %>
                     <%if index==0%>
-                        <a href="#" style="text-transform: capitalize;"> class="filter active" data-filter=".category_<%=category.id%>"><%=category.title%></a>
+                        <a href="#" style="text-transform: capitalize;" class="filter active" data-filter=".category_<%=category.id%>"><%=category.title%></a>
                     <%else%>
-                        <a href="#" style="text-transform: capitalize;"> class="filter" data-filter=".category_<%=category.id%>"><%=category.title%></a>
+                        <a href="#" style="text-transform: capitalize;" class="filter" data-filter=".category_<%=category.id%>"><%=category.title%></a>
                     <%end%>
                 <%end %>
             </div>                    
