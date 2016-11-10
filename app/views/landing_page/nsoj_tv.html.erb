@@ -25,9 +25,9 @@
             <div class="works-filter font-alt align-center">
                 <% NsojTvCategory.all.each do |category, index| %>
                     <%if index==0%>
-                        <a href="#" class="filter active" data-filter=".category_<%=category.id%>"><%=category.title%></a>
+                        <a href="#" style="text-transform: capitalize;"> class="filter active" data-filter=".category_<%=category.id%>"><%=category.title%></a>
                     <%else%>
-                        <a href="#" class="filter" data-filter=".category_<%=category.id%>"><%=category.title%></a>
+                        <a href="#" style="text-transform: capitalize;"> class="filter" data-filter=".category_<%=category.id%>"><%=category.title%></a>
                     <%end%>
                 <%end %>
             </div>                    
@@ -43,7 +43,7 @@
                               <img src="<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(tv.link))%>" alt="National School of Journalism" />
                             </div>
                             <div class="work-intro">
-                                <h3 class="work-title"><%=tv.title%></h3>
+                                <h3 style="text-transform: capitalize;" class="work-title"><%=tv.title%></h3>
                             </div>
                         </a>
                     </li>
