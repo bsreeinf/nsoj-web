@@ -81,6 +81,7 @@
         js_height_init();
         try{
             $('#preview1').css('max-height',$('#preview2').height() * 2 + 10);
+            $('#preview1 > div.owl-wrapper-outer > div > div').css('max-height',$('#preview2').height() * 2 + 10);
 
         }catch(e){
             console.log("err: " + e);
