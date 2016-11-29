@@ -183,7 +183,13 @@
                       <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
                     </div>
                 </a>      
-                <h3 style="color: white; margin-top: 15px; text-transform: capitalize;" class="work-title"><%=nsojtv.title%></h3>          
+                <h3 style="color: white; margin-top: 15px; text-transform: capitalize;" class="work-title"><%=nsojtv.title%></h3>   
+                <%  @byline = ""
+                    nsojtv.video_authors.each_with_index do |video_author, i|
+                        @byline += i > 0 ? " and " : ""
+                        @byline += "<a style='font-size: 11px; color: white;' href='#{student_path(video_author)}'>#{video_author.student.user.name}</a>"
+                    end
+                %><%=@byline.html_safe%>       
             </div>
             <%end%>
         </div>

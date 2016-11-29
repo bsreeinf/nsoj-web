@@ -44,6 +44,12 @@
                             </div>
                             <div class="work-intro">
                                 <h3 style="text-transform: capitalize;" class="work-title"><%=tv.title%></h3>
+                                <%  @byline = ""
+                                    tv.video_authors.each_with_index do |video_author, i|
+                                        @byline += i > 0 ? " and " : ""
+                                        @byline += "<a style='font-size: 11px; color: black;' href='#{student_path(video_author.student)}'>#{video_author.student.user.name}</a>"
+                                    end
+                                %><%=@byline.html_safe%>
                             </div>
                         </a>
                     </li>
