@@ -71,11 +71,11 @@
             </div>
         </nav>
 
-        <div style="width: 90%; margin: 0 auto;">
+        <div class="clearfix" style="width: 90%; margin: 0 auto;">
             <a class="right" style="color: white; margin-bottom: 10px;"><strong><%=local_time(Time.now + 330.minutes, '%B %e, %Y')%></strong></a>
         </div>
 
-        <div class="container clearfix relative" style="width: 90%">
+        <div class="container clearfix relative" style="width: 90%; padding: 0;">
             <%if @categoryMode == false%>
             <div class="row mb-10" style="padding-top: 15px;">
                 
