@@ -1,5 +1,5 @@
 ActiveAdmin.register StoryCategory do
-
+menu priority: 7, label: "Categories", parent: "NSoJ Stories"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

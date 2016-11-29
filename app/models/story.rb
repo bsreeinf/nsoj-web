@@ -10,7 +10,11 @@ class Story < ActiveRecord::Base
 
   accepts_nested_attributes_for :authors, :allow_destroy => true, :reject_if => :all_blank
 
-  belongs_to :story_category
+  has_many :categories
+  has_many :story_categories, through: :categories
+
+  accepts_nested_attributes_for :categories, :allow_destroy => true, :reject_if => :all_blank
+
   before_create :set_default_last_accessed_at
   
   def set_default_last_accessed_at

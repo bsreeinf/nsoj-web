@@ -104,8 +104,8 @@
                                                             @byline += i > 0 ? " and " : ""
                                                             @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
                                                         end
-                                                    %><%=@byline.html_safe%>                                                <!-- <span class="separator">&nbsp;</span>
-                                                <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
+                                                    %><%=@byline.html_safe%>
+
                                             </div>
                                         </div>
                                         <!-- End Slide Info -->
@@ -141,8 +141,6 @@
                                                         end
                                                     %><%=@byline.html_safe%>
                                                     
-                                                    <!-- <span class="separator">&nbsp;</span>
-                                                    <a href="/stories?category_id=<%=story.story_category.id%>" style="font-size: 11px;"><%=story.story_category.title%></a> -->
                                                 </div>
                                             </div>
                                             <!-- End Slide Info -->
@@ -192,7 +190,11 @@
 
         <div class="col-md-9">
         <%@story_categories.each do |story_category|%>
-            <%@grouped_stories = Story.all.where(story_category_id: story_category.id).order(created_at: :desc, last_accessed_at: :desc)%>
+            <%@grouped_stories = 
+                Story.where(:id => 
+                    Category.select(:story_id).where(story_category_id: story_category.id)
+                ).order(created_at: :desc, last_accessed_at: :desc)
+            %>
             <%if @grouped_stories.length > 0%>
             <div class="row">
                 <h3 class="blog-item-title font-alt mb-10"><a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a></h3>
@@ -367,7 +369,11 @@
                 <%=StoryCategory.find(@category_id.to_i).title%>
             </h2> -->
             <div class="row multi-columns-row">
-                <%@grouped_stories = Story.all.where(story_category_id: @category_id).order(created_at: :desc, last_accessed_at: :desc)%>
+                <%@grouped_stories = 
+                    Story.where(:id => 
+                        Category.select(:story_id).where(story_category_id: @category_id)
+                    ).order(created_at: :desc, last_accessed_at: :desc)
+                %>
                 <%@grouped_stories.each_with_index do |grouped_story, i|%>
                 <!-- Post Item -->
                 <div class="col-md-3 col-lg-3 mb-30">

@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
 		if(params.has_key?(:category_id))
 			@categoryMode = true
 			@category_id = params[:category_id]
-			@stories = Story.all.where(story_category_id: @category_id)
+			@stories = Story.all.where(:id => Category.select(:story_id).where(story_category_id: @category_id)).order(created_at: :desc, last_accessed_at: :desc)
 		end
 
 		@nsojtvs= NsojTv.where(nsoj_tv_category_id: 2).order("created_at DESC").limit(4)

@@ -1,9 +1,11 @@
 ActiveAdmin.register Story do
-
+menu priority: 7, label: "Stories", parent: "NSoJ Stories"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, authors_attributes: [:id, :author_type_id, :student_id, :story_id]
+permit_params :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, 
+	authors_attributes: [:id, :author_type_id, :student_id, :story_id],
+	categories_attributes: [:id, :story_category_id, :story_id]
 #
 # or
 #
@@ -16,8 +18,6 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 	form :html => { :enctype => "multipart/form-data"} do |f|
 
 		f.inputs "Story" do	
-	    	# f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
-	    	f.input :story_category_id, :required => true, as: :select, collection: StoryCategory.all.uniq
 			f.input :title, :required => true
 	    	f.input :content, :required => true
 	    	f.input :blog_image, :required => true, :as => :file
@@ -29,28 +29,33 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 	    	f.input :slug, :required => false
 
 		end		
-
-		# panel 'Students' do
+		
+		panel '' do
+			f.has_many :categories do |categories_f|
+				if !categories_f.object.nil?
+					categories_f.input :_destroy, :as => :boolean, :label => "Delete?"
+	  			end
+	  			categories_f.input :story_id, :input_html => { :value => f.object.id }, as: :hidden
+	  			categories_f.input :story_category_id, :required => true, as: :select, collection: StoryCategory.all.uniq
+	    		
+	    		categories_f.actions
+			end
+		end
+		
+		panel '' do
 			f.has_many :authors do |authors_f|
-				# authors_f.inputs
-				 # "Students" do
-					if !authors_f.object.nil?
-						authors_f.input :_destroy, :as => :boolean, :label => "Delete?"
-	      			end
-	      			authors_f.input :story_id, :input_html => { :value => f.object.id }, as: :hidden
-	      			authors_f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
-	      			# authors_f.input :story_id, :required => true, as: :select, collection: Story.all.uniq
-	      			authors_f.input :author_type_id, :required => true, as: :select, collection: AuthorType.all.uniq
-	      		# end
+				if !authors_f.object.nil?
+					authors_f.input :_destroy, :as => :boolean, :label => "Delete?"
+	  			end
+	  			authors_f.input :story_id, :input_html => { :value => f.object.id }, as: :hidden
+	  			authors_f.input :student_id, :required => true, as: :select, collection: Student.all.uniq
+	  			authors_f.input :author_type_id, :required => true, as: :select, collection: AuthorType.all.uniq
+
 	    		authors_f.actions
 			end
-		# end
-		f.actions
-		# for custom actions
-		# f.actions do 
-	 #       f.action :submit, :as => :button ,:label => 'Create Item'
-	 #       f.action :cancel, :as => :link, :label => 'Cancel',:wrapper_html => { :class=>"cancel" }
-	 #    end 
+		end
+
+		f.actions 
 	end
 
 	index :title => "Stories" do

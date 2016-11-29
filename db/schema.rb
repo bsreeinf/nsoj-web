@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025065047) do
+ActiveRecord::Schema.define(version: 20161129073222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20161025065047) do
   end
 
   create_table "author_types", force: :cascade do |t|
-    t.string   "type"
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -172,6 +172,16 @@ ActiveRecord::Schema.define(version: 20161025065047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "story_id"
+    t.integer  "story_category_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "categories", ["story_category_id"], name: "index_categories_on_story_category_id", using: :btree
+  add_index "categories", ["story_id"], name: "index_categories_on_story_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -318,7 +328,6 @@ ActiveRecord::Schema.define(version: 20161025065047) do
   end
 
   create_table "stories", force: :cascade do |t|
-    t.integer  "story_category_id"
     t.string   "title"
     t.text     "content"
     t.string   "blog_image_file_name"
@@ -336,7 +345,6 @@ ActiveRecord::Schema.define(version: 20161025065047) do
   end
 
   add_index "stories", ["slug"], name: "index_stories_on_slug", using: :btree
-  add_index "stories", ["story_category_id"], name: "index_stories_on_story_category_id", using: :btree
 
   create_table "story_categories", force: :cascade do |t|
     t.string   "title"
@@ -380,10 +388,19 @@ ActiveRecord::Schema.define(version: 20161025065047) do
     t.datetime "updated_at",                        null: false
   end
 
+  create_table "video_authors", force: :cascade do |t|
+    t.integer  "nsoj_tv_id"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "video_authors", ["nsoj_tv_id"], name: "index_video_authors_on_nsoj_tv_id", using: :btree
+  add_index "video_authors", ["student_id"], name: "index_video_authors_on_student_id", using: :btree
+
   add_foreign_key "contacts", "contact_subjects"
   add_foreign_key "event_data", "events"
   add_foreign_key "nsoj_tvs", "nsoj_tv_categories"
-  add_foreign_key "stories", "story_categories"
   add_foreign_key "students", "batches"
   add_foreign_key "students", "users"
 end
