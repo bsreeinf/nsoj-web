@@ -6,7 +6,7 @@ class StudentsController < InheritedResources::Base
 	end
 
 	def show
-		@student_stories = Student.find(@student.id).stories.order(access_counter: :desc, last_accessed_at: :desc)
+		@student_stories = @student.stories.order(access_counter: :desc, last_accessed_at: :desc)
 		# redirect_to_good_slug(@student) and return if bad_slug?(@student)
 	end
 
