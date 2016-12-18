@@ -145,7 +145,7 @@
                     </div>
                     
                     <div class="post-prev-info font-alt">
-                        <%nsojTV.video_authors.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
+                        <%nsojTV.video_authors.each do |author|%><a href="<%=student_path(author.student)%>"><%="#{author.student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
 
                     </div>
                     
