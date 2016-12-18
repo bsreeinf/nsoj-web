@@ -109,3 +109,58 @@
 </section>
 <%end%>
 <!-- End Section -->
+
+<!-- Section -->
+<%if @student_videos.length >0%>
+<section class="small-section pb-0">
+    
+    <div class="container align-center">
+        
+        <!-- <div class="mb-10">
+            <img src=<%= image_path("logo-footer.png") %> width="45" height="24" alt="" />
+        </div> -->
+        
+        <h1 class="magazine-logo-text black font-alt">Videos</h1>
+        
+    </div>
+    
+</section>
+<!-- End Section -->
+
+
+<!-- Section -->
+<section class="small-section pt-30">
+    <div class="container relative">
+        
+        <div class="row">
+
+            <h3 class="blog-item-title font-alt mb-10">
+                Videos
+                
+                <a href="/nsoj_tv" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+                
+            </h3>
+            <hr class="mt-0 mb-30" />
+            <% @nsojtvs.each do |nsojtv| %>
+            <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn">
+                <a href="<%=nsojtv.link%>" target="blank">
+                    <div class="work-img">
+                      <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojtv.link))%>" alt="National School of Journalism" />
+                    </div>
+                </a>      
+                <h3 style="color: white; margin-top: 15px; text-transform: capitalize;" class="work-title"><%=nsojtv.title%></h3>   
+                <%  @byline = ""
+                    nsojtv.video_authors.each_with_index do |video_author, i|
+                        @byline += i > 0 ? "&nbsp;<a style='font-size: 11px; color: white;' >and</a>&nbsp;" : ""
+                        @byline += "<a style='font-size: 11px; color: white;' href='#{student_path(video_author)}'>#{video_author.student.user.name}</a>"
+                    end
+                %><%=@byline.html_safe%>       
+            </div>
+            <%end%>
+            
+        </div>
+        
+    </div>
+</section>
+<%end%>
+<!-- End Section -->

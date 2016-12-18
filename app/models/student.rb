@@ -3,6 +3,8 @@ class Student < ActiveRecord::Base
 	belongs_to :batch
     has_many :authors
     has_many :stories, through: :authors
+    has_many :video_authors
+    has_many :nsoj_tvs, through: :video_authors
 
   	has_attached_file :avatar,
                     styles: {
