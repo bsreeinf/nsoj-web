@@ -1,6 +1,5 @@
 class StoryCategory < ActiveRecord::Base
-  has_many :categories
-  has_many :stories, through: :categories
+  belongs_to :story
 
   def to_s
     	self.title
