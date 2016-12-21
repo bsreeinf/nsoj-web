@@ -38,7 +38,7 @@
           <div class="home-text" style="padding: 140px 0px 45px 0px;">
               
               <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
-                Admission Application Form 2016 - 2017
+                Admission Application Form 2017 - 2018
               </h1>                                      
           </div>
       </div>
@@ -85,10 +85,10 @@
               <h2>Admission Application and<br>Assessment Form 2017-2018</h2>
             </div>
             <div class="col-md-4">
-              <img src=<%= image_path("logo-white.png") %> alt="National School of Journalism, Bangalore" />
+              <br><img src=<%= image_path("logo-white.png") %> alt="National School of Journalism, Bangalore" />
             </div>
           </div>
-
+          <br>
           <div class="banner-decription" style="color:black;" >
             This form should be completed if you wish to apply for admission as a postgraduate diploma in journalism candidate at the National School of Journalism (NSoJ) and sent to:<br><br>
             
@@ -98,7 +98,7 @@
             New Airport Road (Opposite Jakkur Aerodrome) <br>
             Bangalore - 560 064, India <br>
             Tel: +91 80 46994799
-            </strong><br><br> -->
+            </strong><br><br> 
             <br><br>
             This form is only part of your application to NSoJ. In addition, scanned copies of marks transcripts from your undergraduate studies should be emailed to admissions@nsoj.in quoting your reference number in the subject line (final year students need not submit final year transcripts now); <!-- <span style="text-decoration: underline;">DO NOT</span> submit it without the following: --> <br><br>
 
@@ -582,17 +582,22 @@
           
           <div class="row">
             <h4>(9) Describe in 300 words your views on any ONE of the following topics. Your essay should demonstrate the depth of your knowledge as well as your own perspectives and opinions on the matter.
-            <br>(a) With reference to U.S. politics, explain why you think Donald Trump won the presidential elections in 2016. Evaluate your answer based on the strategies you think he put into play.
-            <br>(b) Argue: Demonetization was the best step that the government could take to curb black money in the country. Alternatively, How, do you think, has the demonetization policy affected India's economy?
-            <br>(c) Argue: A sledgehammer for BCCI's brinkmanship, a lesson for sport bodies in the country? Evaluate with regard to Lodha reforms and the subsequent Supreme Court judgment.
-            <br>(d) What is your take on Muslim Personal Law Board's decision to challenge a ban on Triple Talaq in the Supreme Court of India?  
+              <span class="lowercase_text">
+                <br><br>(a) With reference to U.S. politics, explain why you think Donald Trump won the presidential elections in 2016. Evaluate your answer based on the strategies you think he put into play.
+                <br><br>(b) Argue: Demonetization was the best step that the government could take to curb black money in the country.
+                <br><br>(c) Argue: A sledgehammer for BCCI's brinkmanship, a lesson for sport bodies in the country? Evaluate with regard to Lodha reforms and the subsequent Supreme Court judgment.
+                <br><br>(d) What is your take on Muslim Personal Law Board's decision to challenge a ban on Triple Talaq in the Supreme Court of India?  
+              </span>
             </h4>
             <%= f.text_area :assessment_interested , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_interested, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
           </div>
 
           <div class="row">
             <h4>(10) List your relevant life experience.<br>
-              You may write here, in 300 words, about your extra-curricular activities or any special circumstances not evident from other answers in this application, that you wish to draw to the attention of the assessors of your application. Applicants with a background in journalism may provide examples of any journalistic work, including newspaper, broadcast and/or online material.</h4>
+              <span class="lowercase_text">
+                <br>You may write here, in 300 words, about your extra-curricular activities or any special circumstances not evident from other answers in this application, that you wish to draw to the attention of the assessors of your application. Applicants with a background in journalism may provide examples of any journalistic work, including newspaper, broadcast and/or online material.
+              </span>
+            </h4>
             <%= f.text_area :assessment_experience , :class => "input-md round form-control", :rows => "10", :value => @admission_form.assessment_experience, :style => "width: 100%; text-transform: none !important; min-height: 120px;"  %>
 
           </div>
