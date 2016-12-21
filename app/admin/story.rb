@@ -74,9 +74,15 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 	show :title => "" do |story|
 		panel 'Story' do
 			attributes_table_for story  do
-				row :story_category do
-					story.story_category.title
+				row :story_categories do 
+					@story_category = ""
+					story.story_categories.each_with_index do |story_category, i|
+                        @story_category += (i > 0 ? " , " : "") + story_category.title
+                    end
+                    @story_category.html_safe
 				end
+				
+
 				# row :user do
 				# 	link_to story.student.user.name, student_path(story.student)
 				# end

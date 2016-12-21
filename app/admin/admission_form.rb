@@ -20,7 +20,7 @@ permit_params :user_id,
         :eh_from_date1, :eh_to_date1, :eh_post_held1, :eh_employer_details1, 
         :eh_from_date2, :eh_to_date2, :eh_post_held2, :eh_employer_details2, 
         :eh_from_date3, :eh_to_date3, :eh_post_held3, :eh_employer_details3, 
-        :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying,:is_submitted,
+        :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying, :is_submitted,
         :ec_father_name, :ec_father_phone, :ec_mother_name, :ec_mother_phone, :ec_guardian_name, :ec_guardian_phone,
         :sp_name1, :sp_reason1, :sp_date1, :sp_value1,
         :sp_name2, :sp_reason2, :sp_date2, :sp_value2,
@@ -65,23 +65,23 @@ index :tag => "Admission Forms" do
         column :addr_country2 
         column :phone2 
         column :addr_since 
-        column :ec_father_name, 
-        column :ec_father_phone, 
-        column :ec_mother_name, 
-        column :ec_mother_phone, 
-        column :ec_guardian_name, 
-        column :ec_guardian_phone,
-        column :sp_name1, 
-        column :sp_reason1, 
-        column :sp_date1, 
-        column :sp_value1,
-        column :sp_name2, 
-        column :sp_reason2, 
-        column :sp_date2, 
-        column :sp_value2,
-        column :sp_name3, 
-        column :sp_reason3, 
-        column :sp_date3, 
+        column :ec_father_name 
+        column :ec_father_phone 
+        column :ec_mother_name 
+        column :ec_mother_phone 
+        column :ec_guardian_name 
+        column :ec_guardian_phone
+        column :sp_name1 
+        column :sp_reason1 
+        column :sp_date1 
+        column :sp_value1
+        column :sp_name2 
+        column :sp_reason2 
+        column :sp_date2 
+        column :sp_value2
+        column :sp_name3 
+        column :sp_reason3 
+        column :sp_date3 
         column :sp_value3 
         column :s_university 
         column :s_subject 

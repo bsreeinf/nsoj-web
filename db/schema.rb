@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129073222) do
+ActiveRecord::Schema.define(version: 20161221062365) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,25 @@ ActiveRecord::Schema.define(version: 20161129073222) do
     t.boolean  "is_submitted",                   default: false
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.string   "video_link"
+    t.string   "ec_father_name"
+    t.string   "ec_father_phone"
+    t.string   "ec_mother_name"
+    t.string   "ec_mother_phone"
+    t.string   "ec_guardian_name"
+    t.string   "ec_guardian_phone"
+    t.string   "sp_name1"
+    t.string   "sp_reason1"
+    t.date     "sp_date1"
+    t.string   "sp_value1"
+    t.string   "sp_name2"
+    t.string   "sp_reason2"
+    t.date     "sp_date2"
+    t.string   "sp_value2"
+    t.string   "sp_name3"
+    t.string   "sp_reason3"
+    t.date     "sp_date3"
+    t.string   "sp_value3"
   end
 
   create_table "author_types", force: :cascade do |t|
