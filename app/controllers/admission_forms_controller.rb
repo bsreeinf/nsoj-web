@@ -50,7 +50,7 @@ class AdmissionFormsController < ApplicationController
 
       end
 
-      redirect_to controller: 'admission_forms', action: 'edit'
+      redirect_to controller: 'admission_forms', action: 'edit', user_id: current_user.id
     else
       AdmissionForm.new(admission_form_params).save
 
