@@ -9,7 +9,6 @@ class ApplicationFormMailer < ActionMailer::Base
 				to: @email,
 				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Application form",
-				
 			)
 	end
 
