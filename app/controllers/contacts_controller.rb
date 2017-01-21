@@ -19,10 +19,10 @@ class ContactsController < ApplicationController
 		        ).deliver
 		        redirect_to root_path, notice: 'Thanks for contacting us. We will get back to you shortly.' 
 		        
-		      # else
-		      #   redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
+		      else
+		        redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
 		    
-		      # end
+		      end
 		  else 
 		  	else
 		        redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
