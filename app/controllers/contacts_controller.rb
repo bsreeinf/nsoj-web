@@ -24,7 +24,6 @@ class ContactsController < ApplicationController
 		    
 		      end
 		  else 
-		  	else
 		        redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
 		end
 
