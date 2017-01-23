@@ -55,7 +55,7 @@ class SlantsController < ApplicationController
   def update
     respond_to do |format|
       if @slant.update(slant_params)
-        format.html { redirect_to @slant, notice: 'Slant was successfully updated.' }
+        format.html { redirect_to @slant, notice: 'Successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -84,6 +84,7 @@ class SlantsController < ApplicationController
     def slant_params
       params[:slant].permit(
         :college_name,
+        :student_coordinator_name,
         :phone,
         :rb_name1,
         :rb_phone1,

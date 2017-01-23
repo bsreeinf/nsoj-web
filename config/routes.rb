@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdf'
   
   resources :students
-  # resources :slants
+  resources :slants
+  get    'slant'                        => 'slants#index'
+  get    'slant/apply'                        => 'slants#new'
 
   resources :admission_forms
   get 'sessions/new'

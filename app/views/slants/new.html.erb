@@ -6,6 +6,12 @@
   ::-webkit-input-placeholder {
     color: #ccc !important; 
   }
+/*  hr{
+  	border-width: 1px;
+  	border-style: dotted;
+  	margin-left: 
+  }
+*/  
   h4{
     margin: 40px 0 10px 0 !important;
     padding: 7px !important;
@@ -13,7 +19,8 @@
   }
   h5{
     padding: 7px !important;
-    background-color: #ccc !important;
+    background-color: white !important;
+    color: #a72e31 !important;
   }
   td input{
     margin: 0 !important;
@@ -24,9 +31,9 @@
 </style>
 <% provide(:title, 'Report') %>
 
-<section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
+<!-- <section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
   <div class="container">            
-      <!-- Hero Content -->
+
       <div class="home-content">
           <div class="home-text" style="padding: 140px 0px 45px 0px;">
               
@@ -35,9 +42,9 @@
               </h1>                                      
           </div>
       </div>
-      <!-- End Hero Content -->            
+          
   </div>
-</section>
+</section> -->
 
 
 <section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
@@ -58,27 +65,34 @@
   <div class="clearfix align-centre">  
   <p id="notice"><%= notice %></p> 
 
-    <div style="padding: 40px; background-color: white; border-radius: 5px; box-shadow: 1px 1px 6px;">
+    <div style="padding: 0 40px; background-color: white; border-radius: 5px; box-shadow: 1px 1px 6px;">
 		
 		<div class="row">
 			<div class="col-md-12" style="padding-left: 0;">
 
-				<img src="<%= asset_path('slant/slant_header.jpg')%>" alt="National School of Journalism, Bangalore">
+				<img src="<%= asset_path('slant/header.png')%>" alt="National School of Journalism, Bangalore">
 
 			</div>
 		</div>
+
+		<hr>
 		
 		<div class="row">
-			<div class="col-md-6" style="padding-left: 0;">
+			<div class="col-md-12" style="padding-left: 0;">
 				<%= f.text_field :college_name, :class => "input-md round form-control", :placeholder =>"College name", :type => "text", :required => true%>
 			</div>
-			<div class="col-md-6" style="padding-left: 0;">
+		</div>
+		<div class="row">
+			<div class="col-md-7" style="padding-left: 0;">
+				<%= f.text_field :student_coordinator_name, :class => "input-md round form-control", :placeholder =>"Student coordinator's name", :type => "text", :required => true%>
+			</div>
+			<div class="col-md-5" style="padding-left: 0;">
 				<%= f.text_field :phone , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text", :required => true %>
 			</div>
 
 		</div>
 		<div class="row">
-			<h5>The Red Button</h5>
+			<h5>The Red Button (Press Conference)</h5>
 			<div class="col-md-6" style="padding-left: 0;">
 				<%= f.text_field :rb_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text"  %>
 				<%= f.text_field :rb_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text"   %>
@@ -101,7 +115,7 @@
 		</div>
 
 		<div class="row">
-			<h5>Breaking News</h5>
+			<h5>Breaking News (Correspondence)</h5>
 			<div class="col-md-6" style="padding-left: 0;">
 				<%= f.text_field :bn_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text"  %>
 				<%= f.text_field :bn_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text"   %>
@@ -125,7 +139,7 @@
 		<div class="row">
 			
 			<div class="col-md-6" style="padding-left: 0;">
-				<h5>Fact Check</h5>
+				<h5>Fact Check (Quiz)</h5>
 				<%= f.text_field :fc_name1, :class => "input-md round form-control", :placeholder =>" Name", :type => "text"  %>
 				<%= f.text_field :fc_phone1 , :class => "input-md round form-control",:placeholder =>"Contact No", :type => "text"   %>
 				<%= f.text_field :fc_name2, :class => "input-md round form-control", :placeholder =>" Name", :type => "text"  %>
