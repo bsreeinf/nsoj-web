@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   get 'nsoj_radio'                      => 'landing_page#nsoj_radio'
   get 'nsoj_tv'                         => 'landing_page#nsoj_tv'
   get 'nsoj_post'                       => 'landing_page#nsoj_post'
-  get 'nsoj_events'                     => 'landing_page#nsoj_events'
+  get 'gallery'                         => 'landing_page#nsoj_events'
   post 'contact'                        => 'contacts#create'
   post 'admission_contact'              => 'admission_contacts#create'
 
