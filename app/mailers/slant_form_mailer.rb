@@ -44,8 +44,8 @@ class SlantFormMailer < ActionMailer::Base
 		
 		
 		mail(
-				to: ENV['TO_EMAILS'],
-				from: 'National School of Journalism <info@nsoj.in>',
+				to: ENV['TO_SLANT_EMAILS'],
+				from: 'National School of Journalism <slant@nsoj.in>',
 				subject: "New Slant form submission",
 				
 			)
