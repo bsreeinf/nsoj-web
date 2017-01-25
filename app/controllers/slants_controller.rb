@@ -38,7 +38,7 @@ class SlantsController < ApplicationController
     respond_to do |format|
       if @slant.save
         format.html {  
-         SlantFormMailer.slant_form_created(@slant.college_name,@slant.phone,@slant.rb_name1,@slant.rb_phone1,@slant.rb_name2,@slant.rb_phone2,@slant.rb_name3,@slant.rb_phone3,@slant.rb_name4,@slant.rb_phone4,@slant.rb_name5,@slant.rb_phone5,@slant.rb_name6,@slant.rb_phone6,@slant.bn_name1,@slant.bn_phone1,@slant.bn_name2,@slant.bn_phone2,@slant.bn_name3,@slant.bn_phone3,@slant.bn_name4,@slant.bn_phone4,@slant.fc_name1,@slant.fc_phone1,@slant.fc_name2,@slant.fc_phone2,@slant.fc_name3,@slant.fc_phone3,@slant.tt_name1,@slant.tt_phone1,@slant.tt_name2,@slant.tt_phone2,@slant.tt_name3,@slant.tt_phone3,@slant.es_name,@slant.es_phone,@slant.pj_name,@slant.pj_phone,@slant.do_name,@slant.do_phone).deliver_now
+         SlantFormMailer.slant_form_created(@slant.college_name,@slant.phone,@student_coordinator_name,@slant.rb_name1,@slant.rb_phone1,@slant.rb_name2,@slant.rb_phone2,@slant.rb_name3,@slant.rb_phone3,@slant.rb_name4,@slant.rb_phone4,@slant.rb_name5,@slant.rb_phone5,@slant.rb_name6,@slant.rb_phone6,@slant.bn_name1,@slant.bn_phone1,@slant.bn_name2,@slant.bn_phone2,@slant.bn_name3,@slant.bn_phone3,@slant.bn_name4,@slant.bn_phone4,@slant.fc_name1,@slant.fc_phone1,@slant.fc_name2,@slant.fc_phone2,@slant.fc_name3,@slant.fc_phone3,@slant.tt_name1,@slant.tt_phone1,@slant.tt_name2,@slant.tt_phone2,@slant.tt_name3,@slant.tt_phone3,@slant.es_name,@slant.es_phone,@slant.pj_name,@slant.pj_phone,@slant.do_name,@slant.do_phone).deliver_now
 
         redirect_to root_url, notice: "form successfully submitted"
 
