@@ -23,7 +23,7 @@
             
             <!-- Works Filter -->                    
             <div class="works-filter font-alt align-center">
-                <% NsojTvCategory.all.each do |category, index| %>
+                <% NsojTvCategory.all.order("created_at DESC").each do |category, index| %>
                     <%if index==0%>
                         <a href="#" style="text-transform: capitalize;" class="filter active" data-filter=".category_<%=category.id%>"><%=category.title%></a>
                     <%else%>
