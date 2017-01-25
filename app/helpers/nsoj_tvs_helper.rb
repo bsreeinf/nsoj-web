@@ -7,7 +7,7 @@ module NsojTvsHelper
 	    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
 	    youtube_id = $5
 	  end
-	  youtube_id
+	  youtube_id = youtube_id.nil? ? '' : youtube_id
 	  # %Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
 	end
 end
