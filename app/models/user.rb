@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     self.name
   end
 
-    # Returns the hash digest of the given string.
+  # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -78,7 +78,6 @@ class User < ActiveRecord::Base
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
-
   
   private
 
