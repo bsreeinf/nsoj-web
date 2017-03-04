@@ -1,6 +1,6 @@
 class LandingPageController < ApplicationController
   def home
-    @students = Student.limit(3)
+    @students = Student.limit(6)
     @main_stories = Story.all.order(created_at: :desc, last_accessed_at: :desc).limit(5)
     @contact = Contact.new()
     @contact_subject = ContactSubject.all
