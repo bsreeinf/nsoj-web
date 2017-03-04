@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :staffs
   mount Ckeditor::Engine => '/ckeditor'
   resources :stories
   mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdf'

@@ -542,7 +542,7 @@ hr.black{
 	margin-bottom: 10px;
 	font-size: 48px;
 	font-weight: 400;
-	letter-spacing: 0.2em;	
+	letter-spacing: 0.1em;	
 	text-align: center;
 	text-transform: uppercase;
 	opacity: .9;
@@ -606,7 +606,7 @@ a.btn-mod{
 	font-weight: 400;
 	text-transform: uppercase;
 	text-decoration: none;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
     
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -1250,7 +1250,7 @@ a.btn-mod:focus{
     position: relative;
 	font-size: 16px;
 	font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     line-height: 1.2;
     opacity: .75;
 }
@@ -1322,11 +1322,11 @@ a.btn-mod:focus{
 .hs-line-14{
     margin-top: 0;
     position: relative;
-	font-size: 48px;
+	font-size: 42px;
 	font-weight: 400;
     line-height: 1.4;
 	text-transform: uppercase;
-	letter-spacing: 0.7em;
+	letter-spacing: 0.3em;
 }
 .hs-line-15{
     margin-top: 0;
@@ -2370,7 +2370,7 @@ a.logo:hover{
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 300;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
 }
 .section-icon{
     margin-bottom: 7px;
@@ -3102,7 +3102,7 @@ a.logo:hover{
     margin-top: -70px;
 }
 .alt-features-item{
-    margin-top: 70px;
+    margin-top: 30px;
 }
 .alt-features-icon{
     padding-top: 10px;
@@ -3393,7 +3393,7 @@ a.logo:hover{
 	font-size: 13px;
     font-weight: 400;
 	text-transform: uppercase;
-	letter-spacing: 0.2em;
+	/*letter-spacing: 0.2em;*/
 	line-height: 1.2;
 }
 .work-descr{	
@@ -3817,7 +3817,7 @@ a.logo:hover{
 }
 .post-prev-text{
     margin-bottom: 22px;
-    color: #777;
+    color: #fff;
     font-size: 15px;
     font-weight: 300;
     line-height: 1.75;
@@ -4110,7 +4110,7 @@ a.logo:hover{
 .footer-copy{
     margin-bottom: 5px;
     text-transform: uppercase;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.2em;
 }
 .footer-made{
     font-size: 11px;
@@ -5608,7 +5608,7 @@ section:hover .small-item-carousel .owl-next{
 .blog-post-prev-small a{
     font-size: 13px;
     display: block;
-	color: #555;
+	color: #eee;
 	text-decoration: none;
 	
 	-webkit-transition: all 0.17s cubic-bezier(0.000, 0.000, 0.580, 1.000);  
@@ -5672,7 +5672,7 @@ section:hover .small-item-carousel .owl-next{
     margin-bottom: 6px;
     font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    /*letter-spacing: 0.2em;*/
 }
 .blog-slide-title a{
     display: block;
