@@ -3118,11 +3118,11 @@ a.logo:hover{
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.2em;
 }
 .alt-features-descr {
     /*color: #777;*/
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 300;
     line-height: 1.86
 }

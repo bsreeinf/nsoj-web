@@ -1,349 +1,332 @@
 
     <style>
-        embed{
-            min-height: 450px !important;
+        #home{
+            width: 80%;
+            min-width: 900px;
+            margin:0 auto;
         }
+        .slider-text{
+            float: left;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            margin-top: -110px;
+            padding: 5px;
+            background-color: rgba(0,0,0,0.4);
+            font-size: 1.3em;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .post-prev-img{
+            padding: 0 5px;
+        }
+
     </style>
     <!-- Page Loader -->        
     <div class="page-loader">
         <div class="loader">Loading...</div>
     </div>
     <!-- End Page Loader -->    
+    
+    <div class="row" style="height: 75px; width: 100%; background-color: rgb(241, 240, 240);">&nbsp;</div>
+    <div id="home" class="row">
 
+        
+        <div class="row">
+            <div class="col-md-9">
 
-    <!-- Slider -->
-    <div class="row">
-	
-        <div class="col-md-9 home-page-primary-slider" style="padding-right:5px;" >
-
-
-            <div class="home-section fullwidth-slider bg-dark" id="home">
-
-                <!-- <section class="home-section bg-scroll bg-dark-alfa-50" data-background=<%= asset_path("full-width-images/2.jpg")%> style='background-image:url(<%= asset_path("full-width-images/2.jpg")%>)'>
-                    <div class="js-height-full container" style="width:100%;">
-                        
-                        <div class="home-content">
-                            <div class="home-text">
-                                <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30"></h1> 
-                                <h2 class="hs-line-14 font-alt mb-50 mb-xs-30">
-                                    National School of Journalism 
-                                </h2>
-                                <div class="local-scroll">
-                                    Welcome to the official website of National School of Journalism, Bangalore (NSoJ)
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </section> -->
-                <section class="home-section bg-scroll">
-                    <div class="js-height-full container" style="width:100%; padding: 0;">
-                        <div class="home-content">
-                            <div class="row" style="height: 75px; width: 100%; background-color: white;">&nbsp;</div>
-                            <div class="row" style="margin: 0;">
-                                <div class="col-md-9" style="padding: 0px;" >
-                                    <script type="text/javascript" src="//s3.spruto.org/embed/player.js"></script> 
-                                    <div id="main_vid">
-                                        <script class="splayer"> 
-                                        var params = {"playlist":[{"video":[{"url":"https://s3-ap-southeast-1.amazonaws.com/nsoj/videos/promo.mov"}],"duration":0,"posterUrl":"https://s3-ap-southeast-1.amazonaws.com/nsoj/videos/thumbs/promo.png"}],"uiLanguage":"en","width":window.innerWidth *0.6,"height":(window.innerWidth *0.6 * 360) / 640,"design":{"color":{"scheme":"dark","buttonNormal":"#FFFFFF","buttonHover":"#404040"},"logo":{"imageUrl":"https://s3-ap-southeast-1.amazonaws.com/nsoj/logo-footer.png","clickUrl":"","position":"tr"},"hide":["pauseButton","progressBar","stopButton","nextButton","volumeButton","time","playlistButton","followPlaylistButton","fullscreenButton","shareCodeButton"]},"behavior":{"autoHideControlBar":true,"autoplay":true,"beforePlay":"none","afterPlay":"start"}}; player.embed(params); 
-                                        </script>
-                                    </div>
-                                    <!-- <video src="https://s3-ap-southeast-1.amazonaws.com/nsoj/videos/lookback_2016.mp4" autoplay="autoplay" style="width: 100%; height: 100%"></video>
- -->                                </div>
-                                <div class="col-md-3" style="padding: 0;">
-                                    <a href=""><div style="height: 225px; width: 100%; background-image: url('https://s3-ap-southeast-1.amazonaws.com/nsoj/videos/thumbs/lookback.png'); background-size: cover;"></div></a>
-                                    <a href=""><div style="height: 225px; width: 100%; background-image: url('https://s3-ap-southeast-1.amazonaws.com/nsoj/videos/thumbs/slant.png'); background-size: cover;"></div></a>
-                                </div>
-                            </div>
-                            <div class="row clearfix" style="margin: 0;">
-                                <div class="col-md-4" data-background=<%= asset_path("fi_auditorium.jpg")%> style='padding: 0; background-size: cover; background-image:url(<%= asset_path("fi_auditorium.jpg")%>); min-height: 240px;'></div>
-                                <div class="col-md-4" data-background=<%= asset_path("fi_newsroom.jpg")%> style='padding: 0; background-size: cover; background-image:url(<%= asset_path("fi_newsroom.jpg")%>); min-height: 240px;'></div>
-                                <div class="col-md-4" data-background=<%= asset_path("fi_studio.jpg")%> style='padding: 0; background-size: cover; background-image:url(<%= asset_path("fi_studio.jpg")%>); min-height: 240px;'></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-        </div>
-
-
-        <div class="col-md-3 owl-wrapper-outer autoHeight js-height-full container home-page-secondary-slider" style="margin: auto 0px; padding: 0 20px 0 0px;    overflow-y: scroll;">
-            
-            <div style="height: 65px;"></div>
-
-            <!-- Modals Start -->
-            <div>
-                <div class="modal fade modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" style="padding:15px;">
-                            <img src=<%=asset_path("akkai1.jpg")%> width="100%" alt="National School of Journalism, Bangalore" />
-                            <p style=" position: relative; top: -46px; text-align: right; padding-right: 20px; font-weight: bold; color: white;font-size: 24px;">An interview with Akkai Padmashali </p>
-                            <div class="mb-10 mt-10 align-right" style="padding:0px 20px 0px 0px">
-                                <a href="/blogs#service-events" class="mt-10 btn btn-mod btn-gray btn-circle">Show more</a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Start of Main video -->
+                <div class="video">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/K8qIpsaqSzo?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                 </div>
-                
-                <div class="modal fade modal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" style="padding:15px;">
-                        <p style="font-weight: bold; font-size: 24px;">Podcast</p>
-                            <iframe width="100%" height="120" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238491360&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                <!-- End of Main video -->
 
-                            <div class="mb-10 mt-10 align-right" style="padding:0px 20px 0px 0px">
-                                <a href="/blogs#service-radio" class="mt-10 btn btn-mod btn-gray btn-circle">Show more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal fade modal3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" style="padding:15px;">
-                            <p style="font-weight: bold; font-size: 24px;">Human Rights activist talks to NSoJ</p>
-                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/eMIlLBlKM_w?rel=0" frameborder="0" allowfullscreen></iframe>
-
-                            <div class="mb-10 mt-10 align-right" style="padding:0px 20px 0px 0px">
-                                <a href="/blogs#service-tv" class="mt-10 btn btn-mod btn-gray btn-circle">Show more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal fade modal4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg">
-               
-                        <div class="modal-content">
-                            <div class="modal-header">
-                              <span class="font-alt" style="font-size: 20px;">Slant 2016</span>
-                              <button type="button" style="padding: 6px;" class="close" data-dismiss="modal">&times;</button>
-                             
-                            </div>
-                            <div class="modal-body" style="padding: 0;">
-                                <img src=<%=asset_path("slant-main.jpg")%> alt="National School of Journalism, Bangalore" />
-                                <img src=<%=asset_path("slant/file-page2.png")%> alt="National School of Journalism, Bangalore" />
-                                <img src=<%=asset_path("slant/file-page3.png")%> alt="National School of Journalism, Bangalore" />
-                                <img src=<%=asset_path("slant/file-page4.png")%> alt="National School of Journalism, Bangalore" />
-                                    
-                                <img src=<%=asset_path("slant/Slant_2016_Documentary_Artwork_File.png")%> alt="National School of Journalism, Bangalore" />
-                                <img src=<%=asset_path("slant/Slant_2016_Photo_Journal_Artwork_File.png")%> alt="National School of Journalism, Bangalore" />
-                                <img src=<%=asset_path("slant/slant_2016_Essay.jpg")%> alt="National School of Journalism, Bangalore" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal fade modal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" style="padding:15px;">
-                            <iframe width="100%" height="266" src="https://www.youtube.com/embed/eMIlLBlKM_w?rel=0" frameborder="0" allowfullscreen></iframe>
-
-                            <div class="mb-10 mt-10 align-right" style="padding:0px 20px 0px 0px">
-                                <a href="/blogs#service-tv" class="mt-10 btn btn-mod btn-gray btn-circle">Show more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Modals End -->
-
-            <!-- Service Grid -->
-            <div class="alt-service-grid" style="height: 700px; margin-top: 10px;">
-                
-                <!-- <a href="/edit_admission_form" class="mt-10">
-                    <div data-toggle="" data-target="" class="alt-service-item  ticker-box" style="background-image: url('<%=asset_path("brochure/thumb.png")%>'); background-size: cover; cursor: pointer; position: relative; height: 210px;">
-                    </div>
-                </a> -->
-
-                <div class="twitter-feed" style="height: 100%; width: 100%; background: #292424;">
-                    <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/NSoJ_Bangalore" data-widget-id="689405150352400384" ><div class="page-loader"><div class="loader">Loading...</div></div></a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                </div>
-                
-                <!-- <a href="/edit_admission_form" class="mt-10">
-                    <div data-toggle="" data-target="" class="alt-service-item  ticker-box" style="background-image: url('<%=asset_path("brochure/thumb.png")%>'); background-size: cover; cursor: pointer; position: relative;">
+                <!-- Start of Image carousel (slider) -->
+                <div class="image-carousel bg-dark" style="margin-top: 15px; background: rgb(241, 240, 240); margin: 15px -5px 0 -5px;">
                     
+                    <div>
+                        <div class="post-prev-img mb-0">
+                            <a href="/admission" class="mfp-image">
+                                <img src="<%= asset_path("slider/admission.png")%>" alt="" />
+                            </a>
+                        </div>                            
                     </div>
-                </a> -->
-                                
-                <!-- <a href="/admission">
-                    <div class="alt-service-item bg-dark-alfa-50 ticker-box" style="background-image: url('<%=asset_path("thumb/thumb1.jpg")%>'); background-size: cover; cursor: pointer; position: relative;">
-                       
-                        <span class="ticker-box-title alt-services-title font-alt" style="bottom: -116px;">Admissions</span>
-                      
-                    </div>
-                </a> -->
 
+                    <div>
+                        <div class="post-prev-img mb-0">
+                            <a href="/students" class="mfp-image">
+                                <img src="<%= asset_path("slider/collage.png")%>" alt="" />
+                            </a>
+                            <div class="slider-text font-alt">Our Student Journalists</div>
+                        </div>                            
+                    </div>
+                    
+                    <div>
+                        <div class="post-prev-img mb-0" style="">
+                            <a href="/atories" class="mfp-image">
+                                <img src="<%= asset_path("slider/NSoJ_post.jpg")%>" alt="" />
+                            </a>
+                        </div>                            
+                    </div>
+
+                </div>
+                <!-- End of Image carousel (slider) -->
+
+                <!-- Start of Students  -->
+                <div style="margin-top: 15px;">
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">Our Student Journalists</h3>
+                    <div class="row multi-columns-row" style="margin: 0;">
+                        <% @students.each do |student|%>
+                            <a href="<%=student_path(student)%>" style="color: #333;">
+                                <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 280px; color: white;">
+                                        <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                        <p class="font-alt"><%= student.user.name %></p>
+                                        <div class="alt-features-descr align-left">
+                                            <%= (student.bio == nil ? "" : "#{student.bio[0..150]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        <%end%>
+                    </div>
+                </div>
+                <!-- End of Students -->
+
+                <!-- Start of Faculty  -->
+                <div style="margin-top: 15px;">
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">Our Faculty</h3>
+                    <div class="row multi-columns-row" style="margin: 0;">
+                        <a  style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">H S Balram</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Director <br>
+                                    <span class="post-prev-info font-alt">Opinion and editorial writing, Politics & Society</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">Dr. Thomas Thangaraj</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Dean of Academic Affairs <br>
+                                    <span class="post-prev-info font-alt">Ethics, Politics & Society</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">Saswati Chakravarty</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <span class="post-prev-info font-alt">Core editing skills, Business &amp; Finance</span></h3>
+                                </div>
+                            </div>
+                        </a>                        
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">SIMON VARGHESE</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Principal Instructor <br>
+                                    <span class="post-prev-info font-alt">CONVERGENCE MEDIA</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">DIPTI KUMAR</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <span class="post-prev-info font-alt">BROADCAST; CONVERGENCE; ART AND CULTURE</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">Papiya Bhattacharya</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <span class="post-prev-info font-alt">Science Journalism; English Language Skills</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img  src="<%= asset_path("faculty/ramakrishna.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">Ramakrishna Upadhya</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <span class="post-prev-info font-alt">Print; Politics and society</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="color: #333;">
+                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                    <img  src="<%= asset_path("faculty/Divya-S_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <p class="font-alt">Divya Sreedharan</p>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <span class="post-prev-info font-alt">Writing skills, art and culture, lifestyle journalism, gender, social media</span></h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- End of Faculty -->
+            </div>    
+
+            <!-- Start of Twitter feed -->
+            <div class="col-md-3 twitter-feed" style="padding-left: 0;">
+                <a class="twitter-timeline" data-theme="dark" data-height="1800" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-            <!-- End Service Grid -->
+            <!-- End of Twitter feed -->
+
         </div>
-    </div>
 
-    <section class="page-section" style="padding-top: 25px;">
-        <div class="container clearfix relative" style="width: 90%; padding: 0;">
-            <div class="row mb-10" style="padding-top: 15px;">
-                
-                <div class="col-sm-12" style="padding: 0;">
-                    <div class="row" style="margin: 0 0 20px 0;">
-                        <%n = @main_stories.length >= 5 ? 5 : @main_stories.length%>
-                        <%story = @main_stories[0]%>
-                        <div class="col-md-6" style="padding: 0;">
-                            <div class="blog-media mb-10 mb-xs-20">
-                                <ul id="preview1" class="clearlist blog-posts-carousel-alt">
-                                    <li>
-                                        <a href=<%=story_path(story)%>><img style="min-height: 320px; max-height: 530px;" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
-                                        
-                                        <!-- Slide Info -->
-                                        <div class="blog-slide-info" style="padding: 10px; margin-bottom: 0px;">
-                                            
-                                            <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a>
-                                            </h2>
-                                            
-                                            <div class="blog-slide-data">
-                                                <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
-                                                <!-- <span class="separator">&nbsp;</span> -->
-                                                <i class="fa fa-user"></i> 
-                                                    <%  @byline = ""
-                                                        story.story_bylines.each_with_index do |student, i|
-                                                            @byline += i > 0 ? " and " : ""
-                                                            @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
-                                                        end
-                                                    %><%=@byline.html_safe%>
+        <div class="row" style="margin: 0;">
+            <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">About US</h3>
 
+            <!-- Start of Images -->
+            <div class="col-md-2" style="padding: 0px;">
+                <img src="<%= asset_path("about_left/bg0.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg1.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg2.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg3.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg4.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg5.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg6.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg7.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+                <img src="<%= asset_path("about_left/bg8.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            </div>
+            <!-- End of Images -->
+
+            <!-- Start of About Us content -->
+            <div class="col-md-7">
+                <div class="banner-decription" style="color:black;" >
+                    National School of Journalism (NSoJ) is a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents. Our newsroom-focused curriculum, in-house digital news portal, expert faculty members and unparalleled industry connections prepare our students for successful careers in broadcast, print and convergence journalism. We invite you to join us and be the generation that transforms India's news media industry.Our purpose is to transform the news media industry in India by training a select group of graduate students every year—60 of the brightest and best in journalistic talent—to become accomplished professional journalists. NSoJ will prepare them to pursue truth in a less than perfect world, recognise the wider contexts in which issues are framed and communicate this to the public in a responsible, balanced and fair manner. We hope to create in our students a generation of journalists with the tools and perspectives to act as agents of change in the news media industry in India.<br/><br/>
+                    
+                    Our 11-month Postgraduate Diploma in Journalism programmes are designed to provide our students the right platform and skills to not only succeed, but to shape the future of journalism in India. Our faculty are leading reporters, columnists, editors, authors, academics, magazine editors, documentary filmmakers, and digital media specialists who are deeply committed to training, challenging and supporting their students.<br/><br/>
+                    
+                    We strongly encourage diversity in thought, culture, language, geography, gender, religion, academic and extracurricular interest, family circumstance, socio-economic background and more. <br><br>
+
+                    
+                    <h1 class="hs-line-8 no-transp font-alt ">
+                         Study at One of the Best Journalism Schools in India
+                    </h1>
+                    
+                    A career in the news media industry is an exciting and rewarding path to follow, but it’s important to gain the right knowledge and practical skills in order to succeed. At the National School of Journalism, we identify, train  and nurture the best journalistic talent in India. Through postgraduate programs focused on broadcast, print and convergence media, we give students the best possible platform from which to begin a successful career in the industry. Join the best college for journalism in Bangalore and become the future of news media in India, with the help of experienced instructors with expertise as columnists, editors, reporters, filmmakers, academics, digital media specialists and more. <br> <br>
+
+                    <h2 class="hs-line-8 font-alt ">
+                        A top college for the best and brightest 
+                    </h2>
+
+                    We have a passion for the news media industry, and focus our expertise on turning students into professionals by helping them navigate both journalistic theory and newsroom-focused skills while fostering growth through our in-house news portal. When you graduate from our postgraduate school, you will be equipped with the knowledge required to kick start a career and flourish in a real-world environment. Our experienced staff will help you understand traditional industry values while preparing you for a career in the modern age. Upon completion of the 11 month course, graduates will have a firm grasp of the ability to identify wider contexts surrounding any issue and possess a commanding ability to communicate information to the public in a balanced, fair and responsible manner. <br><br>
+
+                    With excellent connections within the industry, we can provide you with a number of excellent career prospects so that you hit the ground running. As one of the top journalism colleges in Bangalore and throughout India, we promote a balanced environment with equal opportunity by supporting a diverse range of ages, languages, religions, personal circumstances and much more. <br><br>
+                    
+                    <h1 class="hs-line-8 no-transp font-alt ">
+                        Student Publications
+                    </h2>
+                    
+                    Our student journalists create and contribute to industry standard news productions as an intrinsic part of their programme. <br><br>
+                    
+                    Students specialising in print and convergence journalism produce <a href="<%=stories_path%>">NSoJ Post</a> , a high quality newsmagazine featuring original news articles based on news gathered by student journalists. NSoJ Post meets and excels national newspaper industry standards in terms of content, design and style. Our students are trained in the use of the most advanced software in the industry and gain a thorough understanding of page layout and design skills for newspapers and newsmagazines. NSoJ Post is edited by a student editor under the guidance of our Director, Mr. H. S. Balram, who was Resident Editor, The Times of India (Bangalore) for more than a decade. Digital versions of NSoJ Post are uploaded on our website and on our social media channels to showcase the journalistic talents of our student journalists. Online versions of news stories appear in a convergence format on the NSoJ blog. Print and convergence students also benefit from training received from award winning instructors in photojournalism in developing their news stories and features for NSoJ Post and for our blog. <br><br>
+
+                    Students specialising in broadcast journalism produce a range of news based productions for television and radio. Student journalists produce podcasts and radio features under the guidance of nationally renowned radio guru, Ashish Sen. Students interview prominent and newsworthy personalities and have unmatched opportunities to work closely with and learn from the best in the business. Broadcast students also produce several television programmes, including a daily news bulletin, television features, such as auto reviews, and a high quality satirical news production, "No Newsense". No Newsense uses in-depth research and creativity to showcase some of the most pressing and relevant issues of our times in a satirical and yet impactful manner. Students are trained to write scripts and host or anchor these shows live in addition to gaining a thorough understanding of the technical aspects of production,  including cameras, teleprompters, sound, lights and video editing using the most advance software in the industry. Broadcast students also benefit from the training received from award winning instructors in documentary film making in developing their television productions. <br><br>
+
+                </div>
+                <div class="local-scroll">
+                    <a href="#contact" class="btn btn-mod btn-medium btn-round">Lets talk</a>
+                </div>
+            </div>
+            <!-- End of About Us content -->
+
+            <!-- Start of Stories sidebar -->
+            <div class="col-md-3" style="padding-right: 0px;">
+                <div class="widget">
+                    
+                    <div class="widget-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tpl-tabs animate">
+                            <li class="active">
+                                <a href="#one" data-toggle="tab">Popular</a>
+                            </li>
+                            <li>
+                                <a href="#two" data-toggle="tab">Latest</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content tpl-tabs-cont section-text">
+                            <div class="tab-pane fade in active" id="one">
+                                <%n = @num_stories >= 10 ? 10 : @num_stories%>
+                                <%n.times do |i|%>
+                                <%popular_story = @popular_stories[i]%>
+                                <ul class="clearlist widget-posts">
+                            
+                                    <!-- Preview item -->
+                                    <li class="clearfix">
+                                        <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <div class="widget-posts-descr">
+                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
+                                            <div>
+                                                <%  @byline = ""
+                                                    popular_story.story_bylines.each_with_index do |student, i|
+                                                        @byline += i > 0 ? " and " : ""
+                                                        @byline += student.user.name
+                                                    end
+                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                %><%=@byline.html_safe%>
                                             </div>
                                         </div>
-                                        <!-- End Slide Info -->
-                                        
                                     </li>
+                                    <!-- End Preview item -->
+
                                 </ul>
+                                <%end%>
+                            </div>
+                            <div class="tab-pane fade" id="two">
+                                <%n.times do |i|%>
+                                <%latest_story = @latest_stories[i]%>
+                                <ul class="clearlist widget-posts">
+                            
+                                    <!-- Preview item -->
+                                    <li class="clearfix">
+                                        <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <div class="widget-posts-descr">
+                                            <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
+                                            <div>
+                                                <%  @byline = ""
+                                                    latest_story.story_bylines.each_with_index do |student, i|
+                                                        @byline += i > 0 ? " and " : ""
+                                                        @byline += student.user.name
+                                                    end
+                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
+                                                %><%=@byline.html_safe%>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- End Preview item -->
+
+                                </ul>
+                                <%end%>
                             </div>
                         </div>
-                        <%(n-1).times do |i|%>
-                            <%story = @main_stories[i+1]%>
-                            <div class="col-md-3" style="padding: 0;">
-                                
-                                <!-- Post Slider -->
-                                <div class="col-md-12" style="padding: 0 0 0 10px;">
-                                    <div class="blog-media mb-10 mb-xs-20">
-                                        <ul id="preview<%=i%>" class="clearlist blog-posts-carousel-alt">
-                                            <li>
-                                                <a href=<%=story_path(story)%>><img style="min-height: 155px;" src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" /></a>
-                                                
-                                                <!-- Slide Info -->
-                                                <div class="blog-slide-info" style="padding: 10px;">
-                                                    
-                                                    <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
-                                                    
-                                                    <div class="blog-slide-data">
-                                                        <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
-                                                        <!-- <span class="separator">&nbsp;</span> -->
-                                                        <i class="fa fa-user"></i> 
-                                                        <%  @byline = ""
-                                                            story.story_bylines.each_with_index do |student, i|
-                                                                @byline += i > 0 ? " and " : ""
-                                                                @byline += "<a style='font-size: 11px;' href='#{student_path(student)}'>#{student.user.name}</a>"
-                                                            end
-                                                        %><%=@byline.html_safe%>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!-- End Slide Info -->
-                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Post Slider -->
-                            <%if n == 1%>
-                            </div>
-                            <div class="col-md-3">
-                            <%end%>
-                            </div>
-                        <%end%>
-                        
                     </div>
                 </div>
-                
+
             </div>
-            <a href="stories" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
+            <!-- End of Stories sidebar -->
         </div>
         
-    </section>
-
-    <!-- Faculty -->
-    <section class="page-section pb-20" style="padding-top: 25px;">
-        <div class="container relative">
-           
-
-          <h3 class="font-alt mb-20 mb-sm-40 align-center">Faculty</h3>
-            <div class="row multi-columns-row">
-                
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <img  src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:180px;" class="img-circle">
-                        </div>
-                        <h2 class="alt-features-title font-alt">H.S. Balram</h2>
-                        <h3 class="alt-features-title font-alt" style="text-transform: none;">Director <br>
-                            <span class="post-prev-info font-alt">Opinion and editorial writing, Politics & Society</span></h3>
-                    </div>
-                </div>
-
-             
-
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <img  src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:180px;" class="img-circle">
-                        </div>
-                        <h2 class="alt-features-title font-alt">Dr. Thomas Thangaraj</h2>
-                        <h3 class="alt-features-title font-alt" style="text-transform: none;">Dean of Academic Affairs<br> <span class="post-prev-info font-alt">Ethics, Politics & Society</span></h3>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="alt-features-item align-center">
-                        <div class="alt-features-icon">
-                            <img  src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:180px;" class="img-circle">
-                        </div>
-                        <h2 class="alt-features-title font-alt">Saswati Chakravarty</h2>
-                        <h3 class="alt-features-title font-alt" style="text-transform: none;"><span class="post-prev-info font-alt">Core editing skills, Business & Finance</span></h3>
-                    </div>
-                </div>
-                
-            </div>
-            <a href="program#faculty" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-       
-        </div>
-    </section>
-
-    <section class="page-section pb-20" style="padding-top: 25px;">
-        <div class="container relative">
-           
-
-          <h3 class="font-alt mb-20 mb-sm-40 align-center">Students</h3>
-            <div class="row multi-columns-row">
-                
-                <% @students.each do |student|%>
-                    <a href="<%=student_path(student)%>">
-                        <div class="col-sm-6 col-md-4 col-lg-4">
-                            <div class="alt-features-item align-center">
-                                <div class="alt-features-icon">
-                                    <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:180px;" class="img-circle">
-                                </div>
-                                <h2 class="alt-features-title font-alt"><%= student.user.name %></h2>
-                            </div>
-                        </div>
-                    </a>
-                <%end%>
-            </div>
-            <a href="students" class="section-more right">Show all <i class="fa fa-angle-right"></i></a>
-       
-        </div>
-        <hr>
-    </section>
+    </div>
     
     <!-- About Section -->
     <section class="page-section pt-0  pb-0 banner-section " id="about" >
@@ -358,42 +341,7 @@
                         <div class="banner-content" >
                            <!-- <h3 class="banner-heading font-alt" style="color:black;">About Us</h3> -->
 
-                            <div class="banner-decription" style="color:black;" >
-                                National School of Journalism (NSoJ) is a highly selective postgraduate journalism institute that identifies and trains India's best journalistic talents. Our newsroom-focused curriculum, in-house digital news portal, expert faculty members and unparalleled industry connections prepare our students for successful careers in broadcast, print and convergence journalism. We invite you to join us and be the generation that transforms India's news media industry.Our purpose is to transform the news media industry in India by training a select group of graduate students every year—60 of the brightest and best in journalistic talent—to become accomplished professional journalists. NSoJ will prepare them to pursue truth in a less than perfect world, recognise the wider contexts in which issues are framed and communicate this to the public in a responsible, balanced and fair manner. We hope to create in our students a generation of journalists with the tools and perspectives to act as agents of change in the news media industry in India.<br/><br/>
-                                
-                                Our 11-month Postgraduate Diploma in Journalism programmes are designed to provide our students the right platform and skills to not only succeed, but to shape the future of journalism in India. Our faculty are leading reporters, columnists, editors, authors, academics, magazine editors, documentary filmmakers, and digital media specialists who are deeply committed to training, challenging and supporting their students.<br/><br/>
-                                
-                                We strongly encourage diversity in thought, culture, language, geography, gender, religion, academic and extracurricular interest, family circumstance, socio-economic background and more. <br><br>
-
-                                
-                                <h1 class="hs-line-8 no-transp font-alt ">
-                                     Study at One of the Best Journalism Schools in India
-                                </h1>
-                                
-                                A career in the news media industry is an exciting and rewarding path to follow, but it’s important to gain the right knowledge and practical skills in order to succeed. At the National School of Journalism, we identify, train  and nurture the best journalistic talent in India. Through postgraduate programs focused on broadcast, print and convergence media, we give students the best possible platform from which to begin a successful career in the industry. Join the best college for journalism in Bangalore and become the future of news media in India, with the help of experienced instructors with expertise as columnists, editors, reporters, filmmakers, academics, digital media specialists and more. <br> <br>
-
-                                <h2 class="hs-line-8 font-alt ">
-                                    A top college for the best and brightest 
-                                </h2>
-
-                                We have a passion for the news media industry, and focus our expertise on turning students into professionals by helping them navigate both journalistic theory and newsroom-focused skills while fostering growth through our in-house news portal. When you graduate from our postgraduate school, you will be equipped with the knowledge required to kick start a career and flourish in a real-world environment. Our experienced staff will help you understand traditional industry values while preparing you for a career in the modern age. Upon completion of the 11 month course, graduates will have a firm grasp of the ability to identify wider contexts surrounding any issue and possess a commanding ability to communicate information to the public in a balanced, fair and responsible manner. <br><br>
-
-                                With excellent connections within the industry, we can provide you with a number of excellent career prospects so that you hit the ground running. As one of the top journalism colleges in Bangalore and throughout India, we promote a balanced environment with equal opportunity by supporting a diverse range of ages, languages, religions, personal circumstances and much more. <br><br>
-                                
-                                <h1 class="hs-line-8 no-transp font-alt ">
-                                    Student Publications
-                                </h2>
-                                
-                                Our student journalists create and contribute to industry standard news productions as an intrinsic part of their programme. <br><br>
-                                
-                                Students specialising in print and convergence journalism produce <a href="<%=stories_path%>">NSoJ Post</a> , a high quality newsmagazine featuring original news articles based on news gathered by student journalists. NSoJ Post meets and excels national newspaper industry standards in terms of content, design and style. Our students are trained in the use of the most advanced software in the industry and gain a thorough understanding of page layout and design skills for newspapers and newsmagazines. NSoJ Post is edited by a student editor under the guidance of our Director, Mr. H. S. Balram, who was Resident Editor, The Times of India (Bangalore) for more than a decade. Digital versions of NSoJ Post are uploaded on our website and on our social media channels to showcase the journalistic talents of our student journalists. Online versions of news stories appear in a convergence format on the NSoJ blog. Print and convergence students also benefit from training received from award winning instructors in photojournalism in developing their news stories and features for NSoJ Post and for our blog. <br><br>
-
-                                Students specialising in broadcast journalism produce a range of news based productions for television and radio. Student journalists produce podcasts and radio features under the guidance of nationally renowned radio guru, Ashish Sen. Students interview prominent and newsworthy personalities and have unmatched opportunities to work closely with and learn from the best in the business. Broadcast students also produce several television programmes, including a daily news bulletin, television features, such as auto reviews, and a high quality satirical news production, "No Newsense". No Newsense uses in-depth research and creativity to showcase some of the most pressing and relevant issues of our times in a satirical and yet impactful manner. Students are trained to write scripts and host or anchor these shows live in addition to gaining a thorough understanding of the technical aspects of production,  including cameras, teleprompters, sound, lights and video editing using the most advance software in the industry. Broadcast students also benefit from the training received from award winning instructors in documentary film making in developing their television productions. <br><br>
-
-                            </div>
-                            <div class="local-scroll">
-                                <a href="#contact" class="btn btn-mod btn-medium btn-round">Lets talk</a>
-                            </div>
+                            
                         </div>
                     </div>
                     
