@@ -1,8 +1,33 @@
 
     <style>
         #home{
+            width: 75%;
             max-width: 1200px;
             margin:0 auto;
+        }@media (min-width: 480px) {
+            #home{
+                width: 100%;
+            }
+            .about-images, .twitter-feed{
+                display: none;
+            }
+        }@media (min-width: 768px) {
+            #home{
+                width: 100%;
+            }
+            .about-images, .twitter-feed{
+                display: none;
+            }
+        }
+        @media (min-width: 992px) {
+            #home{
+                width: 75%;
+            }
+        }
+        @media (min-width: 1200px) {
+            #home{
+                width: 70%;
+            }
         }
         .slider-text{
             float: left;
@@ -104,7 +129,7 @@
                     <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">Our Faculty</h3>
                     <a href="program#faculty" class="section-more right" style="margin: -43px 10px 0 0; color: white; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show all <i class="fa fa-angle-right"></i></a>
 
-                    <div class="row multi-columns-row" style="margin: 0;">
+                    <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
@@ -202,7 +227,7 @@
             <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">About US</h3>
 
             <!-- Start of Images -->
-            <div class="col-md-2" style="padding: 0px;">
+            <div class="about-images col-md-2" style="padding: 0px;">
                 <img src="<%= asset_path("about_left/bg0.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
                 <img src="<%= asset_path("about_left/bg1.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
                 <img src="<%= asset_path("about_left/bg2.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
