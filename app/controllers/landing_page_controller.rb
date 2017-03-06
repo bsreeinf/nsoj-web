@@ -1,6 +1,6 @@
 class LandingPageController < ApplicationController
   def home
-    @students = Student.limit(8)
+    @students = Student.order('id asc, bio IS NULL, bio DESC').limit(8)
     
     @num_stories = Story.count
     @popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc).limit(18)

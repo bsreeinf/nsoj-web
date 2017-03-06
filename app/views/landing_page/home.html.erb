@@ -74,17 +74,17 @@
 
                 <!-- Start of Students  -->
                 <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 10px; background-color: #555; color: white;">Our Student Journalists</h3>
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">Our Student Journalists</h3>
                     <a href="students" class="section-more right" style="margin: -40px 10px 0 0; color: white; font-weight: 800;">Show all <i class="fa fa-angle-right"></i></a>
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
                             <a href="<%=student_path(student)%>" style="color: #333;">
                                 <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 340px; color: white;">
+                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 370px; color: white;">
                                         <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
-                                        <div class="alt-features-descr align-left">
+                                        <div class="alt-features-descr align-left" style="line-height: 20px;">
                                             <%= (student.bio == nil ? "" : "#{student.bio[0..150]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
                                         </div>
                                     </div>
@@ -97,86 +97,86 @@
 
                 <!-- Start of Faculty  -->
                 <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 10px; background-color: #555; color: white;">Our Faculty</h3>
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">Our Faculty</h3>
                     <a href="program#faculty" class="section-more right" style="margin: -40px 10px 0 0; color: white; font-weight: 800;">Show all <i class="fa fa-angle-right"></i></a>
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">H S Balram</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Director <br>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Director <br>
                                     <span class="post-prev-info font-alt">Opinion and editorial writing, Politics & Society</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Dr. Thomas Thangaraj</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Dean of Academic Affairs <br>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Dean of Academic Affairs <br>
                                     <span class="post-prev-info font-alt">Ethics, Politics & Society</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Saswati Chakravarty</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
                                     <span class="post-prev-info font-alt">Core editing skills, Business &amp; Finance</span></h3>
                                 </div>
                             </div>
                         </a>                        
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">SIMON VARGHESE</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">Principal Instructor <br>
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Principal Instructor <br>
                                     <span class="post-prev-info font-alt">CONVERGENCE MEDIA</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">DIPTI KUMAR</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
                                     <span class="post-prev-info font-alt">BROADCAST; CONVERGENCE; ART AND CULTURE</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Papiya Bhattacharya</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
                                     <span class="post-prev-info font-alt">Science Journalism; English Language Skills</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/ramakrishna.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Ramakrishna Upadhya</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
                                     <span class="post-prev-info font-alt">Print; Politics and society</span></h3>
                                 </div>
                             </div>
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/Divya-S_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Divya Sreedharan</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none;">
+                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
                                     <span class="post-prev-info font-alt">Writing skills, art and culture, lifestyle journalism, gender, social media</span></h3>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
         </div>
 
         <div class="row" style="margin: 0;">
-            <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">About US</h3>
+            <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">About US</h3>
 
             <!-- Start of Images -->
             <div class="col-md-2" style="padding: 0px;">
@@ -499,6 +499,7 @@
         </div>
     </section> -->
     <!-- End Newsletter Section -->
+
    <!-- Contact Section -->
     <section class="page-section" id="contact" style="    padding-top: 70px;    padding-bottom: 25px;">
         <div class="container relative">
