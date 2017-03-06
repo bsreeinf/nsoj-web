@@ -10,9 +10,9 @@
             text-align: center;
             width: 100%;
             position: relative;
-            margin-top: -110px;
+            margin-top: -60px;
             padding: 5px;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.6);
             font-size: 1.3em;
             font-weight: 800;
             cursor: pointer;
@@ -57,7 +57,7 @@
                             <a href="/students" class="mfp-image">
                                 <img src="<%= asset_path("slider/collage.png")%>" alt="" />
                             </a>
-                            <div class="slider-text font-alt">Our Student Journalists</div>
+                            <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a>
                         </div>                            
                     </div>
                     
@@ -74,7 +74,9 @@
 
                 <!-- Start of Students  -->
                 <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">Our Student Journalists</h3>
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 10px; background-color: #555; color: white;">Our Student Journalists</h3>
+                    <a href="students" class="section-more right" style="margin: -40px 10px 0 0; color: white; font-weight: 800;">Show all <i class="fa fa-angle-right"></i></a>
+
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
                             <a href="<%=student_path(student)%>" style="color: #333;">
@@ -95,7 +97,9 @@
 
                 <!-- Start of Faculty  -->
                 <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 5px; background-color: #555; color: white;">Our Faculty</h3>
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px 10px; background-color: #555; color: white;">Our Faculty</h3>
+                    <a href="program#faculty" class="section-more right" style="margin: -40px 10px 0 0; color: white; font-weight: 800;">Show all <i class="fa fa-angle-right"></i></a>
+
                     <div class="row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
                             <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
