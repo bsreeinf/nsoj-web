@@ -23,10 +23,16 @@
             #home{
                 width: 75%;
             }
+            .about-images, .twitter-feed{
+                display: inherit;
+            }
         }
         @media (min-width: 1200px) {
             #home{
                 width: 70%;
+            }
+            .about-images, .twitter-feed{
+                display: inherit;
             }
         }
         .slider-text{
@@ -109,7 +115,7 @@
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
                             <a href="<%=student_path(student)%>" style="color: #333;">
-                                <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                     <div class="align-center" style="background-color: #555; padding: 10px; min-height: 340px; color: white;">
                                         <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
@@ -131,7 +137,7 @@
 
                     <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">H S Balram</p>
@@ -141,7 +147,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Dr. Thomas Thangaraj</p>
@@ -151,7 +157,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Saswati Chakravarty</p>
@@ -161,7 +167,7 @@
                             </div>
                         </a>                        
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">SIMON VARGHESE</p>
@@ -171,7 +177,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">DIPTI KUMAR</p>
@@ -181,7 +187,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Papiya Bhattacharya</p>
@@ -191,7 +197,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/ramakrishna.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Ramakrishna Upadhya</p>
@@ -201,7 +207,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/Divya-S_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Divya Sreedharan</p>
