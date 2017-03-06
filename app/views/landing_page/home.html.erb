@@ -1,8 +1,7 @@
 
     <style>
         #home{
-            width: 80%;
-            min-width: 900px;
+            max-width: 1200px;
             margin:0 auto;
         }
         .slider-text{
@@ -10,7 +9,7 @@
             text-align: center;
             width: 100%;
             position: relative;
-            margin-top: -60px;
+            margin-top: -130px;
             padding: 5px;
             background-color: rgba(0,0,0,0.6);
             font-size: 1.3em;
@@ -61,7 +60,8 @@
                             <a href="/students" class="mfp-image">
                                 <img src="<%= asset_path("slider/collage.png")%>" alt="" />
                             </a>
-                            <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a>
+                            <!-- <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a> -->
+                            <a class="slider-text font-alt" href="/students">Our Student Journalists</a>
                         </div>                            
                     </div>
                     
@@ -85,7 +85,7 @@
                         <% @students.each do |student|%>
                             <a href="<%=student_path(student)%>" style="color: #333;">
                                 <div class="col-sm-4 col-md-2 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 370px; color: white;">
+                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 340px; color: white;">
                                         <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
                                         <div class="alt-features-descr align-left" style="line-height: 20px;">
