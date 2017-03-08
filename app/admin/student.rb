@@ -46,8 +46,8 @@ permit_params :avatar, :user_id, :batch_id, :desc, :bio
 	        	end	
 	        end     
 	    end   
-	    column "Bio", :bio do |student|
-                student.bio == nil ? "" : "#{student.bio}"
+	    column "Title", :bio do |student|
+                student.desc == nil ? "" : "#{student.desc}"
 
         end 
 
