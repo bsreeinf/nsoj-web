@@ -91,7 +91,7 @@
                     <a class="left_tab_title slider-text font-alt" href="/students">Internships and Placements</a>
                 </div>
 
-                <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1550" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1250" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
             <!-- End of Twitter feed -->
 
@@ -109,7 +109,7 @@
                     <div style="padding-right: 2px;">
                         <div class="post-prev-img mb-0">
                             <a href="/program" class="mfp-image">
-                                <img src="<%= asset_path("slider/events.jpeg")%>" alt="" />
+                                <img src="<%= asset_path("slider/events.jpg")%>" alt="" />
                             </a>
                             <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/students">Events</a>
                         </div>                            
@@ -146,7 +146,7 @@
                                     <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                         <img src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
-                                        <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%= (student.bio == nil ? "" : "#{student.bio[0..150]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %></h3>
+                                        <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%=student.desc%></h3>
                                     </div>
                                 </div>
                             </a>
