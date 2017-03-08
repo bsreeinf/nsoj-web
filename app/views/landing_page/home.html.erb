@@ -137,7 +137,7 @@
 
                 <!-- Start of Students  -->
                 <div style="margin-top: 5px;">
-                    <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Current Students</span></h3>
+                    <a href="students" style="text-decoration: none; color: black;"><h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Current Students</span></h3></a>
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
@@ -151,19 +151,20 @@
                                 </div>
                             </a>
                         <%end%>
+                        <a href="students" class="section-more right" style="margin: 5px 10px; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
                     </div>
-                    <a href="students" class="section-more right" style="margin: -43px 10px 0 0; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
+
                 </div>
                 <!-- End of Students -->
 
                 <!-- Start of Faculty  -->
                 <div style="margin-top: 5px;">
-                    <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Faculty</span></h3>
+                    <a href="students" style="text-decoration: none; color: black;"><h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Faculty</span></h3></a>
 
                     <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">H S Balram</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Director <br>
@@ -173,7 +174,7 @@
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Dr. Thomas Thangaraj</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Dean of Academic Affairs <br>
@@ -183,7 +184,7 @@
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Saswati Chakravarty</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
@@ -193,7 +194,7 @@
                         </a>                        
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">SIMON VARGHESE</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Principal Instructor <br>
@@ -203,7 +204,7 @@
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">DIPTI KUMAR</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
@@ -213,7 +214,7 @@
                         </a>
                         <a style="color: #333;">
                             <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                <div class="align-center" style="background-color: white; padding: 10px; min-height: 240px;">
                                     <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Papiya Bhattacharya</p>
                                     <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
@@ -221,8 +222,8 @@
                                 </div>
                             </div>
                         </a>
+                    <a href="program#faculty" class="section-more right" style="margin: 5px 10px; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
                     </div>
-                    <a href="program#faculty" class="section-more right" style="margin: -43px 10px 0 0; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
                 </div>
                 <!-- End of Faculty -->
             </div>    
