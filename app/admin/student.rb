@@ -3,7 +3,7 @@ ActiveAdmin.register Student do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :avatar, :user_id, :batch_id, :desc, :bio
+permit_params :avatar, :user_id, :batch_id, :title, :bio
 #
 # or
 #
@@ -19,7 +19,7 @@ permit_params :avatar, :user_id, :batch_id, :desc, :bio
 	    	f.input :user_id, :required => true, as: :select, collection: User.all.order(name: :asc).uniq
 			f.input :batch_id, :required => true, as: :select, collection: Batch.all.uniq
 	    	f.input :avatar, :required => true, :as => :file
-	    	f.input :desc, label: "Title"
+	    	f.input :title, label: "Title"
 	    	f.input :bio, :required => true, label: "Bio"
 		end		
 		f.actions
@@ -47,7 +47,7 @@ permit_params :avatar, :user_id, :batch_id, :desc, :bio
 	        end     
 	    end   
 	    column "Title", :bio do |student|
-                student.desc == nil ? "" : "#{student.desc}"
+                student.title == nil ? "" : "#{student.title}"
 
         end 
 
@@ -75,7 +75,7 @@ permit_params :avatar, :user_id, :batch_id, :desc, :bio
 			        	end	
 			        end  
 				end
-				row :desc
+				row :title
 				row :bio
 				row :created_at
 			end

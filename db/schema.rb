@@ -392,7 +392,7 @@ ActiveRecord::Schema.define(version: 20170308051435) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "slug"
-    t.string   "desc"
+    t.string   "title"
   end
 
   add_index "students", ["batch_id"], name: "index_students_on_batch_id", using: :btree

@@ -18,6 +18,6 @@ class StudentsController < InheritedResources::Base
 	end
 
     def student_params
-      params.require(:student).permit(:user_id, :batch_id, :avatar, :desc, :bio)
+      params.require(:student).permit(:user_id, :batch_id, :avatar, :title, :bio)
     end
 end
