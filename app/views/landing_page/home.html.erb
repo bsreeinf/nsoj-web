@@ -54,6 +54,14 @@
             letter-spacing: 0.1em !important;
             word-wrap: break-word;
         }
+        .left_tab_title{
+            text-decoration: none;
+            color: black !important;
+            background-color: rgba(226, 244, 249,0.85);
+            font-size: 12px;
+            text-transform: none;
+            margin-top: -25px;
+        }
 
     </style>
     <!-- Page Loader -->        
@@ -69,6 +77,20 @@
         <div class="row">
             <!-- Start of Twitter feed -->
             <div class="col-md-3 twitter-feed" style="padding: 0 5px 0 0;">
+                <div class="post-prev-img mb-0">
+                    <a href="/program" class="mfp-image">
+                        <img src="<%= asset_path("left_tab/pgp.jpg")%>" alt="" />
+                    </a>
+                    <a class="left_tab_title slider-text font-alt" href="/students">Postgraduate Programmes</a>
+                </div>
+                <div class="post-prev-img mb-0">
+                    <a href="/why_us#career_services" class="mfp-image">
+                        <img src="<%= asset_path("left_tab/students.png")%>" alt="" />
+                    </a>
+                    <!-- <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a> -->
+                    <a class="left_tab_title slider-text font-alt" href="/students">Internships and Placements</a>
+                </div>
+
                 <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1550" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
             <!-- End of Twitter feed -->
@@ -84,22 +106,22 @@
                 <!-- Start of Image carousel (slider) -->
                 <div class="image-carousel bg-dark" style="/*background: rgb(241, 240, 240);*/ background-color: white; margin: 5px 0;">
                     
-                    <div style="padding-right: 5px;">
+                    <div style="padding-right: 2px;">
                         <div class="post-prev-img mb-0">
                             <a href="/program" class="mfp-image">
-                                <img src="<%= asset_path("slider/2.jpg")%>" alt="" />
+                                <img src="<%= asset_path("slider/events.jpeg")%>" alt="" />
                             </a>
-                            <a class="slider-text font-alt" href="/students">Post Graduate Programmes</a>
+                            <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/students">Events</a>
                         </div>                            
                     </div>
 
-                    <div>
+                    <div style="padding-left: 2px;">
                         <div class="post-prev-img mb-0">
                             <a href="/why_us#career_services" class="mfp-image">
-                                <img src="<%= asset_path("slider/collage.png")%>" alt="" />
+                                <img src="<%= asset_path("slider/infra.jpg")%>" alt="" />
                             </a>
                             <!-- <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a> -->
-                            <a class="slider-text font-alt" href="/students">Internships and Placements</a>
+                            <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/students">Infrastructure</a>
                         </div>                            
                     </div>
                     
@@ -115,31 +137,28 @@
 
                 <!-- Start of Students  -->
                 <div style="margin-top: 5px;">
-                    <h3 class="font-alt mb-10 mb-sm-40" style="margin-top: 0; padding: 10px; background-color: #555; color: white;">Our Student Journalists</h3>
-                    <a href="students" class="section-more right" style="margin: -43px 10px 0 0; color: white; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show all <i class="fa fa-angle-right"></i></a>
+                    <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Current Students</span></h3>
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
-                            <a href="<%=student_path(student)%>" style="color: #333;">
+                            <a  style="color: #333;">
                                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                    <div class="align-center" style="background-color: #555; padding: 10px; min-height: 340px; color: white;">
-                                        <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
+                                    <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
+                                        <img src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
-                                        <div class="alt-features-descr align-left" style="line-height: 20px;">
-                                            <%= (student.bio == nil ? "" : "#{student.bio[0..150]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
-                                        </div>
+                                        <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%= (student.bio == nil ? "" : "#{student.bio[0..150]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %></h3>
                                     </div>
                                 </div>
                             </a>
                         <%end%>
                     </div>
+                    <a href="students" class="section-more right" style="margin: -43px 10px 0 0; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
                 </div>
                 <!-- End of Students -->
 
                 <!-- Start of Faculty  -->
                 <div style="margin-top: 5px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white; margin-top: 0;">Our Faculty</h3>
-                    <a href="program#faculty" class="section-more right" style="margin: -43px 10px 0 0; color: white; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show all <i class="fa fa-angle-right"></i></a>
+                    <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Faculty</span></h3>
 
                     <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
@@ -203,6 +222,7 @@
                             </div>
                         </a>
                     </div>
+                    <a href="program#faculty" class="section-more right" style="margin: -43px 10px 0 0; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
                 </div>
                 <!-- End of Faculty -->
             </div>    
