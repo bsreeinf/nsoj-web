@@ -141,7 +141,7 @@
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
-                            <a  style="color: #333;">
+                            <a href="<%=student_path(student)%>" style="color: #333;">
                                 <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                     <div class="align-center" style="background-color: white; padding: 10px; min-height: 210px;">
                                         <img src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
