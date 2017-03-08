@@ -29,7 +29,7 @@
         }
         @media (min-width: 1200px) {
             #home{
-                width: 70%;
+                width: 970px;
             }
             .about-images, .twitter-feed{
                 display: inherit;
@@ -40,7 +40,7 @@
             text-align: center;
             width: 100%;
             position: relative;
-            margin-top: -130px;
+            margin-top: -80px;
             padding: 5px;
             background-color: rgba(0,0,0,0.6);
             font-size: 1.3em;
@@ -48,7 +48,7 @@
             cursor: pointer;
         }
         .post-prev-img{
-            padding: 0 5px;
+            padding: 0;
         }
         .alt-features-title{
             letter-spacing: 0.1em !important;
@@ -67,8 +67,14 @@
 
         
         <div class="row">
-            <div class="col-md-9">
+            <!-- Start of Twitter feed -->
+            <div class="col-md-3 twitter-feed" style="padding: 0 5px 0 0;">
+                <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="2085" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <!-- End of Twitter feed -->
 
+            <div class="col-md-6" style="padding: 0;">
+                
                 <!-- Start of Main video -->
                 <div class="video">
                     <iframe width="640" height="360" src="https://www.youtube.com/embed/K8qIpsaqSzo?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -76,46 +82,46 @@
                 <!-- End of Main video -->
 
                 <!-- Start of Image carousel (slider) -->
-                <div class="image-carousel bg-dark" style="margin-top: 15px; background: rgb(241, 240, 240); margin: 15px -5px 0 -5px;">
+                <div class="image-carousel bg-dark" style="/*background: rgb(241, 240, 240);*/ background-color: white; margin: 5px 0;">
                     
-                    <div>
+                    <div style="padding-right: 5px;">
                         <div class="post-prev-img mb-0">
-                            <a href="/admission" class="mfp-image">
-                                <img src="<%= asset_path("slider/admission.png")%>" alt="" />
+                            <a href="/program" class="mfp-image">
+                                <img src="<%= asset_path("slider/2.jpg")%>" alt="" />
                             </a>
+                            <a class="slider-text font-alt" href="/students">Post Graduate Programmes</a>
                         </div>                            
                     </div>
 
                     <div>
                         <div class="post-prev-img mb-0">
-                            <a href="/students" class="mfp-image">
+                            <a href="/why_us#career_services" class="mfp-image">
                                 <img src="<%= asset_path("slider/collage.png")%>" alt="" />
                             </a>
                             <!-- <a href="/students"><div class="slider-text font-alt">Our Student Journalists</div></a> -->
-                            <a class="slider-text font-alt" href="/students">Our Student Journalists</a>
+                            <a class="slider-text font-alt" href="/students">Internships and Placements</a>
                         </div>                            
                     </div>
                     
-                    <div>
+                    <!-- <div>
                         <div class="post-prev-img mb-0" style="">
                             <a href="/stories" class="mfp-image">
                                 <img src="<%= asset_path("slider/NSoJ_post.jpg")%>" alt="" />
                             </a>
                         </div>                            
-                    </div>
-
+                    </div> -->
                 </div>
                 <!-- End of Image carousel (slider) -->
 
                 <!-- Start of Students  -->
-                <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">Our Student Journalists</h3>
+                <div style="margin-top: 5px;">
+                    <h3 class="font-alt mb-10 mb-sm-40" style="margin-top: 0; padding: 10px; background-color: #555; color: white;">Our Student Journalists</h3>
                     <a href="students" class="section-more right" style="margin: -43px 10px 0 0; color: white; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show all <i class="fa fa-angle-right"></i></a>
 
                     <div class="row multi-columns-row" style="margin: 0;">
                         <% @students.each do |student|%>
                             <a href="<%=student_path(student)%>" style="color: #333;">
-                                <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                     <div class="align-center" style="background-color: #555; padding: 10px; min-height: 340px; color: white;">
                                         <img  src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt"><%= student.user.name %></p>
@@ -131,13 +137,13 @@
                 <!-- End of Students -->
 
                 <!-- Start of Faculty  -->
-                <div style="margin-top: 15px;">
-                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">Our Faculty</h3>
+                <div style="margin-top: 5px;">
+                    <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white; margin-top: 0;">Our Faculty</h3>
                     <a href="program#faculty" class="section-more right" style="margin: -43px 10px 0 0; color: white; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show all <i class="fa fa-angle-right"></i></a>
 
                     <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <a  style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">H S Balram</p>
@@ -147,7 +153,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Dr. Thomas Thangaraj</p>
@@ -157,7 +163,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Saswati Chakravarty</p>
@@ -167,7 +173,7 @@
                             </div>
                         </a>                        
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">SIMON VARGHESE</p>
@@ -177,7 +183,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">DIPTI KUMAR</p>
@@ -187,7 +193,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Papiya Bhattacharya</p>
@@ -196,8 +202,8 @@
                                 </div>
                             </div>
                         </a>
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                        <!-- <a style="color: #333;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/ramakrishna.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Ramakrishna Upadhya</p>
@@ -207,7 +213,7 @@
                             </div>
                         </a>
                         <a style="color: #333;">
-                            <div class="col-sm-4 col-md-3 col-lg-3" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
                                 <div class="align-center" style="background-color: white; padding: 10px; min-height: 250px;">
                                     <img  src="<%= asset_path("faculty/Divya-S_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                     <p class="font-alt">Divya Sreedharan</p>
@@ -215,18 +221,68 @@
                                     <span class="post-prev-info font-alt">Writing skills, art and culture, lifestyle journalism, gender, social media</span></h3>
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <!-- End of Faculty -->
             </div>    
+            <div class="col-md-3" style="padding: 0 0 0 5px;">
+                <a href="/admission"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
+                <a href="/stories"><img src="<%= asset_path("banners/NSoJ_post.png")%>" alt="" /></a>
 
-            <!-- Start of Twitter feed -->
-            <div class="col-md-3 twitter-feed" style="padding-left: 0;">
-                <a class="twitter-timeline" data-chrome="nofooter noscrollbar" data-theme="dark" data-height="2085" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <!-- Start of Stories sidebar -->
+                <div style="padding-right: 0px;">
+                    <div class="widget">
+                        
+                        <div class="widget-body">
+                            <!-- Nav tabs -->
+                            <!-- <ul class="nav nav-tabs tpl-tabs animate">
+                                <li class="active">
+                                    <a href="#one" data-toggle="tab">Popular</a>
+                                </li>
+                                <li>
+                                    <a href="#two" data-toggle="tab">Latest</a>
+                                </li>
+                            </ul>
+ -->                            
+                            <!-- Tab panes -->
+                            <div class="tab-content tpl-tabs-cont section-text" style="padding: 0;">
+                                <div class="tab-pane fade in active" id="one">
+                                    <%n = @num_stories >= 18 ? 18 : @num_stories%>
+                                    <%n.times do |i|%>
+                                    <%popular_story = @popular_stories[i]%>
+                                    <ul class="clearlist widget-posts">
+                                
+                                        <!-- Preview item -->
+                                        <li class="clearfix">
+                                            <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                            <div class="widget-posts-descr">
+                                                <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
+                                                <div>
+                                                    <%  @byline = ""
+                                                        popular_story.story_bylines.each_with_index do |student, i|
+                                                            @byline += i > 0 ? " and " : ""
+                                                            @byline += student.user.name
+                                                        end
+                                                        @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                    %><!--<%=@byline.html_safe%>-->
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End Preview item -->
+
+                                    </ul>
+                                    <%end%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End of Stories sidebar -->
             </div>
-            <!-- End of Twitter feed -->
 
+            
         </div>
 
         <div class="row" style="margin: 0;">
