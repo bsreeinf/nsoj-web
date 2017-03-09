@@ -95,7 +95,7 @@
                     <a class="left_tab_title slider-text font-alt" href="/students">Internships and Placements</a>
                 </div>
 
-                <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1250" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1100" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
             <!-- End of Twitter feed -->
 
@@ -174,7 +174,7 @@
                     <div class="clearfix row multi-columns-row" style="margin: 0;">
                         <div class="row" style="padding: 0;">
                             <a  style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">H S Balram</p>
@@ -184,7 +184,7 @@
                                 </div>
                             </a>
                             <a style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">Dr. Thomas Thangaraj</p>
@@ -194,7 +194,7 @@
                                 </div>
                             </a>
                             <a style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">Saswati Chakravarty</p>
@@ -206,7 +206,7 @@
                         </div>   
                         <div class="row" style="padding: 0;">
                             <a style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">SIMON VARGHESE</p>
@@ -216,7 +216,7 @@
                                 </div>
                             </a>
                             <a style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">DIPTI KUMAR</p>
@@ -226,7 +226,7 @@
                                 </div>
                             </a>
                             <a style="color: #333;">
-                                <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
                                     <div class="align-center profile_box">
                                         <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                                         <p class="font-alt">Papiya Bhattacharya</p>
@@ -243,7 +243,7 @@
             </div>    
             <div class="col-md-3" style="padding: 0 0 0 5px;">
                 <a href="/admission"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
-                <a href="/stories"><img src="<%= asset_path("banners/NSoJ_post.png")%>" alt="" /></a>
+                <a style="margin-top: 3px;" href="/stories"><img src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
 
                 <!-- Start of Stories sidebar -->
                 <div style="padding-right: 0px;">
@@ -263,7 +263,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content tpl-tabs-cont section-text" style="padding: 0;">
                                 <div class="tab-pane fade in active" id="one">
-                                    <%n = @num_stories >= 16 ? 16 : @num_stories%>
+                                    <%n = @num_stories >= 13 ? 13 : @num_stories%>
                                     <%n.times do |i|%>
                                     <%popular_story = @popular_stories[i]%>
                                     <ul class="clearlist widget-posts">
