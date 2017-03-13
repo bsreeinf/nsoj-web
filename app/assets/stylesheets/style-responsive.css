@@ -873,6 +873,10 @@ Primary use:    MultiPurpose Template
     .page-left-col, .page-right-col{
         display: inherit;
     }
+    #home{
+        width: 1000px;
+        margin: 0 auto;
+    }
 }
 
 

@@ -34,7 +34,9 @@ Rails.application.routes.draw do
   delete 'logout'                       => 'sessions#destroy'
 
   get 'why_us'                          => 'landing_page#why_us'
+  get 'placements'                      => 'landing_page#placements'
   get 'program'                         => 'landing_page#program'
+  get 'faculty'                         => 'landing_page#faculty'
   get 'admission'                       => 'landing_page#admission'
   get 'advisory_board'                  => 'landing_page#advisory_board'
   get 'brochure'                        => 'landing_page#brochure'

@@ -23,6 +23,12 @@ class LandingPageController < ApplicationController
   def program
   end
 
+  def placements
+  end
+
+  def faculty
+  end
+
   def admission
     @admission_contact = AdmissionContact.new()
   end

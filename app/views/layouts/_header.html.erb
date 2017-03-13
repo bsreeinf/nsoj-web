@@ -63,16 +63,13 @@
                         <ul class="mn-sub ">
                             <li> <a href="#broadcast_media">P.G.D.J in Broadcast Media</a> </li>
                             <li> <a href="#convergence_media">P.G.D.J in Print and Convergence Media</a> </li>
-                            <li> <a href="#faculty">Faculty</a> </li>
                     <%else%>
                         <%= link_to(program_path, class: "mn-has-sub ", method: :get  ) do %>
                         Programmes<i class="fa fa-angle-down"></i><%end%>
                         <ul class="mn-sub ">
                             <li><%= link_to("P.G.D.J in Broadcast Media",program_path(:anchor => "broadcast_media"),  method: :get ) %></li>
-                            <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>   
-                            <li><%= link_to("Faculty",program_path(:anchor => "faculty"),  method: :get ) %></li>          
-                    <%end%>    
-                        <li><%= link_to("Students",students_path, method: :get ) %></li>          
+                            <li><%= link_to("P.G.D.J in Print and Convergence Media",program_path(:anchor => "convergence_media") ,  method: :get) %></li>         
+                    <%end%>       
                         <li>
                             <%  if (params[:controller] == 'student_publication' && params[:action] == 'index' ) %>
                                 <%= link_to(student_publications_path, class: "mn-has-sub active", method: :get, :controller => 'student_publication', :action => 'index' ) do %>Student Publications<i class="fa fa-angle-right right"></i><%end%>
@@ -129,13 +126,21 @@
                     <%end%>
                 </li>
 
-                <!-- <li>
-                    <%  if (params[:controller] == 'slants' ) %>
-                        <a class="active" href="/slant/">Placements</a>
+                <li>
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'faculty' ) %>
+                        <a class="active" href="/faculty/">Faculty</a>
                     <%else%>
-                        <a href="/slant/">Slant</a>
+                        <a href="/faculty/">Faculty</a>
                     <%end%>
-                </li> -->
+                </li>
+
+                <li>
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'placements' ) %>
+                        <a class="active" href="/placements/">Placements</a>
+                    <%else%>
+                        <a href="/placements/">Placements</a>
+                    <%end%>
+                </li>
                 
                 <li>
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'nsoj_events' ) %>
@@ -190,7 +195,7 @@
         <!-- End Main Menu -->
     </div>
 </nav>
+<div style="height: 75px;">&nbsp;</div>
 <!-- End Navigation panel -->
-<%else%>
 
 <%end%>

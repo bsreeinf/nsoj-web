@@ -1,206 +1,162 @@
+<!-- Page Loader -->        
+<div class="page-loader">
+    <div class="loader">Loading...</div>
+</div>
+<!-- End Page Loader -->    
 
+<div id="home" class="row">
 
-	<section class="home-section bg-dark-alfa-70 parallax-2 " data-background=<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%> style='margin-top: 90px; background-image:url(<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%>)' id="home">
-        <div class="js-height-parent container ">
-            <div class="home-content">
-                <div class="home-text">
-                    <h2 class="hs-line-14 font-alt mt-50 mb-30 mb-xs-10 mt-xs-10">
-                        Admissions
-                    </h2>
-                    <div class="mb-50 mb-xs-10">
-                        <a href="/edit_admission_form" class="btn btn-mod btn-w btn-circle btn-large" style="border: 2px solid #e41919; color:red;">Apply now</a>
+    <div class="row" style="margin: 0;">
+        
+        <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
+            <div class="post-prev-img mb-0">
+                <a href="/placements" class="mfp-image">
+                    <img src="<%= asset_path("left_tab/students.png")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="/placements">Internships and Placements</a>
+            </div>
+            <div class="post-prev-img mb-0">
+                <a href="#admission_requirements" class="mfp-image">
+                    <img src="<%= asset_path("admissions/01.jpg")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="#admission_requirements">Admission Requirements</a>
+            </div>
+            <div class="post-prev-img mb-0">
+                <a href="#admission_process" class="mfp-image">
+                    <img src="<%= asset_path("admissions/02.jpg")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="#admission_process">Admission Process</a>
+            </div>
+            <div class="post-prev-img mb-0">
+                <a href="#pgdj_programme_fees" class="mfp-image">
+                    <img src="<%= asset_path("admissions/03.jpg")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="#pgdj_programme_fees">P.G.D.J. Programme Fees</a>
+            </div>
+            <div class="post-prev-img mb-0">
+                <a href="#application_form" class="mfp-image">
+                    <img src="<%= asset_path("admissions/04.jpg")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="#application_form">Application Form</a>
+            </div>
+            <div class="post-prev-img mb-0">
+                <a href="#scholarship_and_aid" class="mfp-image">
+                    <img src="<%= asset_path("admissions/05.jpg")%>" alt="" />
+                </a>
+                <a class="left_tab_title slider-text font-alt" href="#scholarship_and_aid">Scholarship and Aid</a>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="padding: 0;">
+            <img src="<%=asset_path('admissions/main.jpg')%>" alt="">
+            <div style="width: 100%; text-align: center; margin-bottom: 10px; font-size: 13px;"><span>The gateway to your future</span></div>
+
+            <div class="banner-decription" style="color:black;" >
+                <h4 class="font-alt" id="admission_requirements">Admission Requirements</h4>        
+                <p>Postgraduate Diploma in Journalism programmes in Broadcast Media and in Print & Convergence Media are open to (i) applicants who already have an undergraduate or bachelor's degree or (ii) applicants who are final year undergraduate or bachelor's degree students, who will have completed all requirements towards their degree prior to February 28, 2018.</p>
+                <p>The field of journalism thrives on diversity, and benefits from a multiplicity of experiences and viewpoints. We encourage applicants from a wide range of professional and educational backgrounds. Prior education or professional training in journalism is not required. Admissions to National School of Journalism, Bangalore (NSoJ) are very competitive. Our selection panel must choose from a large pool of well-qualified candidates. In evaluating applications, the selectors primarily take into consideration essays submitted as part of the Admission Application and Assessment Form. Selectors will also take into consideration academic and relevant extra-curricular achievements and any prior journalistic work such as published articles, blog posts, podcasts or other broadcast material.</p>
+
+                <h4 class="font-alt" id="admission_process"> Application Process</h4>
+                <p>Admissions for the postgraduate diploma in journalism (P.G.D.J.) programmes for 2017-18 are now open. We do not think that subjecting candidates to a one-size-fits-all entrance test is the best way to identify journalistic talent. We have instead adopted an admissions process that is used by leading universities in the world. We carefully assess applicants by requiring them to complete and submit an Admission Application and Assessment Form that is designed to draw out applicants' individual strengths, merits and talents. Shortlisted candidates will be informed by e-mail, and will be required to participate in a personal or telephonic interview before an offer of admission can be made.</p>
+
+                <h4 class="font-alt" id="pgdj_programme_fees">P.G.D.J. Programme Fees</h4>
+                <p>
+                    Our fees do not vary between our Broadcast and Print & Convergence P.G.D.J. programmes; all our students will be trained in and have full access to all our equipment and facilities, including the use of our state of the television studio, broadcast cameras and video and audio editing technology.
+                </p>
+                <p> 
+                    <div>
+                        <div style="font-weight: 400;">Fees &amp; Payment Schedule for Early and Final Admissions:</div>
+                        <div>To be eligible for the Early Admission Programme Fees, the first instalment of Rs.100,000 will have to be remitted on or before April 30, 2017.</div>
                     </div>
-                </div>
+                    <br>
+                    <table class="table">
+                        <tr>
+                            <th style="font-weight: 400;">Early Admission Fees: Rs 295,000*</th>
+                            <th style="font-weight: 400;">First Instalment</th>
+                            <th style="font-weight: 400;">By June 30, 2017</th>
+                            <th style="font-weight: 400;">By July 14, 2017</th>
+                        </tr>
+                        <tr>
+                            <td>Before April 30, 2017</td>
+                            <td>Rs 100,000</td>
+                            <td>Rs 150,000</td>
+                            <td>Rs 45,000*</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <tr>
+                            <th style="font-weight: 400;">Final Admission Fees: Rs 325,000*</th>
+                            <th style="font-weight: 400;">First Instalment</th>
+                            <th style="font-weight: 400;">By June 30, 2017</th>
+                            <th style="font-weight: 400;">By July 14, 2017</th>
+                        </tr>
+                        <tr>
+                            <td>After April 30, 2017</td>
+                            <td>Rs 100,000</td>
+                            <td>Rs 150,000</td>
+                            <td>Rs 75,000*</td>
+                        </tr>
+                    </table>
+                    <span style="font-size: 12px;">* Programme fees are subject to the prevailing tax which should be paid along with the final instalment. Programme fees once paid are not refundable even if the candidate does not start or complete the programme. 
+                </span>
+                </p>
+
+                <p>Programme Fees are due in full before the commencement of the programme. We regret that students who have not paid fees in full will not be allowed to attend the course. Fees include examination fees, all teaching, studio equipment and training fees. Books, equipment for personal use, travel costs for assignments, etc. are not included. N.B. Students are responsible for insuring their own belongings left on school premises. All students’ property left on the school’s premises is left entirely at the owner’s risk and the school specifically does not accept responsibility for any damage or loss howsoever caused. Fees are not refundable under any circumstances.</p>
+                
+                <hr>
+
+                <h4 class="font-alt" id="application_form">Admission and Assessment Application Form </h4>
+                <p>
+                    Admission and Assessment Application Forms can be accessed by registering below. On registration, you will receive a user name and password, which you can activate from the email address that you provide. Once registered you can login and start your application form. You can also save, exit, resume, amend and submit the form online. Should you encounter any technical difficulties or need help, please contact us. 
+                </p>
+                <p>
+                    We strongly encourage applicants to apply online. If you would, however, prefer to submit your application in physical form, please contact us and we will email you the form. 
+                </p>
+
             </div>
-        </div>
-    </section>
 
-    <!-- Section -->
-    <section class="page-section" id="admission_requirements" style="padding-top: 30px; padding-bottom:0px;">
-        <div class="container relative">
-
-            <div class="row section-text">
-                <div class="col-md-10 col-md-offset-1"> 
-                            <h4 class="font-alt" >Admission Requirements</h4>
-                        
-                            <p>Postgraduate Diploma in Journalism programmes in Broadcast Media and in Print & Convergence Media are open to (i) applicants who already have an undergraduate or bachelor's degree or (ii) applicants who are final year undergraduate or bachelor's degree students, who will have completed all requirements towards their degree prior to February 28, 2018.</p>
-                            <p>The field of journalism thrives on diversity, and benefits from a multiplicity of experiences and viewpoints. We encourage applicants from a wide range of professional and educational backgrounds. Prior education or professional training in journalism is not required. Admissions to National School of Journalism, Bangalore (NSoJ) are very competitive. Our selection panel must choose from a large pool of well-qualified candidates. In evaluating applications, the selectors primarily take into consideration essays submitted as part of the Admission Application and Assessment Form. Selectors will also take into consideration academic and relevant extra-curricular achievements and any prior journalistic work such as published articles, blog posts, podcasts or other broadcast material.</p>
-                    <hr/>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    <!-- End Section -->
-
-    <!-- Section -->
-    <section class="page-section" id="admission_process" style="padding-top:10px; padding-bottom: 0px;">
-        <div class="container relative">
-            <div class="row section-text">
-                <div class="col-md-10 col-md-offset-1">  
-                    <h4 class="font-alt" > Application Process</h4>
-                    <p>Admissions for the postgraduate diploma in journalism (P.G.D.J.) programmes for 2017-18 are now open. We do not think that subjecting candidates to a one-size-fits-all entrance test is the best way to identify journalistic talent. We have instead adopted an admissions process that is used by leading universities in the world. We carefully assess applicants by requiring them to complete and submit an Admission Application and Assessment Form that is designed to draw out applicants' individual strengths, merits and talents. Shortlisted candidates will be informed by e-mail, and will be required to participate in a personal or telephonic interview before an offer of admission can be made.</p>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section -->
-    <!-- <section class="page-section" id="application_deadlines" style="padding-top:10px; padding-bottom: 0px;">
-        <div class="container relative">
-            <div class="row section-text">
-                <div class="col-md-10 col-md-offset-1">  
-                    <h4 class="font-alt" >Application Deadlines and Admission Dates</h4>
-                    <p>Our assessment methodology includes an evaluation of an applicant's essays in the Admission and Assessment Form as well as a personalized interview of shortlisted candidates (either in person or by telephone). To enable our panel of selectors to thoroughly evaluate candidates,  we admit students in four batches with approximately 15 candidates selected in each intake.</p>
-                    <p>
-                        <br><span class="font-alt">Intake I</span><br>
-                        <div><div class="col-md-4">Application deadline:</div> <div class="col-md-4"><strong>March 14, 2016</strong></div></div>   <br>
-                        <div><div class="col-md-4">Admission date:</div> <div class="col-md-4"><strong>March 31, 2016</strong></div></div>
-                         
-                        <br><br><span class="font-alt">Intake II</span><br>
-                        <div><div class="col-md-4">Application deadline:</div> <div class="col-md-4"><strong>April 18, 2016</strong></div></div>  <br>
-                        <div><div class="col-md-4">Admission date:</div> <div class="col-md-4"><strong>April 29, 2016</strong></div></div>
-                         
-                        <br><br><span class="font-alt">Intake III</span><br>
-                        <div><div class="col-md-4">Application deadline:</div> <div class="col-md-4">  <strong>May 16, 2016</strong></div></div> <br>
-                        <div><div class="col-md-4">Admission date:</div> <div class="col-md-4">  <strong>May 31, 2016</strong></div></div> 
-                         
-                        <br><br><span class="font-alt">Intake IV</span><br>
-                        <div><div class="col-md-4">Application deadline:</div> <div class="col-md-4"> <strong>June 17, 2016</strong></div></div> <br>
-                        <div><div class="col-md-4">Admission date:</div> <div class="col-md-4"> <strong>June 24, 2016</strong></div></div>
-                    </p><br> 
-                    <p>Waitlisted candidates in each intake will be automatically considered for admission in the subsequent intake.
-                    </p>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Section -->
-    <section class="page-section" id="pgdj_programme_fees" style="padding-top:10px; padding-bottom: 0px;">
-        <div class="container relative">
-            <div class="row section-text">
-                <div class="col-md-10 col-md-offset-1">  
-                    <h4 class="font-alt" >P.G.D.J. Programme Fees</h4>
-                    <p>
-                        Our fees do not vary between our Broadcast and Print & Convergence P.G.D.J. programmes; all our students will be trained in and have full access to all our equipment and facilities, including the use of our state of the television studio, broadcast cameras and video and audio editing technology.
-                    </p>
-                    <p> 
-                        <div>
-                            <div style="font-weight: 400;">Fees &amp; Payment Schedule for Early and Final Admissions:</div>
-                            <div>To be eligible for the Early Admission Programme Fees, the first instalment of Rs.100,000 will have to be remitted on or before April 30, 2017.</div>
+            <div class="work-full-media mt-0 " style="background-color: #333;" id="scholarship_and_aid">
+                <ul class="clearlist work-full-slider owl-carousel">
+                    <li>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                <div class="section-icon white"><span >Scholarship and Aid</span></div>
+                                <h3 class="small-title font-alt white" style="margin-bottom: 10px;">Purrah Merit Scholarship and Financial Assistance Programme</h3>
+                                <blockquote class="testimonial white">
+                                    <p>We have established a substantial corpus of funds towards scholarships and financial assistance for students registered in our P.G.D.J. programmes for 2017-2018.</p>
+                                </blockquote>
+                            </div>
                         </div>
-                        <br>
-                        <table class="table">
-                            <tr>
-                                <th style="font-weight: 400;">Early Admission Fees: Rs 295,000*</th>
-                                <th style="font-weight: 400;">First Instalment</th>
-                                <th style="font-weight: 400;">By June 30, 2017</th>
-                                <th style="font-weight: 400;">By July 14, 2017</th>
-                            </tr>
-                            <tr>
-                                <td>Before April 30, 2017</td>
-                                <td>Rs 100,000</td>
-                                <td>Rs 150,000</td>
-                                <td>Rs 45,000*</td>
-                            </tr>
-                        </table>
-                        <table class="table">
-                            <tr>
-                                <th style="font-weight: 400;">Final Admission Fees: Rs 325,000*</th>
-                                <th style="font-weight: 400;">First Instalment</th>
-                                <th style="font-weight: 400;">By June 30, 2017</th>
-                                <th style="font-weight: 400;">By July 14, 2017</th>
-                            </tr>
-                            <tr>
-                                <td>After April 30, 2017</td>
-                                <td>Rs 100,000</td>
-                                <td>Rs 150,000</td>
-                                <td>Rs 75,000*</td>
-                            </tr>
-                        </table>
-                        <span style="font-size: 12px;">* Programme fees are subject to the prevailing tax which should be paid along with the final instalment. Programme fees once paid are not refundable even if the candidate does not start or complete the programme. 
-                    </span>
-                    </p>
-
-                    <p>Programme Fees are due in full before the commencement of the programme. We regret that students who have not paid fees in full will not be allowed to attend the course. Fees include examination fees, all teaching, studio equipment and training fees. Books, equipment for personal use, travel costs for assignments, etc. are not included. N.B. Students are responsible for insuring their own belongings left on school premises. All students’ property left on the school’s premises is left entirely at the owner’s risk and the school specifically does not accept responsibility for any damage or loss howsoever caused. Fees are not refundable under any circumstances.</p>
-                    
-                    <hr>
-                </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                <div class="section-icon white"><span >Scholarship and Aid</span></div>
+                                <h3 class="small-title font-alt white" style="margin-bottom: 10px;">Financial Assistance Programe</h3>
+                                <blockquote class="testimonial white">
+                                    <p>We want to ensure that exceptional candidates have an opportunity to be trained at NSoJ irrespective of their financial background. Our need-based financial assistance programme is available to successful candidates who register in our P.G.D.J. programmes.</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- Section -->
-    <section class="page-section" id="application_form" style="padding-top:10px; padding-bottom: 0px;">
-        <div class="container relative">
-            <div class="row section-text">
-                <div class="col-md-10 col-md-offset-1">  
-                    <h4 class="font-alt" >Admission and Assessment Application Form </h4>
-                    <p>
-                        Admission and Assessment Application Forms can be accessed by registering below. On registration, you will receive a user name and password, which you can activate from the email address that you provide. Once registered you can login and start your application form. You can also save, exit, resume, amend and submit the form online. Should you encounter any technical difficulties or need help, please contact us. 
-                    </p>
-                    <p>
-                        We strongly encourage applicants to apply online. If you would, however, prefer to submit your application in physical form, please contact us and we will email you the form. 
-                    </p>
-                    <hr>
-                </div>
-            </div>
         </div>
-    </section>
+        <!-- End of About Us content -->
+        <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
+            <a href="/edit_admission_form" style="margin-bottom: 5px;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
+            <img src="<%= asset_path("programmes/left/bg0.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg1.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg2.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg3.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg4.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg5.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg6.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg7.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
+            <img src="<%= asset_path("programmes/left/bg8.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
 
-    <!-- <div class="mb-50 mt-30 align-center">
-        <a href="/edit_admission_form" class="btn btn-mod btn-round btn-large">Apply now</a>
+        </div>
     </div>
- -->
-    <!-- Testimonials Section -->
-    <section class="page-section bg-dark bg-dark-alfa-70 fullwidth-slider" data-background=<%= asset_path("full-width-images/NSOJ_Journalism_School.gif")%> style='padding-top:75px;' id="scholarship_and_aid" >
-        
-        <!-- <h2 class="section-title font-alt mb-70 mb-sm-40">Scholarship and Aid</h2> -->
-        <!-- Slide Item -->
-        <div>
-            <div class="container relative">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 align-center">
-                        <div class="section-icon">
-                            <span >Scholarship and Aid</span>
-                        </div>
-                        <!-- Section Title --><h3 class="small-title font-alt">Purrah Merit Scholarship and Financial Assistance Programme</h3>
-                        <blockquote class="testimonial white">
-                            <p>
-                                We have established a substantial corpus of funds towards scholarships and financial assistance for students registered in our P.G.D.J. programmes for 2017-2018.
-                            </p>
-                            <!-- <footer class="testimonial-author">
-                                John Doe, doodle inc.
-                            </footer> -->
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Slide Item -->
-        
-        <!-- Slide Item -->
-        <div>
-            <div class="container relative">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 align-center">
-                        <div class="section-icon">
-                            <span >Scholarship and Aid</span>
-                        </div>
-                        <!-- Section Title --><h3 class="small-title font-alt">Financial Assistance Programe</h3>
-                        <blockquote class="testimonial white">
-                            <p>
-                                We want to ensure that exceptional candidates have an opportunity to be trained at NSoJ irrespective of their financial background. Our need-based financial assistance programme is available to successful candidates who register in our P.G.D.J. programmes.
-                            </p>
-                          
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Slide Item -->       
-    </section>
-    <!-- End Testimonials Section -->
+    
+</div>
