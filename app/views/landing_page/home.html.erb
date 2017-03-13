@@ -57,7 +57,7 @@
         .left_tab_title{
             text-decoration: none;
             color: black !important;
-            background-color: rgba(226, 244, 249,0.85);
+            background-color: rgba(255, 255, 255,0.6);
             font-size: 12px;
             text-transform: none;
             margin-top: -25px;
@@ -65,6 +65,13 @@
         .profile_box{
             background-color: white !important; 
             padding: 10px !important; 
+        }
+        .widget-posts li{
+            color: #000;
+            padding: 5px 0 0 0;
+            border-bottom: none;
+            line-height: 18px;
+            font-weight: 700;
         }
 
     </style>
@@ -80,7 +87,7 @@
         
         <div class="row">
             <!-- Start of Twitter feed -->
-            <div class="col-md-3 twitter-feed" style="padding: 0 5px 0 0;">
+            <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
                 <div class="post-prev-img mb-0">
                     <a href="/program" class="mfp-image">
                         <img src="<%= asset_path("left_tab/pgp.jpg")%>" alt="" />
@@ -241,7 +248,7 @@
                 </div>
                 <!-- End of Faculty -->
             </div>    
-            <div class="col-md-3" style="padding: 0 0 0 5px;">
+            <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
                 <a href="/admission"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
                 <a style="margin-top: 3px;" href="/stories"><img src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
 
@@ -267,25 +274,21 @@
                                     <%n.times do |i|%>
                                     <%popular_story = @popular_stories[i]%>
                                     <ul class="clearlist widget-posts">
-                                
-                                        <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                            <a href=<%=story_path(popular_story)%>><img height="60" width="60" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
-                                                <div>
+                                                <div style="font-size: 10px; color: #777; font-weight: 500;">
                                                     <%  @byline = ""
                                                         popular_story.story_bylines.each_with_index do |student, i|
                                                             @byline += i > 0 ? " and " : ""
                                                             @byline += student.user.name
                                                         end
                                                         @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
-                                                    %><!--<%=@byline.html_safe%>-->
+                                                    %><%=@byline.html_safe%>
                                                 </div>
                                             </div>
                                         </li>
-                                        <!-- End Preview item -->
-
                                     </ul>
                                     <%end%>
                                 </div>

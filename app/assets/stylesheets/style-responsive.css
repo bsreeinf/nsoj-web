@@ -29,7 +29,7 @@ Primary use:    MultiPurpose Template
 	
     	
     .inner-nav ul li {
-        margin-left: 25px;
+        margin-left: 20px;
     }
 	
 }  
@@ -859,15 +859,8 @@ Primary use:    MultiPurpose Template
    ============================== */
 @media only screen and (max-width:767px){
     
-    .home-page-secondary-slider .twitter-feed{
+    .page-left-col, .page-right-col{
         display: none;
-        height:inherit;
- 
-    }
-    .home-page-secondary-slider {
-        
-        height:inherit !important;
- 
     }
     
   
@@ -875,11 +868,10 @@ Primary use:    MultiPurpose Template
 /* ==============================
    desktop
    ============================== */
-@media only screen and (max-width:768px){
+@media only screen and (min-width:768px){
     
-    .home-page-secondary-slider{
-       margin: auto 0px; 
-       padding: 0 !important;
+    .page-left-col, .page-right-col{
+        display: inherit;
     }
 }
 

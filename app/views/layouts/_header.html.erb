@@ -20,32 +20,20 @@
         <div class="inner-nav desktop-nav">
             <ul class="clearlist scroll-nav local-scroll">
                 <li>
-                    
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'home' ) %>
-                        <%= link_to(root_path, class: "mn-has-sub active", method: :get ) do %>
-                        Home<i class="fa fa-angle-down"></i><%end%>
-                        <ul class="mn-sub ">
-                            <li> <a href="#about">About Us</a> </li>
-                            <li> <a href="#start">NSOJ Method</a> </li>
-                            <li> <a href="#contact">Contact Us</a> </li>
-                        </ul>
+                        <%= link_to(root_path, class: "active", method: :get ) do %>
+                        Home<%end%>
                     <%else%>
-                        <%= link_to(root_path, class: "mn-has-sub", method: :get ) do %>
-                        Home<i class="fa fa-angle-down"></i><%end%>
-                        <ul class="mn-sub ">
-                            <li><%= link_to("About Us",root_path(:anchor => "about"),  method: :get ) %></li>
-                            <li><%= link_to("NSoJ Method",root_path(:anchor => "start"),  method: :get ) %></li>
-                            <li><%= link_to("Contact Us",root_path(:anchor => "contact"),  method: :get ) %></li>
-                        </ul>
+                        <%= link_to(root_path, method: :get ) do %>
+                        Home<%end%>
                     <%end%>
-
                 </li>
 
                 <li>
                     
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'why_us' ) %>
                         <%= link_to(why_us_path, class: "mn-has-sub active", method: :get  ) do %>
-                        Why Us<i class="fa fa-angle-down"></i><%end%>
+                        Why NSoJ<i class="fa fa-angle-down"></i><%end%>
                         <ul class="mn-sub ">
                             <li> <a href="#advisory_board">Advisory Board</a> </li>
                             <li> <a href="#technology">Technology</a> </li>
@@ -56,7 +44,7 @@
                         </ul>
                     <%else%>
                         <%= link_to(why_us_path, class: "mn-has-sub", method: :get  ) do %>
-                        Why Us<i class="fa fa-angle-down"></i><%end%>
+                        Why NSoJ<i class="fa fa-angle-down"></i><%end%>
                         <ul class="mn-sub ">
                             <li><%= link_to("Advisory Board",why_us_path(:anchor => "advisory_board"),  method: :get ) %></li>
                             <li><%= link_to("Technology",why_us_path(:anchor => "technology"),  method: :get ) %></li>
@@ -132,6 +120,30 @@
                         <li><%= link_to "APPLY NOW", controller: 'admission_forms', action: 'edit' %></li> 
                     </ul>
                 </li>
+
+                <li>
+                    <%  if (params[:controller] == 'slants' ) %>
+                        <a class="active" href="/students/">Students</a>
+                    <%else%>
+                        <a href="/students/">Students</a>
+                    <%end%>
+                </li>
+
+                <!-- <li>
+                    <%  if (params[:controller] == 'slants' ) %>
+                        <a class="active" href="/slant/">Placements</a>
+                    <%else%>
+                        <a href="/slant/">Slant</a>
+                    <%end%>
+                </li> -->
+                
+                <li>
+                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'nsoj_events' ) %>
+                        <a class="active" href="/gallery/">Events Gallery</a>
+                    <%else%>
+                        <a href="/gallery/">Events Gallery</a>
+                    <%end%>
+                </li>
                 <li>
                     <%  if (params[:controller] == 'slants' ) %>
                         <a class="active" href="/slant/">Slant</a>
@@ -139,20 +151,19 @@
                         <a href="/slant/">Slant</a>
                     <%end%>
                 </li>
-                
+
                 <li>
-                    <%  if (params[:controller] == 'landing_page' && params[:action] == 'nsoj_events' ) %>
-                        <a class="active" href="/gallery/">Gallery</a>
+                    <%  if (params[:controller] == 'stories') %>
+                        <%= link_to(stories_path, class: "active", method: :get ) do %>
+                        <img src="<%=image_path("banners/NSoJ_post_wide.jpg")%>" width=80 alt=""><%end%>
                     <%else%>
-                        <a href="/gallery/">Gallery</a>
+                        <%= link_to(stories_path, method: :get ) do %>
+                        <img src="<%=image_path("banners/NSoJ_post_wide.jpg")%>" alt="NSoJ Post" style="width: 90px;"><%end%>
                     <%end%>
                 </li>
 
-                <li>
-                    <%= link_to("NSoJ Post",stories_path, method: :get ) %>
-                </li>
                 
-                <% if true %>
+                <% if (params[:controller] == 'landing_page' && params[:action] == 'admission') %>
                 <% if logged_in? %>
                         
                     <li>
