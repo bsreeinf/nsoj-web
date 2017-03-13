@@ -1,163 +1,84 @@
-<section class="page-section bg-dark bg-dark-alfa-70 pt-40 pb-40" id="home">
-    <div class="relative container">
 
-        
-        <!-- Hero Content -->
-        <div class="home-content">
-            <div class="home-text">
-                <div class="row mt-60 mt-xs-20">
-                    
-                    <div class="col-sm-9 col-lg-9  pt-20 pt-lg-0 mb-xs-30">
-                        <!-- <div class="hs-line-4 font-alt mb-20">Thomas Rhythm</div> -->
-                        <h1 class="hs-line-15 font-alt mb-40 mb-xs-20"><%=@student.user.name%></h1>
-                        <div class="section-text white mb-70 mb-xs-40 text-justify">
-                        	<%if @student.bio == nil%>
-                        		<p></p>
-                        	<%else%>
-	                            <p>
-	                                <%if @student.bio.length > 1 %>
-                                        <span class="dropcap font-alt"><%=@student.bio[0..0]%></span><%= @student.bio[1..-1].gsub(/\n/,'<br>').html_safe %>
-                                    <%end%>
-	                            </p>
-	                        <%end%>
-	                        <!-- <br><br><br>
-                            <hr class="white mb-30">
-                            <div>
-                                <h4 class="font-alt mt-0 mb-20">Profile</h4>
-                                <div>
-                                    <strong>Param: number</strong>
-                                    NUM
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                    
-                    <div class="col-sm-3 col-lg-2 col-lg-offset-1 mt-40">
-                        <img src="<%= @student.avatar.file? ? @student.avatar.url : asset_path("faculty/anon.png")%>" style="max-width:200px; -webkit-filter: grayscale(100%); filter: grayscale(100%);" class="img-circle"/>
-                    </div>
-                    
-                </div>
-            </div>
+<section class="page-section bg-dark bg-dark-alfa-70 pb-40">
+<div id="home">
+    <div class="col-sm-9 col-lg-9">
+        <h1 class="hs-line-15 font-alt mb-40 mb-xs-20"><%=@student.user.name%></h1>
+        <div class="section-text white mb-70 mb-xs-40 text-justify">
+        	<%if @student.bio == nil%>
+        		<p></p>
+        	<%else%>
+                <p>
+                    <%if @student.bio.length > 1 %>
+                        <span class="dropcap font-alt"><%=@student.bio[0..0]%></span><%= @student.bio[1..-1].gsub(/\n/,'<br>').html_safe %>
+                    <%end%>
+                </p>
+            <%end%>
         </div>
-        <!-- End Hero Content -->
-
     </div>
+    <div class="col-sm-3 col-lg-3">
+        <img src="<%= @student.avatar.file? ? @student.avatar.url : asset_path("faculty/anon.png")%>" style="padding: 20px; -webkit-filter: grayscale(100%); filter: grayscale(100%);" class="img-circle"/>
+    </div>
+</div>
 </section>
-<!-- End Home Section -->
 
-<!-- Section -->
-<%if @student_stories.length >0%>
-<section class="small-section pb-0">
-    
-    <div class="container align-center">
-        
-        <!-- <div class="mb-10">
-            <img src=<%= image_path("logo-footer.png") %> width="45" height="24" alt="" />
-        </div> -->
-        
+<div id="home">
+    <%if @student_stories.length >0%>
+    <section class="small-section pb-0 align-center">
         <h1 class="magazine-logo-text black font-alt">Stories</h1>
-        
-    </div>
-    
-</section>
-<!-- End Section -->
-
-
-<!-- Section -->
-<section class="small-section pt-30">
-    <div class="container relative">
-        
+    </section>
+    <section class="small-section pt-30">
         <div class="row">
-            
             <div class="row multi-columns-row">
                 <%@student_stories.each_with_index do |story, i|%>
-                <!-- Post Item -->
                 <div class="col-md-3 col-lg-3 mb-30">
-                    
                     <%if story.blog_image.file?%>
                     <div class="post-prev-img">
                         <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
                     </div>
                     <%end%>
-                    
                     <div class="post-prev-title font-alt">
                         <a href=<%=story_path(story)%>><%=story.title%></a>
                     </div>
-                    
                     <div class="post-prev-info font-alt">
                         <%story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(story.created_at,'%d %b')%>
-
                     </div>
-                    
                     <div class="post-prev-text">
                         <%=story.content[0..150]%> ... 
                     </div>
-                    
                     <div class="post-prev-more">
                         <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
-                    
                 </div>
-                <!-- End Post Item -->
                 <%end%>
-                
             </div>
-            
         </div>
-        
-    </div>
-</section>
-<%end%>
-<!-- End Section -->
+    </section>
+    <%end%>
 
-<!-- Section -->
-<%if @student_videos.length >0%>
-<section class="small-section pb-0">
-    
-    <div class="container align-center">
-        
+    <%if @student_videos.length >0%>
+    <section class="small-section pb-0 align-center">
         <h1 class="magazine-logo-text black font-alt">Videos</h1>
-        
-    </div>
-    
-</section>
-<!-- End Section -->
-
-
-<!-- Section -->
-<section class="small-section pt-30">
-    <div class="container relative">
-        <div class="row">
-            
-            <div class="row multi-columns-row">
-                <%@student_videos.each_with_index do |nsojTV, i|%>
-                <!-- Post Item -->
-                <div class="col-md-3 col-lg-3 mb-30">
-                    
-                    <div class="post-prev-img">
-                        <a href="<%=nsojTV.link%>" target="blank">
-                              <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojTV.link))%>" alt="National School of Journalism" />
-                        </a>
+    </section>
+    <section class="small-section pt-30">
+            <div class="row">
+                <div class="row multi-columns-row">
+                    <%@student_videos.each_with_index do |nsojTV, i|%>
+                    <div class="col-md-3 col-lg-3 mb-30">
+                        <div class="post-prev-img">
+                            <a href="<%=nsojTV.link%>" target="blank">
+                                  <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojTV.link))%>" alt="National School of Journalism" />
+                            </a>
+                        </div>
+                        <div class="post-prev-title font-alt">
+                            <a><%=nsojTV.title%></a>
+                        </div>
+                        <div class="post-prev-info font-alt">
+                            <%nsojTV.video_authors.each do |author|%><a href="<%=student_path(author.student)%>"><%="#{author.student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
+                        </div>
                     </div>
-                    
-                    <div class="post-prev-title font-alt">
-                        <a><%=nsojTV.title%></a>
-                    </div>
-                    
-                    <div class="post-prev-info font-alt">
-                        <%nsojTV.video_authors.each do |author|%><a href="<%=student_path(author.student)%>"><%="#{author.student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
-
-                    </div>
-                    
+                    <%end%>
                 </div>
-                <!-- End Post Item -->
-                <%end%>
-                
             </div>
-            
-        </div>
-        
-    </div>
-</section>
-<%end%>
-<!-- End Section -->
+    </section>
+    <%end%>
+</div>
