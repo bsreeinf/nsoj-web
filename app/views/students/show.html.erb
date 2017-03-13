@@ -27,30 +27,28 @@
         <h1 class="magazine-logo-text black font-alt">Stories</h1>
     </section>
     <section class="small-section" style="padding: 30px 0;">
-        <div class="row">
-            <div class="row multi-columns-row">
-                <%@student_stories.each_with_index do |story, i|%>
-                <div class="col-md-3 col-lg-3 mb-30">
-                    <%if story.blog_image.file?%>
-                    <div class="post-prev-img">
-                        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
-                    </div>
-                    <%end%>
-                    <div class="post-prev-title font-alt">
-                        <a href=<%=story_path(story)%>><%=story.title%></a>
-                    </div>
-                    <div class="post-prev-info font-alt">
-                        <%story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(story.created_at,'%d %b')%>
-                    </div>
-                    <div class="post-prev-text" style="color: #000;">
-                        <%=story.content[0..150]%> ... 
-                    </div>
-                    <div class="post-prev-more">
-                        <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                    </div>
+        <div class="row multi-columns-row">
+            <%@student_stories.each_with_index do |story, i|%>
+            <div class="col-md-3 col-lg-3 mb-30">
+                <%if story.blog_image.file?%>
+                <div class="post-prev-img">
+                    <a href=<%=story_path(story)%>><img src="<%=story.blog_image.url%>" alt="" /></a>
                 </div>
                 <%end%>
+                <div class="post-prev-title font-alt">
+                    <a href=<%=story_path(story)%>><%=story.title%></a>
+                </div>
+                <div class="post-prev-info font-alt">
+                    <%story.students.each do |student|%><a href="<%=student_path(student)%>"><%="#{student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(story.created_at,'%d %b')%>
+                </div>
+                <div class="post-prev-text" style="color: #000;">
+                    <%=story.content[0..150]%> ... 
+                </div>
+                <div class="post-prev-more">
+                    <a href=<%=story_path(story)%> class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
             </div>
+            <%end%>
         </div>
     </section>
     <%end%>
@@ -60,25 +58,23 @@
         <h1 class="magazine-logo-text black font-alt">Videos</h1>
     </section>
     <section class="small-section pt-30">
-            <div class="row">
-                <div class="row multi-columns-row">
-                    <%@student_videos.each_with_index do |nsojTV, i|%>
-                    <div class="col-md-3 col-lg-3 mb-30">
-                        <div class="post-prev-img">
-                            <a href="<%=nsojTV.link%>" target="blank">
-                                  <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojTV.link))%>" alt="National School of Journalism" />
-                            </a>
-                        </div>
-                        <div class="post-prev-title font-alt">
-                            <a><%=nsojTV.title%></a>
-                        </div>
-                        <div class="post-prev-info font-alt">
-                            <%nsojTV.video_authors.each do |author|%><a href="<%=student_path(author.student)%>"><%="#{author.student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
-                        </div>
-                    </div>
-                    <%end%>
+        <div class="row multi-columns-row">
+            <%@student_videos.each_with_index do |nsojTV, i|%>
+            <div class="col-md-3 col-lg-3 mb-30">
+                <div class="post-prev-img">
+                    <a href="<%=nsojTV.link%>" target="blank">
+                          <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(nsojTV.link))%>" alt="National School of Journalism" />
+                    </a>
+                </div>
+                <div class="post-prev-title font-alt">
+                    <a><%=nsojTV.title%></a>
+                </div>
+                <div class="post-prev-info font-alt">
+                    <%nsojTV.video_authors.each do |author|%><a href="<%=student_path(author.student)%>"><%="#{author.student.user.name}"%></a>&nbsp;<%end%> &nbsp;|&nbsp; <%=local_time(nsojTV.created_at,'%d %b')%>
                 </div>
             </div>
+            <%end%>
+        </div>
     </section>
     <%end%>
 </div>
