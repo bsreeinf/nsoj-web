@@ -3766,7 +3766,7 @@ a.logo:hover{
     
 }
 .post-prev-img{
-    margin-bottom: 23px;
+    margin-bottom: 5px;
     position: relative;
 }
 .post-prev-img a{
@@ -3803,7 +3803,7 @@ a.logo:hover{
 }
 .post-prev-info,
 .post-prev-info a{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 11px;
     text-decoration: none;
     color: #525252;
@@ -3822,7 +3822,7 @@ a.logo:hover{
     color: #fff;
     font-size: 15px;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.5;
 }
 
 
