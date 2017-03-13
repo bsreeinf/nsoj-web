@@ -35,56 +35,31 @@
 <script>
     document.title = "NSoJ - Our Student Journalists"
 </script>    
-    <!-- Head Section -->
-      <section class="small-section bg-gray-lighter" style="padding: 20px 0;">
-          <div class="relative container align-left">
-              
-              <div class="row">
-                  
-                  <div class="col-md-8">
-                      <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Our Student Journalists</h1>
-                      <!-- <div class="hs-line-4 font-alt black">
-                          Lorem ipsum dolor sit amet consectetur
-                      </div> -->
-                  </div>
-                  
-                  <!-- <div class="col-md-4 mt-30">
-                      <div class="mod-breadcrumbs font-alt align-right">
-                          <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Elements</a>&nbsp;/&nbsp;<span>Features</span>
-                      </div>
-                      
-                  </div> -->
-              </div>
-              
-          </div>
-      </section>
-      <!-- End Head Section -->
-            
-            
-      <!-- Section -->
-      <section class="page-section" style="background: rgba(34,34,34, .9);" style="padding: 90px 0;">
-        <div class="container relative">
-            
-          <!-- Features Grid -->
-          <div class="row multi-columns-row alt-features-grid">
-                <% @students.each do |student|%>
-                  <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%=student_path(student)%>">
-                      <div class="alt-features-item align-center">
-                          <div class="alt-features-icon">
-                              <img  src="<%= student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" style="max-width:120px;" class="img-circle">
-                          </div>
-                          <h2 class="alt-features-title font-alt"><%= student.user.name %></h2>
-                          <div class="alt-features-descr align-left">
-                              <%= (student.bio == nil ? "" : "#{student.bio[0..280]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
-                          </div>
-                      </div>
-                  </a>
-                <%end%>
-            </div>
-            <!-- End Features Grid -->
-        
-        </div>
-    </section>
-    <!-- End Features Section -->
+
+<section class="small-section bg-gray-lighter" style="padding: 20px 0;">
+    <div class="relative container align-center">
+      <h1 class="hs-line-11 font-alt">Our Student Journalists</h1>
+    </div>
+</section>
+
+<section class="page-section" style="background: rgba(34,34,34, .9);" style="padding: 90px 0;">
+  <div id="home">
+    <div class="row multi-columns-row alt-features-grid">
+          <% @students.each do |student|%>
+            <a class="student-box col-sm-4 col-md-3 col-lg-3" href="<%=student_path(student)%>">
+                <div class="alt-features-item align-center">
+                    <div class="alt-features-icon">
+                        <img  src="<%= student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" style="max-width:120px;" class="img-circle">
+                    </div>
+                    <h2 class="alt-features-title font-alt"><%= student.user.name %></h2>
+                    <div class="alt-features-descr align-left">
+                        <%= (student.bio == nil ? "" : "#{student.bio[0..280]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
+                    </div>
+                </div>
+            </a>
+          <%end%>
+      </div>
+  </div>
+</section>
 
 

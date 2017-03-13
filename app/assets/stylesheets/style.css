@@ -3115,18 +3115,18 @@ a.logo:hover{
     width: 100%;
 }
 .alt-features-title{
-    margin-bottom: 21px;
-    font-size: 14px;
+    margin-bottom: 15px;
+    font-size: 15px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0em;
     word-wrap: break-word;
 }
 .alt-features-descr {
-    /*color: #777;*/
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.86
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5
 }
 
 
@@ -3806,7 +3806,7 @@ a.logo:hover{
     margin-bottom: 15px;
     font-size: 11px;
     text-decoration: none;
-    color: #aaa;
+    color: #525252;
     
     -webkit-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);  
     -moz-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000); 
