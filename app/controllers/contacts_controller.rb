@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
 		  if @contact.email != @contact.message
 		
 		      if @contact.save
-
 		        ContactMailer.contact_created(
 		        	@contact.name,
 		        	@contact.email,
@@ -18,17 +17,12 @@ class ContactsController < ApplicationController
 		        	@contact.message
 		        ).deliver
 		        redirect_to root_path, notice: 'Thanks for contacting us. We will get back to you shortly.' 
-		        
 		      else
 		        redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
-		    
 		      end
 		  else 
 		        redirect_to root_path, notice: 'Something went wrong. Please try contacting us later'
 		end
-
-
-
 	end
 
 private

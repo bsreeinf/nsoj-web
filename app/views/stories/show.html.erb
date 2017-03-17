@@ -122,7 +122,7 @@
                             </ul>
                         </div>
                         <%end%>
-						<div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.image_caption%></div>
+						<div class="hs-line-4 font-alt black mb-30"><span style="text-transform: none; color: #ccc;"><%=@story.image_caption%></span></div>
                         <%=@story.content.gsub(/\n/,'<br>').html_safe%>
                         
                         <%if !@story.video_link.blank?%>
