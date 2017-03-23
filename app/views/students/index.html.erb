@@ -52,7 +52,7 @@
                         <img  src="<%= student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" style="max-width:120px;" class="img-circle">
                     </div>
                     <h2 class="alt-features-title font-alt"><%= student.user.name %></h2>
-                    <div class="alt-features-descr align-left">
+                    <div class="alt-features-descr" style="text-align: justify !important;">
                         <%= (student.bio == nil ? "" : "#{student.bio[0..280]} #{student.bio.length > 280 ? "..." : ""}").gsub(/\n/,"</br>").html_safe %>
                     </div>
                 </div>

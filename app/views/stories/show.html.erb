@@ -80,10 +80,10 @@
                                     @byline += i > 0 ? " and " : ""
                                     @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                                 end
-                            %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%>
+                            %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y')%>
                 </div>
                 <div class="mt-10">
-                    <%= social_share_button_tag(@story.title, :url => request.original_url, :image => '@story.blog_image.url', desc: '@story.content[0..100]', via: "nsoj_bangalore") %>
+                    <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: @story.content[0..100], via: "nsoj_bangalore") %>
                 </div>
             </div>
             
@@ -135,7 +135,7 @@
                                     @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                                 end
                             %>
-                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%> <br> <span style="padding-top: 15px;"> <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b')%></span></div>
+                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%> <br> <span style="padding-top: 15px;"> <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y')%></span></div>
                         <%end%>
                         
 					</div>
@@ -194,7 +194,7 @@
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b %Y')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
@@ -221,7 +221,7 @@
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
+                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b %Y')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>

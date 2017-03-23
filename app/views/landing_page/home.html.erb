@@ -36,8 +36,8 @@
             <!-- End of Main video -->
 
             <!-- Start of Image carousel (slider) -->
+            <style>.owl-pagination{display: none !important;}</style>
             <div class="image-carousel bg-dark" style="/*background: rgb(241, 240, 240);*/ background-color: white; margin: 5px 0;">
-                
                 <div style="padding-right: 2px;">
                     <div class="post-prev-img mb-0">
                         <a href="/program" class="mfp-image">
@@ -56,13 +56,14 @@
                     </div>                            
                 </div>
                 
-                <!-- <div>
-                    <div class="post-prev-img mb-0" style="">
-                        <a href="/stories" class="mfp-image">
-                            <img src="<%= asset_path("slider/NSoJ_post.jpg")%>" alt="" />
+                <div style="padding-left: 2px;">
+                    <div class="post-prev-img mb-0">
+                        <a href="/why_us#facilities_and_infrastructure" class="mfp-image">
+                            <img src="<%= asset_path("slider/infra.jpg")%>" alt="" />
                         </a>
+                        <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/why_us#facilities_and_infrastructure">Infrastructure</a>
                     </div>                            
-                </div> -->
+                </div>
             </div>
             <!-- End of Image carousel (slider) -->
 
@@ -170,7 +171,7 @@
         </div>    
         <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
             <a href="/edit_admission_form" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
-            <a style="margin-top: 3px;" href="/stories"><img src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
+            <a style="margin-top: 3px;" href="/stories"><img class="card" src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
 
             <!-- Start of Stories sidebar -->
             <div style="padding-right: 0px;">
@@ -203,7 +204,7 @@
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += (@byline=="" ? "" : " | ") + "#{local_time(popular_story.created_at, '%d %b')}"
+                                                    @byline += (@byline=="" ? "" : " | ") + "#{local_time(popular_story.created_at, '%d %b %Y')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>

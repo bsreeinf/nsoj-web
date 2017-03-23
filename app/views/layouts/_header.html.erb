@@ -1,10 +1,10 @@
 <!-- Navigation panel -->
 <%if @hide_main_nav != true%>
-<nav class="main-nav stick-fixed">
+<nav class="main-nav stick-fixed" style="height: 55px !important;">
     <div class="full-wrapper relative clearfix">
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
-            <%= link_to(root_path, class: "logo", method: :get ) do %>
+            <%= link_to(root_path, class: "logo", style: "height: 55px !important; max-width:200px !important;", method: :get ) do %>
                 <img src=<%= image_path("logo-white.png") %> alt="National School of Journalism, Bangalore" />
             <%end%>
             <!-- <a href="<%= root_path %>" class="logo">
@@ -195,7 +195,7 @@
         <!-- End Main Menu -->
     </div>
 </nav>
-<div style="height: 75px;">&nbsp;</div>
+<div style="height: 55px;">&nbsp;</div>
 <!-- End Navigation panel -->
 
 <%end%>

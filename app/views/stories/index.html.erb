@@ -96,7 +96,7 @@
                                             </h2>
                                             
                                             <div class="blog-slide-data">
-                                                <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
+                                                <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b %Y")%></a>
                                                 <!-- <span class="separator">&nbsp;</span> -->
                                                 <i class="fa fa-user"></i> 
                                                     <%  @byline = ""
@@ -131,7 +131,7 @@
                                                 <h2 class="blog-slide-title font-alt mt-0" style="text-transform: none; font-size: 13px;"><a href=<%=story_path(story)%>><%=story.title%></a></h2>
                                                 
                                                 <div class="blog-slide-data">
-                                                    <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b")%></a>
+                                                    <a href="#"><i class="fa fa-clock-o" style="font-size: 11px;"></i> <%=local_time(story.created_at, "%d %b %Y")%></a>
                                                     <!-- <span class="separator">&nbsp;</span> -->
                                                     <i class="fa fa-user"></i> 
                                                     <%  @byline = ""
@@ -231,7 +231,7 @@
                                     @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                                     puts @byline
                                 end
-                                @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
+                                @byline += " | #{local_time(grouped_story.created_at, '%d %b %Y')}"
                                 puts @byline
                                 %><%=@byline.html_safe%>
                         </div>
@@ -268,7 +268,7 @@
                                         @byline += i > 0 ? " and " : ""
                                         @byline += student.user.name
                                     end
-                                    @byline += " | #{local_time(grouped_story.created_at, '%d %b')}"
+                                    @byline += " | #{local_time(grouped_story.created_at, '%d %b %Y')}"
                                 %><%=@byline.html_safe%>
                             </div>
                         </div>
@@ -324,7 +324,7 @@
                                                     @byline += i > 0 ? " and " : ""
                                                     @byline += student.user.name
                                                 end
-                                                @byline += " | #{local_time(popular_story.created_at, '%d %b')}"
+                                                @byline += " | #{local_time(popular_story.created_at, '%d %b %Y')}"
                                             %><%=@byline.html_safe%>
                                         </div>
                                     </div>
@@ -351,7 +351,7 @@
                                                     @byline += i > 0 ? " and " : ""
                                                     @byline += student.user.name
                                                 end
-                                                @byline += " | #{local_time(latest_story.created_at, '%d %b')}"
+                                                @byline += " | #{local_time(latest_story.created_at, '%d %b %Y')}"
                                             %><%=@byline.html_safe%>
                                         </div>
                                     </div>
@@ -395,7 +395,7 @@
                     <div class="post-prev-info font-alt">
                         <%grouped_story.story_bylines.each do |student|%>
                         <a href=<%=student_path(student)%>><%=student.user.name%></a> 
-                        <%end%> | <%=local_time(grouped_story.created_at, '%d %b')%>
+                        <%end%> | <%=local_time(grouped_story.created_at, '%d %b %Y')%>
                     </div>
                     
                     <div class="post-prev-text">
