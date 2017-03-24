@@ -17,33 +17,13 @@
         font-weight: bold !important;
         color: red !important;
     }
-    hr{
-        border-color: #000;
-    }
-    .story-font{
-        font-family: georgia,"times new roman",times,serif;
-        letter-spacing: 0;
-        -webkit-font-smoothing: auto;
-        font-smoothing: auto;
-    }
     .story-title{
         font-size: 34px;
         line-height: 38px;
         font-weight: 700;
+        font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
         font-style: italic;
-        text-transform: capitalize;
-    }
-    .story-byline{
-        text-decoration: none;
-        color: #000;
-        font-weight: 700;
-        text-transform: uppercase;
-    }.story-byline:hover{
-        text-decoration: none;
-        cursor: pointer;
-        color: #000;
-    }time{
-        font-family: "times new roman";
+        letter-spacing: 0;
     }
 </style>
 
@@ -92,26 +72,19 @@
 </nav>
 <!-- End Menu Wrapper -->
 
-<section class="small-section" style="padding: 20px 0; margin-top: 75px;">
+<section class="small-section bg-gray-lighter" style="padding: 20px 0; margin-top: 75px;">
     <div class="relative container align-left">
-        <!-- <div class="row"> -->
-            <h1 class="hs-line-11 story-font story-title"><%=@story.title%></h1>
-        <!-- </div> -->
-        <hr>
+        <h1 class="hs-line-11 font-alt story-title"><%=@story.title%></h1>
         <div class="row">
-            <div class="col-md-8">
+            <div class="hs-line-4 font-alt black">
                 <%  @byline = ""
                     @story.story_bylines.each_with_index do |student, i|
                         @byline += i > 0 ? " and " : ""
-                        @byline += "<a class='story-byline' href='#{student_path(student)}'>#{student.user.name}</a>"
+                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                     end
-                %>
-                <p class="story-font">
-                    By <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y').upcase.html_safe%>
-                    
-                </p>
+                %><%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y')%>
             </div>
-            <div class="col-md-4 align-right">
+            <div class="mt-10">
                 <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: @story.summary, via: "nsoj_bangalore") %>
             </div>
         </div>
@@ -149,7 +122,6 @@
                         
                         <%if !@story.video_link.blank?%>
                             <div class="mt-30">
-                            <iframe width="640" height="360" src="//www.youtube.com/embed/<>?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                             <script class="splayer"> var params = {"playlist":[{"video":[{"url":"<%=@story.video_link%>"}],"duration":0,"posterUrl":"<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>"}],"uiLanguage":"en","width":"640","height":"640"}; player.embed(params); </script>
                             </div>
                             <%  @byline = ""
@@ -244,11 +216,8 @@
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                %>
-                                                <p class="story-font">
-                                                    By <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(latest_story.created_at,'%d %b %Y').upcase.html_safe%>
-                    
-                                                </p>
+                                                    @byline += " | #{local_time(latest_story.created_at, '%d %b %Y')}"
+                                                %><%=@byline.html_safe%>
                                             </div>
                                         </div>
                                     </li>

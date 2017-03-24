@@ -34,21 +34,6 @@
 </style>
 <% provide(:title, 'Report') %>
 
-<section class="home-section bg-dark-alfa-50 " style='background-color: #3498DB;' id="home">
-  <div class="container">            
-      <!-- Hero Content -->
-      <div class="home-content">
-          <div class="home-text" style="padding: 140px 0px 45px 0px;">
-              
-              <h1 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
-                Admission Application Form 2017 - 2018
-              </h1>                                      
-          </div>
-      </div>
-      <!-- End Hero Content -->            
-  </div>
-</section>
-
 <% if @admission_form.is_submitted %>
   <div class="jumbotron align-center">
       <p>
@@ -56,7 +41,7 @@
       </p>
   </div>
 <% else %>
-<section class="page-section" style="padding-top: 80px; background-color: #D4D4D4;">
+<section class="page-section" style="padding-top: 40px; background-color: #D4D4D4;">
   <div class="col-md-8 col-md-offset-2">
     <%= form_for(@admission_form, url: {action: "update"}, :html => {:class => 'form contact-form', :id => 'contact_form'}) do |f| %>
       <% if @admission_form.errors.any? %>

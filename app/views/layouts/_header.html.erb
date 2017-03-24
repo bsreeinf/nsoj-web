@@ -168,7 +168,7 @@
                 </li>
 
                 
-                <% if (params[:controller] == 'landing_page' && params[:action] == 'admission') %>
+                <% if ((params[:controller] == 'landing_page' && params[:action] == 'admission') || (params[:controller] == 'admission_forms' && params[:action] == 'edit') || (params[:controller] == 'users' && params[:action] == 'edit'))%>
                 <% if logged_in? %>
                         
                     <li>
