@@ -1,90 +1,47 @@
-<style>
-    a{cursor: pointer !important;}
-    a.custom-nav-active{
-        font-weight: bold !important;
-        color: red !important;
-    }
-    .blog-item-title, .blog-item-title > a, .section-title, .post-prev-info a:hover, .post-prev-title a:hover, .widget-posts li a{
-        color: white !important;
-    }
-</style>
-
-<section class="small-section pt-10 pb-0 pt-xs-20 pb-xs-20">
-    
-    <div class="container align-center" style="padding-bottom: 10px;">
-        <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
-                <a href=<%=stories_path%>><img src=<%= image_path("logo-nsoj-post.jpg") %> width="170" height="119" alt="" /></a>
-            </div>
-        </div>
-    </div>
-    
-</section>
-
-<div style="background-image: url(<%=image_path("post_assets/d.png")%>)">
+<div id="home" >
     <div class="page-loader">
         <div class="loader">Loading...</div>
     </div>
 
-    <section class="small-section" style="padding-top: 0; ">
-        <nav class="main-nav mn-align-left not-top" style="width: 90%; margin: 10px auto 15px auto;">
-            <div class="relative clearfix" style="background: white; padding: 0 20px;">
-            
-                <div class="mobile-nav">
-                    <i class="fa fa-bars"></i>
-                </div>
-            
-                <!-- Main Menu -->
-                <div class="inner-nav desktop-nav">
-                    <div class="nav-logo-wrap local-scroll">
-                        <%= link_to(root_path, class: "logo", method: :get ) do %>
-                            <img style="height: 40px;" src=<%= image_path("logo-white.png") %> alt="NSoJ Post" />
-                        <%end%>
-                    </div>
-                    <ul class="clearlist">
-                        
-                        <%if @category_id.blank?%>
-                            <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
-                                <li><a href=<%=stories_path%>>HOME</a></li>
-                                <li><a href="/nsoj_post" class="custom-nav-active">E-PAPER</a></li>
-                            <%else%>
-                                <li><a href=<%=stories_path%> class="custom-nav-active">HOME</a></li>
-                                <li><a href="/nsoj_post">E-PAPER</a></li>
-                            <%end%>
-                        <%else%>
-                            <li><a href=<%=stories_path%>>HOME</a></li>
-                            <li><a href="/nsoj_post">E-PAPER</a></li>
-                        <%end%>
-                        <%@story_categories.each do |story_category|%>    
-                            <li>
-                                <%if @category_id.to_i == story_category.id.to_i %>
-                                    <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
-                                <%else%>
-                                    <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
-                                <%end%>
-                            </li>
-                        <%end%>
-                        
-                    </ul>
-                </div>
-                <!-- End Main Menu -->
+    <%=render 'stories/nav'%>
+    <%=render 'stories/nsojpost_header'%>
+
+    <%if params.has_key?(:pc) 
+        post = NsojPost.where(id: params[:pc])
+
+        if !post.empty?
+            post = post.first%>
+            <div class="controls">
+                <p style="text-align: center; font-size: 20px;">
+                    <%
+                        prevPost = post.get_prev
+                        nextPost = post.get_next
+                        prevLink = prevPost.nil? ? "" : "e-paper?pc=#{prevPost.id}"
+                        nextLink = nextPost.nil? ? "" : "e-paper?pc=#{nextPost.id}"
+                    %>
+
+                    <a style="text-decoration: underline;" href="<%=prevLink%>" class=<%=prevPost.nil? ? "not-active" : ""%>>< Previous</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a style="text-decoration: underline;" href="<%=nextLink%>" class=<%=nextPost.nil? ? "not-active" : ""%>>Next ></a>
+                </p>
             </div>
-        </nav>
 
-        <div style="width: 90%; margin: 0 auto;">
-            <a class="right" style="color: white; margin-bottom: 20px;"><strong><%=local_time(Time.now + 330.minutes, '%a, %d %b %l:%M%p')%></strong></a>
-        </div>
-
-        <div class="container clearfix relative" style="width: 90%; margin-top: 65px;">
-            <div class="row mb-10" style="padding-top: 15px;">
-                <% NsojPost.all.order("created_at DESC").each do |post| %>
-                <div class="col-sm-4 col-md-3 col-lg-3 mb-md-50 wow fadeIn" style="margin-bottom: 40px;">
-                    <a href=<%="#{post.document.url}"%> target="_blank" ><img src="<%=post.document.url(:thumb)%>" alt="Work" /></a><br><br>
-                    <a style="color: white;" href=<%="#{post.document.url}"%> target="_blank" ><strong><%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%></strong></a> 
-
-                </div>  
-                <%end %>
+            <div style="height: 3000px;">
+                <object style="height: 100%" data=<%=post.document.url%> width="1250" height="100%" type='application/pdf'> 
+                    This NSoJ Post cannot be rendered at the moment. Check if your Adobe Reader Plugin is up-to date.
+                </object>
             </div>
+        <%end%>
+    <%else%>
+        <div class="row mt-20">
+            <% NsojPost.all.order("created_at DESC").each do |post| %>
+            <div class="col-md-2 fadeIn" style="margin-bottom: 40px;">
+                <a href="e-paper?pc=<%=post.id%>"><img style="width: 100%;" src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
+                <p class="plain-font" style="text-align: center; font-size: 20px; font-weight: 700;">
+                    <a href="e-paper?pc=<%=post.id%>"><%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%></a> 
+                </p>
+            </div>
+            <%end %>
         </div>
-    </section>
+    <%end%>
 </div>

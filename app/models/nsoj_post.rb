@@ -6,5 +6,24 @@ class NsojPost < ActiveRecord::Base
                     :path => ":page_path/:class/:id/:resource_token/:style/:filename"
 
     validates_attachment :document, :content_type => {:content_type => %w(image/jpeg image/jpg image/png application/pdf)}
+
+  def get_next
+    self.class.where("date(created_at) < ?", created_at).order(created_at: :desc).first
+  end
+
+  def get_prev
+    self.class.where("date(created_at) > ?", created_at).order(created_at: :desc).last
+  end
+
+  def get_first
+    self.class.order(created_at: :desc).first
+  end
+
+  def get_last
+    self.class.order(created_at: :desc).last
+  end
+
+
+
   
 end

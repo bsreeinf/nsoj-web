@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :staffs
   mount Ckeditor::Engine => '/ckeditor'
   resources :stories
-  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdf'
+  # mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
   resources :students
   resources :slants
@@ -47,7 +47,9 @@ Rails.application.routes.draw do
   get 'nsoj_news'                       => 'landing_page#nsoj_news'
   get 'nsoj_radio'                      => 'landing_page#nsoj_radio'
   get 'nsoj_tv'                         => 'landing_page#nsoj_tv'
+  get 'videos'                         => 'landing_page#nsoj_tv'
   get 'nsoj_post'                       => 'landing_page#nsoj_post'
+  get 'e-paper'                       => 'landing_page#nsoj_post'
   get 'gallery'                         => 'landing_page#nsoj_events'
   post 'contact'                        => 'contacts#create'
   post 'admission_contact'              => 'admission_contacts#create'
@@ -57,8 +59,14 @@ Rails.application.routes.draw do
   post 'update_admission_form'          => 'admission_forms#update'
   patch 'update_admission_form'         => 'admission_forms#update'
   get 'download_form'                   => 'admission_forms#download_form'
+  get 'nsojpost' => 'stories#post'
+
+  #feature links
+  get 'feature/for-the-love-of-art' => 'stories#feature1'
 
   # Dummy Temp Links
   get 'News_Article.aspx'                    => 'student_publication#index'
   get 'Why_NSOJ.aspx'                        => 'landing_page#why_us'
+
+
 end

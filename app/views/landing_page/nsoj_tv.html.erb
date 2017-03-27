@@ -1,26 +1,39 @@
-
-    <!-- Home Section -->
-    <section class="small-section pb-0 pt-0" style="margin-top: 90px;">
-    
-    <div class="container align-center">
-        
-        <div class="mb-10">
-            <img src=<%=asset_path('logo-footer.png')%> width="78" height="36" alt="" />
-        </div>
-    
-        <h1 class="magazine-logo-text black font-alt">NSoJ TV</h1>
-        
+<div id="home" >
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
     </div>
-       
-</section>
-    <!-- End Home Section -->
-    
-<hr class="mt-0 mb-30" />
 
-    <!-- Portfolio Section -->
-    <section class="small-section clearfix" style="padding-top: 0;">
-        <div class="container relative">
-            
+    <%=render 'stories/nav'%>
+    <%=render 'stories/nsojpost_header'%>
+
+    <%if params.has_key?(:vc) 
+        post = NsojPost.where(id: params[:pc])
+
+        if !post.empty?
+            post = post.first%>
+            <div class="controls">
+                <p style="text-align: center; font-size: 20px;">
+                    <%
+                        prevPost = post.get_prev
+                        nextPost = post.get_next
+                        prevLink = prevPost.nil? ? "" : "e-paper?pc=#{prevPost.id}"
+                        nextLink = nextPost.nil? ? "" : "e-paper?pc=#{nextPost.id}"
+                    %>
+
+                    <a style="text-decoration: underline;" href="<%=prevLink%>" class=<%=prevPost.nil? ? "not-active" : ""%>>< Previous</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a style="text-decoration: underline;" href="<%=nextLink%>" class=<%=nextPost.nil? ? "not-active" : ""%>>Next ></a>
+                </p>
+            </div>
+
+            <div style="height: 3000px;">
+                <object style="height: 100%" data=<%=post.document.url%> width="1250" height="100%" type='application/pdf'> 
+                    This NSoJ Post cannot be rendered at the moment. Check if your Adobe Reader Plugin is up-to date.
+                </object>
+            </div>
+        <%end%>
+    <%else%>
+        <div class="row mt-20">
             <!-- Works Filter -->                    
             <div class="works-filter font-alt align-center">
                 <% NsojTvCategory.all.order("created_at DESC").each do |category, index| %>
@@ -58,7 +71,6 @@
                 
             </ul>
             <!-- End Works Grid -->
-            
         </div>
-    </section>
-    <!-- End Portfolio Section -->
+    <%end%>
+</div>

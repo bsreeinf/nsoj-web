@@ -38,8 +38,11 @@ class LandingPageController < ApplicationController
   end
 
   def nsoj_tv
-    
+    @story_categories = StoryCategory.all
+    @categoryMode = false
+    @hide_main_nav = true
   end
+  
   def advisory_board
     
   end

@@ -1,259 +1,111 @@
-<script type="text/javascript" src="http://s3.spruto.org/embed/player.js"></script>
-<style>
-	.page-section{
-		padding: 30px 0;
-	}
-	#top > section > div > div > div.col-sm-8 > div.blog-item.mb-80.mb-xs-40 > div > h1{
-		margin: 0; 
-		letter-spacing: 0.1em; 
-		text-transform: inherit;
-	}
-    embed{
-        min-width: 640px !important;
-        min-height: 320px !important;
-    }
-    a{cursor: pointer !important;}
-    a.custom-nav-active{
-        font-weight: bold !important;
-        color: red !important;
-    }
-    hr{
-        border-color: #000;
-    }
-    .story-font{
-        font-family: georgia,"times new roman",times,serif;
-        letter-spacing: 0;
-        -webkit-font-smoothing: auto;
-        font-smoothing: auto;
-    }
-    .story-title{
-        font-size: 34px;
-        line-height: 38px;
-        font-weight: 700;
-        font-style: italic;
-        text-transform: capitalize;
-    }
-    .story-byline{
-        text-decoration: none;
-        color: #000;
-        font-weight: 700;
-        text-transform: uppercase;
-    }.story-byline:hover{
-        text-decoration: none;
-        cursor: pointer;
-        color: #000;
-    }time{
-        font-family: "times new roman";
-    }
-</style>
-
-<!-- Menu Wrapper -->
-<nav class="main-nav stick-fixed" style="background-color: #fff;">
-    <div class="full-wrapper relative clearfix">
-        
-        <div class="nav-logo-wrap local-scroll">
-            <%= link_to(stories_path, class: "logo", method: :get ) do %>
-                <img style="height: 40px;" src=<%= image_path("logo-nsoj-post.jpg") %> alt="NSoJ Post" />
-            <%end%>
-        </div>
-        <div class="mobile-nav">
-            <i class="fa fa-bars"></i>
-        </div>
-        
-        <!-- Main Menu -->
-        <div class="inner-nav desktop-nav">
-            <ul class="clearlist scroll-nav local-scroll">
-                <%if @category_id.blank?%>
-                    <%if params[:controller] == 'landing_page' && params[:action] == 'nsoj_post'%>
-                        <li><a href=<%=stories_path%>>Home</a></li>
-                        <li><a href="/nsoj_post" class="custom-nav-active">e-Paper</a></li>
-                    <%else%>
-                        <li><a href=<%=stories_path%> class="custom-nav-active">Home</a></li>
-                        <li><a href="/nsoj_post">e-Paper</a></li>
-                    <%end%>
-                <%else%>
-                    <li><a href=<%=stories_path%>>HOME</a></li>
-                    <li><a href="/nsoj_post">E-PAPER</a></li>
-                <%end%>
-                <%@story_categories.each do |story_category|%>    
-                    <li>
-                        <%if @category_id.to_i == story_category.id.to_i %>
-                            <a href="/stories?category_id=<%=story_category.id%>" class="custom-nav-active"><%=story_category.title%></a>
-                        <%else%>
-                            <a href="/stories?category_id=<%=story_category.id%>"><%=story_category.title%></a>
-                        <%end%>
-                    </li>
-                <%end%>
-                <li></li>
-            </ul>
-        </div>
-        <!-- End Main Menu -->
+<div id="home">
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
     </div>
-</nav>
-<!-- End Menu Wrapper -->
 
-<section class="small-section" style="padding: 20px 0; margin-top: 75px;">
-    <div class="relative container align-left">
-        <!-- <div class="row"> -->
-            <h1 class="hs-line-11 story-font story-title"><%=@story.title%></h1>
-        <!-- </div> -->
+    <!-- Render Nav Partial here -->
+    <%= render 'stories/nav'%>
+
+    <section class="clearfix" style="padding-bottom: 10px; margin-top: 90px;">
+        <h1 class="hs-line-11 story-font story-title"><%=@story.title%></h1>
         <hr>
         <div class="row">
             <div class="col-md-8">
                 <%  @byline = ""
                     @story.story_bylines.each_with_index do |student, i|
                         @byline += i > 0 ? " and " : ""
-                        @byline += "<a class='story-byline' href='#{student_path(student)}'>#{student.user.name}</a>"
+                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
                     end
                 %>
-                <p class="story-font">
-                    By <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y').upcase.html_safe%>
-                    
+                <p class="story-font plain-font story-byline-head mb-0">
+                    By <strong><%=@byline.html_safe%></strong> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y').upcase.html_safe%>
                 </p>
             </div>
             <div class="col-md-4 align-right">
                 <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: @story.summary, via: "nsoj_bangalore") %>
             </div>
         </div>
-        
-    </div>
-</section>
+        <hr>
+    </section>
 
-<!-- Section -->
-<section class="page-section">
-    <div class="container relative">
-        
+    <section class="clearfix border_b" style="padding-bottom: 10px;">
         <div class="row">
-            
-            <!-- Content -->
-            <div class="col-sm-8">
+
+            <!-- Start Article -->
+            <div class="col-md-8 mt-10">
+                <%if !@story.video_link.blank?%>
+                    <div class="mt-30">
+                        <iframe width="820" height="461" src="//www.youtube.com/embed/<%=get_youtube_id(@story.video_link)%>?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <%  @byline = ""
+                        @story.video_bylines.each_with_index do |student, i|
+                            @byline += i > 0 ? " and " : ""
+                            @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                        end
+                    %>
+                    <div class="clearfix"><p class="media-caption mb-0"><%=@story.video_caption%></p></div>
+
+                    <p class="story-font plain-font story-byline">
+                        Video by <%=@byline.html_safe%>
+                    </p>
+                <%end%>
                 
-                <!-- Post -->
-                <div class="blog-item mb-80 mb-xs-40">
-                    
-                    <!-- Text -->
-					<div class="blog-item-body">
-                        <%if @story.blog_image.file? %>
-                        <!-- Media Gallery -->
-                        <div class="blog-media mt-10 mb-10 mb-xs-10">
+                <% arr = @story.content.gsub(/\n/,'<br>').split("<br>", 4) %>
+                <p class="story-font article-content mb-20">
+                    <%= arr[0].html_safe %>
+                </p>
+                <p class="story-font article-content">
+                    <%= arr[2].html_safe %>
+                </p>
+                <%if @story.blog_image.file? %>
+                    <div>
+                        <img class="article-image" src="<%=@story.blog_image.file? ? @story.blog_image.url : ""%>" alt="" />
+                        <div class="clearfix"><p class="media-caption"><%=@story.image_caption%></p></div>
+                    </div>
 
-                            <ul class="clearlist content-slider">
-                                <li>
-                                    <img src="<%=@story.blog_image.file? ? @story.blog_image.url : ""%>" alt="" />
-                                </li>
-                            </ul>
-                        </div>
-                        <%end%>
-						<div class="hs-line-4 font-alt black mb-30"><span style="text-transform: none; color: #ccc;"><%=@story.image_caption%></span></div>
-                        <%=@story.content.gsub(/\n/,'<br>').html_safe%>
-                        
-                        <%if !@story.video_link.blank?%>
-                            <div class="mt-30">
-                            <iframe width="640" height="360" src="//www.youtube.com/embed/<>?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                            <script class="splayer"> var params = {"playlist":[{"video":[{"url":"<%=@story.video_link%>"}],"duration":0,"posterUrl":"<%='http://i1.ytimg.com/vi/video_id/hqdefault.jpg'.gsub('video_id',get_youtube_id(@story.video_link))%>"}],"uiLanguage":"en","width":"640","height":"640"}; player.embed(params); </script>
-                            </div>
-                            <%  @byline = ""
-                                @story.video_bylines.each_with_index do |student, i|
-                                    @byline += i > 0 ? " and " : ""
-                                    @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
-                                end
-                            %>
-                            <div class="hs-line-4 font-alt black mb-30" style="text-align: center;"><%=@story.video_caption%> <br> <span style="padding-top: 15px;"> <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y')%></span></div>
-                        <%end%>
-                        
-					</div>
-                    <!-- End Text -->
-					
-				</div>
-
-                <div class="clearfix mt-10">
+                <% end %>
+                <p class="story-font article-content">
+                    <%= arr[3].html_safe %>
+                </p>
+                
+                <div class="clearfix mt-30">
                     <%= social_share_button_tag(@story.title, :url => "http://nsoj.in#{request.original_fullpath}", :image => '@story.blog_image.url', desc: '@story.content[0..100]', via: "nsoj_bangalore") %>
-                </div>
-
-				<!-- End Post -->
-				
-                <!-- Prev/Next Post -->
-                <!-- <div class="clearfix mt-40">
-                    <a href="#" class="blog-item-more left"><i class="fa fa-angle-left"></i>&nbsp;Prev post</a>
-                    <a href="#" class="blog-item-more right">Next post&nbsp;<i class="fa fa-angle-right"></i></a>
-                </div> -->
-                <!-- End Prev/Next Post -->
-                
+                </div>              
             </div>
-            <!-- End Content -->
-            
+            <!-- End Article -->                
+
             <!-- Sidebar -->
-            <div class="col-sm-4 col-md-4 sidebar">
-                
+            <div class="col-md-4 sidebar">
                 <div class="widget">
-                    
                     <div class="widget-body">
-                        <!-- Nav tabs -->
                         <ul class="nav nav-tabs tpl-tabs animate">
                             <li class="active">
-                                <a href="#one" data-toggle="tab">Popular</a>
-                            </li>
-                            <li>
-                                <a href="#two" data-toggle="tab">Latest</a>
+                                <a href="#one" data-toggle="tab">Trending</a>
                             </li>
                         </ul>
                         
                         <!-- Tab panes -->
                         <div class="tab-content tpl-tabs-cont section-text">
                             <div class="tab-pane fade in active" id="one">
-                                <%n = @stories.length >= 10 ? 10 : @stories.length%>
-                                <%n.times do |i|%>
-                                <%popular_story = @popular_stories[i]%>
+                                <%@trending_stories.each do |story|%>
                                 <ul class="clearlist widget-posts">
                             
                                     <!-- Preview item -->
                                     <li class="clearfix">
-                                        <a href=<%=story_path(popular_story)%>><img height="70" width="70" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
                                         <div class="widget-posts-descr">
-                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
+                                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
                                             <div>
                                                 <%  @byline = ""
-                                                    popular_story.story_bylines.each_with_index do |student, i|
+                                                    story.story_bylines.each_with_index do |student, i|
                                                         @byline += i > 0 ? " and " : ""
                                                         @byline += student.user.name
                                                     end
-                                                    @byline += " | #{local_time(popular_story.created_at, '%d %b %Y')}"
+                                                    @byline += " | #{local_time(story.created_at, '%d %b %Y')}"
                                                 %><%=@byline.html_safe%>
                                             </div>
                                         </div>
                                     </li>
-                                    <!-- End Preview item -->
-
-                                </ul>
-                                <%end%>
-                            </div>
-                            <div class="tab-pane fade" id="two">
-                                <%n = @latest_stories.length >= @sidebar_length ? @sidebar_length : @latest_stories.length%>
-                                <%n.times do |i|%>
-                                <%latest_story = @latest_stories[i]%>
-                                <ul class="clearlist widget-posts">
-                            
-                                    <!-- Preview item -->
-                                    <li class="clearfix">
-                                        <a href=<%=story_path(latest_story)%>><img height="70" width="70" src="<%=latest_story.blog_image.file? ? latest_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href=<%=story_path(latest_story)%> title=""><%=latest_story.title%></a>
-                                            <div>
-                                                <%  @byline = ""
-                                                    latest_story.story_bylines.each_with_index do |student, i|
-                                                        @byline += i > 0 ? " and " : ""
-                                                        @byline += student.user.name
-                                                    end
-                                                %>
-                                                <p class="story-font">
-                                                    By <%=@byline.html_safe%> &nbsp;|&nbsp; <%=local_time(latest_story.created_at,'%d %b %Y').upcase.html_safe%>
-                    
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- End Preview item -->
-
                                 </ul>
                                 <%end%>
                             </div>
@@ -262,7 +114,7 @@
                 </div>
             </div>
             <!-- End Sidebar -->
+
         </div>
-        
-    </div>
-</section>
+    </section>
+</div>

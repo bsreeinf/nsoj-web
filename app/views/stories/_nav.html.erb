@@ -1,0 +1,143 @@
+<style>
+    hr{
+        margin: 10px 0;
+    }
+    hr.bold{
+        border: 1px solid #000;
+    }
+    .border_r{border-right: 1px solid #ccc;}
+    .border_l{border-left: 1px solid #ccc;}
+    .border_t{border-top: 1px solid #ccc;}
+    .border_b{border-bottom: 1px solid #ccc;}
+    a{text-decoration: none;}
+    a,a:hover{
+        cursor: pointer !important;
+        color: #000;
+    }
+    a.custom-nav-active{
+        font-weight: bold !important;
+        color: red !important;
+    }
+    .story-font{
+        font-family: georgia,"times new roman",times,serif;
+        letter-spacing: 0;
+        color: #000;
+        -webkit-font-smoothing: auto;
+        font-smoothing: auto;
+    }
+    .plain-font{
+        font-family: arial,helvetica,sans-serif;
+    }
+    .story-head{
+        font-size: 26px;
+        line-height: 28px;
+        margin-top: 5px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    .story-byline, .story-byline > a{
+        font-size: 12px;
+        color: #999 !important;
+        text-transform: uppercase;
+    }
+    .story-byline-head, .story-byline-head > a{
+        font-size: 16px;
+        color: #333 !important;
+        text-transform: uppercase;
+    }
+    .story-content{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .story-thumb{
+        width: 100px;
+        float: right;
+        margin: 0 0 10px 10px;
+    }
+
+    .section-head{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .video-title{
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 5px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    .section-more{
+        float: right;
+        margin-top: -40px;
+        font-size: 15px;
+    }
+
+    time{
+        font-family: arial,helvetica,sans-serif;
+    }
+    .story-title{
+        font-size: 34px;
+        line-height: 38px;
+        font-weight: 700;
+        font-style: italic;
+        text-transform: capitalize;
+    }
+    .media-caption{
+        float: right;
+        text-transform: uppercase;
+        color: #999;
+        font-size: 13px;
+    }
+    .article-content{
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .article-image{
+        width: 100%;
+    }
+    .not-active {
+       pointer-events: none;
+       cursor: default;
+       text-decoration: none !important;
+       color: #999;
+    }
+    .floating-image{
+        width: 50%;
+        float: right;
+        margin: 0 0 10px 10px;
+    }
+</style>
+
+<nav class="main-nav stick-fixed">
+    <div class="full-wrapper relative clearfix" style="background: white; padding: 0; width: 1250px !important; margin: 0 auto;">
+        <div class="nav-logo-wrap local-scroll">
+                <%= link_to(root_path, class: "logo", style: "height: 55px !important; max-width:200px !important;", method: :get ) do %>
+                    <img style="height: 40px;" src=<%= image_path("logo-footer.png") %> alt="NSoJ Post" />
+                <%end%>
+            </div>
+        <div class="mobile-nav">
+            <i class="fa fa-bars"></i>
+        </div>
+    
+        <!-- Main Menu -->
+        <div class="inner-nav desktop-nav">
+            <ul class="clearlist scroll-nav local-scroll">
+                <li><a href="/nsojpost" class="<%=params[:controller] == 'stories' && params[:action] == 'post' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">NSoJ Post</a></li>
+                <li><a href="/e-paper" class="<%=params[:controller] == 'landing_page' && params[:action] == 'nsoj_post' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">e-Paper</a></li>
+                <li><a href="/videos" class="<%=params[:controller] == 'landing_page' && params[:action] == 'nsoj_tv' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">Videos</a></li>
+                <%@story_categories.each do |story_category|
+                    category_title = story_category.title%>    
+                    <li>
+
+                        <a href="/nsojpost?c=<%=category_title.downcase%>" class="<%=category_title.downcase == @category_name ? 'custom-nav-active' : ''%>"><%=category_title%></a>
+                    </li>
+                <%end%>
+                
+            </ul>
+        </div>
+        <!-- End Main Menu -->
+    </div>
+</nav>

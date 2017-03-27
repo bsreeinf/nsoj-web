@@ -691,6 +691,28 @@ function initPageSliders(){
             navigation: true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
+
+        $(".video-carousel").owlCarousel({
+            autoPlay: 5000,
+            stopOnHover: true,
+            items: 6,
+            itemsDesktop: [1199, 3],
+            itemsTabletSmall: [768, 2],
+            itemsMobile: [480, 1],
+            navigation: true,
+            navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
+        });
+
+        $(".story-carousel").owlCarousel({
+            autoPlay: 5000,
+            stopOnHover: true,
+            items: 5,
+            itemsDesktop: [1199, 3],
+            itemsTabletSmall: [768, 2],
+            itemsMobile: [480, 1],
+            navigation: true,
+            navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
+        });
         
         // Fullwidth slideshow
         
