@@ -125,7 +125,7 @@
         <!-- Main Menu -->
         <div class="inner-nav desktop-nav">
             <ul class="clearlist scroll-nav local-scroll">
-                <li><a href="/nsojpost" class="<%=params[:controller] == 'stories' && params[:action] == 'post' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">NSoJ Post</a></li>
+                <li><a href="/nsojpost" class="<%=params[:controller] == 'stories' && params[:action] == 'index' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">NSoJ Post</a></li>
                 <li><a href="/e-paper" class="<%=params[:controller] == 'landing_page' && params[:action] == 'nsoj_post' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">e-Paper</a></li>
                 <li><a href="/videos" class="<%=params[:controller] == 'landing_page' && params[:action] == 'nsoj_tv' && @category_name.blank? && @category_id.blank? ? 'custom-nav-active' : ''%>">Videos</a></li>
                 <%@story_categories.each do |story_category|

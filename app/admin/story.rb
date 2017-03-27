@@ -19,6 +19,7 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 
 		f.inputs "Story" do	
 			f.input :title, :required => true
+			f.input :summary, :required => true
 	    	f.input :content, :required => true
 	    	f.input :blog_image, :required => true, :as => :file
 	    	f.input :image_caption

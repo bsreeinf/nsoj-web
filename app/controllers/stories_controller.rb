@@ -3,28 +3,6 @@ class StoriesController < ApplicationController
 	before_action :set_story_categories, :set_stories, :hide_main_nav_bar, :set_sidebar_length
 
 	def index
-		@main_stories = Story.all.order(created_at: :desc, last_accessed_at: :desc).limit(12)
-		@popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc)
-		@latest_stories = Story.all.order(created_at: :desc)
-
-		@categoryMode = false
-		if(params.has_key?(:category_id))
-			@categoryMode = true
-			@category_id = params[:category_id]
-			@stories = Story.all.where(:id => Category.select(:story_id).where(story_category_id: @category_id)).order(created_at: :desc, last_accessed_at: :desc)
-		end
-
-		@nsojtvs= NsojTv.where(nsoj_tv_category_id: 2).order("created_at DESC").limit(4)
-	end
-
-	def show
-		@story.touch(:last_accessed_at)
-		@story.increment!(:access_counter)
-
-		@trending_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc).limit(15)
-	end
-
-	def post
 		@categoryMode = false
 		if(params.has_key?(:category_id) || params.has_key?(:c))
 			@categoryMode = true
@@ -49,6 +27,13 @@ class StoriesController < ApplicationController
 			@main_stories = Story.all.order(created_at: :desc, last_accessed_at: :desc).limit(12)
 			@videos= NsojTv.where(nsoj_tv_category_id: 2).order("created_at DESC").limit(12)
 		end
+	end
+
+	def show
+		@story.touch(:last_accessed_at)
+		@story.increment!(:access_counter)
+
+		@trending_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc).limit(15)
 	end
 
 	def feature1
