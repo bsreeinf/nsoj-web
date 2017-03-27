@@ -159,10 +159,10 @@
 
                 <li>
                     <%  if (params[:controller] == 'stories') %>
-                        <%= link_to(stories_path, class: "active", method: :get ) do %>
+                        <%= link_to("/nsojpost", class: "active", method: :get ) do %>
                         <img src="<%=image_path("banners/NSoJ_post_wide.jpg")%>" width=80 alt=""><%end%>
                     <%else%>
-                        <%= link_to(stories_path, method: :get ) do %>
+                        <%= link_to("/nsojpost", method: :get ) do %>
                         <img src="<%=image_path("banners/NSoJ_post_wide.jpg")%>" alt="NSoJ Post" style="width: 90px;"><%end%>
                     <%end%>
                 </li>

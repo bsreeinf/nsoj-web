@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   patch 'update_admission_form'         => 'admission_forms#update'
   get 'download_form'                   => 'admission_forms#download_form'
   get 'nsojpost' => 'stories#post'
+  get 'stories' => 'stories#post'
 
   #feature links
   get 'feature/for-the-love-of-art' => 'stories#feature1'
