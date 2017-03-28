@@ -1,4 +1,4 @@
-class NsojTvsController < ApplicationController
+class VideosController < ApplicationController
   before_action :set_nsoj_tv, only: [:show, :edit, :update, :destroy]
 
   
@@ -6,12 +6,10 @@ class NsojTvsController < ApplicationController
   # GET /nsoj_tvs
   # GET /nsoj_tvs.json
   def index
-    @nsoj_tvs = NsojTv.all.order("created_at DESC")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @nsoj_tvs }
-    end
+    @story_categories = StoryCategory.all
+    @video_categories = NsojTvCategory.all.order("created_at DESC")
+    @categoryMode = false
+    @hide_main_nav = true
   end
 
   # GET /nsoj_tvs/1

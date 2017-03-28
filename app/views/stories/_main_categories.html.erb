@@ -1,0 +1,57 @@
+<style>
+    .story-box{
+        padding: 0 20px; 
+        width: 20%; 
+        float: left;
+    }
+</style>
+<%@story_categories.each do |story_category|%>
+    <%
+        @stories =  Story.where(:id => 
+                        Category.select(:story_id).where(story_category_id: story_category.id)
+                    ).order(created_at: :desc, last_accessed_at: :desc).limit(5)
+    %>
+
+    <%if @stories.length > 0 %>
+        <section class="clearfix " style="padding-bottom: 10px;">
+            
+            <!-- Category Title -->
+            <a href="/nsojpost?c=<%=story_category.title.downcase%>">
+                <h2 class="story-font plain-font section-head"><%=story_category.title%></h2>
+            </a>
+
+            <!-- "More >" button -->
+            <span class="plain-font section-more"><a href="/nsojpost?c=#{story_category.title.downcase}">More ></a></span>
+
+            <!-- Stories grid 5 x 1 -->
+            <div class="row clearlist pl-0 pr-0">
+            <% @stories.each_with_index do |story, i| %>
+                <div class="story-box <%= i==0 ? 'pl-0' : 'border_l' %> <%= i==4 ? 'pr-0' : '' %>">
+                    <div class="mb-0">
+
+                        <!-- Image -->
+                        <a href=<%=story_path(story)%>>
+                            <img src="<%=story.blog_image.file? ? story.blog_image.url(:thumb) : ''%>" alt="" />
+                        </a>
+
+                        <!-- Story title -->
+                        <p class="story-font video-title"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+
+                        <!-- Story Summary -->
+                        <p class="story-font story-content"><%=story.summary%></p>
+
+                        <!-- Byline -->
+                        <%  @byline = "#{local_time(story.created_at, '%d %b %Y')} - By "
+                            story.story_bylines.each_with_index do |student, j|
+                                @byline += j > 0 ? " and " : ""
+                                @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                            end
+                        %>
+                        <p class="story-byline"><%=@byline.html_safe%></p>
+                    </div>                            
+                </div>
+            <%end%>
+            </div>
+        </section>
+    <%end%>
+<%end%>

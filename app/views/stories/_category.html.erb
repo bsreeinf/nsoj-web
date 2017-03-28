@@ -1,0 +1,21 @@
+<div class="row mb-20 mt-20" style="padding: 0;">
+    <%@stories.each_with_index do |story, i|%>
+
+    <div class="col-md-3 <%= ((i+1) % 4) == 0 ? '' : 'border_r' %>" style="padding: 0 10px; margin-left: -1px;">
+        <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+        <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+        <p class="story-font story-content"><%=story.content[0..200]%></p>
+        <p class="story-font story-byline plain-font"><%=local_time(story.created_at, "%d %b %Y")%>
+        <%  @byline = " - By "
+            story.story_bylines.each_with_index do |student, i|
+                @byline += i > 0 ? " and " : ""
+                @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+            end
+        %><%=@byline.html_safe%></p>
+    </div>
+
+        <%if ((i+1) % 4) == 0%>
+            </div><hr><div class="row mb-20 mt-20" style="padding: 0;">
+        <%end%>
+    <%end%>
+</div>

@@ -1,0 +1,36 @@
+<div class="widget">
+    <div class="widget-body">
+        <ul class="nav nav-tabs tpl-tabs animate">
+            <li class="active">
+                <a href="#one" data-toggle="tab">Trending</a>
+            </li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content tpl-tabs-cont section-text">
+            <div class="tab-pane fade in active" id="one">
+                <%@trending_stories.each do |story|%>
+                <ul class="clearlist widget-posts">
+            
+                    <!-- Preview item -->
+                    <li class="clearfix">
+                        <a href=<%=story_path(story)%>><img height="70" width="70" src="<%=story.blog_image.file? ? story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
+                        <div class="widget-posts-descr">
+                            <a href=<%=story_path(story)%> title=""><%=story.title%></a>
+                            <div>
+                                <%  @byline = ""
+                                    story.story_bylines.each_with_index do |student, i|
+                                        @byline += i > 0 ? " and " : ""
+                                        @byline += student.user.name
+                                    end
+                                    @byline += " | #{local_time(story.created_at, '%d %b %Y')}"
+                                %><%=@byline.html_safe%>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>

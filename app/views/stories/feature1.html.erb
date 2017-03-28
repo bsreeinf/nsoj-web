@@ -32,6 +32,12 @@
         line-height: 28px;
         width: 75%;
     }
+    .first-char{
+        font-size: 75px; 
+        float: left; 
+        line-height: 70px; 
+        margin-right: 15px;
+    }
     .article-textbox{
         border: 1px solid #000;
         padding: 20px;
@@ -51,65 +57,66 @@
     }
 
     blockquote{
-  display:block;
-  background: #fff;
-  padding: 15px 20px 15px 45px;
-  margin: 0 0 20px;
-  position: relative;
-  
-  /*Font*/
-  font-family: Georgia, serif;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #666;
-  text-align: justify;
-  
-  /*Borders - (Optional)*/
-  border-left: 15px solid #c76c0c;
-  border-right: 2px solid #c76c0c;
-  
-  /*Box Shadow - (Optional)*/
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
-  box-shadow: 2px 2px 15px #ccc;
-}
+        display:block;
+        background: #fff;
+        padding: 15px 20px 15px 45px;
+        margin: 0 0 20px;
+        position: relative;
 
-blockquote::before{
-  content: "\201C"; /*Unicode for Left Double Quote*/
-  
-  /*Font*/
-  font-family: Georgia, serif;
-  font-size: 60px;
-  font-weight: bold;
-  color: #999;
-  
-  /*Positioning*/
-  position: absolute;
-  left: 10px;
-  top:5px;
-}
+        /*Font*/
+        font-family: Georgia, serif;
+        font-size: 16px;
+        line-height: 1.2;
+        color: #666;
+        text-align: justify;
 
-blockquote::after{
-  /*Reset to make sure*/
-  content: "";
-}
+        /*Borders - (Optional)*/
+        border-left: 15px solid #c76c0c;
+        border-right: 2px solid #c76c0c;
 
-blockquote a{
-  text-decoration: none;
-  background: #eee;
-  cursor: pointer;
-  padding: 0 3px;
-  color: #c76c0c;
-}
+        /*Box Shadow - (Optional)*/
+        -moz-box-shadow: 2px 2px 15px #ccc;
+        -webkit-box-shadow: 2px 2px 15px #ccc;
+        box-shadow: 2px 2px 15px #ccc;
+    }
 
-blockquote a:hover{
- color: #666;
-}
+    blockquote::before{
+        content: "\201C"; /*Unicode for Left Double Quote*/
 
-blockquote em{
-  font-style: italic;
-}
+        /*Font*/
+        font-family: Georgia, serif;
+        font-size: 60px;
+        font-weight: bold;
+        color: #999;
+
+        /*Positioning*/
+        position: absolute;
+        left: 10px;
+        top:5px;
+    }
+
+    blockquote::after{
+        /*Reset to make sure*/
+        content: "";
+    }
+
+    blockquote a{
+        text-decoration: none;
+        background: #eee;
+        cursor: pointer;
+        padding: 0 3px;
+        color: #c76c0c;
+    }
+
+    blockquote a:hover{
+        color: #666;
+    }
+
+    blockquote em{
+        font-style: italic;
+    }
 </style>
+
 <!-- Home Section -->
 <section class="home-section bg-dark-alfa-30 fixed-height-small mt-50 mb-30" style="background-image: url(<%=image_path('features/ftloa/main.png')%>);">
     <div class="js-height-parent container">
@@ -147,13 +154,13 @@ blockquote em{
                 Chapter 1: Panjim, Goa
             </h3>
             <p class="article-text story-font story-content">
-                <span style=" font-size: 75px; float: left; line-height: 62px; margin-right: 15px;">I</span>t’s an idyllic location for a holiday. But for a group of people it’s become their work place. On this particular warm morning in Panjim,Goa, frequent gusts of ocean breeze break up the sweat lined brows of students who are busy working inside the Archbishop’s Palace. One section of the historic location has been converted into a classroom where bottles of solvents, varnish, cotton swabs and brushes are in plenty.   
-                </p>
+                <span class="first-char">I</span>t’s an idyllic location for a holiday. But for a group of people it’s become their work place. On this particular warm morning in Panjim,Goa, frequent gusts of ocean breeze break up the sweat lined brows of students who are busy working inside the Archbishop’s Palace. One section of the historic location has been converted into a classroom where bottles of solvents, varnish, cotton swabs and brushes are in plenty.   
+            </p>
 
-                <div class="article-imagebox">
-                    <img src="<%=asset_path('features/ftloa/higgins.png')%>" alt="">
-                    <p class="right story-font story-byline plain-font">Milena Braganca wiping varnish from the painting</p>
-                </div>
+            <div class="article-imagebox">
+                <img src="<%=asset_path('features/ftloa/higgins.png')%>" alt="">
+                <p class="right story-font story-byline plain-font">Milena Braganca wiping varnish from the painting</p>
+            </div>
 
             <p class="article-text story-font story-content">
                 A woman seated on a chair in the porch is hunched over and working on a piece of canvas. An early copy of ‘La Madonna della Seggiola’ by Raphael lies before her. Passed down five decades within the family, the painting is faded and portions of paint have peeled away from the canvas, stripping the painting off its rich hues and detail. Milena Braganca, the owner of this piece, carefully scrubs the varnish off the painting with a small cotton bud dipped in a mild solvent.  She is a retired banker. When she read about Restorers without Frontiers in the local newspaper, she was quick to apply.
@@ -164,7 +171,14 @@ blockquote em{
                 Like Braganca students come from different walks of life. All with the same vision—to conserve heritage work.  Caetano Filipe Colaco is a retired marine engineer and local. His job is carpentry - working on frames that are badly damaged.
                 <br><br>
                 “I like to work with my hands,” Caetano says, looking down at his ink smeared fingers, remains of the day spent in releasing damaged canvases from their wooden frames.
-                <br><br>
+            </p>
+
+            <div class="article-imagebox">
+                <img src="<%=asset_path('features/ftloa/japan_paper.png')%>" alt="">
+                <p class="right story-font story-byline plain-font">Caetano Colaco peels Japan paper off a painting</p>
+            </div>
+
+            <p class="article-text story-font story-content">
                 “It’s amazing to see the changes that take place in the process of conservation and restoration of a piece of art, and you get tremendous satisfaction because you played a role in it,” he remarks. 
                 Colaco has been hammering away at a frame, firmly tugging out rusty nails. After pulling each of the hundred odd nails he’s managed to release a layer of paper from the painting.  
                 <br><br>
@@ -199,7 +213,7 @@ blockquote em{
             </p>
 
             <blockquote class="article-quotebox mt-30 mb-30">
-                Conservation is keeping the painting or statue as is and looking after it and maybe moving it, if needed, in order to preserve it. Whereas restoration happens when you can’t live with the piece of art as it is and you insist on re-doing it- repainting or replacing certain elements of the artefact.” Caterina Goodhart
+                Conservation is keeping the painting or statue as is and looking after it and maybe moving it, if needed, in order to preserve it. Whereas restoration happens when you can’t live with the piece of art as it is and you insist on re-doing it- repainting or replacing certain elements of the artefact.” - <span class="story-byline plain-font">Caterina Goodhart</span>
             </blockquote>
 
             <p class="article-text story-font story-content">

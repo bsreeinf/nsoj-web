@@ -1,0 +1,65 @@
+<style type="text/css">
+    .home-full{
+        width: 100%;
+    }
+    .home-container{
+        width: 1250px;
+        margin: 0 auto;
+    }
+    .dark{
+        background-color: #333333;
+    }
+    .video-nav{
+        background: #444; 
+        margin-top: 55px; 
+        padding: 30px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1030;
+    }
+    .nav-item {
+        text-transform: uppercase;
+        color: #979797;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 30px 20px 30px 0;
+    } 
+    .nav-item:hover, .nav-item:focus, .nav-item:active, .nav-item.active{
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .story-font{
+        color: #fff;
+        font-family: arial,helvetica,sans-serif;
+        font-weight: 300;
+    }
+    .story-byline{
+        color: #ddd;
+    }
+    .sidebar-item:hover{
+        cursor: pointer;
+        background-color: #444;
+    }
+    .video-sidebar{
+        background-color: #222; 
+        height: 457px; 
+        overflow-y: auto;
+    }
+    .video-title{
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 300;
+        text-transform: none;
+    }
+
+</style>
+
+<div class="clearfix video-nav">
+    <div class="home-container">
+        <a href="videos" class="nav-item active">ALL</a>
+        <% @video_categories.each do |category, index| %>
+            <a href="videos?vc=<%=category.title.downcase%>&vci=<%=category.id%>" class="nav-item"><%=category.title%></a>
+        <%end %>
+    </div>
+</div>

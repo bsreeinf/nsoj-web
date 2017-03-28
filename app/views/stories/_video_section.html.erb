@@ -1,0 +1,28 @@
+<section class="clearfix border_b" style="padding-bottom: 10px;">
+    <a href="videos">
+        <h2 class="story-font plain-font section-head"><%= (@section_title.blank?) ? "Videos" : @section_title%></h2>
+    </a>
+    <%=@videos.length > 6 ? "<span class='plain-font section-more'><a href='/videos'>More ></a></span>".html_safe : ''%>
+    <div class="video-carousel">
+    <% @videos.each do |video| %>
+        <div style="padding: 0 5px;">
+            <div class="post-prev-img mb-0">
+                <a href="videos?vi=<%=video.id%>&v=<%=video.link%>" class="mfp-image">
+                    <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(video.link))%>" alt="" />
+                </a>
+                <a href="videos?vi=<%=video.id%>&v=<%=video.link%>" class="mfp-image">
+                    <p class="story-font plain-font video-title"><%=video.title%></p>
+                </a>
+                <%  @byline = "By "
+                    video.video_authors.each_with_index do |video_author, i|
+                        @byline += i > 0 ? " and " : ""
+                        @byline += "<a href='#{student_path(video_author.student)}'>#{video_author.student.user.name}</a>"
+                    end
+                %>
+                <p class="story-byline"><%=@byline.html_safe%></p>
+            </div>                            
+        </div>
+    <%end%>
+    </div>
+
+</section>

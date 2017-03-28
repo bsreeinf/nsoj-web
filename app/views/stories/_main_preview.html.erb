@@ -1,0 +1,70 @@
+<section class="clearfix border_b" style="padding-bottom: 10px;">
+    <div class="row" style="margin: 0 0 10px 0;">
+        <%n = @main_stories.length >= 5 ? 5 : @main_stories.length%>
+        
+        <!-- Top story -->
+        <%story = @main_stories[0]%>
+        <div class="col-md-6" style="padding: 0 10px 0 0;">
+            <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+            <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+            <p class="story-font story-content"><%=story.content[0..200]%></p>
+            <p class="story-font story-byline plain-font"><%=local_time(story.created_at, "%d %b %Y")%>
+            <%  @byline = " - By "
+                story.story_bylines.each_with_index do |student, i|
+                    @byline += i > 0 ? " and " : ""
+                    @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                end
+            %><%=@byline.html_safe%></p>
+        </div>
+        
+        <!-- 2nd story | middle pane -->
+        <%story = @main_stories[1]%>
+        <div class="col-md-3 border_l border_r" style="padding: 0 10px; margin-left: -1px;">
+            <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+            <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+            <p class="story-font story-content"><%=story.content[0..200]%></p>
+            <p class="story-font story-byline plain-font"><%=local_time(story.created_at, "%d %b %Y")%>
+            <%  @byline = " - By "
+                story.story_bylines.each_with_index do |student, i|
+                    @byline += i > 0 ? " and " : ""
+                    @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                end
+            %><%=@byline.html_safe%></p>
+        </div>
+        
+        <!-- 3rd and 4th story -->
+        <div class="col-md-3 border_l" style="padding: 0 10px; margin-left: -1px;">
+            <div>
+                <%story = @main_stories[2]%>
+                <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+                <p class="story-font story-content">
+                    <a href=<%=story_path(story)%>><img class="story-thumb" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                    <%=story.content[0..200]%>
+                </p>
+                <p class="story-font story-byline plain-font"><%=local_time(story.created_at, "%d %b %Y")%>
+                <%  @byline = " - By "
+                    story.story_bylines.each_with_index do |student, i|
+                        @byline += i > 0 ? " and " : ""
+                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                    end
+                %><%=@byline.html_safe%></p>
+            </div>
+
+            <div>
+                <%story = @main_stories[3]%>
+                <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
+                <p class="story-font story-content">
+                    <a href=<%=story_path(story)%>><img class="story-thumb" src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
+                    <%=story.content[0..200]%>
+                </p>
+                <p class="story-font story-byline plain-font"><%=local_time(story.created_at, "%d %b %Y")%>
+                <%  @byline = " - By "
+                    story.story_bylines.each_with_index do |student, i|
+                        @byline += i > 0 ? " and " : ""
+                        @byline += "<a href='#{student_path(student)}'>#{student.user.name}</a>"
+                    end
+                %><%=@byline.html_safe%></p>
+            </div>
+        </div>
+    </div>
+</section>

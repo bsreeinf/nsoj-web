@@ -1,0 +1,149 @@
+<section class="page-section" id="contact" style="    padding-top: 70px;    padding-bottom: 25px;">
+    <div class="container relative">
+
+        <div class="row mb-20">
+            <div class="col-md-8 col-md-offset-2">
+                <p>You can send us comments and enquiries by filling in the form below. We will make every effort to respond to your enquiries within 48 hours.</p>
+            </div>
+        </div>
+
+        <div class="row mb-40">
+            <div class="col-md-8 col-md-offset-2">
+
+                <%= form_for(@contact, :url => contact_path, :html => {:method => :post,:class=>"form contact-form"}) do |f| %>
+                    <% if @contact.errors.any? %>
+                        <div id="error_explanation">
+                          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+                          <ul>
+                          <% @contact.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                          <% end %>
+                          </ul>
+                        </div>
+                    <% end %>
+                    <div class="clearfix">
+                        
+                        <div class="cf-left-col">
+                            <div class="form-group">
+                                
+                                <%= f.text_field :name , :class =>"input-md round form-control",:placeholder=>"Name*", :required=>"required" %>
+                            </div>
+                            <div class="form-group">
+                               
+                                <%= f.text_field :email,:type=>"email", :class =>"input-md round form-control",:placeholder=>"Email*", :required=>"required" %>
+                            </div>
+                            <div class="form-group">
+                               
+                                <%= f.text_field :city, :class =>"input-md round form-control",:placeholder=>"City*", :required=>"required" %>
+                            </div>
+                            <div class="form-group">
+                               
+                                <%= f.text_field :phone ,:type => "tel", :pattern=>"[7-9]{1}[0-9]{9}",:class =>"input-md round form-control",:placeholder=>"Phone*", :required=>"required",:title=> "Please enter a valid phone number"%>
+                            </div>
+                        </div>
+                        
+                        <div class="cf-right-col">
+                            <div class="form-group">
+                               
+                                <%= f.select(:contact_subject_id, options_from_collection_for_select(@contact_subject, "id", "title"), {include_blank: "Select Subject*"}, {:class => "input-md  form-control", required: true}) %>
+                            </div>
+                            <div class="form-group">
+                               
+                                <%= f.text_field :university , :class =>"input-md round form-control",:placeholder=>"University", :pattern=>".{3,100}"%>
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <%= f.text_area :message, :class =>"input-md round form-control",:placeholder=>"Message", :style=>"height: 84px; resize: none;" %>
+                            </div>
+                            
+
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="clearfix">
+                        
+                        <div class="cf-left-col">                                    
+                            <div class="form-tip pt-20">
+                                <i class="fa fa-info-circle"></i> Mandatory fields are marked by asterisk (*)
+                            </div>
+                        </div>
+                        
+                        <div class="cf-right-col">
+                            <div class="actions align-right pt-10">
+                                <%= f.submit "Submit",:class=>"submit_btn btn btn-mod btn-medium btn-round" %>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="result"></div>
+                <% end %>
+            </div>
+        </div>
+        <!-- End Contact Form -->
+        <div class="row  mb-40 mb-xs-40">
+            
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                    
+                    <div class="col-md-6 mb-20">
+                        <div class="contact-item">
+                            <div class="ci-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="ci-title font-alt">
+                                Address
+                            </div>
+                            <div class="ci-text">
+                                National School of Journalism<br/>
+                                2/F NCC Urban Windsor <br> 
+                                New Airport Road (opposite Jakkur Aerodrome) <br>
+                                Bangalore - 560 064, India
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-20">
+                            <div class="contact-item">
+                                <div class="ci-icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="ci-title font-alt">
+                                    Call Us
+                                </div>
+                                <div class="ci-text">
+                                    <a href="tel:+918046994799">Tel: +91 80 4699 4799</a><br><br>
+                                    <a href="tel:+919845031305">Mobile: +91 98450 31305</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="contact-item">
+                                <div class="ci-icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="ci-title font-alt">
+                                    Email
+                                </div>
+                                <div class="ci-text">
+                                    <a href="mailto:contact@nsoj.in">contact@nsoj.in</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-2">
+                <p>We are located 20 minutes from M.G. Road (Bangalore's Central Business District) and 20 minutes from Bangalore International Airport. Our location allows our students to conveniently undertake daily beats, and cover and break stories within moments of newsworthy events occurring in Bangalore city.</p><br><br>
+            </div>
+        </div>
+    </div>
+</section>

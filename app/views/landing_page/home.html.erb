@@ -1,224 +1,40 @@
 <!-- Page Loader -->        
-<div class="page-loader">
-    <div class="loader">Loading...</div>
-</div>
-<!-- End Page Loader -->    
+<%= render 'landing_page/page_loader' %>
 
 <div id="home" class="row">
 
-    
     <div class="row">
-        <!-- Start of Twitter feed -->
         <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
-            <div class="post-prev-img mb-0">
-                <a href="/program" class="mfp-image">
-                    <img src="<%= asset_path("left_tab/pgp.jpg")%>" alt="" />
-                </a>
-                <a class="left_tab_title slider-text font-alt" href="/program">Postgraduate Programmes</a>
-            </div>
-            <div class="post-prev-img mb-0">
-                <a href="/placements" class="mfp-image">
-                    <img src="<%= asset_path("left_tab/students.png")%>" alt="" />
-                </a>
-                <a class="left_tab_title slider-text font-alt" href="/placements">Internships and Placements</a>
-            </div>
-
+            <%= render 'landing_page/main/sidebar_page_links' %>
+            
+            <!-- Twitter feed -->
             <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1100" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
-        <!-- End of Twitter feed -->
+        
 
         <div class="col-md-6" style="padding: 0;">
             
             <!-- Start of Main video -->
             <div class="video">
                 <iframe width="640" height="360" src="https://www.youtube.com/embed/rKGIwp6oEKQ?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                <!-- https://www.youtube.com/embed/K8qIpsaqSzo?rel=0&controls=0&showinfo=0 -->
             </div>
             <!-- End of Main video -->
 
-            <!-- Start of Image carousel (slider) -->
-            <style>.owl-pagination{display: none !important;}</style>
-            <div class="image-carousel bg-dark" style="/*background: rgb(241, 240, 240);*/ background-color: white; margin: 5px 0;">
-                <div style="padding-right: 2px;">
-                    <div class="post-prev-img mb-0">
-                        <a href="/program" class="mfp-image">
-                            <img src="<%= asset_path("slider/events.jpg")%>" alt="" />
-                        </a>
-                        <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/program">Events</a>
-                    </div>                            
-                </div>
+            <!-- Slider -->
+            <%= render 'landing_page/main/slider' %>
 
-                <div style="padding: 0 2px;">
-                    <div class="post-prev-img mb-0">
-                        <a href="/why_us#facilities_and_infrastructure" class="mfp-image">
-                            <img src="<%= asset_path("slider/infra.jpg")%>" alt="" />
-                        </a>
-                        <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/why_us#facilities_and_infrastructure">Infrastructure</a>
-                    </div>                            
-                </div>
-                
-                <div style="padding-left: 2px;">
-                    <div class="post-prev-img mb-0">
-                        <a href="/program" class="mfp-image">
-                            <img src="<%= asset_path("slider/events.jpg")%>" alt="" />
-                        </a>
-                        <a style="background-color: rgba(0,0,0,0.3); color: white !important;" class="left_tab_title slider-text font-alt" href="/program">Events</a>
-                    </div>                            
-                </div>
-            </div>
-            <!-- End of Image carousel (slider) -->
+            <!-- Students -->
+            <%= render 'landing_page/main/sec_students' %>
 
-            <!-- Start of Students  -->
-            <div style="margin-top: 5px;">
-                <a href="students" style="text-decoration: none; color: black;"><h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Current Students</span></h3></a>
-
-                <div class="row multi-columns-row" style="margin: 0;">
-                    <div class="row" style="padding: 0;">
-                    <% @students.each_with_index do |student, i|%>
-                        <a href="<%=student_path(student)%>" style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 10px; padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt"><%= student.user.name %></p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%=student.title%></h3>
-                                </div>
-                            </div>
-                        </a>
-                        <%if (i + 1) % 3 == 0%>
-                        </div>
-                        <div class="row" style="padding: 0;">
-                        <%end%>
-                    <%end%>
-                    </div>
-                    <a href="students" class="section-more right" style="margin: 5px 10px; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
-                </div>
-
-            </div>
-            <!-- End of Students -->
-
-            <!-- Start of Faculty  -->
-            <div style="margin-top: 5px;">
-                <a href="students" style="text-decoration: none; color: black;"><h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 5px;"><img src=<%= image_path("logo-footer.png") %> style="width: 50px;" alt="National School of Journalism, Bangalore" /><span style="text-transform: capitalize;margin-left: 15px;">Faculty</span></h3></a>
-
-                <div class="clearfix row multi-columns-row" style="margin: 0;">
-                    <div class="row" style="padding: 0;">
-                        <a  style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img src="<%= asset_path("faculty/h_s_balram.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">H S Balram</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Director <br>
-                                    <span class="post-prev-info font-alt">Opinion and editorial writing, Politics & Society</span></h3>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img src="<%=asset_path("faculty/thangaraj_new.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">Dr. Thomas Thangaraj</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Dean of Academic Affairs <br>
-                                    <span class="post-prev-info font-alt">Ethics, Politics & Society</span></h3>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img src="<%= asset_path("faculty/saswati-nsoj1.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">Saswati Chakravarty</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
-                                    <span class="post-prev-info font-alt">Core editing skills, Business &amp; Finance</span></h3>
-                                </div>
-                            </div>
-                        </a>      
-                    </div>   
-                    <div class="row" style="padding: 0;">
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img src="<%= asset_path("faculty/simon.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">SIMON VARGHESE</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">Principal Instructor <br>
-                                    <span class="post-prev-info font-alt">CONVERGENCE MEDIA</span></h3>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img  src="<%= asset_path("faculty/dipti.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">DIPTI KUMAR</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
-                                    <span class="post-prev-info font-alt">BROADCAST; CONVERGENCE; ART AND CULTURE</span></h3>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="color: #333;">
-                            <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0 10px 0 0;">
-                                <div class="align-center profile_box">
-                                    <img  src="<%= asset_path("faculty/papiya.jpg")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
-                                    <p class="font-alt">Papiya Bhattacharya</p>
-                                    <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;">
-                                    <span class="post-prev-info font-alt">Science Journalism; English Language Skills</span></h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>                  
-                <a href="program#faculty" class="section-more right" style="margin: 5px 10px; color: black; font-weight: 800; letter-spacing: 0.1em; font-size: 14px;">Show more <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <!-- End of Faculty -->
+            <!-- Faculty  -->
+            <%= render 'landing_page/main/sec_faculty' %>
         </div>    
         <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
             <a href="/edit_admission_form" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
             <a style="margin-top: 3px;" target="blank" href="/nsojpost"><img class="card" src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
 
-            <!-- Start of Stories sidebar -->
-            <div style="padding-right: 0px;">
-                <div class="widget">
-                    
-                    <div class="widget-body">
-                        <!-- Nav tabs -->
-                        <!-- <ul class="nav nav-tabs tpl-tabs animate">
-                            <li class="active">
-                                <a href="#one" data-toggle="tab">Popular</a>
-                            </li>
-                            <li>
-                                <a href="#two" data-toggle="tab">Latest</a>
-                            </li>
-                        </ul> -->
-                        <!-- Tab panes -->
-                        <div class="tab-content tpl-tabs-cont section-text" style="padding: 0;">
-                            <div class="tab-pane fade in active" id="one">
-                                <%n = @num_stories >= 16 ? 16 : @num_stories%>
-                                <%n.times do |i|%>
-                                <%popular_story = @popular_stories[i]%>
-                                <ul class="clearlist widget-posts">
-                                    <li class="clearfix">
-                                        <a href=<%=story_path(popular_story)%>><img height="60" width="60" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
-                                        <div class="widget-posts-descr">
-                                            <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
-                                            <div style="font-size: 10px; color: #777; font-weight: 500;">
-                                                <%  @byline = ""
-                                                    popular_story.story_bylines.each_with_index do |student, i|
-                                                        @byline += i > 0 ? " and " : ""
-                                                        @byline += student.user.name
-                                                    end
-                                                    @byline += (@byline=="" ? "" : " | ") + "#{local_time(popular_story.created_at, '%d %b %Y')}"
-                                                %><%=@byline.html_safe%>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <%end%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End of Stories sidebar -->
+            <!-- Sidebar Stories -->
+            <%= render 'landing_page/main/sidebar_posts_preview' %>
         </div>
 
         
@@ -228,19 +44,8 @@
         <!-- <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">About US</h3> -->
         <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 20px;"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="National School of Journalism, Bangalore" /><span style="margin-left: 15px;">About Us</span></h3>
         
-        <!-- Start of Images -->
-        <div class="about-images col-md-3" style="padding: 0px;">
-            <img src="<%= asset_path("about_left/bg0.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg1.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg2.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg3.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg4.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <!-- <img src="<%= asset_path("about_left/bg5.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg6.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg7.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;">
-            <img src="<%= asset_path("about_left/bg8.jpg")%>" alt="" style="width: 100%; margin-bottom: 5px;"> -->
-        </div>
-        <!-- End of Images -->
+        <!-- Sidebar Images -->
+        <%= render 'landing_page/main/sidebar_photos' %>
 
         <!-- Start of About Us content -->
         <div class="col-md-6">
@@ -288,398 +93,27 @@
 </div>
 
 <!-- Nsoj Method -->
-<section class="page-section pb-20" id="start" style="padding-top: 50px;">
-    <div class="container relative">
-        
-        <!-- Section Headings -->
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 align-center">
-                
-                <h3 class="font-alt mb-70 mb-sm-40"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="National School of Journalism, Bangalore" /> Method</h3>
-                
-                <div class="section-text mb-80 mb-xs-40">
-                    Our postgraduate diploma programmes are structured to suit the needs of the media industry. At the same time we factor in developments that are expected to revolutionise the media industry in the next 10 years.<br/><br/>
-
-                    Our environment is designed to allow the student to emerge out of campus mode, leave behind their esoteric cogitations and get down to business. The buzz of a newsroom with all its energy and quick reaction time will envelope NSoJ students, making them a part of the fourth estate the minute they walk in.
-                </div>
-                                         
-            </div>
-        </div>
-        <!-- End Section Headings -->
-        
-        <!-- Service Grid -->
-        <div class="alt-service-grid">
-            <div class="row">
-                
-                
-                <div class="col-sm-6 col-md-3 col-lg-3">
-                    
-                    <!-- Alt Service Item -->
-                    <div class="alt-service-wrap">
-                        <div class="alt-service-item">
-                            <div class="alt-service-icon">
-                                <i class="fa fa-life-ring"></i>
-                            </div>
-                            <h3 class="alt-services-title font-alt">Core Skill Learning </h3>
-                            You will acquire skills to confidently enter careers in television, digital radio, newspapers and magazines as well as in convergence media, which is the future of journalism, combining print, photography and video into one digital piece.
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- End Service Item -->
-                    
-                    <!-- Alt Service Item -->
-                    <div class="alt-service-wrap">
-                        <div class="alt-service-item">
-                            <div class="alt-service-icon">
-                                <i class="fa fa-desktop"></i>
-                            </div>
-                            <h3 class="alt-services-title font-alt">Essentials</h3>
-                            You will be grounded in the fundamentals of journalism, law and ethics to prepare you for a credible, responsible and solid career in journalism.
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- End Service Item -->
-                    
-                    <!-- Alt Service Item -->
-                    <div class="alt-service-wrap">
-                        <div class="alt-service-item">
-                            <div class="alt-service-icon">
-                                <i class="fa fa-bug"></i>
-                            </div>
-                            <h3 class="alt-services-title font-alt"> Newsroom training</h3>
-                            Your on-the-job training begins early in the academic year. You will be allowed to try your hand at all forms of media before being tested for aptitude and choosing a specialisation that can only result in a successful career. Pedagogy is designed to factor in the rigours of news gathering from the field; developing a nose for news; production and a strong grounding in ethics.
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- End Service Item -->
-                    
-                   
-                    
-                </div>
-                
-                
-                <div class="col-md-6 col-lg-6 hidden-xs hidden-sm">
-                    
-                    <div class="alt-services-image">
-                        <img src="<%=asset_path('promo-2.png')%>" alt="National School of Journalism, Bangalore" />
-                    </div>
-                    
-                </div>
-                
-                
-                <div class="col-sm-6 col-md-3 col-lg-3">
-                    
-                  
-                    
-                    <!-- Alt Service Item -->
-                    <div class="alt-service-wrap">
-                        <div class="alt-service-item">
-                            <div class="alt-service-icon">
-                                <i class="fa fa-camera"></i>
-                            </div>
-                            <h3 class="alt-services-title font-alt">Beat specialisations</h3>
-                            We will shape your perspectives on events and issues that matter, locally, nationally and globally. The areas of special interest at NSoJ are Politics and Society, Business and Finance, and Arts and Culture. You can choose to specialise in one of these areas for your beat. Politicians, bureaucrats, captains of industry, social workers, artists, actors, musicians, chefs, travel gurus and sports personalities will lecture and interact with you.
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- End Service Item -->
-                    
-                    <!-- Alt Service Item -->
-                    <div class="alt-service-wrap">
-                        <div class="alt-service-item">
-                            <div class="alt-service-icon">
-                                <i class="fa fa-area-chart"></i>
-                            </div>
-                            <h3 class="alt-services-title font-alt">Live News Portal</h3>
-                           You will work on a live news portal and develop skills to produce news videos, blogs, news features, reviews, opinion pieces, in-depth analyses and podcasts, etc.
-                        </div>
-                        
-                        
-                    </div>
-                    <!-- End Service Item -->
-                    
-                   
-                    
-                </div>
-                
-                
-            </div>
-        </div>
-        <!-- End Service Grid -->
-        
-    </div>
-
-</section>
-<!-- End Alternative Services Section --> 
-
-
-
-
+<%= render 'landing_page/main/nsoj_method' %>
 
 <!-- Subscription -->
-<!-- Newsletter Section -->
-<!--    <section class="small-section bg-gray-lighter">
-    <div class="container relative">
-        
-        <form class="form align-center" id="mailchimp">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    
-                    <div class="newsletter-label font-alt">
-                        Stay informed with our newsletter
-                    </div>
-                    
-                    <div class="mb-20">
-                        <input placeholder="Enter Your Email" class="newsletter-field form-control input-md round mb-xs-10" type="email" pattern=".{5,100}" required/>
-                        
-                        <button type="submit" class="btn btn-mod btn-medium btn-round mb-xs-10">
-                            Subscribe
-                        </button>
-                    </div>
-                    
-                    <div class="form-tip">
-                        <i class="fa fa-info-circle"></i> Please trust us, we will never send you spam
-                    </div>
-                    
-                    <div id="subscribe-result"></div>
-                    
-                </div>
-            </div>
-        </form>
-        
-    </div>
-</section> -->
-<!-- End Newsletter Section -->
+<%= 
+# render 'landing_page/main/subscription' 
+%>
 
 <!-- Contact Section -->
-<section class="page-section" id="contact" style="    padding-top: 70px;    padding-bottom: 25px;">
-    <div class="container relative">
+<%= render 'landing_page/main/contact' %>
 
-        <div class="row mb-20">
-            <div class="col-md-8 col-md-offset-2">
-                
+<!-- Google Map -->
+<%= render 'landing_page/main/google_map' %>
 
-                <p>You can send us comments and enquiries by filling in the form below. We will make every effort to respond to your enquiries within 48 hours.</p>
-            </div>
-        </div>
-
-        <div class="row mb-40">
-            <div class="col-md-8 col-md-offset-2">
-
-                <%= form_for(@contact, :url => contact_path, :html => {:method => :post,:class=>"form contact-form"}) do |f| %>
-                    <% if @contact.errors.any? %>
-                        <div id="error_explanation">
-                          <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-                          <ul>
-                          <% @contact.errors.full_messages.each do |message| %>
-                            <li><%= message %></li>
-                          <% end %>
-                          </ul>
-                        </div>
-                    <% end %>
-                    <div class="clearfix">
-                        
-                        <div class="cf-left-col">
-                            <div class="form-group">
-                                
-                                <%= f.text_field :name , :class =>"input-md round form-control",:placeholder=>"Name*", :required=>"required" %>
-                            </div>
-                            <div class="form-group">
-                               
-                                <%= f.text_field :email,:type=>"email", :class =>"input-md round form-control",:placeholder=>"Email*", :required=>"required" %>
-                            </div>
-                            <div class="form-group">
-                               
-                                <%= f.text_field :city, :class =>"input-md round form-control",:placeholder=>"City*", :required=>"required" %>
-                            </div>
-                            <div class="form-group">
-                               
-                                <%= f.text_field :phone ,:type => "tel", :pattern=>"[7-9]{1}[0-9]{9}",:class =>"input-md round form-control",:placeholder=>"Phone*", :required=>"required",:title=> "Please enter a valid phone number"%>
-                            </div>
-                        </div>
-                        
-                        <div class="cf-right-col">
-                            <div class="form-group">
-                               
-                                <%= f.select(:contact_subject_id, options_from_collection_for_select(@contact_subject, "id", "title"), {include_blank: "Select Subject*"}, {:class => "input-md  form-control", required: true}) %>
-                            </div>
-                            <div class="form-group">
-                               
-                                <%= f.text_field :university , :class =>"input-md round form-control",:placeholder=>"University", :pattern=>".{3,100}"%>
-                            </div>
-
-                            <div class="form-group">
-                                
-                                <%= f.text_area :message, :class =>"input-md round form-control",:placeholder=>"Message", :style=>"height: 84px; resize: none;" %>
-                            </div>
-                            
-
-                            
-                        </div>
-                        
-                    </div>
-                    <div class="clearfix">
-                        
-                        <div class="cf-left-col">
-                            
-                            <!-- Inform Tip -->                                        
-                            <div class="form-tip pt-20">
-                                <i class="fa fa-info-circle"></i> Mandatory fields are marked by asterisk (*)
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="cf-right-col">
-                            
-                            <!-- Send Button -->
-                           <!--  <div class="align-right pt-10">
-                                <button class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">Submit Message</button>
-                            </div> -->
-                            <div class="actions align-right pt-10">
-                                <%= f.submit "Submit",:class=>"submit_btn btn btn-mod btn-medium btn-round" %>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-
-                    <div id="result"></div>
-                <% end %>
-
-             <!--    <p style="margin-top: 15px;">NSoJ visits:-
-                        We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p> -->
-                
-
-
-
-
-
-                
-                
-            </div>
-        </div>
-        <!-- End Contact Form -->
-        <div class="row  mb-40 mb-xs-40">
-            
-            <div class="col-md-8 col-md-offset-2">
-                <div class="row">
-                    
-                    <div class="col-md-6 mb-20">
-                        <div class="contact-item">
-                            <div class="ci-icon">
-                                <i class="fa fa-map-marker"></i>
-                            </div>
-                            <div class="ci-title font-alt">
-                                Address
-                            </div>
-                            <div class="ci-text">
-                                National School of Journalism<br/>
-                                2/F NCC Urban Windsor <br> 
-                                New Airport Road (opposite Jakkur Aerodrome) <br>
-                                Bangalore - 560 064, India
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="mb-20">
-                            <div class="contact-item">
-                                <div class="ci-icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="ci-title font-alt">
-                                    Call Us
-                                </div>
-                                <div class="ci-text">
-                                    <a href="tel:+918046994799">Tel: +91 80 4699 4799</a><br><br>
-                                    <a href="tel:+919845031305">Mobile: +91 98450 31305</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="contact-item">
-                                <div class="ci-icon">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <div class="ci-title font-alt">
-                                    Email
-                                </div>
-                                <div class="ci-text">
-                                    <a href="mailto:contact@nsoj.in">contact@nsoj.in</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-        <div class="row ">
-            <div class="col-md-8 col-md-offset-2">
-                <p>We are located 20 minutes from M.G. Road (Bangalore's Central Business District) and 20 minutes from Bangalore International Airport. Our location allows our students to conveniently undertake daily beats, and cover and break stories within moments of newsworthy events occurring in Bangalore city.</p><br><br>
-
-             
-            </div>
-        </div>
-       
-        
-    </div>
-</section>
-<!-- End Contact Section -->
-
- <!-- Google Map -->
-<div class="google-map">
-    
-    <div data-address="13.080113,77.592503" id="map-canvas"></div>
-    
-    <div class="map-section">
-        
-        <div class="map-toggle">
-            <div class="mt-icon">
-                <i class="fa fa-map-marker"></i>
-            </div>
-            <div class="mt-text font-alt">
-                <div class="mt-open">Open the map <i class="fa fa-angle-down"></i></div>
-                <div class="mt-close">Close the map <i class="fa fa-angle-up"></i></div>
-            </div>
-        </div>
-        
-    </div>   
-</div>
-<!-- End Google Map -->
-
-
-<!-- Contact Section -->
 <section class="page-section mb-20 mt-20" id="contact" style="padding-top:20px; padding-bottom:20px;">
     <div class="container relative">
-    
-        
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-
-            
-
-                <p style="">NSoJ visits:-
-                        We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p>
- 
+                <p style="">NSoJ visits:- We welcome prospective students who would like to visit us. NSoJ visits take place at 2:30 p.m. Monday-Friday in the month of May every year. Visitors should register with us by selecting the 'NSoJ Visits' subject line in the contact form and providing details of your visit.</p>
             </div>
-        </div>
-        <!-- End Contact Form -->
-        
+        </div>        
     </div>
 </section>
-<!-- End Contact Section -->
-
-
-
-
 
 <script type="text/javascript" src="https://maps.google.com/maps/api/js?language=en"></script>

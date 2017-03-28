@@ -6486,4 +6486,13 @@ section:hover .small-item-carousel .owl-next{
   background-color: #ccc !important;
   box-shadow: 2px 2px 2px #ccc !important;
 }
+
+.flex-wrap {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+ }
+ .pl-0{padding-left: 0;} .pr-0{padding-right: 0;}
 /*end custom css*/

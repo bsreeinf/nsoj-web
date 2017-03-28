@@ -1,0 +1,36 @@
+<%=render 'stories/nav'%>
+<%=render 'videos/nav'%>
+
+<div class="home-full dark" style="padding-top: 130px;" >
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <div class="row mt-20 home-container"> 
+        <div class="row mt-30 mb-50">
+            <div class="col-md-8">
+                <iframe width="830" height="455" src="https://www.youtube.com/embed/rKGIwp6oEKQ?rel=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-md-4 video-sidebar">
+                <% @videos = NsojTv.where(nsoj_tv_category_id: 1).order("created_at DESC").limit(12) %>
+                <% @videos.each_with_index do |video, i|%>
+                    <a href="videos?vi=<%=video.id%>&v=<%=video.link%>" class="pb-10">
+                        <div class="row clearfix sidebar-item" style="padding: 5px;">
+                            <img style="width: 100px; float: left; margin-right: 20px;" src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(video.link))%>" alt="" />
+                            <p class="story-font video-title"><%=video.title%></p>
+                        </div>
+                    </a>
+                <%end%>
+            </div>
+        </div>
+
+        <% @video_categories.each_with_index do |category, i|%>
+            <%
+                @videos = NsojTv.where(nsoj_tv_category_id: category.id).order("created_at DESC").limit(6)
+                @section_title = category.title
+            %>
+            <%= render 'stories/video_section'%>
+        <%end%>
+    </div>
+</div>
