@@ -3,7 +3,7 @@ menu priority: 7, label: "Stories", parent: "NSoJ Stories"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :content, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, 
+permit_params :title, :content, :summary, :story_category_id, :blog_image, :image_caption, :created_at, :slug, :video_link, :video_caption, 
 	authors_attributes: [:id, :author_type_id, :student_id, :story_id],
 	categories_attributes: [:id, :story_category_id, :story_id]
 #
@@ -65,6 +65,7 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
        	# 	link_to story.student.user.name, admin_student_path(story.student)
        	# end 
        	column :title
+       	column :summary
        	column :slug
        	column :last_accessed_at
        	column :access_counter
@@ -88,6 +89,7 @@ permit_params :title, :content, :story_category_id, :blog_image, :image_caption,
 				# 	link_to story.student.user.name, student_path(story.student)
 				# end
 				row :title
+				row :summary
 				row :blog_image do
 				  if story.blog_image.file?
 				  	image_tag(story.blog_image.url(:thumb))
