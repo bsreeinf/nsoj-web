@@ -11,6 +11,41 @@
     <!-- if not categoryMode -->
     <%if @categoryMode == false%>
 
+        <!-- Feature Preview -->
+        <style>
+            .featured-tag{
+                margin: 0 0 20px 0;
+                font-weight: 700;
+                color: white;
+                padding: 10px;
+                background-color: rgba(0,0,0,0.4);
+            }
+            .nsoj-feature-title{
+                font-family: "merriweather";
+                font-size: 60px;
+                color: white;
+                text-shadow: 1px 1px 7px #ccc;
+                text-align: right;
+                line-height: 54px;
+            }
+            .nsoj-feature-byline{
+                text-align: right;
+                color: white;
+                font-size: 24px;
+            }
+        </style>
+        <a href="feature/for-the-love-of-art">
+            <div class="home-section mb-10" style="height: 200px; background-attachment: inherit; background-image: url(<%=image_path('features/ftloa/main.png')%>);">
+                <h3 class="featured-tag">FEATURED</h3>
+                <h2 class="hs-line-14 hs-line-11 mb-10 mb-xs-30 nsoj-feature-title">
+                    For the Love of Art
+                </h2>
+                <h1 class="hs-line-8 no-transp font-alt mt-10 mb-50 mb-xs-30 nsoj-feature-byline">
+                    By Ipsita Kabiraj and Neil Gershom
+                </h1>
+            </div>
+        </a>
+
         <!-- Main Section -->
         <%= render 'stories/main_preview'%>    
         <!-- End Main Section -->
