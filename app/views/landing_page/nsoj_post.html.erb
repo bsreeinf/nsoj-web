@@ -1,5 +1,11 @@
 <!-- Page Loader -->        
 <%= render 'landing_page/page_loader' %>
+<style>
+.hover-zoom:hover{
+    transition: transform 0.5s;
+    transform: scale(1.02);
+}
+</style>
 
 <div id="home" >
     <%=render 'stories/nav'%>
@@ -30,7 +36,7 @@
         <div class="row mt-20">
             <% NsojPost.all.order("created_at DESC").each do |post| %>
             <div class="col-md-2 fadeIn" style="margin-bottom: 40px;">
-                <a href="e-paper?pc=<%=post.id%>"><img style="width: 100%; box-shadow: 3px 3px 6px #999;" src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
+                <a href="e-paper?pc=<%=post.id%>"><img class="hover-zoom" style="width: 100%; box-shadow: 3px 3px 6px #999;" src="<%=post.document.url(:thumb)%>" alt="Work" /></a>
                 <p class="plain-font mt-10" style="text-align: center; font-size: 20px; font-weight: 700;">
                     <a href="e-paper?pc=<%=post.id%>"><%=local_time(post.created_at + 330.minutes, '%d %b, %Y')%></a> 
                 </p>
