@@ -41,9 +41,12 @@
         cursor: pointer;
         background-color: #444;
     }
+    .sidebar-item.active{
+        background-color: #555;
+    }
     .video-sidebar{
         background-color: #222; 
-        height: 457px; 
+        height: 520px; 
         overflow-y: auto;
     }
     .video-title{
@@ -52,14 +55,33 @@
         font-weight: 300;
         text-transform: none;
     }
+    .section-more>a{
+        color: #fff;
+    }
+    .sidebar-image{
+        width: 100px; 
+        float: left; 
+        margin-right: 20px;
+    }
+    .main-video-title{
+        background-color: #222;
+        margin: 0;
+        font-size: 25px;
+        margin-top: -3px;
+        padding: 20px;
+    }
 
 </style>
 
 <div class="clearfix video-nav">
     <div class="home-container">
-        <a href="videos" class="nav-item active">ALL</a>
-        <% @video_categories.each do |category, index| %>
-            <a href="videos?vc=<%=category.title.downcase%>&vci=<%=category.id%>" class="nav-item"><%=category.title%></a>
+        <a href="videos" class="nav-item <%= @category.nil? ? "active" : ""%>">ALL</a>
+        <% @video_categories.each do |category, index| 
+            status = (!@category.nil? && @category.id == category.id) ? "active" : ""
+        %>
+            <a href="videos?vc=<%=category.title.downcase%>" class="nav-item <%=status%>">
+                <%=category.title%>
+            </a>
         <%end %>
     </div>
 </div>

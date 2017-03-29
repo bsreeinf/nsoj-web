@@ -10,64 +10,33 @@ class VideosController < ApplicationController
     @video_categories = NsojTvCategory.all.order("created_at DESC")
     @categoryMode = false
     @hide_main_nav = true
-  end
 
-  # GET /nsoj_tvs/1
-  # GET /nsoj_tvs/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @nsoj_tv }
-    end
-  end
+    @forward_link = ""
+    @selected_video = nil
+    @category = nil
+    @videos = nil
 
-  # GET /nsoj_tvs/new
-  def new
-    @nsoj_tv = NsojTv.new
-  end
-
-  # GET /nsoj_tvs/1/edit
-  def edit
-  end
-
-  # POST /nsoj_tvs
-  # POST /nsoj_tvs.json
-  def create
-    @nsoj_tv = NsojTv.new(nsoj_tv_params)
-
-    respond_to do |format|
-      if @nsoj_tv.save
-        format.html { redirect_to @nsoj_tv, notice: 'Nsoj tv was successfully created.' }
-        format.json { render json: @nsoj_tv, status: :created }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @nsoj_tv.errors, status: :unprocessable_entity }
+    if params.has_key?(:vc)
+      @category = NsojTvCategory.where("lower(title) = ?", params[:vc]).first
+      if !@category.nil?
+        @forward_link = "vc=#{params[:vc]}&"
+        @videos = NsojTv.where(nsoj_tv_category_id: @category.id).order("created_at DESC")
       end
     end
-  end
 
-  # PATCH/PUT /nsoj_tvs/1
-  # PATCH/PUT /nsoj_tvs/1.json
-  def update
-    respond_to do |format|
-      if @nsoj_tv.update(nsoj_tv_params)
-        format.html { redirect_to @nsoj_tv, notice: 'Nsoj tv was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @nsoj_tv.errors, status: :unprocessable_entity }
-      end
+    if params.has_key?(:v)
+      @selected_video = NsojTv.where("link ilike '%#{params[:v]}%'").first
+      puts("Selected video '#{@selected_video.title}'")
     end
-  end
 
-  # DELETE /nsoj_tvs/1
-  # DELETE /nsoj_tvs/1.json
-  def destroy
-    @nsoj_tv.destroy
-    respond_to do |format|
-      format.html { redirect_to nsoj_tvs_url }
-      format.json { head :no_content }
+    if @videos.nil?
+      @videos = NsojTv.order("created_at DESC")
     end
+
+    if @selected_video.nil?
+      @selected_video = @videos.first
+    end
+
   end
 
   private

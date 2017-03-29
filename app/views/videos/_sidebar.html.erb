@@ -1,0 +1,12 @@
+<div class="col-md-4 video-sidebar">
+    <% @videos.each_with_index do |video, i|
+        status = @selected_video.id == video.id ? 'active' : ''
+    %>
+        <a href="videos?<%=@forward_link%>v=<%=get_youtube_id(video.link)%>" class="pb-10 <%=status%>">
+            <div class="row clearfix sidebar-item <%=status%>" style="padding: 5px;">
+                <img class="sidebar-image" src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(video.link))%>" alt="" />
+                <p class="story-font video-title"><%=video.title%></p>
+            </div>
+        </a>
+    <%end%>
+</div>

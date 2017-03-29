@@ -55,6 +55,11 @@ class LandingPageController < ApplicationController
     @story_categories = StoryCategory.all
     @categoryMode = false
     @hide_main_nav = true
+
+    @current_post = nil
+    if params.has_key?(:pc) 
+      @current_post = NsojPost.where(id: params[:pc]).first
+    end
   end
 
   def brochure
