@@ -10,7 +10,7 @@
     <% @videos.each do |video| %>
         <div style="padding: 0 5px;">
             <div class="post-prev-img mb-0">
-                <% link = (@category.blank?) ? "videos?v=get_youtube_id(video.link)" : "videos?v=#{get_youtube_id(video.link)}&vc=#{@category.title.downcase}" %>
+                <% link = (@category.blank?) ? "videos?v=#{get_youtube_id(video.link)}" : "videos?v=#{get_youtube_id(video.link)}&vc=#{@category.title.downcase}" %>
                 <a href=<%=link%> class="mfp-image">
                     <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(video.link))%>" alt="" />
                 </a>

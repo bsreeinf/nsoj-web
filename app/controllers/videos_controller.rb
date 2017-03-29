@@ -35,6 +35,9 @@ class VideosController < ApplicationController
 
     if @selected_video.nil?
       @selected_video = @videos.first
+      
+      @selected_video.touch(:last_accessed_at)
+      @selected_video.increment!(:access_counter)
     end
 
   end

@@ -38,7 +38,7 @@
                         <p class="story-font video-title"><a href=<%=story_path(story)%>><%=story.title%></a></p>
 
                         <!-- Story Summary -->
-                        <p class="story-font story-content"><%=story.summary%></p>
+                        <p class="story-font story-content"><%=(story.summary.nil? || story.summary.empty?) ? story.content[0..200] : story.summary%></p>
 
                         <!-- Byline -->
                         <%  @byline = "#{local_time(story.created_at, '%d %b %Y')} - By "

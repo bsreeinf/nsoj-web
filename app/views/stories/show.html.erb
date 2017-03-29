@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="col-md-4 align-right">
-                <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: @story.summary, via: "nsoj_bangalore") %>
+                <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: ((@story.summary.nil? || @story.summary.empty?) ? @story.content[0..200] : @story.summary), via: "nsoj_bangalore") %>
             </div>
         </div>
         <hr>
