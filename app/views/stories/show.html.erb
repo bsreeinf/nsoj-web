@@ -5,6 +5,7 @@
 
     <!-- Render Nav Partial here -->
     <%= render 'stories/nav'%>
+    <div class="<%= 'col-md-12' unless !browser.device.mobile? %>">
 
     <section class="clearfix" style="padding-bottom: 10px; margin-top: 90px;">
         <h1 class="hs-line-11 story-font story-title"><%=@story.title%></h1>
@@ -21,7 +22,7 @@
                     By <strong><%=@byline.html_safe%></strong> &nbsp;|&nbsp; <%=local_time(@story.created_at,'%d %b %Y').upcase.html_safe%>
                 </p>
             </div>
-            <div class="col-md-4 align-right">
+            <div class="col-md-4 mt-10 <%= 'align-right mt-0' unless browser.device.mobile? %>">
                 <%= social_share_button_tag(@story.title, :url => request.original_url, :image => @story.blog_image.url, desc: ((@story.summary.nil? || @story.summary.empty?) ? @story.content[0..200] : @story.summary), via: "nsoj_bangalore") %>
             </div>
         </div>
@@ -76,10 +77,11 @@
 
             <!-- Sidebar -->
             <div class="col-md-4 sidebar">
-                <%= render 'stories/sidebar_widget'%>
+                <%= render 'stories/sidebar_widget' unless browser.device.mobile?%>
             </div>
             <!-- End Sidebar -->
 
         </div>
     </section>
+    </div>
 </div>

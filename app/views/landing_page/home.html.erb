@@ -1,7 +1,7 @@
 <!-- Page Loader -->        
 <%= render 'landing_page/page_loader' %>
 
-<div id="home" class="row">
+<div id="home">
 
     <div class="row">
         <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
@@ -12,7 +12,7 @@
         </div>
         
 
-        <div class="col-md-6" style="padding: 0;">
+        <div class="col-md-6 page-middle-col" >
             
             <!-- Start of Main video -->
             <div class="video">
@@ -24,10 +24,10 @@
             <%= render 'landing_page/main/slider' %>
 
             <!-- Students -->
-            <%= render 'landing_page/main/sec_students' %>
+            <%= render 'landing_page/main/sec_students' unless browser.device.mobile? %>
 
             <!-- Faculty  -->
-            <%= render 'landing_page/main/sec_faculty' %>
+            <%= render 'landing_page/main/sec_faculty' unless browser.device.mobile? %>
         </div>    
         <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
             <a href="/edit_admission_form" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
@@ -45,7 +45,8 @@
         <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 20px;"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="National School of Journalism, Bangalore" /><span style="margin-left: 15px;">About Us</span></h3>
         
         <!-- Sidebar Images -->
-        <%= render 'landing_page/main/sidebar_photos' %>
+
+        <%= render 'landing_page/main/sidebar_photos'%>
 
         <!-- Start of About Us content -->
         <div class="col-md-6">

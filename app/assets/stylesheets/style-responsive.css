@@ -859,8 +859,35 @@ Primary use:    MultiPurpose Template
    ============================== */
 @media only screen and (max-width:767px){
     
-    .page-left-col, .page-right-col{
+    .page-left-col, .page-right-col, .about-images{
         display: none;
+    }
+    .student-testimonials{
+        padding-bottom: 40px;
+    }
+    .img-fl-left, .img-fl-right{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .student-box{
+        padding: 10px 30px;
+    }
+    .nsoj-feature-title{
+        font-size: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-weight: 700;
+        margin-bottom: 20px !important;
+    }
+    .nsoj-feature-byline{
+        text-align: center;
+        font-size: 18px;
+        margin: 0;
+    }
+    .story-box{
+      padding: 0 10px; 
+      width: 100%; 
+      float: none;
     }
     
   
@@ -870,12 +897,54 @@ Primary use:    MultiPurpose Template
    ============================== */
 @media only screen and (min-width:768px){
     
-    .page-left-col, .page-right-col{
+    .page-left-col, .page-right-col, .about-images{
         display: inherit;
     }
+    .page-middle-col{
+        padding: 0;
+    }
+    .d-pr-0{ padding-right: 0; }
+    .d-pl-0{ padding-left: 0; }
+    .student-testimonials{
+        padding: 10px 0 40px 0;
+    }
+    .scholarship-carousel{
+        padding: 0 0 40px 0;
+    }
+    .img-fl-left{
+        width: 50%; 
+        float: left;
+        margin-right: 10px;
+
+    }
+    .img-fl-right{
+        width: 50%; 
+        float: right;
+        margin-left: 10px;
+    }
+
     #home{
         width: 1250px;
         margin: 0 auto;
+    }
+    .student-box-container{
+        padding: 15px;
+        height: 100%;
+        background-color: #dedede;
+        box-shadow: 3px 3px 7px #000;
+    }
+    .student-box h2{
+        color: #585858;
+        font-weight: 700;
+    }
+    .student-box .description{
+        color: #000;
+    }
+
+    .story-box{
+      padding: 0 10px; 
+      width: 20%; 
+      float: left;
     }
 }
 

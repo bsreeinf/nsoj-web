@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to login_url
     else
-      render 'new'
+      render 'sessions/new'
     end
 
   end

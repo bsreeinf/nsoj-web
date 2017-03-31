@@ -1,10 +1,12 @@
 <section class="clearfix border_b" style="padding-bottom: 10px;">
-    <a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>
-        <h2 class="story-font plain-font section-head"><%= (@category.blank?) ? "Videos" : @category.title%></h2>
-    </a>
-    <% if @videos.length > 6 || !@category.blank?%>
-        <span class='plain-font section-more'><a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>More ></a></span>
-    <% end %>
+    <div style="padding: 0 5px 10px 5px;">
+        <a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>
+            <h2 class="story-font plain-font section-head"><%= (@category.blank?) ? "Videos" : @category.title%></h2>
+        </a>
+        <% if @videos.length > 6 || !@category.blank?%>
+            <span class='plain-font section-more'><a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>More ></a></span>
+        <% end %>
+    </div>
 
     <div class="video-carousel">
     <% @videos.each do |video| %>

@@ -4,7 +4,7 @@
         
         <!-- Top story -->
         <%story = @main_stories[0]%>
-        <div class="col-md-6" style="padding: 0 10px 0 0;">
+        <div class="col-md-6 d-pl-0" >
             <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
             <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
             <p class="story-font story-content"><%=(story.summary.nil? || story.summary.empty?) ? story.content[0..200] : story.summary%></p>
@@ -19,7 +19,7 @@
         
         <!-- 2nd story | middle pane -->
         <%story = @main_stories[1]%>
-        <div class="col-md-3 border_l border_r" style="padding: 0 10px; margin-left: -1px;">
+        <div class="col-md-3 border_l border_r" style="margin-left: -1px;">
             <a href=<%=story_path(story)%>><img src="<%=story.blog_image.file? ? story.blog_image.url : ''%>" /></a>
             <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>
             <p class="story-font story-content"><%=(story.summary.nil? || story.summary.empty?) ? story.content[0..200] : story.summary%></p>
@@ -33,7 +33,7 @@
         </div>
         
         <!-- 3rd and 4th story -->
-        <div class="col-md-3 border_l" style="padding: 0 10px; margin-left: -1px;">
+        <div class="col-md-3 border_l" style="margin-left: -1px;">
             <div>
                 <%story = @main_stories[2]%>
                 <p class="story-font story-head"><a href=<%=story_path(story)%>><%=story.title%></a></p>

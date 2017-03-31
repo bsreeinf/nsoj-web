@@ -1,12 +1,12 @@
 <!-- Page Loader -->        
 <%= render 'landing_page/page_loader' %>  
 
-<div id="home" class="row">
+<div id="home">
 
-    <div id="about" class="row" style="margin: 0;">
+    <div id="about" class="row" >
 
         <!-- Start of About Us content -->
-        <div class="col-md-9" style="padding: 0;">
+        <div class="col-md-9 d-pr-0">
             <div style="margin-bottom: 10px;">
                 <img src="<%=asset_path('why_nsoj/main_wide.jpg')%>" alt="">
             </div>
@@ -15,7 +15,7 @@
                 <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="4150" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
 
-            <div class="col-md-8" style="padding: 0;">
+            <div class="col-md-8 page-middle-col">
                 <div class="banner-decription" style="color:black;" >
                     You seek a career that is dynamic, influential and exciting. You are courageous, independent, curious, open-minded, and like to communicate. Your engagement with society, your country and the world makes you want to make a difference. Begin your life as a journalist at National School of Journalism, Bangalore (NSoJ). <br><br>
      
@@ -75,7 +75,7 @@
                         <ul class="clearlist work-full-slider owl-carousel">
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -90,7 +90,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -105,7 +105,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -120,7 +120,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -135,7 +135,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -150,7 +150,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -165,7 +165,7 @@
 
                             <li>
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1 align-center" style="padding: 10px 0 40px 0;">
+                                    <div class="col-md-10 col-md-offset-1 align-center student-testimonials">
                                         <div class="section-icon"><span class="icon-quote white"></span></div>
                                         <div class="section-icon white"><span >What students say</span></div>
                                         <blockquote class="testimonial white">
@@ -185,20 +185,31 @@
                     <h2 class="section-title font-alt align-left anchor" id="facilities_and_infrastructure">Facilities and Infrastructure</h2>
                     <p>NSoJ boasts of the finest facilities and technology infrastructure of any J-school in India. The entire campus is equipped with dedicated high-speed wireless Internet connectivity, and houses a modern newsroom, a state-of-the-art television news studio and a superb auditorium.</p>
                     
-                    <h4 class="font-alt" style="text-transform: none;">Newsroom</h4>
-                    <p>Students at NSoJ do not learn in classrooms but train in a newsroom under the guidance of some of India's most experienced journalists. Our newsroom is designed to inspire and provoke critical thinking.  <img src=<%=asset_path("fi_newsroom.jpg")%> alt="National School of Journalism, Bangalore" style="width: 50%; float: right;" />With specially commissioned wall art, a television wall and open spaces, our newsroom makes for a collegial, creative and intellectually stimulating work environment. Each student journalist has his or her own workspace in the newsroom to carry out journalistic deskwork. Our newsroom also features a rich library and lounge.</p>
+                    <div class="clearfix">
+                        <h4 class="font-alt" style="text-transform: none;">Newsroom</h4>
+                        <p><img class="img-fl-right" src=<%=asset_path("fi_newsroom.jpg")%> alt="National School of Journalism, Bangalore"/>Students at NSoJ do not learn in classrooms but train in a newsroom under the guidance of some of India's most experienced journalists. Our newsroom is designed to inspire and provoke critical thinking. With specially commissioned wall art, a television wall and open spaces, our newsroom makes for a collegial, creative and intellectually stimulating work environment. Each student journalist has his or her own workspace in the newsroom to carry out journalistic deskwork. Our newsroom also features a rich library and lounge.</p>
+                    </div>
                     
-                    <h4 class="font-alt" style="text-transform: none;">Studio and Production Control Room</h4>
-                    <p>NSoJ has the largest and best-equipped television news studio of any journalism school in India. <img src=<%=asset_path("fi_studio.jpg")%> alt="National School of Journalism, Bangalore" style="width: 50%; float: left; margin-right: 10px;"/>Our broadcast level sound-proof and sound-damped studio features broadcast video cameras, green mat background, LED studio lighting, microphones, teleprompter to broadcast specifications. Our production control room features audio and video mixers, a high specification Apple iMac workstation with the latest video editing software, including Final Cut Pro and Adobe Premier Pro. We film daily news bulletins, television talk shows and radio interviews in our studio.</p>
+                    <div class="clearfix">
+                        <h4 class="font-alt" style="text-transform: none;">Studio and Production Control Room</h4>
+                        <p><img class="img-fl-left" src=<%=asset_path("fi_studio.jpg")%> alt="National School of Journalism, Bangalore" />
+                        NSoJ has the largest and best-equipped television news studio of any journalism school in India. Our broadcast level sound-proof and sound-damped studio features broadcast video cameras, green mat background, LED studio lighting, microphones, teleprompter to broadcast specifications. Our production control room features audio and video mixers, a high specification Apple iMac workstation with the latest video editing software, including Final Cut Pro and Adobe Premier Pro. We film daily news bulletins, television talk shows and radio interviews in our studio.</p>
+                    </div>
                     
-                    <h4 class="font-alt" style="text-transform: none;">Auditorium</h4>
-                    <p>NSoJ has a 100-seat auditorium with terraced seating, dual projectors and a high tech sound andpublic address system. <img src=<%=asset_path("fi_auditorium.jpg")%> alt="National School of Journalism, Bangalore" style="width: 50%; float: right;"/>Our auditorium is fully equipped to screen short films, documentaries, feature length movies (for reviews) and can also stream video in high definition. Our auditorium is the venue of talks by eminent personalities from diverse fields, including academicians, public policy strategists, human rights activists, politicians, senior lawyers, jurists, bureaucrats, artists and actors. The auditorium is also used for music concerts and cultural events.</p>
+                    <div class="clearfix">
+                        <h4 class="font-alt" style="text-transform: none;">Auditorium</h4>
+                        <p><img class="img-fl-right" src=<%=asset_path("fi_auditorium.jpg")%> alt="National School of Journalism, Bangalore"/>NSoJ has a 100-seat auditorium with terraced seating, dual projectors and a high tech sound andpublic address system. Our auditorium is fully equipped to screen short films, documentaries, feature length movies (for reviews) and can also stream video in high definition. Our auditorium is the venue of talks by eminent personalities from diverse fields, including academicians, public policy strategists, human rights activists, politicians, senior lawyers, jurists, bureaucrats, artists and actors. The auditorium is also used for music concerts and cultural events.</p>
+                    </div>
 
-                    <h4 class="font-alt" style="text-transform: none;">Accommodation</h4>
-                    <p>We provide twin-sharing accommodation facilities for outstation students on a first-come first-served basis. This includes food, wi-fi and other basic amenities. For details on costs and availability, candidates are requested to contact the admissions office upon receipt of an offer of admission.</p>
+                    <div class="clearfix">
+                        <h4 class="font-alt" style="text-transform: none;">Accommodation</h4>
+                        <p>We provide twin-sharing accommodation facilities for outstation students on a first-come first-served basis. This includes food, wi-fi and other basic amenities. For details on costs and availability, candidates are requested to contact the admissions office upon receipt of an offer of admission.</p>
+                    </div>
 
-                    <h4 class="font-alt" style="text-transform: none;">Technology</h4>
-                    <p>All our students will have access to cutting-edge news gathering, production and broadcasting technology. Our students are trained in and use software tools that are commonly used in media organisations in India and internationally.</p>
+                    <div class="clearfix">
+                        <h4 class="font-alt" style="text-transform: none;">Technology</h4>
+                        <p>All our students will have access to cutting-edge news gathering, production and broadcasting technology. Our students are trained in and use software tools that are commonly used in media organisations in India and internationally.</p>
+                    </div>
                     
                 </div>
             </div>
