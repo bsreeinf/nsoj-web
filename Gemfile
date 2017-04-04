@@ -92,6 +92,8 @@ gem 'twitter', '~> 5.15'
 
 gem 'browser'
 
+gem 'video_info'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

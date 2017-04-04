@@ -1,3 +1,12 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=News Cycle');
+    .story-sumary{
+        /*font-family: "news cycle",helvetica,sans-serif;*/
+        font-family: georgia, "times new roman";
+        font-weight: 300;
+        font-size: 17px;
+    }
+</style>
 <div style="padding-right: 0px;">
     <%n = @num_stories >= 16 ? 16 : @num_stories%>
     <%n.times do |i|%>
@@ -6,7 +15,8 @@
         <li class="clearfix">
             <a href=<%=story_path(popular_story)%>><img height="60" width="60" src="<%=popular_story.blog_image.file? ? popular_story.blog_image.url(:small) : ''%>" alt="" class="widget-posts-img" /></a>
             <div class="widget-posts-descr">
-                <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a>
+                <!-- <a href=<%=story_path(popular_story)%> title=""><%=popular_story.title%></a> -->
+                <p class="story-sumary"><%= popular_story.summary%></p>
                 <div style="font-size: 10px; color: #777; font-weight: 500;">
                     <%  @byline = ""
                         popular_story.story_bylines.each_with_index do |student, i|
@@ -14,7 +24,8 @@
                             @byline += student.user.name
                         end
                         @byline += (@byline=="" ? "" : " | ") + "#{local_time(popular_story.created_at, '%d %b %Y')}"
-                    %><%=@byline.html_safe%>
+                    %><%= # @byline.html_safe
+                    %>
                 </div>
             </div>
         </li>

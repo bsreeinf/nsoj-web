@@ -14,11 +14,6 @@ Rails.application.routes.draw do
 
   resources :users
   get 'student_publication/index'
-
-  # resources :nsoj_posts
-  # resources :nsoj_tvs
-  # resources :nsoj_radios
-  # resources :galleries
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

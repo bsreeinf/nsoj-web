@@ -1,139 +1,23 @@
 <%= render 'stories/nav'%>
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Merriweather');
-    .nsoj-feature-title{
-        font-family: "merriweather";
-        font-size: 60px;
-        text-align: right;
-        line-height: 54px;
-    }
-    .nsoj-feature-byline{
-        text-align: right;
-        font-size: 24px;
-    }
-    .nsoj-feature-article{
-
-    }
-    .title-divider{
-        width: 300px;
-        border-top: 4px solid #fff;
-        float: right;
-    }
-    h3.chapter, h4{
-        font-family: "merriweather";
-        line-height: 40px;
-        font-size: 35px;
-        margin-bottom: 30px;
-    }
-    h4{
-        font-size: 28px;
-    }
-    .article-text{
-        line-height: 28px;
-        width: 75%;
-    }
-    .first-char{
-        font-size: 75px; 
-        float: left; 
-        line-height: 70px; 
-        margin-right: 15px;
-    }
-    .article-textbox{
-        border: 1px solid #000;
-        padding: 20px;
-        margin: 30px 0;
-        font-size: 24px;
-        line-height: 30px;
-    }
-    .article-videobox{
-        width: 50%;
-        float: right;
-        margin: 10px 0 20px 20px;
-    }
-    .article-imagebox{
-        width: 50%;
-        float: right;
-        margin: 0 0 20px 20px;
-    }
-
-    blockquote{
-        display:block;
-        background: #fff;
-        padding: 15px 20px 15px 45px;
-        margin: 0 0 20px;
-        position: relative;
-
-        /*Font*/
-        font-family: Georgia, serif;
-        font-size: 16px;
-        line-height: 1.2;
-        color: #666;
-        text-align: justify;
-
-        /*Borders - (Optional)*/
-        border-left: 15px solid #c76c0c;
-        border-right: 2px solid #c76c0c;
-
-        /*Box Shadow - (Optional)*/
-        -moz-box-shadow: 2px 2px 15px #ccc;
-        -webkit-box-shadow: 2px 2px 15px #ccc;
-        box-shadow: 2px 2px 15px #ccc;
-    }
-
-    blockquote::before{
-        content: "\201C"; /*Unicode for Left Double Quote*/
-
-        /*Font*/
-        font-family: Georgia, serif;
-        font-size: 60px;
-        font-weight: bold;
-        color: #999;
-
-        /*Positioning*/
-        position: absolute;
-        left: 10px;
-        top:5px;
-    }
-
-    blockquote::after{
-        /*Reset to make sure*/
-        content: "";
-    }
-
-    blockquote a{
-        text-decoration: none;
-        background: #eee;
-        cursor: pointer;
-        padding: 0 3px;
-        color: #c76c0c;
-    }
-
-    blockquote a:hover{
-        color: #666;
-    }
-
-    blockquote em{
-        font-style: italic;
-    }
-</style>
+<%= render 'stories/feature_style'%>
 
 <!-- Home Section -->
-<section class="home-section bg-dark-alfa-30 fixed-height-small mt-50 mb-30" style="background-image: url(<%=image_path('features/ftloa/main.png')%>);">
+<section class="home-section bg-dark-alfa-30 fixed-height-small mt-50 mb-30" style="background-image: url(<%=@main_background%>);">
     <div class="js-height-parent container">
 
         <!-- Hero Content -->
         <div class="home-content">
             <div class="home-text">
                 <h2 class="hs-line-14 hs-line-11 mb-10 mb-xs-30 nsoj-feature-title">
-                    For the Love of Art
+                    <%=@feature_title%>
                 </h2>
                 <div class="clearfix"><hr class="title-divider"></div>
                 <h1 class="hs-line-8 no-transp font-alt mt-10 mb-50 mb-xs-30 nsoj-feature-byline">
-                    By Ipsita Kabiraj and Neil Gershom
+                    By <%=@feature_byline%>
                 </h1>
                 
                 <div class="local-scroll right">
-                    <a href="https://www.youtube.com/watch?v=rKGIwp6oEKQ" class="btn btn-mod btn-border-w btn-medium btn-round lightbox mfp-iframe"><i class="fa fa-play"></i></a>
+                    <a href=<%=@main_title_video%> class="btn btn-mod btn-border-w btn-medium btn-round lightbox mfp-iframe"><i class="fa fa-play"></i></a>
                 </div>
                 
             </div>
@@ -145,7 +29,7 @@
 
 
 
-<section class="clearfix border_b" style="padding-bottom: 10px;">
+<section class="feature-contet-section clearfix border_b" style="padding-bottom: 10px;">
     <div class="row">
 
         <!-- Start Article -->
@@ -157,10 +41,9 @@
                 <span class="first-char">I</span>t’s an idyllic location for a holiday. But for a group of people it’s become their work place. On this particular warm morning in Panjim,Goa, frequent gusts of ocean breeze break up the sweat lined brows of students who are busy working inside the Archbishop’s Palace. One section of the historic location has been converted into a classroom where bottles of solvents, varnish, cotton swabs and brushes are in plenty.   
             </p>
 
-            <div class="article-imagebox">
-                <img src="<%=asset_path('features/ftloa/higgins.png')%>" alt="">
-                <p class="right story-font story-byline plain-font">Milena Braganca wiping varnish from the painting</p>
-            </div>
+            <!-- Image box -->
+            <%@img_box = @img_boxes[0]%>
+            <%= render 'stories/feature/imagebox'%>
 
             <p class="article-text story-font story-content">
                 A woman seated on a chair in the porch is hunched over and working on a piece of canvas. An early copy of ‘La Madonna della Seggiola’ by Raphael lies before her. Passed down five decades within the family, the painting is faded and portions of paint have peeled away from the canvas, stripping the painting off its rich hues and detail. Milena Braganca, the owner of this piece, carefully scrubs the varnish off the painting with a small cotton bud dipped in a mild solvent.  She is a retired banker. When she read about Restorers without Frontiers in the local newspaper, she was quick to apply.
@@ -172,11 +55,10 @@
                 <br><br>
                 “I like to work with my hands,” Caetano says, looking down at his ink smeared fingers, remains of the day spent in releasing damaged canvases from their wooden frames.
             </p>
-
-            <div class="article-imagebox">
-                <img src="<%=asset_path('features/ftloa/japan_paper.png')%>" alt="">
-                <p class="right story-font story-byline plain-font">Caetano Colaco peels Japan paper off a painting</p>
-            </div>
+            
+            <!-- Image box -->
+            <%@img_box = @img_boxes[1]%>
+            <%= render 'stories/feature/imagebox'%>
 
             <p class="article-text story-font story-content">
                 “It’s amazing to see the changes that take place in the process of conservation and restoration of a piece of art, and you get tremendous satisfaction because you played a role in it,” he remarks. 
@@ -184,24 +66,20 @@
                 <br><br>
                 The Japan paper he’s peeled off is an essential part of the restoration process that helps prevent the painting from cracking or peeling off entirely.  Its unique fibres make it strong enough to reduce further damage. The paper which looks like baking sheets disappears after glue made from rabbit skin is used to stick the paper to the canvas.   
             </p>
-
-            <p class="article-textbox plain-font">
-                Japan paper’s microscopic fibres allows for it to be stronger and acts like a support for a damaged painting, allowing conservators to work on it.
-            </p>
+            
+            <!-- Text box -->
+            <%@text_box = @text_boxes[0]%>
+            <%= render 'stories/feature/textbox'%>
 
             <h4>Chipping away</h4>
 
             <p class="article-text story-font story-content">
                 Joseph Travesso is a businessman from Mumbai. He’s been flying between the two cities, swapping his formal wear for more comfortable attire while he works on a statue of Mary. He has been nicknamed ‘the solvent man’ among his class mates. Travesso’s chemistry and knowledge of the subject has greatly helped the team. Goodhart walks over to check how far he’s gotten with filling up holes in the statue.
             </p>
-
-            <div class="article-videobox">
-                <hr style="border-top: 2px solid #ddd; margin-bottom: 30px;">
-                <video muted autoplay loop>
-                    <source src="<%=asset_path('features/ftloa/wooden.webm')%>" type="video/webm">
-                </video>
-                <p class="right story-font story-byline plain-font">The restored statute of Joseph holding infant Jesus</p>
-            </div>
+            
+            <!-- Video box -->
+            <%@video_box = @video_boxes[0]%>
+            <%= render 'stories/feature/videobox'%>
 
             <p class="article-text story-font story-content">
                 The team has been working on three statues. Joseph holding the infant Jesus is a single piece of wood that was victim of termites. The damage was so extensive and debilitating that a portion of the statue’s foot was eaten up. One of the students, Every Luis has skilfully recreated that portion with clay, restoring the complete look.
@@ -211,10 +89,9 @@
                 "In churches all over the world, if a painting or a statue is falling apart, they just repaint it, most of the time with local painters and not artists, which completely changes the original painter or sculptor's intentions and style. Some of these paintings are more than 400 years old and it's very important to try and preserve it for another 400 years or more for future generations to come," says Christopher Goodhart, Caterina's husband, who’s busy behind the scenes.
 
             </p>
-
-            <blockquote class="article-quotebox mt-30 mb-30">
-                Conservation is keeping the painting or statue as is and looking after it and maybe moving it, if needed, in order to preserve it. Whereas restoration happens when you can’t live with the piece of art as it is and you insist on re-doing it- repainting or replacing certain elements of the artefact.” - <span class="story-byline plain-font">Caterina Goodhart</span>
-            </blockquote>
+            
+            <%@blockquote = @blockquotes[0]%>
+            <%= render 'stories/feature/quotebox'%>
 
             <p class="article-text story-font story-content">
                 Art conservation and restoration is a labour-intensive process. First, one needs to distinguish between the two. According to Goodhart, conservation is when you look after the artwork and nurse it slowly back to health. Restoration is when you think you can’t live with the piece of art as it is and you insist on redoing it- repainting or replacing certain elements of the artefact.
@@ -245,9 +122,10 @@
                 An hour south from Panjim is the second location for work. Goodhart and few of her students have undertaken the task of restoring a historic piece of art at a seminary.  The drive through the winding back roads, paddy fields and narrow pathways leads up to the Patriarchal Seminary of Rashol. Amidst the lush greenery stands a majestic white building, more than four centuries old. It glimmers bright in the sunlight.
             </p>
 
-            <p class="article-textbox">
-                The edifice that presently houses the seminary was constructed by the Jesuits with donations from the boy-king of Portugal, Dom Sebastião, in an area occupied originally by an Islamic fortress. The Seminary also possesses a 19th-century pipe organ that is played during liturgical services. In 1886, the Archbishop of Goa and Daman was bestowed the honorific title of Patriarch of the East Indies. Since then the seminary is known as the "Patriarchal Seminary of Rachol"
-            </p>
+            <!-- Text box -->
+            <%@text_box = @text_boxes[1]%>
+            <%= render 'stories/feature/textbox'%>
+
 
             <p class="article-text story-font story-content">
                 It’s a short flight of steps into the Rector’s Hall, where Goodhart and her team members are working on a rare painting that is lying on its sides.
@@ -282,9 +160,10 @@
 
             </p>
 
-            <p class="article-textbox">
-                On November 4,1966 Italy’s Arno river bursts its banks in the city of Florence, the birthplace of the Italian Renaissance, killing more than 30 people. This damaged or destroyed scores of priceless works of art and rare books. The flood drenched the city centre in an estimated 18 billion gallons of water and mud, and at some sites, the water was more than 20 feet deep. In the aftermath of the disaster, thousands of volunteers from around the world who were dubbed ‘angeli del fango’ or ‘mud angels’ flocked to Italy to help rescue Florence’s ancient art and literary treasures and assist with the effort to clean up the city. Credit- history.com
-            </p>
+            <!-- Text box -->
+            <%@text_box = @text_boxes[2]%>
+            <%= render 'stories/feature/textbox'%>
+
 
             <p class="article-text story-font story-content">
                 Goodhart said, “The disaster in Florence made everyone realise how important it was to preserve art and heritage.”
@@ -304,7 +183,13 @@
                 "If the sagging was left as it was, the whole painting would have collapsed in a year or two due to the weight", says Higgins as she shows images of the well-documented repair that’s taken place.
                 <br><br>
                 Back inside the Rector’s Hall, the team is labouring over the horse’s face and a portion of the bottom right corner of the painting. This portion is damaged from the sagging and Goodhart’s daughter along with Travesso is patiently filling in gesso. 
-                <br><br>
+            </p>
+
+            <!-- Video box -->
+            <%@video_box = @video_boxes[1]%>
+            <%= render 'stories/feature/videobox'%>
+
+            <p class="article-text story-font story-content">
                 The tear in the painting was too massive and had done too much damage already to conserve it. Japan paper was applied on the painting to hold it in place before being transferred to the new canvas on the new stretcher. The restoration process, though painstakingly slow, was showing results.    
                 <br><br>
                 Once the gaps are filled, and all the varnish removed from the painting, a fresh coat of paint will be put into sections where needed. All the work done by Goodhart and her team are ‘reversible’, meaning that it can be removed and re-done without damaging the original work. 

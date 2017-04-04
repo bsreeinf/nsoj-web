@@ -889,6 +889,21 @@ Primary use:    MultiPurpose Template
       width: 100%; 
       float: none;
     }
+    .feature-contet-section{
+        padding: 0 10px;
+    }
+    .article-text{
+        line-height: 28px;
+        width: 100% !important;
+    }
+    .article-imagebox, .article-videobox {
+        width: 100% !important;
+        float: none;
+        margin: 0 !important; 
+    }
+    .article-videobox > hr {
+        display: none;
+    }
     
   
 }
@@ -945,6 +960,9 @@ Primary use:    MultiPurpose Template
       padding: 0 10px; 
       width: 20%; 
       float: left;
+    }
+    .story-sumary{
+
     }
 }
 

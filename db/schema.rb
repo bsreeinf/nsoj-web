@@ -354,16 +354,6 @@ ActiveRecord::Schema.define(version: 20170329234909) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "galleries", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
   create_table "nsoj_posts", force: :cascade do |t|
     t.string   "link"
     t.datetime "created_at",            null: false

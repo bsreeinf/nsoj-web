@@ -6529,20 +6529,24 @@ section:hover .small-item-carousel .owl-next{
 }.student-box a:hover{
   text-decoration: none !important;
 }
-
-
+.tint{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.feature-preview-box{
+  padding: 10px;
+}
 .featured-tag{
     margin: 0 0 20px 0;
     font-weight: 700;
     color: white;
     padding: 10px;
-    background-color: rgba(0,0,0,0.4);
+    /*background-color: rgba(0,0,0,0.4);*/
 }
 .nsoj-feature-title{
     font-family: "merriweather";
     font-size: 60px;
     color: white;
-    text-shadow: 1px 1px 3px #ccc;
+    /*text-shadow: 1px 1px 3px #ccc;*/
     text-align: right;
     line-height: 54px;
 }
@@ -6550,6 +6554,20 @@ section:hover .small-item-carousel .owl-next{
     text-align: right;
     color: white;
     font-size: 24px;
+}
+.video-indicator{
+  position: fixed;
+  margin-top: -60px;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-left: 10px;
+  padding: 13px 14px 13px 17px;
+  background-color: rgba(0,0,0,0.4);
+}
+.video-indicator:hover{
+  background-color: rgba(23,23,23,0.4);
 }
 
 /*end custom css*/

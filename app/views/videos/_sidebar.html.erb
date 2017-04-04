@@ -10,3 +10,11 @@
         </a>
     <%end%>
 </div>
+
+<script>
+    jQuery.fn.scrollTo = function(elem) { 
+        $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top); 
+        return this; 
+    };
+    $(".video-sidebar").scrollTo(".video-sidebar>.active");
+</script>

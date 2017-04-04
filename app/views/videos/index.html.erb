@@ -1,34 +1,118 @@
 <%=render 'stories/nav'%>
-<%=render 'videos/nav'%>
-<div class="home-full dark" style="padding-top: 130px;" >
+
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=News Cycle');
+    .home-full{
+        width: 100%;
+    }
+    .home-container{
+        width: 1250px;
+        margin: 0 auto;
+    }
+    .dark{
+        background-color: #000;
+    }
+    .video-nav{
+        background: #444; 
+        margin-top: 55px; 
+        padding: 30px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1030;
+    }
+    .nav-item {
+        text-transform: uppercase;
+        color: #979797;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 30px 20px 30px 0;
+    } 
+    .nav-item:hover, .nav-item:focus, .nav-item:active, .nav-item.active{
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .story-font{
+        /*color: #fff;*/
+        /*font-family: "news cycle",helvetica,sans-serif;*/
+        font-weight: 300;
+    }
+    .story-byline{
+        /*color: #ddd;*/
+    }
+    .sidebar-item:hover{
+        cursor: pointer;
+        background-color: #444;
+    }
+    .sidebar-item.active{
+        background-color: #555;
+    }
+    .video-sidebar{
+        background-color: #222; 
+        height: 520px; 
+        overflow-y: auto;
+    }
+    .video-title{
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 300;
+        text-transform: none;
+    }
+    .section-more>a{
+        /*color: #fff;*/
+    }
+    .sidebar-image{
+        width: 150px; 
+        float: left; 
+        margin-right: 20px;
+    }
+    .main-video-title{
+        background-color: #000;
+        margin: 0;
+        font-size: 25px;
+        margin-top: -3px;
+        padding: 20px;
+    }
+    .sidebar-item .video-title{
+        color: #fff;
+    }
+    
+
+</style>
+
+<%= 
+    #render 'videos/nav' 
+%>
+<div class="home-full dark" style="padding-top: 170px;" >
     <div class="page-loader">
         <div class="loader">Loading...</div>
     </div>
 
-    <div class="row mt-20 home-container"> 
-        <div class="row mt-30 mb-50 ">
-            <div class="col-md-8" style="padding-right: 8px;">
-                <iframe width="830" height="455" src="https://www.youtube.com/embed/<%=get_youtube_id(@selected_video.link)%>?rel=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                <p class="story-font video-title main-video-title"><%=@selected_video.title%></p>
+    <div class="row mt-20"> 
+        <div class="row mb-50 ">
+            <div class="col-md-8 col-md-offset-2" style="padding-right: 8px;">
+                <div class="video">
+                    <iframe width="830" height="455" src="https://www.youtube.com/embed/<%=get_youtube_id(@selected_video.link)%>?rel=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <p class="story-font video-title main-video-title white"><%=@selected_video.title%></p>
             </div>
 
 
-            <%= render 'videos/sidebar' %>
+            <%= 
+                # render 'videos/sidebar' 
+            %>
         </div>
+    </div>
+</div>
 
+<div class="home" >
+    <div class="mt-20"> 
         <% @video_categories.each_with_index do |category, i|%>
             <%
-                @videos = NsojTv.where(nsoj_tv_category_id: category.id).order("created_at DESC").limit(6)
+                @videos = NsojTv.where(nsoj_tv_category_id: category.id).order("created_at DESC").limit(5)
                 @category = category
             %>
             <%= render 'stories/video_section'%>
         <%end%>
     </div>
 </div>
-<script>
-    jQuery.fn.scrollTo = function(elem) { 
-        $(this).scrollTop($(this).scrollTop() - $(this).offset().top + $(elem).offset().top); 
-        return this; 
-    };
-    $(".video-sidebar").scrollTo(".video-sidebar>.active");
-</script>

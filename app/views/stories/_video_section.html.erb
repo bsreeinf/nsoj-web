@@ -1,7 +1,7 @@
 <section class="clearfix border_b" style="padding-bottom: 10px;">
     <div style="padding: 0 5px 10px 5px;">
         <a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>
-            <h2 class="story-font plain-font section-head"><%= (@category.blank?) ? "Videos" : @category.title%></h2>
+            <h2 class="story-font section-head"><%= (@category.blank?) ? "Videos" : @category.title%></h2>
         </a>
         <% if @videos.length > 6 || !@category.blank?%>
             <span class='plain-font section-more'><a href=<%=(@category.blank?) ? "videos" : "videos?vc=#{@category.title.downcase}"%>>More ></a></span>
@@ -15,6 +15,7 @@
                 <% link = (@category.blank?) ? "videos?v=#{get_youtube_id(video.link)}" : "videos?v=#{get_youtube_id(video.link)}&vc=#{@category.title.downcase}" %>
                 <a href=<%=link%> class="mfp-image">
                     <img src="<%='http://i1.ytimg.com/vi/video_id/mqdefault.jpg'.gsub('video_id',get_youtube_id(video.link))%>" alt="" />
+                    <i class="fa fa-play video-indicator"></i>
                 </a>
                 <a href=<%=link%> class="mfp-image">
                     <p class="story-font plain-font video-title"><%=video.title%></p>
