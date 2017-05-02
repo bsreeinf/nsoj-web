@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get 'advisory_board'                  => 'landing_page#advisory_board'
   get 'brochure'                        => 'landing_page#brochure'
   get 'download_student_brochure'       => 'landing_page#download_student_brochure'
+  get 'privacy_policy'                  => 'landing_page#privacy_policy'
+  
 
   get 'student_publications'            => 'student_publication#index'
 
