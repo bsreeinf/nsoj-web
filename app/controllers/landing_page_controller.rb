@@ -43,6 +43,10 @@ class LandingPageController < ApplicationController
     @hide_main_nav = true
   end
   
+  def privacy_policy
+    
+  end
+  
   def advisory_board
     
   end
