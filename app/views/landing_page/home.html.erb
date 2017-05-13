@@ -22,7 +22,9 @@
 
             <!-- Slider -->
             <%= render 'landing_page/main/slider' %>
-
+            <%if browser.device.mobile?%>
+            <a id="mob_admission_banner" href="/edit_admission_form"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
+            <%end%>
             <!-- Students -->
             <%= render 'landing_page/main/sec_students' unless browser.device.mobile? %>
 
@@ -30,7 +32,9 @@
             <%= render 'landing_page/main/sec_faculty' unless browser.device.mobile? %>
         </div>    
         <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
+            
             <a href="/edit_admission_form" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
+            
             <a style="margin-top: 3px;" target="blank" href="/nsojpost"><img class="card" src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>
 
             <!-- Sidebar Stories -->
@@ -94,7 +98,7 @@
 </div>
 
 <!-- Nsoj Method -->
-<%= render 'landing_page/main/nsoj_method' %>
+<%= render 'landing_page/main/nsoj_method' unless browser.device.mobile? %>
 
 <!-- Subscription -->
 <%= 
