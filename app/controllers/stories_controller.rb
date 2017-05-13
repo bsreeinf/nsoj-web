@@ -61,7 +61,7 @@ class StoriesController < ApplicationController
 	    @blockquotes << {text: "Conservation is keeping the painting or statue as is and looking after it and maybe moving it, if needed, in order to preserve it. Whereas restoration happens when you can’t live with the piece of art as it is and you insist on re-doing it- repainting or replacing certain elements of the artefact.", byline: "Caterina Goodhart"}
 	end
 
-  private
+private
 
     def set_story
 		@story = Story.find_by_slug(params[:id])
