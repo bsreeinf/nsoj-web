@@ -30,20 +30,20 @@ ActiveAdmin.register_page "Dashboard" do
       #   end
       # end
 
-      column do
-        panel "Recent Gallery Images" do
+      # column do
+      #   panel "Recent Gallery Images" do
                  
-                    table_for Gallery.order("created_at desc").limit(3) do
-                      column :title 
-                      column :image do |gallery|
-                        link_to image_tag(gallery.image.url(:thumb)), [:admin, gallery]
-                      end
-                      column :created_at
-                    end
-                    strong { link_to "View Gallery", admin_galleries_path }
+      #               table_for Gallery.order("created_at desc").limit(3) do
+      #                 column :title 
+      #                 column :image do |gallery|
+      #                   link_to image_tag(gallery.image.url(:thumb)), [:admin, gallery]
+      #                 end
+      #                 column :created_at
+      #               end
+      #               strong { link_to "View Gallery", admin_galleries_path }
               
-        end
-      end
+      #   end
+      # end
 
 
     end
