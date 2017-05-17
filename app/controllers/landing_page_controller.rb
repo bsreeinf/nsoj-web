@@ -1,13 +1,17 @@
 class LandingPageController < ApplicationController
   def home
-    @students = Student.order('id asc, bio IS NULL, bio DESC').limit(6)
-    
+    # @students = Student.order('id asc, bio IS NULL, bio DESC').limit(6)
+    ids = [2, 1, 11, 23, 15, 3]
+    @students = Student.where(id: ids).sort_by {|p| ids.index(p.id) }
+
     @num_stories = Story.count
     @popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc).limit(20)
     # @latest_stories = Story.all.order(created_at: :desc).limit(10)
 
     @contact = Contact.new()
     @contact_subject = ContactSubject.all
+
+    @homepage_main_video = HomeConfig.where(tag_ref: 'HOME_MAIN_VIDEO').first.tag_value
   end
 
   def why_us

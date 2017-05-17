@@ -9,7 +9,7 @@
                     <div class="align-center profile_box">
                         <img src="<%=student.avatar.file? ? student.avatar.url(:thumb) : asset_path("faculty/anon.png")%>" alt="National School of Journalism, Bangalore" style="width:90px; margin-bottom: 5px;" class="img-circle">
                         <p class="font-alt"><%= student.user.name %></p>
-                        <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%=student.title%></h3>
+                        <h3 class="alt-features-title font-alt" style="text-transform: none; margin: 0;"><%=student.title.gsub(/\n/,"</br>").html_safe %></h3>
                     </div>
                 </div>
             </a>
