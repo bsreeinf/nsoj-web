@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'program'                         => 'landing_page#program'
   get 'faculty'                         => 'landing_page#faculty'
   get 'admission'                       => 'landing_page#admission'
+  get 'admission/digitaljournalism'     => 'landing_page#digitaljournalism'
   get 'advisory_board'                  => 'landing_page#advisory_board'
   get 'brochure'                        => 'landing_page#brochure'
   get 'download_student_brochure'       => 'landing_page#download_student_brochure'

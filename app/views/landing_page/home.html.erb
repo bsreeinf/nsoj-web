@@ -5,10 +5,12 @@
 
     <div class="row">
         <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
-            <%= render 'landing_page/main/sidebar_page_links' %>
+            <%= 
+            #render 'landing_page/main/sidebar_page_links' 
+            %>
             
             <!-- Twitter feed -->
-            <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1100" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1500" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
         
 
@@ -33,6 +35,8 @@
         </div>    
         <div class="col-md-3 page-right-col" style="padding: 0 0 0 5px;">
             
+            <a href="/admission/digitaljournalism" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/digitaljournalism.png")%>" alt="" /></a>
+
             <a href="/edit_admission_form" style="margin-bottom: 5px; display: block;"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
             
             <a style="margin-top: 3px;" target="blank" href="/nsojpost"><img class="card" src="<%= asset_path("banners/NSoJ_post_wide.jpg")%>" alt="" /></a>

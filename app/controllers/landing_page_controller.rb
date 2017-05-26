@@ -37,6 +37,10 @@ class LandingPageController < ApplicationController
     @admission_contact = AdmissionContact.new()
   end
 
+  def digitaljournalism
+    @admission_contact = AdmissionContact.new()
+  end
+
   def nsoj_radio
     
   end
