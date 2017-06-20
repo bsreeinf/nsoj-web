@@ -30,6 +30,10 @@ class AdmissionFormsController < ApplicationController
 
   end
 
+  def edit_pgddj
+
+  end
+
   # POST
   def update
     if AdmissionForm.exists?(user_id: current_user.id)

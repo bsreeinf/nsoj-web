@@ -55,6 +55,7 @@ Rails.application.routes.draw do
 
   get 'admission_form'                  => 'admission_forms#show'
   get 'edit_admission_form'             => 'admission_forms#edit'
+  get 'edit_pgddj_admission'            => 'admission_forms#edit_pgddj'
   post 'update_admission_form'          => 'admission_forms#update'
   patch 'update_admission_form'         => 'admission_forms#update'
   get 'download_form'                   => 'admission_forms#download_form'
