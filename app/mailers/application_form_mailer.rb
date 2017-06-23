@@ -19,7 +19,7 @@ class ApplicationFormMailer < ActionMailer::Base
 		@form_id = form_id
 		
 		mail(
-				to: ENV['TO_EMAILS'],
+				to: ENV['TO_ADMISSION_EMAILS'],
 				from: 'National School of Journalism <info@nsoj.in>',
 				subject: "New Application form",
 				
