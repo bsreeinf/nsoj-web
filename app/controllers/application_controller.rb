@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
                       :status => :moved_permanently
                     })
     end
+
+    # def redirect_back_to_current_page
+    #   redirect_to :back
+    # end
 end

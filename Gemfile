@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '5.0.0'
 
 gem 'jquery-turbolinks'
 
@@ -26,10 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 # The administration framework for Ruby on Rails
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', '1.0.0.pre2'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise'
+gem 'devise', '~> 3.2'
 
 # Simple authorization solution for Rails which is decoupled from user roles. All permissions are stored in a single location.
 gem 'cancan'
@@ -41,7 +42,7 @@ gem 'draper'
 gem 'pundit'
 
 # Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator for Rails 3+
-gem 'kaminari'
+gem 'kaminari', '~> 0.15'
 
 # Faster Faker, generates dummy data.
 gem 'ffaker'
@@ -58,7 +59,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 # Font-Awesome SASS gem for use in Ruby projects
 gem 'font-awesome-sass', '~> 4.4.0'
 
-gem 'sprockets'
+gem 'sprockets', '~> 3.6.0'
 
 # The official AWS SDK for Ruby. Provides both resource oriented interfaces and API clients for AWS services.
 gem 'aws-sdk'

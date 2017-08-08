@@ -1,38 +1,46 @@
 ActiveAdmin.register AdmissionForm do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-permit_params :user_id, 
-        :last_name1, :first_name1, :middle_name1, :name_title1, 
-        :last_name2, :first_name2, :middle_name2, :name_title2, 
-        :dob, :country_of_permanent_residence, :country_of_birth, :nationality, :second_nationality, 
-        :addr_street1, :addr_city1, :addr_state1, :addr_pincode1, :addr_country1, :phone1, :addr_until, 
-        :addr_street2, :addr_city2, :addr_state2, :addr_pincode2, :addr_country2, :phone2, :addr_since, 
-        :email, 
-        :s_university, :s_subject, :s_degree, :s_date_started, :s_date_to_be_obtained, :s_expected_gpa, 
-        :r_university, :r_subject, :r_degree, :r_date_to_be_obtained, :r_expected_gpa, 
-        :a_degree1, :a_program1, :a_institution1, :a_department1, :a_country1, 
-        :a_degree2, :a_program2, :a_institution2, :a_department2, :a_country2, 
-        :a_degree3, :a_program3, :a_institution3, :a_department3, :a_country3, 
-        :a_degree4, :a_program4, :a_institution4, :a_department4, :a_country4, 
-        :a_degree5, :a_program5, :a_institution5, :a_department5, :a_country5, 
-        :eh_from_date1, :eh_to_date1, :eh_post_held1, :eh_employer_details1, 
-        :eh_from_date2, :eh_to_date2, :eh_post_held2, :eh_employer_details2, 
-        :eh_from_date3, :eh_to_date3, :eh_post_held3, :eh_employer_details3, 
-        :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying, :is_submitted,
-        :ec_father_name, :ec_father_phone, :ec_mother_name, :ec_mother_phone, :ec_guardian_name, :ec_guardian_phone,
-        :sp_name1, :sp_reason1, :sp_date1, :sp_value1,
-        :sp_name2, :sp_reason2, :sp_date2, :sp_value2,
-        :sp_name3, :sp_reason3, :sp_date3, :sp_value3
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+        permit_params :user_id, 
+                :last_name1, :first_name1, :middle_name1, :name_title1, 
+                :last_name2, :first_name2, :middle_name2, :name_title2, 
+                :dob, :country_of_permanent_residence, :country_of_birth, :nationality, :second_nationality, 
+                :addr_street1, :addr_city1, :addr_state1, :addr_pincode1, :addr_country1, :phone1, :addr_until, 
+                :addr_street2, :addr_city2, :addr_state2, :addr_pincode2, :addr_country2, :phone2, :addr_since, 
+                :email, 
+                :s_university, :s_subject, :s_degree, :s_date_started, :s_date_to_be_obtained, :s_expected_gpa, 
+                :r_university, :r_subject, :r_degree, :r_date_to_be_obtained, :r_expected_gpa, 
+                :a_degree1, :a_program1, :a_institution1, :a_department1, :a_country1, 
+                :a_degree2, :a_program2, :a_institution2, :a_department2, :a_country2, 
+                :a_degree3, :a_program3, :a_institution3, :a_department3, :a_country3, 
+                :a_degree4, :a_program4, :a_institution4, :a_department4, :a_country4, 
+                :a_degree5, :a_program5, :a_institution5, :a_department5, :a_country5, 
+                :eh_from_date1, :eh_to_date1, :eh_post_held1, :eh_employer_details1, 
+                :eh_from_date2, :eh_to_date2, :eh_post_held2, :eh_employer_details2, 
+                :eh_from_date3, :eh_to_date3, :eh_post_held3, :eh_employer_details3, 
+                :assessment_interested, :assessment_experience, :gender, :visa_required, :program_of_study, :currently_studying, :is_submitted,
+                :ec_father_name, :ec_father_phone, :ec_mother_name, :ec_mother_phone, :ec_guardian_name, :ec_guardian_phone,
+                :sp_name1, :sp_reason1, :sp_date1, :sp_value1,
+                :sp_name2, :sp_reason2, :sp_date2, :sp_value2,
+                :sp_name3, :sp_reason3, :sp_date3, :sp_value3
+
+        scope :all, :default => true
+        
+        scope :All_NSoJ do |admission_form|
+                admission_form.where("program_of_study = ? or program_of_study = ?", 'print_convergence_media', 'broadcast_media')
+        end
+        
+        scope :Print_Convergence do |admission_form|
+                admission_form.where("program_of_study = ?", 'print_convergence_media')
+        end
+
+        scope :Broadcast_Media do |admission_form|
+                admission_form.where("program_of_study = ?", 'broadcast_media')
+        end
+        
+        scope :YourStory do |products|
+                products.where("program_of_study > ?", 'digital_journalism')
+        end
+
 index :tag => "Admission Forms" do
         actions
         column :user_id

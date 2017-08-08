@@ -1,5 +1,6 @@
 class StudentsController < InheritedResources::Base
 	before_action :set_student, only: [:show]
+	# before_action :redirect_back_to_current_page
 
 	def index
 		@students = Student.order('id asc, bio IS NULL, bio DESC')

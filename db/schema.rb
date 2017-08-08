@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517175311) do
+ActiveRecord::Schema.define(version: 20170805000000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -367,8 +367,9 @@ ActiveRecord::Schema.define(version: 20170517175311) do
   create_table "home_configs", force: :cascade do |t|
     t.string   "tag_ref"
     t.string   "tag_value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "tag_value_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "nsoj_posts", force: :cascade do |t|

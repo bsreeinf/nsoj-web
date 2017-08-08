@@ -118,7 +118,7 @@
                         <li><%= link_to "APPLY NOW", controller: 'admission_forms', action: 'edit' %></li> 
                     </ul>
                 </li>
-
+                <% if false %>
                 <li>
                     <%  if (params[:controller] == 'slants' ) %>
                         <a class="active" href="/students/">Students</a>
@@ -126,7 +126,7 @@
                         <a href="/students/">Students</a>
                     <%end%>
                 </li>
-
+                <%end%>
                 <li>
                     <%  if (params[:controller] == 'landing_page' && params[:action] == 'faculty' ) %>
                         <a class="active" href="/faculty/">Faculty</a>

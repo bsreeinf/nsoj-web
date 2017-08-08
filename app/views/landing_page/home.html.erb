@@ -28,7 +28,9 @@
             <a id="mob_admission_banner" href="/edit_admission_form"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
             <%end%>
             <!-- Students -->
-            <%= render 'landing_page/main/sec_students' unless browser.device.mobile? %>
+            <%= 
+                # render 'landing_page/main/sec_students' unless browser.device.mobile? 
+            %>
 
             <!-- Faculty  -->
             <%= render 'landing_page/main/sec_faculty' unless browser.device.mobile? %>

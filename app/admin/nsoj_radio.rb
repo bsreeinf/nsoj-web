@@ -1,5 +1,6 @@
 ActiveAdmin.register NsojRadio do
-	menu priority: 5, label: "Podcasts"
+	menu false
+  # menu priority: 5, label: "Podcasts"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

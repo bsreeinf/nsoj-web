@@ -1,5 +1,6 @@
 ActiveAdmin.register NsojTv do
-menu priority: 6, label: "Videos", parent: "NSoJ TV"
+	menu false
+	# menu priority: 6, label: "Videos", parent: "NSoJ TV"
 
 permit_params :title, :link ,:nsoj_tv_category_id, video_authors_attributes: [:id, :student_id, :nsoj_tv_id]
 

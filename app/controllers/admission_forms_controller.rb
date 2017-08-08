@@ -49,7 +49,7 @@ class AdmissionFormsController < ApplicationController
         @form_data.is_submitted = true
         if @form_data.save
           ApplicationFormMailer.application_form_created(@form_data.first_name1,@form_data.last_name1,@form_data.email,@form_data.form_token).deliver_now
-          ApplicationFormMailer.application_form_notification_created(@form_data.first_name1,@form_data.last_name1,@form_data.email,@form_data.form_token,@form_data.program_of_study).deliver_now
+          ApplicationFormMailer.application_form_notification_created( @form_data.first_name1, @form_data.last_name1, @form_data.email, @form_data.form_token, @form_data.program_of_study).deliver_now
         end
 
       end

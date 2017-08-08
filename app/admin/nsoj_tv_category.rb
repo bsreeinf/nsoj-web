@@ -1,17 +1,7 @@
 ActiveAdmin.register NsojTvCategory do
-	menu priority: 6, label: "Categories", parent: "NSoJ TV"
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-permit_params :title
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+	menu false
+	# menu priority: 6, label: "Categories", parent: "NSoJ TV"
 
+	permit_params :title
 
 end
