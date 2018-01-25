@@ -15,8 +15,8 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-    config.action_mailer.delivery_method = :test
-  host = 'localhost:3000'
+  config.action_mailer.delivery_method = :test
+  host = 'localhost:5000'
   config.action_mailer.default_url_options = { host: host }
 
   # Print deprecation notices to the Rails logger.
@@ -47,6 +47,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_region => ENV['AWS_REGION'],
+    :bucket => ENV['S3_BUCKET'],
     :s3_credentials => {
       :bucket => ENV['S3_BUCKET'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],

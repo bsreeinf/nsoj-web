@@ -2,7 +2,7 @@ class LandingPageController < ApplicationController
   def home
     # @students = Student.order('id asc, bio IS NULL, bio DESC').limit(6)
     ids = [2, 1, 11, 23, 15, 3]
-    @students = Student.where(id: ids).sort_by {|p| ids.index(p.id) }
+    @students = Student.include.where(id: ids).sort_by {|p| ids.index(p.id) }
 
     @num_stories = Story.count
     @popular_stories = Story.all.order(access_counter: :desc, last_accessed_at: :desc, created_at: :desc).limit(20)

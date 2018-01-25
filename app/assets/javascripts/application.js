@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery-ui
-//= require jquery-ui/datepicker-ru
 //= require jquery.easing.1.3
+//= require jquery-ui/datepicker-ru
 //= require bootstrap
 //= require SmoothScroll
 //= require jquery.scrollTo.min
@@ -21,17 +21,7 @@
 //= require wow.min
 //= require masonry.pkgd.min
 //= require jquery.simple-text-rotator.min
-//= require all
 //= require placeholder
 //= require_directory .
 //= require turbolinks
 //= require social-share-button
-//= require ckeditor/init
-
-
-
-
-
-
-
-

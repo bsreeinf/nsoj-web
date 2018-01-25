@@ -1,6 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+    # Redirect everything from nsoj.in to www.nationalschoolofjournalism.com with 301 Moved Permanently
+    r301 /.*/, 'https://www.nationalschoolofjournalism.com$&', host: 'nsoj.in'
+  end
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -42,7 +47,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -91,4 +96,6 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+
 end

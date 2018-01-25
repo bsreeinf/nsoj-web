@@ -12,10 +12,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.1'
 gem 'jquery-ui-rails', '5.0.0'
 
-gem 'jquery-turbolinks'
+gem 'jquery-turbolinks', '~> 2.1.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -86,7 +86,7 @@ gem 'social-share-button'
 gem 'pdfjs_viewer-rails'
 
 # Pg is the Ruby interface to the {PostgreSQL RDBMS}
-gem 'pg'
+gem 'pg', '~> 0.20'
 gem 'rack-cache'
 
 gem 'twitter', '~> 5.15'
@@ -109,6 +109,8 @@ group :development do
 
   gem 'railroady'
   # railroady -M | dot -Tsvg > models.svg
+
+  gem 'meta_request'
 end
 
 group :production do

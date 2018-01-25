@@ -61,9 +61,7 @@
             // Detect touch devices    
             if (!("ontouchstart" in document.documentElement)) {
 
-                if($( "html" ).hasClass( "no-touch" )){
-
-                }else{
+                if( !($( "html" ).hasClass( "no-touch" )) ){
                     document.documentElement.className += " no-touch";
                 }
                 

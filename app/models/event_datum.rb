@@ -3,7 +3,6 @@ class EventDatum < ActiveRecord::Base
 
 	has_attached_file :image, styles: {
 	    thumb: '180x180>',
-
 	    medium: '800x600>'
 	}
 

@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     $.fn.downCount = function (options, callback) {
         var settings = $.extend({
-                date: null,
+                date: (new Date()).toLocaleString(),
                 offset: null
             }, options);
 
