@@ -12,9 +12,15 @@ module Nsoj
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Load routes from config/routes folder
+    # NOTE: Order of route matters! It's better to not have routing conflicts, but if you have them,
+    # make sure to load routes in the correct order.
+    # In our case we must prepend all separate routes before main routes.rb
+    Dir[Rails.root.join('config/routes/**/*.rb')].each { |f| config.paths["config/routes.rb"].unshift(f) }
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Chennai'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -32,6 +38,6 @@ module Nsoj
         :user_name      => ENV['INFO_EMAIL'],
         :password       => ENV['INFO_EMAIL_PASSWORD'],        
         :enable_starttls_auto => true    
-      }
+    }
   end
 end
