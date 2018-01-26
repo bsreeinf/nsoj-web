@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-
-  r301 %r{.*}, 'http://www.nationalschoolofjournalism.com$&', :if => Proc.new {|rack_env|
-    rack_env['SERVER_NAME'] != 'nationalschoolofjournalism.com'
-  }
-
   resources :staffs
   resources :stories
   
@@ -42,7 +37,6 @@ Rails.application.routes.draw do
   get 'brochure'                        => 'landing_page#brochure'
   get 'download_student_brochure'       => 'landing_page#download_student_brochure'
   get 'privacy_policy'                  => 'landing_page#privacy_policy'
-  
 
   get 'student_publications'            => 'student_publication#index'
 
