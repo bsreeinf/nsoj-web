@@ -1111,7 +1111,7 @@ function init_map(){
                 marker: {
                     address: gmMarkerAddress,
                     options: {
-                        icon: "images/map-marker.png"
+                        icon: "../images/map-marker.png"
                     }
                 },
                 map: {
