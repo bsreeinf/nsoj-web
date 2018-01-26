@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   resources :staffs
-  mount Ckeditor::Engine => '/ckeditor'
   resources :stories
-  # mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
   resources :students
-  resources :slants
-  get    'slant'                        => 'slants#index'
-  get    'slant/apply'                        => 'slants#new'
+  # resources :slants
+  # get    'slant'                        => 'slants#index'
+  # get    'slant/apply'                        => 'slants#new'
 
   resources :admission_forms
   get 'sessions/new'
@@ -18,8 +16,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
  
   root 'landing_page#home'
 

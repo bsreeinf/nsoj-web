@@ -8,9 +8,9 @@ class ContactMailer < ActionMailer::Base
 		@university = university
 		@message = message
 		mail(
-				to: ENV["TO_EMAILS"],
-				from: 'National School of Journalism <info@nsoj.in>',
-				subject: "New Contact"
+				to: Figaro.env.em_contact_cc_group,
+				from: "National School of Journalism <#{Figaro.env.em_admission_ack_sender_alias}>", 
+				subject: "New enquiry from website"
 			)
 	end
 end 

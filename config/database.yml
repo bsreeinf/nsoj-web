@@ -1,12 +1,10 @@
-default: &default
+development: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
   encoding: utf8
   reconnect: true
-
-development:
-  <<: *default
+  reaping_frequency: 10
   database: db_nsoj_dev
 
 test:
@@ -14,9 +12,8 @@ test:
   database: db_nsoj_test
 
 production:
-  <<: *default
-  host: ec2-54-227-246-11.compute-1.amazonaws.com
-  database: d163u7pb7arsqd
-  username: nqsvujnychavbw
-  password: 'x76n8S-JpU4TKA3YC8X2tLclYE'
-  port: 5432
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  timeout: 5000
+  url:  <%= ENV.fetch("DATABASE_URL", "") %>

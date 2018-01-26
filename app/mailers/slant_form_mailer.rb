@@ -44,11 +44,11 @@ class SlantFormMailer < ActionMailer::Base
 @do_phone     =do_phone
 		
 		
-		mail(
-				to: ENV['TO_SLANT_EMAILS'],
-				from: 'National School of Journalism <slant@nsoj.in>',
-				subject: "New Slant form submission",
-				
-			)
+mail(
+		to: ENV['TO_SLANT_EMAILS'],
+		from: 'National School of Journalism <slant@nsoj.in>',
+		subject: "New Slant form submission",
+		
+	)
 	end
 end

@@ -46,12 +46,11 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_region => ENV['AWS_REGION'],
-    :bucket => ENV['S3_BUCKET'],
     :s3_credentials => {
-      :bucket => ENV['S3_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => Figaro.env.s3_bucket,
+      :access_key_id => Figaro.env.aws_access_key_id,
+      :secret_access_key => Figaro.env.aws_secret_access_key,
+      :s3_region => Figaro.env.aws_region
     }
   }
   

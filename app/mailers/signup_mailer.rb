@@ -6,9 +6,9 @@ class SignupMailer < ActionMailer::Base
 		@city = city
 		
 		mail(
-				to: ENV["TO_EMAILS"],
-				from: 'National School of Journalism <info@nsoj.in>',
-				subject: "New Signup"
-			)
+			to: Figaro.env.em_contact_cc_group,
+			from: "National School of Journalism <#{Figaro.env.em_contact_ack_sender_alias}>", 
+			subject: "Welcome to NSoJ"
+		)
 	end
 end 

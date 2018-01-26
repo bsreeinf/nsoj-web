@@ -6,68 +6,57 @@
      Scripts initialization
      --------------------------------------------- */
     
-    $(window).load(function(){
+    document.addEventListener("turbolinks:load", function() {
         
         // Page loader
+        $("body").imagesLoaded(function(){
+            $(".page-loader div").fadeOut();
+            $(".page-loader").delay(200).fadeOut("slow");
+        });
         
-           
-
-        // $(".page-loader").delay(300).fadeOut("slow").remove();  
-        
-        
-        
+        initWorkFilter();
         init_scroll_navigate();
          
         $(window).trigger("scroll");
         $(window).trigger("resize");
         
-         $(document).on('page:change', function(event) { 
-            if(window.location.hash){
-                var hash_offset = $(window.location.hash).offset().top;
-                $("html, body").animate({
-                    scrollTop: hash_offset
-                });
-            }
-         });
+        if ((window.location.hash) && ($(window.location.hash).length)){
+            var hash_offset = $(window.location.hash).offset().top;
+            $("html, body").animate({
+                scrollTop: hash_offset
+            });
+         }
+
+        // $('#caravanModal').modal();
         
     });
     
-    $(document).ready(function(){
-        $(".home-page-primary-slider").imagesLoaded(function(){
-            $(".page-loader div").fadeOut();
-            $(".page-loader").delay(300).fadeOut("slow").remove();
-        }); 
-        $(document).on('page:change', function(event) { 
+    document.addEventListener("turbolinks:load", function() {
+    
+        $(window).trigger("resize");            
+        init_classic_menu();
+        init_fullscreen_menu();
+        init_side_panel();
+        init_lightbox();
+        init_parallax();
+        init_shortcodes();
+        init_tooltips();
+        init_counters();
+        init_team();
+        initPageSliders();
+        initWorkFilter();
+        init_map();
+        init_wow();
+        init_masonry();
+           
+        // Detect touch devices    
+        if (!("ontouchstart" in document.documentElement)) {
 
-
-             
-            $(window).trigger("resize");            
-            init_classic_menu();
-            init_fullscreen_menu();
-            init_side_panel();
-            init_lightbox();
-            init_parallax();
-            init_shortcodes();
-            init_tooltips();
-            init_counters();
-            init_team();
-            initPageSliders();
-            initWorkFilter();
-            init_map();
-            
-            init_wow();
-            init_masonry();
-               
-            // Detect touch devices    
-            if (!("ontouchstart" in document.documentElement)) {
-
-                if( !($( "html" ).hasClass( "no-touch" )) ){
-                    document.documentElement.className += " no-touch";
-                }
-                
+            if( !($( "html" ).hasClass( "no-touch" )) ){
+                document.documentElement.className += " no-touch";
             }
             
-      });
+        }
 
 
     });
@@ -77,6 +66,7 @@
         init_classic_menu_resize();
         init_side_panel_resize()
         js_height_init();
+        split_height_init();
         try{
             $('#preview1').css('max-height',$('#preview2').height() * 2 + 10);
             $('#preview1 > div.owl-wrapper-outer > div > div').css('max-height',$('#preview2').height() * 2 + 10);
@@ -95,7 +85,6 @@
             return 'error';
         }
     }
-    
     
     /* --------------------------------------------
      Platform detect
@@ -1122,7 +1111,7 @@ function init_map(){
                 marker: {
                     address: gmMarkerAddress,
                     options: {
-                        icon: "<%= asset_path("map-marker.png")%>"
+                        icon: "images/map-marker.png"
                     }
                 },
                 map: {
@@ -1185,3 +1174,18 @@ function init_masonry(){
     })(jQuery);
 }
         
+function split_height_init(){
+    (function($){
+
+        $(".ssh-table, .split-section-content").css("height", "auto");
+
+        if ($(window).width() > 992) {
+            $(".split-section").each(function(){
+                var split_section_height = $(this).find(".split-section-content").innerHeight();
+                $(this).find(".ssh-table").height(split_section_height);
+            });
+        }
+
+    })(jQuery);
+}
+

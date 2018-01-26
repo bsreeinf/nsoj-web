@@ -49,12 +49,12 @@
     }
     .video-sidebar{
         background-color: #222; 
-        height: 520px; 
+        height: 680px; 
         overflow-y: auto;
     }
     .video-title{
-        font-size: 17px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 15px;
         font-weight: 300;
         text-transform: none;
     }
@@ -62,16 +62,17 @@
         /*color: #fff;*/
     }
     .sidebar-image{
-        width: 150px; 
+        width: 115px; 
         float: left; 
-        margin-right: 20px;
+        margin-right: 10px;
     }
     .main-video-title{
         background-color: #000;
         margin: 0;
-        font-size: 25px;
+        font-size: 28px;
+        font-weight: 300;
         margin-top: -3px;
-        padding: 20px;
+        padding-top: 40px;
     }
     .sidebar-item .video-title{
         color: #fff;
@@ -83,31 +84,35 @@
 <%= 
     #render 'videos/nav' 
 %>
-<div class="home-full dark" style="padding-top: 170px;" >
-    <div class="page-loader">
-        <div class="loader">Loading...</div>
-    </div>
+
+ <div class="page-loader">
+    <div class="loader">Loading...</div>
+</div>
+
+<div class="home dark" style="padding-top: 100px;" >
 
     <div class="row mt-20"> 
-        <div class="row mb-50 ">
-            <div class="col-md-8 col-md-offset-2" style="padding-right: 8px;">
+        <div class="mb-50 col-md-10 col-md-offset-1">
+            
+            <!-- Main player -->
+            <div class="col-md-8" style="padding-right: 8px;">
                 <div class="video">
                     <iframe width="830" height="455" src="https://www.youtube.com/embed/<%=get_youtube_id(@selected_video.link)%>?rel=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <p class="story-font video-title main-video-title white"><%=@selected_video.title%></p>
+                <p class="plain-font video-title main-video-title white plain-font"><%=@selected_video.title%></p>
             </div>
-
+            <!-- Main player END -->
 
             <%= 
-                # render 'videos/sidebar' 
-                render 'videos/up_next' 
+                render 'videos/sidebar' 
+                # render 'videos/up_next' 
             %>
         </div>
     </div>
 </div>
 
-<div class="home" >
-    <div class="mt-20"> 
+<div class="home col-md-8 col-md-offset-2" >
+    <div class="mt-20 "> 
         <% @video_categories.each_with_index do |category, i|%>
             <%
                 @videos = NsojTv.where(nsoj_tv_category_id: category.id).order("created_at DESC").limit(5)

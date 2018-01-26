@@ -20,23 +20,24 @@ module Nsoj
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    config.time_zone = 'Chennai'
+    config.time_zone = 'Asia/Kolkata'
+    config.middleware.use Rack::Deflater
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.autoload_paths << Rails.root.join('lib')
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.autoload_paths << Rails.root.join('lib')
+    # config.active_record.raise_in_transactional_callbacks = true
 
     ActionMailer::Base.smtp_settings = {
         :address        => 'smtp.gmail.com',
         :domain         => 'mail.gmail.com',
         :port           => '587',
         :authentication => :plain,
-        :user_name      => ENV['INFO_EMAIL'],
-        :password       => ENV['INFO_EMAIL_PASSWORD'],        
+        :user_name      => Figaro.env.em_primary_id,
+        :password       => Figaro.env.em_primary_pwd,        
         :enable_starttls_auto => true    
     }
   end

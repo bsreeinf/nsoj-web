@@ -4,10 +4,10 @@ class TwitterApi
 	end
 	def self.client
 		@client ||= Twitter::REST::Client.new do |config|
-		config.consumer_key        = "2OqSubXaWS2InDGNtJbEU5hSL"
-		config.consumer_secret     = "1qHcPquasFgULuLgMPtmv58nCKJpTdxfjJ8KEiFdTqi3n74HrA"
-		config.access_token        = "3911553252-teYDacqdt3SRp0EUyzxG0Ou2Wgv11nx8MpABuVp"
-		config.access_token_secret = "R4gHRCNF3WbmhAjZBJCIvILliNuLxPtXfZdnX4oTUzWiO"
+		config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+		config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+		config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+		config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
 	    end
 	end
 end

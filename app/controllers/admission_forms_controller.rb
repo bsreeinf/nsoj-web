@@ -48,8 +48,13 @@ class AdmissionFormsController < ApplicationController
       else
         @form_data.is_submitted = true
         if @form_data.save
+          if @form_data.program_of_study == 'digital_journalism'
+            @notif_to_emails = Figaro.env.em_admission_cc_group
+          else  
+            @notif_to_emails = Figaro.env.em_admission_dj_cc_group
+          end
           ApplicationFormMailer.application_form_created(@form_data.first_name1,@form_data.last_name1,@form_data.email,@form_data.form_token).deliver_now
-          ApplicationFormMailer.application_form_notification_created( @form_data.first_name1, @form_data.last_name1, @form_data.email, @form_data.form_token, @form_data.program_of_study).deliver_now
+          ApplicationFormMailer.application_form_notification_created( @form_data.first_name1, @form_data.last_name1, @form_data.email, @form_data.form_token, ).deliver_now
         end
 
       end
