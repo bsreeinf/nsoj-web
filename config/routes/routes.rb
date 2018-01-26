@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   resources :stories
   
   resources :students
-  # resources :slants
-  # get    'slant'                        => 'slants#index'
-  # get    'slant/apply'                        => 'slants#new'
 
   resources :admission_forms
   get 'sessions/new'
