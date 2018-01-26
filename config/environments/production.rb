@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-    r301 /.*/, 'https://www.nationalschoolofjournalism.com$&', host: 'www.nsoj.in'
+    r301 /.*/, 'https://www.nationalschoolofjournalism.com$&', host: 'nsoj.in'
   end
 
   # Code is not reloaded between requests.

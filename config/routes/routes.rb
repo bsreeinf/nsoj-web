@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  r301 %r{.*}, 'http://www.nationalschoolofjournalism.com$&', :if => Proc.new {|rack_env|
+    rack_env['SERVER_NAME'] != 'nationalschoolofjournalism.com'
+  }
+
   resources :staffs
   resources :stories
   
