@@ -5,12 +5,12 @@
 
     <div class="row">
         <div class="col-md-3 page-left-col" style="padding: 0 5px 0 0;">
-            <%= 
+            <%=
             #render 'landing_page/main/sidebar_page_links' 
             %>
             
             <!-- Twitter feed -->
-            <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1500" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a class="twitter-timeline" data-chrome="nofooter noheader noscrollbar" data-theme="light" data-height="1500" data-show-replies="true" href="https://twitter.com/NSoJ_Bangalore">Tweets by NSoJ_Bangalore</a> 
         </div>
         
 
@@ -25,7 +25,7 @@
             <!-- Slider -->
             <%= render 'landing_page/main/slider' %>
             <%if browser.device.mobile?%>
-            <a id="mob_admission_banner" href="/edit_admission_form"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a>
+            <!-- <a id="mob_admission_banner" href="/edit_admission_form"><img src="<%= asset_path("banners/admission 2.png")%>" alt="" /></a> -->
             <%end%>
             <!-- Students -->
             <%= 
@@ -52,7 +52,7 @@
 
     <div id="about" class="row" style="margin: 0;">
         <!-- <h3 class="font-alt mb-10 mb-sm-40 mt-40" style="padding: 10px; background-color: #555; color: white;">About US</h3> -->
-        <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 20px;"><img src=<%= image_path("logo-footer.png") %> width="78" height="36" alt="National School of Journalism, Bangalore" /><span style="margin-left: 15px;">About Us</span></h3>
+        <h3 class="font-alt mb-70 mb-sm-40" style="text-align: center; margin-bottom: 20px;"><img src="<%= image_url("logos/footer.png") %>" width="78" height="36" alt="National School of Journalism, Bangalore" /><span style="margin-left: 15px;">About Us</span></h3>
         
         <!-- Sidebar Images -->
 
@@ -128,5 +128,5 @@
 </section>
 
 <script type="text/javascript" src="https://maps.google.com/maps/api/js?language=en"></script>
-
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <%= render 'landing_page/main/main_modal' %>

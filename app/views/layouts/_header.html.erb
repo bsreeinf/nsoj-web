@@ -5,11 +5,8 @@
         <!-- Logo ( * your text or image into link tag *) -->
         <div class="nav-logo-wrap local-scroll">
             <%= link_to(root_path, class: "logo", style: "height: 55px !important; max-width:200px !important;", method: :get ) do %>
-                <img src=<%= image_path("logo-white.png") %> alt="National School of Journalism, Bangalore" />
+                <img src=<%= image_url("logos/nsoj-wide.png") %> alt="National School of Journalism, Bangalore" />
             <%end%>
-            <!-- <a href="<%= root_path %>" class="logo">
-                <img src=<%= image_path("logo-white.png") %> alt="National School of Journalism, Bangalore" />
-            </a> -->
         </div>
 
         <div class="mobile-nav">

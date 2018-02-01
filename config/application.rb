@@ -32,9 +32,9 @@ module Nsoj
     # config.active_record.raise_in_transactional_callbacks = true
 
     ActionMailer::Base.smtp_settings = {
-        :address        => 'smtp.gmail.com',
-        :domain         => 'mail.gmail.com',
-        :port           => '587',
+        :address        => Figaro.env.smtp_address,
+        :domain         => Figaro.env.mail_domain,
+        :port           => Figaro.env.smtp_port,
         :authentication => :plain,
         :user_name      => Figaro.env.em_primary_id,
         :password       => Figaro.env.em_primary_pwd,        
