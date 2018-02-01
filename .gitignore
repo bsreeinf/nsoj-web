@@ -26,3 +26,6 @@
 /tmp
 # Ignore application configuration
 /config/application.yml
+
+Error Pages
+/repo-extras

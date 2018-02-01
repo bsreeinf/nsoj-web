@@ -92,6 +92,9 @@ gem 'video_info'
 
 gem 'rack-rewrite', '~> 1.5.0'
 
+gem "asset_sync"
+# gem "fog-aws"
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
@@ -102,9 +105,15 @@ group :development do
     gem 'capybara'
     gem 'database_cleaner'
     gem 'pry-rails'
+
+    # S3 dev on local
+    # Use: `fakes3 -r /mnt/fakes3_root -p 4567`
     gem 'fakes3'
+
+
     gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
     gem 'sprite-factory', '~> 1.7', '>= 1.7.1'
+    gem 'traceroute'
 end
 
 group :production do
