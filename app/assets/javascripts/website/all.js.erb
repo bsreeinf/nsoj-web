@@ -75,16 +75,6 @@
             console.log("err: " + e);
         }
     });
-
-    $.fn.getYoutubeID = function(url) {
-        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-        var match = url.match(regExp);
-        if (match && match[2].length == 11) {
-            return match[2];
-        } else {
-            return 'error';
-        }
-    }
     
     /* --------------------------------------------
      Platform detect
@@ -1111,7 +1101,7 @@ function init_map(){
                 marker: {
                     address: gmMarkerAddress,
                     options: {
-                        icon: "<%= image_url("icons/map-marker.png") %>"
+                        icon: "<%=image_url('icons/map-marker.png')%>"
                     }
                 },
                 map: {
