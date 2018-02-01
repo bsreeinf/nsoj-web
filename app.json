@@ -1,0 +1,104 @@
+{
+  "name": "nsoj-web",
+  "scripts": {
+  },
+  "env": {
+    "asset_host": {
+      "required": true
+    },
+    "aws_access_key_id": {
+      "required": true
+    },
+    "aws_region": {
+      "required": true
+    },
+    "aws_secret_access_key": {
+      "required": true
+    },
+    "cdn_url": {
+      "required": true
+    },
+    "em_admission_ack_sender_alias": {
+      "required": true
+    },
+    "em_admission_cc_group": {
+      "required": true
+    },
+    "em_admission_dj_cc_group": {
+      "required": true
+    },
+    "em_contact_ack_sender_alias": {
+      "required": true
+    },
+    "em_contact_cc_group": {
+      "required": true
+    },
+    "em_primary_id": {
+      "required": true
+    },
+    "em_primary_pwd": {
+      "required": true
+    },
+    "emailer_host": {
+      "required": true
+    },
+    "ERROR_PAGE_URL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MAINTENANCE_PAGE_URL": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "s3_bucket": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "smtp_address": {
+      "required": true
+    },
+    "smtp_port": {
+      "required": true
+    },
+    "twitter_access_token": {
+      "required": true
+    },
+    "twitter_access_token_secret": {
+      "required": true
+    },
+    "twitter_consumer_key": {
+      "required": true
+    },
+    "twitter_consumer_secret": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
