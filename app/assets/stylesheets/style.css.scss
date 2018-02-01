@@ -194,7 +194,8 @@ html, body{
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #fff <%=image_url("images/icons/loader.gif")%> no-repeat center center;
+	background: #fff image-url("images/icons/loader.gif")
+  no-repeat center center;
 	z-index: 100000;	
 }
 
@@ -2403,7 +2404,7 @@ a.logo:hover{
 	left: 0;
   background-repeat: repeat;
 	background-size: auto;
-	background-image: <%=image_url("images/bg/pattern-bg-2.png)%>;
+	background-image: image-url("images/bg/pattern-bg-2.png");
 }
 .bg-gray{
 	background-color: #f4f4f4;
@@ -3534,7 +3535,7 @@ a.logo:hover{
 	left: 50%;
 	top: 50%;
 	margin: -8px 0 0 -8px;
-	background: <%=image_url("images/icons/loader.gif")%> no-repeat;
+	background: image-url("images/icons/loader.gif") no-repeat;
 }
 
 /* Work navigation */
