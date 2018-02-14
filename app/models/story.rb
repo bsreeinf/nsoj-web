@@ -22,9 +22,10 @@ class Story < ActiveRecord::Base
   end
 
   has_attached_file :blog_image,
+                :path => "db/:class/blog_images/:id_partition/:style/:filename",
                     styles: {
 					    thumb: '350x200#',
-              small: '100x100#'
+              small: '100x100#',
 					}
 
   validates_attachment :blog_image, :content_type => {:content_type => %w(image/jpeg image/jpg image/png )}
