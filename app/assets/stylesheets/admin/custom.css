@@ -1,0 +1,50 @@
+.currency:before {
+    content: "\20B9";
+}
+.turbolinks-progress-bar {
+  height: 4px;
+  background-color: #2e3192;
+}
+
+.page-container .main-content{
+  padding-top: 5px;
+}
+.bg-light{
+  background: #f9f9f9;
+}
+.links-list{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+#enquiries-table .has-switch span.switch-warning.switch-right {
+    background-color: #cc2424;
+    color: #ebebeb;
+}
+.dataTables_wrapper .dataTables_paginate{
+  border: none;
+}
+
+.pagination > li > a,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+  color: #303641;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  background-color: #303641;
+  border-color: #303641;
+}
+
+.profile-env section.profile-info-tabs .user-details li a {
+  color: #373e4a;
+}
+
+.panel-primary > .panel-heading{
+  background: #ebebeb;
+}
